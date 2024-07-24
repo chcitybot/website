@@ -27,17 +27,17 @@
             </div>
 
             <!-- Content on Top of Image -->
-            <div class="text-center p-8 font-main flex items-center flex-col z-20">
+            <div class="text-center p-8 font-main flex items-center flex-col z-10">
                 <svgLogo class="h-48 mb-8" />
                 <h1 class="text-5xl font-bold mb-4">DestinationBase is the platform to run your destination
                     digital</h1>
-                <p class="text-lg mb-8">Content management system and versatile mobile app under one roof!</p>
+                <p class="text-lg mb-8">Create, configure, engage!</p>
                 <div class="relative group">
                     <div
                         class="absolute -inset-1 group-hover:-inset-2 group-hover:opacity-100 transition group-hover:duration-300 duration-1000 bg-gradient-to-r from-teal-400 to-cyan-500 rounded-lg blur opacity-75">
                     </div>
                     <NuxtLink class="ml-2 hover:text-white hover:cursor-pointer" :to="localePath('/contact')"><button
-                            class="bg-white text-black px-6 py-3 rounded-lg font-semibold relative group-hover:text-teal-600">Contact
+                            class="bg-white text-black px-6 py-3 rounded-lg font-semibold relative group-hover:text-teal-600 tx-xl">Contact
                             us to get started</button></NuxtLink>
                 </div>
             </div>

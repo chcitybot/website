@@ -21,7 +21,7 @@
                                     <svgMultimedia class="absolute left-1 top-1 h-10 w-10 text-teal-600" />
                                     Multimedial
                                 </dt>
-                                <dd class="inline">Present locationbased through text, video and audio </dd>
+                                <dd class="inline">Present locationbased through text, video and audio.</dd>
                             </div>
                             <div class="relative pl-14">
                                 <dt class="inline font-semibold text-gray-900">
@@ -36,7 +36,7 @@
                                     <svgTourMap class="absolute left-1 top-1 h-10 w-10 text-teal-600" />
                                     Tours.
                                 </dt>
-                                <dd class="inline">Combine POIs to create interesting thematic tours</dd>
+                                <dd class="inline">Combine POIs to create interesting thematic tours.</dd>
                             </div>
                             <div class="relative pl-14">
                                 <dt class="inline font-semibold text-gray-900">
@@ -44,12 +44,12 @@
                                     Events and other special offers
                                 </dt>
                                 <dd class="inline">Add upcoming events and other special offers or sync with other third
-                                    party providers</dd>
+                                    party providers.</dd>
                             </div>
                             <div class="relative pl-14">
                                 <dt class="inline font-semibold text-gray-900">
                                     <svgSettings class="absolute left-1 top-1 h-10 w-10 text-teal-600" />
-                                    Customize the app
+                                    Customize the app visuals
                                 </dt>
                                 <dd class="inline">Customize colors and grafics to adapt the look and feel of the mobile
                                     app to fit your destinations brand.</dd>

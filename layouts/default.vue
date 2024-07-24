@@ -1,5 +1,5 @@
 <template>
-    <header class="bg-transparent text-white p-4 h-30 flex fixed top-0 z-10 w-full">
+    <header class="bg-transparent text-white p-4 h-30 flex fixed top-0 z-20 w-full">
         <div class="flex w-full justify-between max-w-7xl mx-auto rounded-lg border p-4 bg-backgroundMain">
             <NuxtLink class="hover:text-white" :to="localePath('/')">
                 <svgLogoTextBanner class="w-[180px] md:w-[220px] lg:w-[350px]" />
