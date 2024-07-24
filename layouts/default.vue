@@ -16,9 +16,7 @@
                 <a class=" hover:text-white mr-4">
                     News/Insights
                 </a> -->
-                    <a href="contact" class="hover:text-white">
-                        Contact
-                    </a>
+                    <NuxtLink class="hover:text-white" :to="localePath('/contact')">Contact</NuxtLink>
                 </div>
 
                 <LanguageSwitcher />
