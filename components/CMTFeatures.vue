@@ -26,22 +26,22 @@
                             <div class="relative pl-14">
                                 <dt class="inline font-semibold text-gray-900">
                                     <svgLocationMarker class="absolute left-1 top-1 h-10 w-10 text-teal-600" />
-                                    Single points of interests (POIs).
+                                    Single points of interests (POIs)
                                 </dt>
                                 <dd class="inline">It's the little secrets that make a visit unforgettable. Add single
-                                    points of interests that are worth exploring on their own.</dd>
+                                    POIs that are worth exploring on their own.</dd>
                             </div>
                             <div class="relative pl-14">
                                 <dt class="inline font-semibold text-gray-900">
                                     <svgTourMap class="absolute left-1 top-1 h-10 w-10 text-teal-600" />
                                     Tours.
                                 </dt>
-                                <dd class="inline">Combine POIs to create interesting thematic tours.</dd>
+                                <dd class="inline">Combine POIs to create interesting thematic tours</dd>
                             </div>
                             <div class="relative pl-14">
                                 <dt class="inline font-semibold text-gray-900">
                                     <svgTicket class="absolute left-1 top-1 h-10 w-10 text-teal-600" />
-                                    Events and other special offers.
+                                    Events and other special offers
                                 </dt>
                                 <dd class="inline">Add upcoming events and other special offers or sync with other third
                                     party providers</dd>
@@ -49,7 +49,7 @@
                             <div class="relative pl-14">
                                 <dt class="inline font-semibold text-gray-900">
                                     <svgSettings class="absolute left-1 top-1 h-10 w-10 text-teal-600" />
-                                    Customize the app.
+                                    Customize the app
                                 </dt>
                                 <dd class="inline">Customize colors and grafics to adapt the look and feel of the mobile
                                     app to fit your destinations brand.</dd>

@@ -5,7 +5,7 @@
 <template>
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 font-main py-10">
         <div>
-            <h1 class="text-4xl my-8 font-bold text-left lg:text-center">A cental hub to manage all your content and
+            <h1 class="text-4xl my-8 font-bold text-left lg:text-center">A central hub to manage all your content and
                 turn it into
                 seamless
                 guest experiences.</h1>
