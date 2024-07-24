@@ -1,63 +1,109 @@
 <template>
     <div>
-        <section class="relative bg-black text-white h-screen flex items-center justify-center overflow-hidden">
+        <section
+            class="relative bg-backgroundMain text-white h-screen w-screen flex items-center justify-center overflow-hidden">
+
+            <!-- <div class="flex-1 h-full">
+                <TresCanvas v-bind="gl">
+                    <OrbitControls />
+                    <TresPerspectiveCamera :position="[11, 11, 11]" />
+                    <TresMesh ref="sphereRef">
+                    <TresSphereGeometry />
+                    <TresMeshNormalMaterial />
+                </TresMesh> 
+                    <Suspense>
+                        <DDDLogo />
+                    </Suspense>
+                    <TresDirectionalLight color="#F78B3D" :position="[3, 3, 3]" :intensity="1" />
+                    <TresAmbientLight :intensity="2" />
+                    <TresGridHelper />
+                </TresCanvas>
+
+            </div> -->
+            <div class="absolute inset-0">
+                <img src="/img/home_colorful.jpg" alt="Background Image"
+                    class="object-cover object-center w-full h-full" />
+                <div class="absolute inset-0 bg-backgroundMain opacity-80"></div>
+            </div>
 
             <!-- Content on Top of Image -->
-            <div class="relative z-10 text-center p-8">
-                <h1 class="text-5xl font-bold mb-4">Welcome to My Landing Page</h1>
-                <p class="text-lg mb-8">Your one-stop solution for all your needs.</p>
-                <a href="#section1" class="bg-white text-black px-6 py-3 rounded-lg font-semibold">Get Started</a>
+            <div class="text-center p-8 font-main flex items-center flex-col z-20">
+                <svgLogo class="h-48 mb-8" />
+                <h1 class="text-5xl font-bold mb-4">DestinationBase is the platform to run your destination
+                    digital</h1>
+                <p class="text-lg mb-8">Content management system and versatile mobile app under one roof!</p>
+                <div class="relative group">
+                    <div
+                        class="absolute -inset-1 group-hover:-inset-2 group-hover:opacity-100 transition group-hover:duration-300 duration-1000 bg-gradient-to-r from-teal-400 to-cyan-500 rounded-lg blur opacity-75">
+                    </div>
+                    <button
+                        class="bg-white text-black px-6 py-3 rounded-lg font-semibold relative group-hover:text-teal-600">Contact
+                        us to get started</button>
+                </div>
             </div>
+        </section>
+
+        <section class="bg-gray-100" id="section2">
+            <FeaturesOverview />
         </section>
 
         <!-- Section 2 -->
-        <section class="py-20 bg-blue" id="section2">
-            <div class="container mx-auto">
-                <h2 class="text-2xl mb-4">Section 2</h2>
-                <p>This is the content for section 2.</p>
-                <svg class="animate-bounce w-6 h-6 ...">
-                    <!-- ... -->
-                </svg>
-            </div>
+        <section id="section2">
+            <CMTFeatures />
         </section>
 
         <!-- Section 3 -->
-        <section class="py-20 bg-gray-100" id="section3">
-            <div class="container mx-auto">
-                <h2 class="text-2xl mb-4">Section 3</h2>
-                <p>This is the content for section 3.</p>
-            </div>
+        <section class=" bg-gray-100" id="section3">
+            <AppFeatures />
         </section>
 
         <!-- Section 4 -->
-        <section class="py-20 bg-white" id="section4">
-            <div class="container mx-auto">
-                <h2 class="text-2xl mb-4">Section 4</h2>
-                <p>This is the content for section 4.</p>
-            </div>
+        <section class="bg-white" id="section4">
+            <Testimonials />
         </section>
 
         <!-- Section 5 -->
-        <section class="py-20 bg-gray-100" id="section5">
-            <div class="container mx-auto">
-                <h2 class="text-2xl mb-4">Section 5</h2>
-                <p>This is the content for section 5.</p>
-            </div>
-        </section>
+        <section class="bg-gray-100" id="section5">
 
-        <!-- Footer -->
-        <footer class="bg-blue-500 text-white p-4">
-            <p>&copy; 2024 My Landing Page</p>
-        </footer>
+        </section>
     </div>
 </template>
 
-<script>
-export default {
-    // Add your component logic here
+<script lang="ts" setup>
+import { OrbitControls } from '@tresjs/cientos';
+import DDDLogo from '~/components/DDDLogo.vue';
+import { BasicShadowMap, SRGBColorSpace, NoToneMapping } from 'three'
+import CMTFeatures from '~/components/CMTFeatures.vue';
+import AppFeatures from '~/components/AppFeatures.vue';
+import FeaturesOverview from '~/components/FeaturesOverview.vue';
+import Testimonials from '~/components/Testimonials.vue';
+
+
+const gl = {
+    clearColor: "#82DBC5",
+    shadows: true,
+    alpha: false,
+    shadowMapType: BasicShadowMap,
+    outputColorSpace: SRGBColorSpace,
+    toneMapping: NoToneMapping,
 }
+
+const sphereRef = ref()
+
+const { onLoop } = useRenderLoop()
+
+onLoop(({ elapsed }) => {
+    if (sphereRef.value) {
+        sphereRef.value.position.y = Math.sin(elapsed)
+    }
+})
+
+
 </script>
 
 <style>
-/* Add your custom styles here */
+#canvas {
+    height: 100%;
+    width: 50%;
+}
 </style>

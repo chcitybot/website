@@ -11,8 +11,12 @@
   },
   "dependencies": {
     "@nuxtjs/i18n": "^8.3.1",
+    "@tresjs/cientos": "^3.9.0",
+    "@tresjs/core": "^4.2.1",
+    "@tresjs/nuxt": "^3.0.2",
     "nuxt": "^3.12.4",
     "nuxt-i18n": "^6.28.1",
+    "three": "^0.166.1",
     "vue": "latest"
   },
   "devDependencies": {

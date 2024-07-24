@@ -1,8 +1,22 @@
 // https://nuxt.com/docs/api/configuration/nuxt-config
 export default defineNuxtConfig({
+  app: {
+    head: {
+      link: [
+        {
+          rel: 'stylesheet',
+          href: "https://fonts.googleapis.com/css2?family=Oxanium:wght@200..800&display=swap",
+        },
+        {
+          rel: 'stylesheet',
+          href: 'https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css',
+        },
+      ],
+    },
+  },
   compatibilityDate: '2024-04-03',
   devtools: { enabled: true },
-  modules: ['@nuxtjs/tailwindcss', "@nuxtjs/i18n"],
+  modules: ['@nuxtjs/tailwindcss', "@nuxtjs/i18n", '@tresjs/nuxt'],
   tailwindcss: {
     cssPath: ['~/assets/css/tailwind.css', { injectPosition: "first" }],
     configPath: 'tailwind.config',
