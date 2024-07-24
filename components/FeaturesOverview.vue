@@ -1,7 +1,3 @@
-<script lang="ts" setup>
-
-</script>
-
 <template>
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 font-main py-10">
         <div>
@@ -43,7 +39,7 @@
                     <div
                         class="absolute -inset-0.5 group-hover:-inset-1 group-hover:opacity-100 transition group-hover:duration-300 duration-1000 bg-gradient-to-r from-teal-400 to-cyan-500 rounded-lg blur opacity-75">
                     </div>
-                    <button
+                    <button @click.prevent="scrollToSection('section3')"
                         class="bg-white text-black px-6 py-3 rounded-lg font-semibold leading-none relative group-hover:text-teal-600">More
                         Details</button>
                 </div>
@@ -83,7 +79,7 @@
                     <div
                         class="absolute -inset-0.5 group-hover:-inset-1 group-hover:opacity-100 transition group-hover:duration-300 duration-1000 bg-gradient-to-r from-teal-400 to-cyan-500 rounded-lg blur opacity-75">
                     </div>
-                    <button
+                    <button @click.prevent="scrollToSection('section4')"
                         class="bg-white text-black px-6 py-3 rounded-lg font-semibold leading-none relative group-hover:text-teal-600">More
                         Details</button>
                 </div>
@@ -91,5 +87,18 @@
         </div>
     </div>
 </template>
+
+<script setup>
+function scrollToSection(sectionId) {
+    const element = document.getElementById(sectionId);
+    const yOffset = -window.innerHeight / 2 + element.getBoundingClientRect().height / 4;
+    const y = element.getBoundingClientRect().top + window.pageYOffset + yOffset;
+
+    window.scrollTo({
+        top: y,
+        behavior: 'smooth'
+    });
+}
+</script>
 
 <style lang="postcss" scoped></style>

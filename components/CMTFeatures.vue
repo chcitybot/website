@@ -19,7 +19,7 @@
                             <div class="relative pl-14">
                                 <dt class="inline font-semibold text-gray-900">
                                     <svgMultimedia class="absolute left-1 top-1 h-10 w-10 text-teal-600" />
-                                    Multimedial.
+                                    Multimedial
                                 </dt>
                                 <dd class="inline">Present locationbased through text, video and audio </dd>
                             </div>

@@ -45,10 +45,6 @@
                             class="shadow bg-red-600 hover:bg-red-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline"
                             type="reset">
                     </div>
-                    <a href="https://veilmail.io/e/FkKh7o"
-                        class="font-medium text-blue-600 dark:text-blue-500 hover:underline">Or click here to reveal our
-                        protected email address</a>
-
                 </form>
             </div>
 

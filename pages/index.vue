@@ -36,9 +36,9 @@
                     <div
                         class="absolute -inset-1 group-hover:-inset-2 group-hover:opacity-100 transition group-hover:duration-300 duration-1000 bg-gradient-to-r from-teal-400 to-cyan-500 rounded-lg blur opacity-75">
                     </div>
-                    <button
-                        class="bg-white text-black px-6 py-3 rounded-lg font-semibold relative group-hover:text-teal-600">Contact
-                        us to get started</button>
+                    <NuxtLink class="ml-2 hover:text-white hover:cursor-pointer" :to="localePath('/contact')"><button
+                            class="bg-white text-black px-6 py-3 rounded-lg font-semibold relative group-hover:text-teal-600">Contact
+                            us to get started</button></NuxtLink>
                 </div>
             </div>
         </section>
@@ -48,23 +48,18 @@
         </section>
 
         <!-- Section 2 -->
-        <section id="section2">
+        <section id="section3">
             <CMTFeatures />
         </section>
 
         <!-- Section 3 -->
-        <section class=" bg-gray-100" id="section3">
+        <section class=" bg-gray-100" id="section4">
             <AppFeatures />
         </section>
 
         <!-- Section 4 -->
-        <section class="bg-white" id="section4">
+        <section class="bg-white" id="section5">
             <Testimonials />
-        </section>
-
-        <!-- Section 5 -->
-        <section class="bg-gray-100" id="section5">
-
         </section>
     </div>
 </template>
