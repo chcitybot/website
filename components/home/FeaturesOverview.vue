@@ -1,7 +1,8 @@
 <template>
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 font-main py-10">
         <div>
-            <h1 class="text-4xl my-8 font-bold text-left lg:text-center">A central hub to manage all your content and
+            <h1 class="text-2xl lg:text-4xl my-8 font-bold text-center">A central hub to manage all your
+                content and
                 turn it into
                 seamless
                 guest experiences.</h1>
@@ -9,14 +10,14 @@
         <div class="grid grid-cols-1 md:grid-cols-2 gap-8 relative">
             <!-- User Group 1 -->
             <div class="bg-white rounded-lg shadow-md p-6">
-                <h2 class="text-2xl font-bold text-gray-800 mb-2">For Destinations</h2>
+                <h2 class="text-2xl font-bold text-gray-800 mb-2 text-teal-600">For Destinations</h2>
                 <p class="my-4"> DestinationBase offers a cloud admin tool to manage points of interest,
                     tours, events and special offers under one roof.</p>
                 <ul class="space-y-3 list-disc">
                     <li class="flex">
                         <div>
                             <h3 class="text-lg font-semibold text-gray-900">All your data at your fingertips</h3>
-                            <p class="text-gray-600">Keep full control and oversight over your centrally managed
+                            <p class="text-gray-600">Keep full control and oversight over all your centrally managed
                                 content.</p>
                         </div>
                     </li>
@@ -35,7 +36,7 @@
                         </div>
                     </li>
                 </ul>
-                <div class="relative max-w-min group my-4">
+                <div class="relative max-w-min group mt-8 mx-auto">
                     <div
                         class="absolute -inset-0.5 group-hover:-inset-1 group-hover:opacity-100 transition group-hover:duration-300 duration-1000 bg-gradient-to-r from-teal-400 to-cyan-500 rounded-lg blur opacity-75">
                     </div>
@@ -46,7 +47,7 @@
             </div>
             <!-- User Group 2 -->
             <div class="bg-white rounded-lg shadow-md p-6 relative">
-                <h2 class="text-2xl font-bold text-gray-800">For Visitors</h2>
+                <h2 class="text-2xl font-bold text-teal-600">For Destination Visitors</h2>
                 <p class="my-4">DestinationBase offers a mobile app to seamlessly explore a destination in many
                     different
                     ways.</p>
@@ -55,7 +56,7 @@
                         <div>
                             <h3 class="text-lg font-semibold text-gray-900">One app for all destinations</h3>
                             <p class="text-gray-600">One app, many destionations and
-                                experiences!</p>
+                                experiences.</p>
                         </div>
                     </li>
                     <li class="flex items-start">
@@ -70,12 +71,12 @@
                         <div>
                             <h3 class="text-lg font-semibold text-gray-900">Personalized</h3>
                             <p class="text-gray-600">Personalized suggestions based on preferences and a range of
-                                different options how to explore.
+                                different options how to explore. AI powered of course!
                             </p>
                         </div>
                     </li>
                 </ul>
-                <div class="relative max-w-min group my-4">
+                <div class="relative max-w-min group mt-8 mx-auto">
                     <div
                         class="absolute -inset-0.5 group-hover:-inset-1 group-hover:opacity-100 transition group-hover:duration-300 duration-1000 bg-gradient-to-r from-teal-400 to-cyan-500 rounded-lg blur opacity-75">
                     </div>

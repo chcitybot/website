@@ -17,6 +17,7 @@
     "nuxt": "^3.12.4",
     "nuxt-i18n": "^6.28.1",
     "three": "^0.166.1",
+    "uuid": "^10.0.0",
     "vue": "latest"
   },
   "devDependencies": {

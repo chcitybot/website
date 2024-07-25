@@ -10,6 +10,10 @@ export default {
       fontFamily: {
         main: ['Oxanium', 'sans-serif'], 
       },
+      backgroundImage: {
+        'mobile-hero': "url('/public/img/mobile_hero.png')",
+        'desktop-hero': "url('/public/img/home_hero_bw.png')",
+      },
     }
   }
 }
