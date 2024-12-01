@@ -5,22 +5,23 @@
 <template>
     <div class="max-w-lg px-4 mx-auto text-left md:max-w-none md:text-center font-main py-10">
 
-        <h1 class="text-2xl text-center lg:text-4xl font-bold">One app for the full end to end
-            guest
-            experience!</h1>
+        <h1 class="text-4xl text-center lg:text-4xl text-bot_dark_blue font-bold">Eine App für das komplette Gästeerlebnis!</h1>
         <div class="mt-8">
             <div
                 class="px-4 mx-auto sm:max-w-xl md:max-w-full lg:max-w-screen-xl md:px-24 lg:px-8 sm:border-0 rounded-xl sm:rounded-0 border">
                 <div class="flex flex-col items-center justify-between w-full lg:flex-row">
-                    <img class="w-[160px] sm:w-[240px] lg:w-[320px] mt-6" alt="logo" src="/img/localife_web.png" />
+                    <div class="flex gap-4">
+                        <img class="w-[160px] sm:w-[240px] lg:w-[320px] mt-6" alt="logo" src="/img/suggestions_new.png" />
+                        <img class="w-[160px] sm:w-[240px] lg:w-[320px] mt-6" alt="logo" src="/img/ai_suggestions.png" />
+                    </div>
+                    
                     <div class="lg:mb-0 lg:max-w-lg lg:pr-5">
                         <div class="max-w-xl my-6 text-center lg:text-left">
                             <h2
-                                class="text-2xl sm:mt-0 mt-6 font-semibold tracking-tight sm:text-3xl sm:leading-none max-w-lg mb-6">
-                                Explore individually
+                                class="text-2xl text-bot_light_blue sm:mt-0 mt-6 font-semibold tracking-tight sm:text-3xl sm:leading-none max-w-lg mb-6">
+                                Individuelle Entdeckungen
                             </h2>
-                            <p class="text-lg">Get personalized suggestions based on your
-                                preferences.</p>
+                            <p class="text-lg">Erhalte personalisierte Vorschläge basierend auf gesetzten Präferenzen and weiteren Datenpunkten wie Wetter und Uhrzeit.</p>
                         </div>
                     </div>
                 </div>
@@ -32,15 +33,15 @@
                     <div class="lg:mb-0 lg:max-w-lg lg:pr-5">
                         <div class="max-w-xl my-8 text-center lg:text-left">
                             <h2
-                                class="text-2xl font-semibold tracking-tight sm:pt-0 sm:text-3xl sm:leading-none max-w-lg mb-6">
-                                Follow thematic tours
+                                class="text-2xl text-bot_light_blue font-semibold tracking-tight sm:pt-0 sm:text-3xl sm:leading-none max-w-lg mb-6">
+                                Thematische Rundgänge
                             </h2>
-                            <p class="text-lg">Get yourself your own personal guide that will show you around and tell
-                                you
-                                thematic stories based on a range of different places.</p>
+                            <p class="text-lg">Dein persönlicher Guide, er wird dich führen und unterwegs interessante Geschichten erzählen.</p>
                         </div>
                     </div>
-                    <img class="w-[160px] sm:w-[240px] lg:w-[320px] mb-8" alt="logo" src="/img/tours_web.png" />
+                    <div>
+                        <img class="w-[160px] sm:w-[240px] lg:w-[320px] mb-8" alt="logo" src="/img/tours_web.png" />
+                    </div>
                 </div>
             </div>
 
@@ -51,17 +52,19 @@
             <div
                 class="px-4 mx-auto sm:max-w-xl md:max-w-full lg:max-w-screen-xl md:px-24 lg:px-8 sm:border-0 rounded-xl sm:rounded-0 border">
                 <div class="flex flex-col items-center justify-between w-full lg:flex-row">
-                    <img class="w-[160px] sm:w-[240px] lg:w-[320px] mt-8" alt="logo" src="/img/events.png" />
+                    <div class="flex gap-4">
+                        <img class="w-[160px] sm:w-[240px] lg:w-[320px] mt-6" alt="logo" src="/img/events.png" />
+                        <img class="w-[160px] sm:w-[240px] lg:w-[320px] mt-6" alt="logo" src="/img/special_offers.png" />
+                    </div>
                     <div class="lg:mb-0 lg:max-w-lg lg:pr-5">
                         <div class="max-w-2xl my-8 text-center lg:text-left">
                             <h2
-                                class="text-2xl sm:mt-0 mt-6 font-semibold tracking-tight sm:text-3xl sm:leading-none max-w-lg mb-6">
-                                Get informed about events and other special offers
+                                class="text-2xl text-bot_light_blue sm:mt-0 mt-6 font-semibold tracking-tight sm:text-3xl sm:leading-none max-w-lg mb-6">
+                                Events und weitere Spezialangebote
                             </h2>
-                            <p class="text-lg">Check the events section to learn about all upcoming events
-                                around you.
-                                Interested?
-                                The app will guide you there!</p>
+                            <p class="text-lg">Überprüft die Events-Sektion und erfahrt alles über anstehende Events und aktuelle Spezialangebote.
+                                Etwas interessantes gefunden?
+                                Die app führt dich hin!</p>
                         </div>
                     </div>
                 </div>
@@ -70,9 +73,9 @@
 
         <div
             class="px-4 mx-auto flex flex-col items-center sm:max-w-xl md:max-w-full lg:max-w-screen-xl md:px-24 lg:px-8 sm:border-0 rounded-xl sm:rounded-0 border mt-20">
-            <h2 class="text-2xl lg:text-4xl sm:mt-0 mt-6 font-semibold tracking-tight sm:text-3xl sm:leading-none 
+            <h2 class="text-2xl text-bot_dark_blue lg:text-4xl sm:mt-0 mt-6 font-semibold tracking-tight sm:text-3xl sm:leading-none 
             mb-6">
-                Download the app
+                Download app
             </h2>
             <div class="lg:flex mx-auto">
                 <a href="https://apps.apple.com/ch/app/citybot-zug/id6443655653?l=en" target="_blank">

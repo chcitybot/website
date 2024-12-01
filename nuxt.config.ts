@@ -9,6 +9,10 @@ export default defineNuxtConfig({
         },
         {
           rel: 'stylesheet',
+          href: "https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&display=swap",
+        },
+        {
+          rel: 'stylesheet',
           href: 'https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css',
         },
       ],
@@ -28,7 +32,6 @@ export default defineNuxtConfig({
   },
   i18n: {
     vueI18n: "./i18n.config.ts",
-    legacy: false,
     locales: [
       {
         code: 'en',
@@ -43,7 +46,7 @@ export default defineNuxtConfig({
         name: 'Deutsch'
       }
     ], // used in URL path prefix
-    defaultLocale: 'en',
+    defaultLocale: 'de',
     strategy: "prefix",
   }
 })
