@@ -1,4 +1,5 @@
 <script lang="ts" setup>
+const { locale, t } = useI18n();
 
 </script>
 
@@ -6,13 +7,14 @@
     <footer class="bg-white" aria-labelledby="footer-heading">
         <h2 id="footer-heading" class="sr-only">Footer</h2>
         <div class="mx-auto max-w-7xl px-6 pb-8 pt-16 sm:pt-24 lg:px-8 lg:pt-32">
-            <div class="xl:grid xl:grid-cols-3 xl:gap-8">
+            <div class="xl:grid xl:grid-cols-2 xl:gap-8">
                 <div class="space-y-8">
-                    <svgLogo class="h-20 w-20" />
+                    <!-- <svgLogo class="h-20 w-20" /> -->
+                    <img class="h-20 m-2" src="/img/citybot_logo.png" alt="">
                     <p class="text-sm leading-6 text-gray-600">Next level tourism solutions built in
                         <svgSwissFlag class="h-5 w-5 inline-block ml-1" />
                     </p>
-                    <div class="flex space-x-6">
+                    <!-- <div class="flex space-x-6">
                         <a href="#" class="text-gray-400 hover:text-gray-500">
                             <span class="sr-only">Facebook</span>
                             <svg class="h-6 w-6" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
@@ -55,9 +57,22 @@
                                     clip-rule="evenodd" />
                             </svg>
                         </a>
+                    </div> -->
+                </div>
+                <div class="flex justify-between">
+                    <div class="footer-block-two">
+                    <p class="paragraph-4">CityBot GmbH<br>Berninaplatz 1<br>8050 Zürich</p>
+                    </div>
+                    <div class="footer-block-two">
+                    <a href="mailto:contact.citybot@gmail.com" class="w-inline-block">
+                        <p class="paragraph-4">contact.citybot@gmail.com<br></p>
+                    </a>
+                    </div>
+                    <div class="flex flex-col">
+                    <NuxtLink :to="localePath('/privacy')" class="footer-link-two">Datenschutz</NuxtLink>
                     </div>
                 </div>
-                <div class="mt-16 grid grid-cols-2 gap-8 xl:col-span-2 xl:mt-0">
+                <!-- <div class="mt-16 grid grid-cols-2 gap-8 xl:col-span-2 xl:mt-0">
                     <div class="md:grid md:grid-cols-2 md:gap-8">
                         <div>
                             <h3 class="text-sm font-semibold leading-6 text-gray-900">Solutions</h3>
@@ -134,10 +149,10 @@
                             </ul>
                         </div>
                     </div>
-                </div>
-            </div>
+                </div>-->
+            </div> 
             <div class="mt-16 border-t border-gray-900/10 pt-8 sm:mt-20 lg:mt-24">
-                <p class="text-xs leading-5 text-gray-500">&copy; 2024 DestinationBase, Inc. All rights reserved.
+                <p class="text-xs leading-5 text-gray-500">&copy; 2024 CityBot GmbH, Inc. All rights reserved.
                 </p>
             </div>
         </div>

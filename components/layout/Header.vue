@@ -21,21 +21,22 @@ function scrollToSection(sectionId) {
 
 <template>
     <header class="bg-transparent text-white p-4 h-26 lg:h-30 flex fixed top-0 z-20 w-full">
-        <div class="flex w-full justify-between max-w-7xl mx-auto rounded-lg border px-4 bg-backgroundMain">
+        <div class="flex w-full justify-between max-w-7xl mx-auto rounded-lg border px-4 bg-bot_dark_blue">
             <NuxtLink class="hover:text-white" :to="localePath('/')">
-                <svgLogoTextBanner class="w-[180px] md:w-[220px] lg:w-[350px]" />
+                <!-- <svgLogoTextBanner class="w-[180px] md:w-[220px] lg:w-[350px]" /> -->
+                 <img class="h-20 m-2" src="/img/citybot_logo.png" alt="">
             </NuxtLink>
 
             <div class="flex  items-center">
-                <div class="hidden md:block text-lg ml-10 text-teal-200 items-center text-center font-main">
+                <div class="hidden md:block text-lg ml-10 text-white items-center text-center font-main font-extrabold">
                     <NuxtLink @click.prevent="scrollToSection('section2')"
-                        class="hover:text-white hover:cursor-pointer">{{ $t("features") }}
+                        class="hover:text-white hover:cursor-pointer font-bold">{{ $t("features") }}
                     </NuxtLink>
-                    <NuxtLink class="ml-4 hover:text-white hover:cursor-pointer" :to="localePath('/contact')">Contact
+                    <NuxtLink class="ml-4 hover:text-white hover:cursor-pointer text-white font-bold" :to="localePath('/contact')">Kontakt
                     </NuxtLink>
                 </div>
 
-                <LayoutLanguageSwitcher :class="isMenuOpen ? 'hidden' : 'block'" />
+                <!-- <LayoutLanguageSwitcher :class="isMenuOpen ? 'hidden' : 'block'" /> -->
                 <!-- Hamburger Menu Button -->
                 <div class="ml-2 -my-2 md:hidden" :class="isMenuOpen ? 'hidden' : 'block'">
                     <button @click="toggleMenu"
@@ -56,9 +57,10 @@ function scrollToSection(sectionId) {
                     class="rounded-lg pb-4 shadow-lg ring-1 ring-black ring-opacity-5 bg-white divide-y-2 divide-gray-50 font-main">
                     <div class="pb-6 px-4">
                         <div class="flex items-center justify-between">
-                            <svgLogoTextBanner class="w-[180px]" textFillColor="#000000" />
+                            <!-- <svgLogoTextBanner class="w-[180px]" textFillColor="#000000" /> -->
+                            <img class="h-20 m-2" src="/img/citybot_logo.png" alt="">
                             <div class="-mr-2 flex items-center">
-                                <LayoutLanguageSwitcher class="text-black" />
+                                <!-- <LayoutLanguageSwitcher class="text-black" /> -->
                                 <button @click="toggleMenu"
                                     class="bg-white rounded-md p-2 inline-flex items-center justify-center text-gray-400 hover:text-gray-500 hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-indigo-500">
                                     <span class="sr-only">Close menu</span>
@@ -71,12 +73,12 @@ function scrollToSection(sectionId) {
                             </div>
                         </div>
                     </div>
-                    <div class="py-6 px-4 text-black">
-                        <NuxtLink @click.prevent="scrollToSection('section2')">Features
+                    <div class="py-6 px-4 text-black font-bold">
+                        <NuxtLink @click.prevent="scrollToSection('section2')">Funktionen
                         </NuxtLink>
                     </div>
-                    <div class="py-6 px-4 text-black">
-                        <NuxtLink class="" :to="localePath('/contact')">Contact</NuxtLink>
+                    <div class="py-6 px-4 text-black font-bold">
+                        <NuxtLink class="" :to="localePath('/contact')">Kontakt</NuxtLink>
                     </div>
                 </div>
             </div>
