@@ -59,7 +59,7 @@ const { locale, t } = useI18n();
                         </a>
                     </div> -->
                 </div>
-                <div class="flex justify-between">
+                <div class="grid grid-cols-1 gap-4 justify-between mt-4">
                     <div class="footer-block-two">
                     <p class="paragraph-4">CityBot GmbH<br>Berninaplatz 1<br>8050 Zürich</p>
                     </div>

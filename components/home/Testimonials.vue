@@ -16,7 +16,7 @@
                     <svgStadtZug class="rounded-lg" />
                     <div class="flex flex-col gap-y-3.5">
                         <p class="font-bold text-xl text-white">Effizienter Kundensupport</p>
-                        <p class="font-medium text-white">Den Kundensupport bei CityBot ist sehr zuvorkommend und hilfreich. Das CityBot Team unterstützte mich von A biz Z im Prozess neue Rundgänge zu kreieren.</p>
+                        <p class="font-medium text-white">Der Kundensupport bei CityBot ist sehr zuvorkommend und hilfreich. Das CityBot Team unterstützte mich von A biz Z im Prozess neue Rundgänge zu kreieren.</p>
                     </div>
                     <div class="flex flex-col">
                         <p class="pt-2 text-sm font-semibold text-white">Regula Kaiser</p>

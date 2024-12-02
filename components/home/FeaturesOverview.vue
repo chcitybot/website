@@ -8,7 +8,7 @@
                     <li class="flex">
                         <div>
                             <h3 class="text-lg font-semibold text-bot_dark_blue">Volle Kontrolle über die Inhalte/Daten.</h3>
-                            <p class="text-gray-600">Ihr behaltet die volle Kontrolle und Übersicht über eure Inhalte. Nur ihr entscheidet welche Inhalte ihr wie präsentieren möchtet. Wir bieten das Werkzeug um eure digitale Marke zu formen.</p>
+                            <p class="text-gray-600">Ihr behaltet die volle Kontrolle und Übersicht über eure Inhalte. Nur ihr entscheidet, welche Inhalte, ihr wie präsentieren möchtet.</p>
                         </div>
                     </li>
                     <li class="flex">
@@ -36,7 +36,7 @@
             <div class="bg-white rounded-lg shadow-md p-6 relative h-full flex flex-col justify-between">
                 <div>
                     <h2 class="text-2xl font-bold text-bot_pink">Für Besucher</h2>
-                <p class="my-4 text-lg text-gray-600">CityBot bietet eine mobile App um eine Stadt/Destination auf verschiedene Art und Weisen zu entdecken.</p>
+                <p class="my-4 text-lg text-gray-600">CityBot bietet eine mobile App um eure Stadt/Destination auf verschiedene Art und Weisen zu entdecken.</p>
                 <ul class="space-y-3 ">
                     <li class="flex items-start">
                         <div>

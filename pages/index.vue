@@ -24,27 +24,27 @@
 </template>
 
 <script lang="ts" setup>
-import { BasicShadowMap, SRGBColorSpace, NoToneMapping } from 'three'
+// import { BasicShadowMap, SRGBColorSpace, NoToneMapping } from 'three'
 
 
-const gl = {
-    clearColor: "#82DBC5",
-    shadows: true,
-    alpha: false,
-    shadowMapType: BasicShadowMap,
-    outputColorSpace: SRGBColorSpace,
-    toneMapping: NoToneMapping,
-}
+// const gl = {
+//     clearColor: "#82DBC5",
+//     shadows: true,
+//     alpha: false,
+//     shadowMapType: BasicShadowMap,
+//     outputColorSpace: SRGBColorSpace,
+//     toneMapping: NoToneMapping,
+// }
 
-const sphereRef = ref()
+// const sphereRef = ref()
 
-const { onLoop } = useRenderLoop()
+// const { onLoop } = useRenderLoop()
 
-onLoop(({ elapsed }) => {
-    if (sphereRef.value) {
-        sphereRef.value.position.y = Math.sin(elapsed)
-    }
-})
+// onLoop(({ elapsed }) => {
+//     if (sphereRef.value) {
+//         sphereRef.value.position.y = Math.sin(elapsed)
+//     }
+// })
 
 
 </script>

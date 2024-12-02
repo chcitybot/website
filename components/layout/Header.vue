@@ -20,20 +20,21 @@ function scrollToSection(sectionId) {
 </script>
 
 <template>
-    <header class="bg-transparent text-white p-4 h-26 lg:h-30 flex fixed top-0 z-20 w-full">
+    <header class="bg-transparent text-white p-4 flex fixed top-0 z-20 w-full">
         <div class="flex w-full justify-between max-w-7xl mx-auto rounded-lg border px-4 bg-bot_dark_blue">
             <NuxtLink class="hover:text-white" :to="localePath('/')">
                 <!-- <svgLogoTextBanner class="w-[180px] md:w-[220px] lg:w-[350px]" /> -->
-                 <img class="h-20 m-2" src="/img/citybot_logo.png" alt="">
+                 <svgBot /> 
+
             </NuxtLink>
 
             <div class="flex  items-center">
                 <div class="hidden md:block text-lg ml-10 text-white items-center text-center font-main font-extrabold">
                     <NuxtLink @click.prevent="scrollToSection('section2')"
-                        class="hover:text-white hover:cursor-pointer font-bold">{{ $t("features") }}
+                        class="hover:cursor-pointer  hover:text-bot_pink font-bold">{{ $t("features") }}
                     </NuxtLink>
-                    <NuxtLink class="ml-4 hover:text-white hover:cursor-pointer text-white font-bold" :to="localePath('/contact')">Kontakt
-                    </NuxtLink>
+                    <!-- <NuxtLink class="ml-4  hover:cursor-pointer  hover:text-bot_pink  font-bold" :to="localePath('/contact')">Kontakt
+                    </NuxtLink> -->
                 </div>
 
                 <!-- <LayoutLanguageSwitcher :class="isMenuOpen ? 'hidden' : 'block'" /> -->
@@ -57,8 +58,7 @@ function scrollToSection(sectionId) {
                     class="rounded-lg pb-4 shadow-lg ring-1 ring-black ring-opacity-5 bg-white divide-y-2 divide-gray-50 font-main">
                     <div class="pb-6 px-4">
                         <div class="flex items-center justify-between">
-                            <!-- <svgLogoTextBanner class="w-[180px]" textFillColor="#000000" /> -->
-                            <img class="h-20 m-2" src="/img/citybot_logo.png" alt="">
+                            <svgBot /> 
                             <div class="-mr-2 flex items-center">
                                 <!-- <LayoutLanguageSwitcher class="text-black" /> -->
                                 <button @click="toggleMenu"
@@ -77,9 +77,9 @@ function scrollToSection(sectionId) {
                         <NuxtLink @click.prevent="scrollToSection('section2')">Funktionen
                         </NuxtLink>
                     </div>
-                    <div class="py-6 px-4 text-black font-bold">
+                    <!-- <div class="py-6 px-4 text-black font-bold">
                         <NuxtLink class="" :to="localePath('/contact')">Kontakt</NuxtLink>
-                    </div>
+                    </div> -->
                 </div>
             </div>
         </div>

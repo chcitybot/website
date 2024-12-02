@@ -21,11 +21,16 @@
                                 class="text-2xl text-bot_light_blue sm:mt-0 mt-6 font-semibold tracking-tight sm:text-3xl sm:leading-none max-w-lg mb-6">
                                 Individuelle Entdeckungen
                             </h2>
-                            <p class="text-lg">Erhalte personalisierte Vorschläge basierend auf gesetzten Präferenzen and weiteren Datenpunkten wie Wetter und Uhrzeit.</p>
+                            <p class="text-lg text-gray-600">Personalisierte Vorschläge basierend auf gewählten Präferenzen and weiteren Datenpunkten wie Wetter und Uhrzeit.</p>
                         </div>
                     </div>
                 </div>
             </div>
+
+            
+        </div>
+
+        <div class="sm:mt-20 mt-8">
 
             <div
                 class="px-4 mx-auto sm:max-w-xl md:max-w-full lg:max-w-screen-xl md:px-24 lg:px-12 sm:border-0 rounded-xl sm:rounded-0 border sm:mt-0 mt-8">
@@ -36,11 +41,12 @@
                                 class="text-2xl text-bot_light_blue font-semibold tracking-tight sm:pt-0 sm:text-3xl sm:leading-none max-w-lg mb-6">
                                 Thematische Rundgänge
                             </h2>
-                            <p class="text-lg">Dein persönlicher Guide, er wird dich führen und unterwegs interessante Geschichten erzählen.</p>
+                            <p class="text-lg text-gray-600">Ein persönlicher Guide für jeden eurer Besucher, er führt und erzählt unterwegs interessante Geschichten.</p>
                         </div>
                     </div>
-                    <div>
+                    <div class="flex gap-4">
                         <img class="w-[160px] sm:w-[240px] lg:w-[320px] mb-8" alt="logo" src="/img/tours_web.png" />
+                        <img class="w-[160px] sm:w-[240px] lg:w-[320px] mb-8" alt="logo" src="/img/active_tour.png" />
                     </div>
                 </div>
             </div>
@@ -62,9 +68,9 @@
                                 class="text-2xl text-bot_light_blue sm:mt-0 mt-6 font-semibold tracking-tight sm:text-3xl sm:leading-none max-w-lg mb-6">
                                 Events und weitere Spezialangebote
                             </h2>
-                            <p class="text-lg">Überprüft die Events-Sektion und erfahrt alles über anstehende Events und aktuelle Spezialangebote.
-                                Etwas interessantes gefunden?
-                                Die app führt dich hin!</p>
+                            <p class="text-lg text-gray-600">Informiert über anstehende Events und preist aktuelle Spezialangebote an.
+                               Jemand angebissen?
+                               Die App führt direkt ans Ziel!</p>
                         </div>
                     </div>
                 </div>
