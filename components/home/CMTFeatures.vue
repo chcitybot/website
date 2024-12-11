@@ -15,7 +15,7 @@
                         <p class="mt-6 text-lg leading-8 text-gray-600">Kreiert und managt einzelne Attraktionen, Touren, Events und Spezialangebote mit dem Content Management System (CMS). </p>
                         <dl class="mt-10 max-w-xl space-y-8 text-base leading-7 text-gray-600 lg:max-w-none">
                             <div class="relative pl-14">
-                                <dt class="inline font-semibold text-bot_dark_blue">
+                                <dt class="inline font-semibold text-bot_light_blue">
                                     <svgMultimedia class="absolute left-1 top-1 h-10 w-10 text-bot_pink" />
                                     Multimedial.
                                 </dt>
