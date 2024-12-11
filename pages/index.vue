@@ -8,7 +8,6 @@
         <section id="section3">
             <HomeCMTFeatures />
         </section>
-
         <section class=" bg-gray-100" id="section4">
             <HomeAppFeatures />
         </section>

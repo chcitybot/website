@@ -21,7 +21,7 @@
                 <div
                     class="absolute -inset-1 group-hover:-inset-2 group-hover:opacity-100 transition group-hover:duration-300 duration-1000 bg-gradient-to-r from-bot_salmon to-bot_pink rounded-lg blur opacity-75">
                 </div>
-                <NuxtLink class="ml-2 hover:text-white hover:cursor-pointer" :to="'/'">
+                <NuxtLink class="ml-2 hover:text-white hover:cursor-pointer" :to="'/contact'">
                     <button class="bg-white text-black px-6 py-3 rounded-lg font-semibold relative group-hover:text-bot_pink tx-xl">
                         Durchstarten
                     </button>

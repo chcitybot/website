@@ -11,14 +11,15 @@
             <div class="text-white relative px-4 py-10 bg-bot_light_blue shadow-lg sm:rounded-3xl sm:p-20">
 
                 <div class="text-center pb-6">
-                    <h1 class="text-3xl">Kontaktieren Sie uns!</h1>
+                    <h1 class="text-3xl">Sie sind an einer möglichen Zusammenarbeit interessiert? Schreiben Sie uns und wir melden uns postwendend, um in einem ersten unverbindlichen Gespräch ihre Möglichkeiten zu eruieren.</h1>
 
-                    <p class="text-gray-300">
-                        Füllen Sie das Formular aus um uns eine Nachricht zu senden. Wir melden uns so schnell wie möglich zurück.
+                    <p class="text-2xl mt-10 text-bot_salmon">
+                        <!-- Füllen Sie das Formular aus um uns eine Nachricht zu senden. Wir melden uns so schnell wie möglich zurück. -->
+                         contact.citybot@gmail.com
                     </p>
                 </div>
 
-                <form action="https://fabform.io/f/{form-id}" method="post">
+                <!-- <form action="https://fabform.io/f/{form-id}" method="post">
 
                     <input
                         class="shadow mb-4 appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
@@ -45,7 +46,7 @@
                             class="shadow bg-red-600 hover:bg-red-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline"
                             type="reset" value="Löschen">
                     </div>
-                </form>
+                </form> -->
             </div>
 
         </div>

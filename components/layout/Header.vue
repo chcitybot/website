@@ -1,6 +1,7 @@
 <script setup>
 const { locale, t } = useI18n();
-
+import { useRouter } from 'vue-router'
+const router = useRouter();
 const isMenuOpen = ref(false)
 
 function toggleMenu() {
@@ -8,14 +9,34 @@ function toggleMenu() {
 }
 
 function scrollToSection(sectionId) {
-    const element = document.getElementById(sectionId);
-    const yOffset = -window.innerHeight / 2 + element.getBoundingClientRect().height / 2;
-    const y = element.getBoundingClientRect().top + window.pageYOffset + yOffset;
+    const isHomePage = router.currentRoute.value.path === '/';
+    console.log('isHomePage', isHomePage)
+    if (isHomePage) {
+        // Scroll to the section if already on the homepage
+        const element = document.getElementById(sectionId);
+        const yOffset = -window.innerHeight / 2 + element.getBoundingClientRect().height / 2;
+        const y = element.getBoundingClientRect().top + window.pageYOffset + yOffset;
 
-    window.scrollTo({
-        top: y,
-        behavior: 'smooth'
-    });
+        window.scrollTo({
+            top: y,
+            behavior: 'smooth'
+        });
+    } else {
+        // Navigate to the homepage and then scroll
+        router.push('/').then(() => {
+        // Wait for the homepage to load, then scroll
+        setTimeout(() => {
+            const element = document.getElementById(sectionId);
+            const yOffset = -window.innerHeight / 2 + element.getBoundingClientRect().height / 2;
+            const y = element.getBoundingClientRect().top + window.pageYOffset + yOffset;
+
+            window.scrollTo({
+                top: y,
+                behavior: 'smooth'
+            });
+        }, 100); // Adjust timeout if needed
+        });
+    }
 }
 </script>
 
@@ -33,8 +54,10 @@ function scrollToSection(sectionId) {
                     <NuxtLink @click.prevent="scrollToSection('section2')"
                         class="hover:cursor-pointer  hover:text-bot_pink font-bold">Funktionen
                     </NuxtLink>
-                    <!-- <NuxtLink class="ml-4  hover:cursor-pointer  hover:text-bot_pink  font-bold" :to="localePath('/contact')">Kontakt
-                    </NuxtLink> -->
+                    <NuxtLink class="ml-4  hover:cursor-pointer  hover:text-bot_pink  font-bold" :to="localePath('/team')">Team
+                    </NuxtLink>
+                    <NuxtLink class="ml-4  hover:cursor-pointer  hover:text-bot_pink  font-bold" :to="localePath('/contact')">Kontakt
+                    </NuxtLink>
                 </div>
 
                 <!-- <LayoutLanguageSwitcher :class="isMenuOpen ? 'hidden' : 'block'" /> -->
@@ -73,15 +96,19 @@ function scrollToSection(sectionId) {
                             </div>
                         </div>
                     </div>
-                    <div class="py-6 px-4 text-black font-bold">
-                        <NuxtLink @click.prevent="scrollToSection('section2')">Funktionen
+                    <div v-if="router.currentRoute.value.path === '/'" class="py-6 px-4 text-black font-bold">
+                        <NuxtLink @click.prevent=" scrollToSection('section2')">Funktionen
                         </NuxtLink>
                     </div>
-                    <!-- <div class="py-6 px-4 text-black font-bold">
+                    <div class="py-6 px-4 text-black font-bold">
+                        <NuxtLink class="" :to="localePath('/team')">Team</NuxtLink>
+                    </div>
+                    <div class="py-6 px-4 text-black font-bold">
                         <NuxtLink class="" :to="localePath('/contact')">Kontakt</NuxtLink>
-                    </div> -->
+                    </div>
                 </div>
             </div>
         </div>
     </header>
 </template>
+
