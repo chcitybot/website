@@ -45,7 +45,7 @@
                         </div>
                     </div>
                     <div class="flex gap-4">
-                        <img class="w-[160px] sm:w-[240px] lg:w-[320px] mb-8" alt="logo" src="/img/tours_web.png" />
+                        <img class="w-[160px] sm:w-[240px] lg:w-[320px] mb-8" alt="logo" src="/img/citybot_tours.png" />
                         <img class="w-[160px] sm:w-[240px] lg:w-[320px] mb-8" alt="logo" src="/img/active_tour.png" />
                     </div>
                 </div>
@@ -59,7 +59,7 @@
                 class="px-4 mx-auto sm:max-w-xl md:max-w-full lg:max-w-screen-xl md:px-24 lg:px-8 sm:border-0 rounded-xl sm:rounded-0 border">
                 <div class="flex flex-col items-center justify-between w-full lg:flex-row">
                     <div class="flex gap-4">
-                        <img class="w-[160px] sm:w-[240px] lg:w-[320px] mt-6" alt="logo" src="/img/events.png" />
+                        <img class="w-[160px] sm:w-[240px] lg:w-[320px] mt-6" alt="logo" src="/img/citybot_events.png" />
                         <img class="w-[160px] sm:w-[240px] lg:w-[320px] mt-6" alt="logo" src="/img/special_offers.png" />
                     </div>
                     <div class="lg:mb-0 lg:max-w-lg lg:pr-5">
@@ -81,7 +81,7 @@
             class="px-4 mx-auto flex flex-col items-center sm:max-w-xl md:max-w-full lg:max-w-screen-xl md:px-24 lg:px-8 sm:border-0 rounded-xl sm:rounded-0 border mt-20">
             <h2 class="text-2xl text-bot_dark_blue lg:text-4xl sm:mt-0 mt-6 font-semibold tracking-tight sm:text-3xl sm:leading-none 
             mb-6">
-                Download app
+                Download App
             </h2>
             <div class="lg:flex mx-auto">
                 <a href="https://apps.apple.com/ch/app/citybot-zug/id6443655653?l=en" target="_blank">

@@ -8,7 +8,7 @@
                     <li class="flex">
                         <div>
                             <h3 class="text-lg font-semibold text-bot_dark_blue">Volle Kontrolle über die Inhalte/Daten.</h3>
-                            <p class="text-gray-600">Ihr behaltet die volle Kontrolle und Übersicht über eure Inhalte. Nur ihr entscheidet, welche Inhalte, ihr wie präsentieren möchtet.</p>
+                            <p class="text-gray-600">Ihr behaltet die volle Kontrolle und Übersicht über eure Inhalte. Nur ihr entscheidet, welche Inhalte ihr wie präsentieren möchtet.</p>
                         </div>
                     </li>
                     <li class="flex">
@@ -20,7 +20,7 @@
                     <li class="flex items-start">
                         <div>
                             <h3 class="text-lg font-semibold text-bot_dark_blue">Kosteneffizient und flexibel. Kostenvorteil garantiert!</h3>
-                            <p class="text-gray-600">Warum eine eigene Lösung entwickeln, wenn diese zu einem Bruchteil der Entwicklungs- und Unterhaltskosten flexibel lizenziert werden kann? Wir liefern die Technologie, ihr liefert die bestmöglichen Inhalte! Effiziente Arbeitsteilung vom feinsten!</p>
+                            <p class="text-gray-600">Warum eine eigene Lösung entwickeln, wenn diese zu einem Bruchteil der Entwicklungs- und Unterhaltskosten flexibel lizenziert werden kann? Wir liefern die Technologie, ihr liefert die bestmöglichen Inhalte! Effiziente Arbeitsteilung vom Feinsten!</p>
                         </div>
                     </li>
                 </ul>
@@ -41,7 +41,7 @@
                     <li class="flex items-start">
                         <div>
                             <h3 class="text-lg font-semibold text-bot_dark_blue">Komplett integriertes Besuchererlebnis</h3>
-                            <p class="text-gray-600">Eine App für die ganze Reise. Von der Planung, Auswahl, Navigation bis hin zu detailierten Infos vor Ort, kein wildes Umherspringen zwischen verschiednen Webseiten, Google Maps und weiteren Medien.
+                            <p class="text-gray-600">Eine App für die ganze Reise. Von der Planung, Auswahl, Navigation bis hin zu detaillierten Informationen vor Ort, kein wildes Umherspringen zwischen verschiedenen Webseiten, Google Maps und weiteren Medien. 
                             </p>
                         </div>
                     </li>

@@ -15,7 +15,7 @@
         <!-- Content on Top of Image -->
         <div class="text-center p-8 font-main flex items-center flex-col z-10">
             <svgBotWithText class="h-[200px] w-[200px] lg:h-[400px] lg:w-[400px]" :text-fill-color="'#f2b4b4'"/>
-            <h1 class="text-3xl lg:text-5xl font-bold mb-4">Das Tor zur digitalen Präsenz ihrer Stadt/Destination</h1>
+            <h1 class="text-3xl lg:text-5xl font-bold mb-4">Die Platform für die digitale Präsenz eurer Stadt/Destination</h1>
             <p class="text-xl mb-8">Kreiert, konfiguriert und engagiert nach eurem Gusto!</p>
             <div class="relative group">
                 <div
