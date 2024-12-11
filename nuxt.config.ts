@@ -47,6 +47,12 @@ export default defineNuxtConfig({
       }
     ], // used in URL path prefix
     defaultLocale: 'de',
-    strategy: "prefix",
+    strategy: "prefix_except_default", // Use "prefix_except_default"
+    detectBrowserLanguage: {
+      useCookie: true,
+      cookieKey: 'i18n_redirected',
+      alwaysRedirect: true,
+      fallbackLocale: 'de', // Ensure fallback is set to German
+    },
   }
 })
