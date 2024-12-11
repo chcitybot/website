@@ -31,7 +31,7 @@ function scrollToSection(sectionId) {
             <div class="flex  items-center">
                 <div class="hidden md:block text-lg ml-10 text-white items-center text-center font-main font-extrabold">
                     <NuxtLink @click.prevent="scrollToSection('section2')"
-                        class="hover:cursor-pointer  hover:text-bot_pink font-bold">{{ $t("features") }}
+                        class="hover:cursor-pointer  hover:text-bot_pink font-bold">Funktionen
                     </NuxtLink>
                     <!-- <NuxtLink class="ml-4  hover:cursor-pointer  hover:text-bot_pink  font-bold" :to="localePath('/contact')">Kontakt
                     </NuxtLink> -->
