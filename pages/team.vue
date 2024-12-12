@@ -124,7 +124,7 @@
                         <div class="flex flex-col">
                             <!-- Avatar -->
                             <img class="rounded-2xl h-[350px] w-[350px] object-cover drop-shadow-md hover:drop-shadow-xl transition-all duration-200 delay-100"
-                                    src="https://robohash.org/mail@ashallendesign.co.uk">
+                                    src="https://robohash.org/tastenaffe2000">
 
                             <!-- Details -->
                             <div class="text-center mt-6">
@@ -135,7 +135,7 @@
 
                                 <!-- Title -->
                                 <div class="text-gray-700 font-light mb-2">
-                                    Frontend Developer
+                                    Advisor | Frontend Developer
                                 </div>
                             </div>
                         </div>

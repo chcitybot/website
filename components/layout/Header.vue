@@ -37,6 +37,7 @@ function scrollToSection(sectionId) {
         }, 100); // Adjust timeout if needed
         });
     }
+    menuOpen.value = false
 }
 </script>
 
@@ -54,9 +55,9 @@ function scrollToSection(sectionId) {
                     <NuxtLink @click.prevent="scrollToSection('section2')"
                         class="hover:cursor-pointer  hover:text-bot_pink font-bold">Funktionen
                     </NuxtLink>
-                    <NuxtLink class="ml-4  hover:cursor-pointer  hover:text-bot_pink  font-bold" :to="localePath('/team')">Team
+                    <NuxtLink  class="ml-4  hover:cursor-pointer  hover:text-bot_pink  font-bold" :to="localePath('/team')">Team
                     </NuxtLink>
-                    <NuxtLink class="ml-4  hover:cursor-pointer  hover:text-bot_pink  font-bold" :to="localePath('/contact')">Kontakt
+                    <NuxtLink   class="ml-4  hover:cursor-pointer  hover:text-bot_pink  font-bold" :to="localePath('/contact')">Kontakt
                     </NuxtLink>
                 </div>
 
@@ -96,15 +97,14 @@ function scrollToSection(sectionId) {
                             </div>
                         </div>
                     </div>
-                    <div v-if="router.currentRoute.value.path === '/'" class="py-6 px-4 text-black font-bold">
-                        <NuxtLink @click.prevent=" scrollToSection('section2')">Funktionen
-                        </NuxtLink>
+                    <div class="py-6 px-4 text-black font-bold">
+                        <NuxtLink @click.prevent=" scrollToSection('section2')">Funktionen</NuxtLink>
                     </div>
                     <div class="py-6 px-4 text-black font-bold">
-                        <NuxtLink class="" :to="localePath('/team')">Team</NuxtLink>
+                        <NuxtLink @click.prevent="toggleMenu" :to="localePath('/team')">Team</NuxtLink>
                     </div>
                     <div class="py-6 px-4 text-black font-bold">
-                        <NuxtLink class="" :to="localePath('/contact')">Kontakt</NuxtLink>
+                        <NuxtLink @click.prevent="toggleMenu" :to="localePath('/contact')">Kontakt</NuxtLink>
                     </div>
                 </div>
             </div>
