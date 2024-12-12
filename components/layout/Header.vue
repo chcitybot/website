@@ -1,45 +1,3 @@
-<script setup>
-const { locale, t } = useI18n();
-import { useRouter } from 'vue-router'
-const router = useRouter();
-const isMenuOpen = ref(false)
-
-function toggleMenu() {
-    isMenuOpen.value = !isMenuOpen.value
-}
-
-function scrollToSection(sectionId) {
-    const isHomePage = router.currentRoute.value.path === '/';
-    console.log('isHomePage', isHomePage)
-    if (isHomePage) {
-        // Scroll to the section if already on the homepage
-        const element = document.getElementById(sectionId);
-        const yOffset = -window.innerHeight / 2 + element.getBoundingClientRect().height / 2;
-        const y = element.getBoundingClientRect().top + window.pageYOffset + yOffset;
-
-        window.scrollTo({
-            top: y,
-            behavior: 'smooth'
-        });
-    } else {
-        // Navigate to the homepage and then scroll
-        router.push('/').then(() => {
-        // Wait for the homepage to load, then scroll
-        setTimeout(() => {
-            const element = document.getElementById(sectionId);
-            const yOffset = -window.innerHeight / 2 + element.getBoundingClientRect().height / 2;
-            const y = element.getBoundingClientRect().top + window.pageYOffset + yOffset;
-
-            window.scrollTo({
-                top: y,
-                behavior: 'smooth'
-            });
-        }, 100); // Adjust timeout if needed
-        });
-    }
-    menuOpen.value = false
-}
-</script>
 
 <template>
     <header class="bg-transparent text-white p-4 flex fixed top-0 z-20 w-full">
@@ -112,3 +70,45 @@ function scrollToSection(sectionId) {
     </header>
 </template>
 
+<script setup>
+const { locale, t } = useI18n();
+import { useRouter } from 'vue-router'
+const router = useRouter();
+const isMenuOpen = ref(false)
+
+function toggleMenu() {
+    isMenuOpen.value = !isMenuOpen.value
+}
+
+function scrollToSection(sectionId) {
+    const isHomePage = router.currentRoute.value.path === '/';
+    console.log('isHomePage', isHomePage)
+    if (isHomePage) {
+        // Scroll to the section if already on the homepage
+        const element = document.getElementById(sectionId);
+        const yOffset = -window.innerHeight / 2 + element.getBoundingClientRect().height / 2;
+        const y = element.getBoundingClientRect().top + window.pageYOffset + yOffset;
+
+        window.scrollTo({
+            top: y,
+            behavior: 'smooth'
+        });
+    } else {
+        // Navigate to the homepage and then scroll
+        router.push('/').then(() => {
+        // Wait for the homepage to load, then scroll
+        setTimeout(() => {
+            const element = document.getElementById(sectionId);
+            const yOffset = -window.innerHeight / 2 + element.getBoundingClientRect().height / 2;
+            const y = element.getBoundingClientRect().top + window.pageYOffset + yOffset;
+
+            window.scrollTo({
+                top: y,
+                behavior: 'smooth'
+            });
+        }, 100); // Adjust timeout if needed
+        });
+    }
+    menuOpen.value = false
+}
+</script>

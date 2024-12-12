@@ -8,15 +8,16 @@
         <section id="section3">
             <HomeCMTFeatures />
         </section>
+        
         <section class=" bg-gray-100" id="section4">
             <HomeAppFeatures />
         </section>
 
-        <section class=" bg-gray-100" id="section4">
+        <section class=" bg-gray-100" id="section5">
             <HomeStatistics />
         </section>
 
-        <section class="bg-white" id="section5">
+        <section class="bg-white" id="section6">
             <HomeTestimonials />
         </section>
     </div>
