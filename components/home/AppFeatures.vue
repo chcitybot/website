@@ -77,17 +77,17 @@
             </div>
         </div>
 
-        <div
-            class="px-4 mx-auto flex flex-col items-center sm:max-w-xl md:max-w-full lg:max-w-screen-xl md:px-24 lg:px-8 sm:border-0 rounded-xl sm:rounded-0 border mt-20">
+        <div id="download"
+            class="px-4 py-[100px] lg:py-[200px] mx-auto flex flex-col items-center sm:max-w-xl md:max-w-full lg:max-w-screen-xl md:px-24 lg:px-8 sm:border-0 rounded-xl sm:rounded-0 border ">
             <h2 class="text-2xl text-bot_dark_blue lg:text-4xl sm:mt-0 mt-6 font-semibold tracking-tight sm:text-3xl sm:leading-none 
             mb-6">
                 Download App
             </h2>
-            <div class="lg:flex mx-auto">
-                <a href="https://apps.apple.com/ch/app/citybot-zug/id6443655653?l=en" target="_blank">
+            <div  class="lg:flex mx-auto">
+                <a href="https://play.google.com/store/apps/details?id=ch.citybot.citybot" target="_blank">
                     <svgGooglePlayStore class="m-4" />
                 </a>
-                <a href="https://play.google.com/store/apps/details?id=ch.citybot.citybot" target="_blank">
+                <a href="https://apps.apple.com/ch/app/citybot-zug/id6443655653" target="_blank">
                     <svgAppleAppStore class="m-4" />
                 </a>
             </div>
