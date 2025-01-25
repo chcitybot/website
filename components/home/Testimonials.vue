@@ -17,11 +17,11 @@
                     <img src="/img/stadt_zug_logo.webp"  class="h-[100px] sm:h-[120px] lg:h-[140px] w-min rounded-lg mb-8" />
 
                     <div class="flex flex-col gap-y-3.5">
-                        <p class="font-bold text-xl text-white">Effizienter Kundensupport</p>
+                        <p class="font-bold text-xl text-bot_salmon">Effizienter Kundensupport</p>
                         <p class="font-medium text-white">«Der Kundensupport bei CityBot ist sehr zuvorkommend und hilfreich. Das CityBot Team unterstützte mich von A biz Z im Prozess neue Rundgänge zu kreieren.»</p>
                     </div>
                     <div class="flex flex-col">
-                        <p class="pt-2 text-sm font-semibold text-white">Regula Kaiser</p>
+                        <p class="pt-2 text-sm font-semibold text-bot_red_salmon">Regula Kaiser</p>
                         <p class="text-sm font-medium text-slate-100/70">Leiterin Stadtentwicklung Zug</p>
                     </div>
                 </div>
@@ -32,11 +32,11 @@
                         class="border p-7 rounded-xl drop-shadow-md border-neutral-600 col-span-2 flex flex-col gap-y-10 justify-between">
                         <img src="/img/zug_tourism_logo.png"  class="h-[100px] sm:h-[120px] lg:h-[140px] w-min rounded-lg mb-8" />
                         <div class="flex flex-col gap-y-3.5">
-                            <p class="font-bold text-xl text-white">Breites Angebot</p>
+                            <p class="font-bold text-xl text-bot_salmon">Breites Angebot</p>
                             <p class="font-medium text-white">«Unsere Gäste sind begeistert von der Vielfältigkeit der Informationen, die spontan in der App zur Verfügung stehen!»</p>
                         </div>
                         <div class="flex flex-col">
-                            <p class="pt-2 text-sm font-semibold text-white">Dominic Keller</p>
+                            <p class="pt-2 text-sm font-semibold text-bot_red_salmon">Dominic Keller</p>
                             <p class="text-sm font-medium text-slate-100/70">Geschäftsführer Zug Tourismus</p>
                         </div>
                     </div>

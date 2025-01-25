@@ -11,8 +11,8 @@
                 class="px-4 mx-auto sm:max-w-xl md:max-w-full lg:max-w-screen-xl md:px-24 lg:px-8 sm:border-0 rounded-xl sm:rounded-0 border">
                 <div class="flex flex-col items-center justify-between w-full lg:flex-row">
                     <div class="flex gap-4">
-                        <img class="w-[160px] sm:w-[240px] lg:w-[320px] mt-6" alt="logo" src="/img/suggestions_new.png" />
-                        <img class="w-[160px] sm:w-[240px] lg:w-[320px] mt-6" alt="logo" src="/img/ai_suggestions.png" />
+                        <img class="w-[160px] sm:w-[240px] lg:h-80vh mt-6" alt="logo" src="/img/suggestions_new.png" />
+                        <img class="w-[160px] sm:w-[240px] lg:h-80vh   mt-6" alt="logo" src="/img/ai_suggestions.png" />
                     </div>
                     
                     <div class="lg:mb-0 lg:max-w-lg lg:pr-5">
@@ -45,8 +45,8 @@
                         </div>
                     </div>
                     <div class="flex gap-4">
-                        <img class="w-[160px] sm:w-[240px] lg:w-[320px] mb-8" alt="logo" src="/img/citybot_tours.png" />
-                        <img class="w-[160px] sm:w-[240px] lg:w-[320px] mb-8" alt="logo" src="/img/active_tour.png" />
+                        <img class="w-[160px] sm:w-[240px] lg:h-80vh mb-8" alt="logo" src="/img/citybot_tours.png" />
+                        <img class="w-[160px] sm:w-[240px] lg:h-80vh  mb-8" alt="logo" src="/img/active_tour.png" />
                     </div>
                 </div>
             </div>
@@ -59,8 +59,8 @@
                 class="px-4 mx-auto sm:max-w-xl md:max-w-full lg:max-w-screen-xl md:px-24 lg:px-8 sm:border-0 rounded-xl sm:rounded-0 border">
                 <div class="flex flex-col items-center justify-between w-full lg:flex-row">
                     <div class="flex gap-4">
-                        <img class="w-[160px] sm:w-[240px] lg:w-[320px] mt-6" alt="logo" src="/img/citybot_events.png" />
-                        <img class="w-[160px] sm:w-[240px] lg:w-[320px] mt-6" alt="logo" src="/img/special_offers.png" />
+                        <img class="w-[160px] sm:w-[240px] lg:h-80vh mt-6" alt="logo" src="/img/citybot_events.png" />
+                        <img class="w-[160px] sm:w-[240px] lg:h-80vh mt-6" alt="logo" src="/img/special_offers.png" />
                     </div>
                     <div class="lg:mb-0 lg:max-w-lg lg:pr-5">
                         <div class="max-w-2xl my-8 text-center lg:text-left">

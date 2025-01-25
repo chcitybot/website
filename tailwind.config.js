@@ -6,11 +6,15 @@ export default {
       colors: {
         primary: colors.teal,
         backgroundMain:  colors.gray[800],
-        bot_dark_blue: "#1f4372",
-        bot_light_blue: "#527fd9",
+        bot_dark_blue: "#2447CC",
+        bot_light_blue: "#9297FF",
         bot_light_grey: "#edf2f4",
-        bot_salmon: "#f2b4b4",
-        bot_pink: "#ea85a6"
+        bot_salmon: "#FFC2AC",
+        bot_pink: "#F9B666",
+        bot_orange: "#F9B666",
+        bot_red: "#FA634B",
+        bot_red_salmon: "#F9806E"
+
       },
       fontFamily: {
         main: ['DM Sans', 'sans-serif'], 

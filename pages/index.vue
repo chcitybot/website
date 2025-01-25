@@ -1,6 +1,8 @@
 <template>
     <div>
-        <HomeHero />
+        <section class="bg-gray-100" id="section1">
+            <HomeHero />
+        </section>
         <section class="bg-gray-100" id="section2">
             <HomeFeaturesOverview />
         </section>

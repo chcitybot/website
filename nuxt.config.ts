@@ -28,7 +28,10 @@ export default defineNuxtConfig({
       })
     },
   },
-  modules: ['@nuxtjs/tailwindcss', "@nuxtjs/i18n"],
+  modules: ['@nuxtjs/tailwindcss', "@nuxtjs/i18n", '@nuxt/content'],
+  content: {
+    // Options for @nuxt/content
+  },
   tailwindcss: {
     cssPath: ['~/assets/css/tailwind.css', { injectPosition: "first" }],
     configPath: 'tailwind.config',

@@ -1,7 +1,7 @@
 <template>
   <div class="flex items-center justify-center h-screen bg-gray-100">
     <div class="text-center">
-      <h1 class="text-4xl p-4 mb-4 font-bold text-gray-800">Download the App for your mobile OS</h1>
+      <h1 class="text-4xl p-4 mb-4 font-bold text-gray-800">App für dein OS herunterladen</h1>
       <div class="flex flex-col lg:flex-row justify-center items-center">
         <a
           class="mx-auto"
