@@ -13,6 +13,7 @@
   "dependencies": {
     "@nuxt/content": "^3.0.0",
     "@nuxtjs/i18n": "^8.3.1",
+    "@tailwindcss/typography": "^0.5.16",
     "nuxt": "^3.12.4",
     "nuxt-i18n": "^6.28.1",
     "three": "^0.166.1",

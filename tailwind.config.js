@@ -24,5 +24,9 @@ export default {
         'desktop-hero': "url('/public/img/home_hero_bw.png')",
       },
     }
-  }
+  },
+  plugins: [
+    require('@tailwindcss/typography'),
+    // ...
+  ],
 }
