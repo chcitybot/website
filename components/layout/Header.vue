@@ -1,26 +1,24 @@
-
 <template>
     <header class="bg-transparent text-white p-4 flex fixed top-0 z-20 w-full">
         <div class="flex w-full justify-between max-w-7xl mx-auto rounded-lg border px-4 bg-bot_dark_blue">
             <NuxtLink class="hover:text-white" :to="localePath('/')">
-                <!-- <svgLogoTextBanner class="w-[180px] md:w-[220px] lg:w-[350px]" /> -->
                  <svgBot /> 
-
             </NuxtLink>
 
-            <div class="flex  items-center">
+            <div class="flex items-center">
                 <div class="hidden md:block text-lg ml-10 text-white items-center text-center font-main font-extrabold">
                     <NuxtLink @click.prevent="scrollToSection('section2')"
-                        class="hover:cursor-pointer  hover:text-bot_pink font-bold">Funktionen
+                        class="hover:cursor-pointer hover:text-bot_pink font-bold">Funktionen
                     </NuxtLink>
-                    <NuxtLink  class="ml-4  hover:cursor-pointer  hover:text-bot_pink  font-bold" :to="localePath('/team')">Team
+                    <NuxtLink class="ml-4 hover:cursor-pointer hover:text-bot_pink font-bold" :to="localePath('/team')">Team
                     </NuxtLink>
-                    <NuxtLink   class="ml-4  hover:cursor-pointer  hover:text-bot_pink  font-bold" :to="localePath('/contact')">Kontakt
+                    <NuxtLink class="ml-4 hover:cursor-pointer hover:text-bot_pink font-bold" :to="localePath('/contact')">Kontakt
                     </NuxtLink>
+                    <!-- ✅ Blog Link Added Here -->
+                    <NuxtLink class="ml-4 hover:cursor-pointer hover:text-bot_pink font-bold" :to="localePath('/blog')">Blog</NuxtLink>
                 </div>
 
-                <!-- <LayoutLanguageSwitcher :class="isMenuOpen ? 'hidden' : 'block'" /> -->
-                <!-- Hamburger Menu Button -->
+                <!-- Hamburger Menu Button (Mobile) -->
                 <div class="ml-2 -my-2 md:hidden" :class="isMenuOpen ? 'hidden' : 'block'">
                     <button @click="toggleMenu"
                         class="bg-white rounded-md p-2 inline-flex items-center justify-center text-gray-400 hover:text-gray-500 hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-indigo-500">
@@ -32,17 +30,15 @@
                         </svg>
                     </button>
                 </div>
-
             </div>
 
+            <!-- Mobile Menu -->
             <div v-if="isMenuOpen" class="absolute top-0 inset-x-0 p-4 transition transform origin-top-right md:hidden">
-                <div
-                    class="rounded-lg pb-4 shadow-lg ring-1 ring-black ring-opacity-5 bg-white divide-y-2 divide-gray-50 font-main">
+                <div class="rounded-lg pb-4 shadow-lg ring-1 ring-black ring-opacity-5 bg-white divide-y-2 divide-gray-50 font-main">
                     <div class="pb-6 px-4">
                         <div class="flex items-center justify-between">
                             <svgBot /> 
                             <div class="-mr-2 flex items-center">
-                                <!-- <LayoutLanguageSwitcher class="text-black" /> -->
                                 <button @click="toggleMenu"
                                     class="bg-white rounded-md p-2 inline-flex items-center justify-center text-gray-400 hover:text-gray-500 hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-indigo-500">
                                     <span class="sr-only">Close menu</span>
@@ -56,13 +52,17 @@
                         </div>
                     </div>
                     <div class="py-6 px-4 text-black font-bold">
-                        <NuxtLink @click.prevent=" scrollToSection('section2')">Funktionen</NuxtLink>
+                        <NuxtLink @click.prevent="scrollToSection('section2')">Funktionen</NuxtLink>
                     </div>
                     <div class="py-6 px-4 text-black font-bold">
                         <NuxtLink @click.prevent="toggleMenu" :to="localePath('/team')">Team</NuxtLink>
                     </div>
                     <div class="py-6 px-4 text-black font-bold">
                         <NuxtLink @click.prevent="toggleMenu" :to="localePath('/contact')">Kontakt</NuxtLink>
+                    </div>
+                    <!-- ✅ Blog Link Added in Mobile Menu -->
+                    <div class="py-6 px-4 text-black font-bold">
+                        <NuxtLink @click.prevent="toggleMenu" :to="localePath('/blog')">Blog</NuxtLink>
                     </div>
                 </div>
             </div>
@@ -84,7 +84,6 @@ function scrollToSection(sectionId) {
     const isHomePage = router.currentRoute.value.path === '/';
     console.log('isHomePage', isHomePage)
     if (isHomePage) {
-        // Scroll to the section if already on the homepage
         const element = document.getElementById(sectionId);
         const yOffset = -window.innerHeight / 2 + element.getBoundingClientRect().height / 2;
         const y = element.getBoundingClientRect().top + window.pageYOffset + yOffset;
@@ -94,21 +93,19 @@ function scrollToSection(sectionId) {
             behavior: 'smooth'
         });
     } else {
-        // Navigate to the homepage and then scroll
         router.push('/').then(() => {
-        // Wait for the homepage to load, then scroll
-        setTimeout(() => {
-            const element = document.getElementById(sectionId);
-            const yOffset = -window.innerHeight / 2 + element.getBoundingClientRect().height / 2;
-            const y = element.getBoundingClientRect().top + window.pageYOffset + yOffset;
+            setTimeout(() => {
+                const element = document.getElementById(sectionId);
+                const yOffset = -window.innerHeight / 2 + element.getBoundingClientRect().height / 2;
+                const y = element.getBoundingClientRect().top + window.pageYOffset + yOffset;
 
-            window.scrollTo({
-                top: y,
-                behavior: 'smooth'
-            });
-        }, 100); // Adjust timeout if needed
+                window.scrollTo({
+                    top: y,
+                    behavior: 'smooth'
+                });
+            }, 100);
         });
     }
-    menuOpen.value = false
+    isMenuOpen.value = false
 }
 </script>

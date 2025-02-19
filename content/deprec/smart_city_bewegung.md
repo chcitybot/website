@@ -1,3 +1,9 @@
+---
+title: "My First Blog Post"
+description: "This is my first post"
+date: "2024-02-10"
+---
+
 **Die Smart City Bewegung - Tourismus zukunftssicher gestalten**
 
 Städte und Regionen stehen vor der Herausforderung, den Tourismus modern und effizient zu gestalten. Ob durch die Neue Regional Politik (NRP) der Schweiz, oder das Sustainable Development Goal 11 - "Sustainable cities and human settlements", Städte und Regionen werden national und international dazu angehalten, sich Richtung "Smart City" zu entwickeln.

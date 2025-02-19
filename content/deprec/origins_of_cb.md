@@ -1,3 +1,9 @@
+---
+title: "My First Blog Post"
+description: "This is my first post"
+date: "2024-02-10"
+---
+
 # Die Anfänge von CityVBot: Eine Geschichte in drei Akten
 
 **I: Prag - Vor 5 Jahren**

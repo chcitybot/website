@@ -1,3 +1,9 @@
+---
+title: "My First Blog Post"
+description: "This is my first post"
+date: "2024-02-10"
+---
+
 # Smart City Hub Award Nominierung
 
 Heute durften wir am ersten Schweizer SmartCity Hub Award unser nominiertes Projekt “CityBot” zusammen mit der Stadt Zug vorstellen. Unser CTO [Vladislav Bunkin](https://www.linkedin.com/in/bunkinv/) hat 

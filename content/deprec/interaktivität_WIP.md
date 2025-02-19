@@ -1,3 +1,9 @@
+---
+title: "My First Blog Post"
+description: "This is my first post"
+date: "2024-02-10"
+---
+
 3. Warum gedruckte Stadtführer keine Zukunft haben
 
 Viele Städte setzen weiterhin auf gedruckte Stadtführer und Flyer, doch diese sind teuer, unflexibel und oft nicht mehr aktuell. Änderungen bei Veranstaltungen oder neuen Attraktionen sind kaum umsetzbar, und das veraltete Material landet schnell im Papierkorb.
@@ -28,3 +34,4 @@ CityBot ist mehr als eine App – es ist die Zukunft des digitalen Städtetouris
 
 Möchten auch Sie Ihre Stadt digital zukunftssicher machen? Kontaktieren Sie uns und erfahren Sie, wie CityBot Ihre Stadt zur Vorreiterin im digitalen Tourismus macht!
 
+9. headless CMS...
