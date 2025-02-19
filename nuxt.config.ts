@@ -1,4 +1,6 @@
 // https://nuxt.com/docs/api/configuration/nuxt-config
+import vuetify, { transformAssetUrls } from 'vite-plugin-vuetify'
+
 export default defineNuxtConfig({
   app: {
     head: {
@@ -28,7 +30,14 @@ export default defineNuxtConfig({
       })
     },
   },
-  modules: ['@nuxtjs/tailwindcss', "@nuxtjs/i18n", '@nuxt/content'],
+  modules: ['@nuxtjs/tailwindcss', "@nuxtjs/i18n", '@nuxt/content', 
+    (_options, nuxt) => {
+      nuxt.hooks.hook('vite:extendConfig', (config) => {
+        // @ts-expect-error
+        config.plugins.push(vuetify({ autoImport: true }))
+      })
+    },
+  ],
   content: {
     // Options for @nuxt/content
   },
@@ -65,5 +74,15 @@ export default defineNuxtConfig({
       alwaysRedirect: true,
       fallbackLocale: 'de', // Ensure fallback is set to German
     },
-  }
+  },
+  build: {
+    transpile: ['vuetify'],
+  },
+  vite: {
+    vue: {
+      template: {
+        transformAssetUrls,
+      },
+    },
+  },
 })
