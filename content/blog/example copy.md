@@ -1,9 +1,7 @@
 ---
-title: "Mastering the Vue 3 Composition API"
+title: "abi"
 description: "Learn how to leverage Vue 3's Composition API to build modern, scalable, and maintainable applications."
 image: "scify_web.webp"
-tags: ["Case Study", "Industry News"]
-date: "01-03-2025"
 ---
 
 # Mastering the Vue 3 Composition API
@@ -41,3 +39,21 @@ const increment = () => {
 <template>
   <button @click="increment">Count: {{ count }}</button>
 </template>
+
+blogSections: [
+,
+
+
+
+
+
+
+
+          title: "Digitalisierung als Schlüssel für den erfolgreichen Tourismus der Zukunft",
+          subtitle: '16.12.2023 - 4 min zu lesen',
+          content: `Die Digitalisierung im Tourismus eröffnet nicht nur neue Geschäftsmöglichkeiten für Unternehmen, sondern sorgt auch dafür, dass Städte und ihre Besucher besser miteinander vernetzt sind. Von der personalisierten Reiseplanung bis hin zur Integration von Smart City-Technologien – digitale Lösungen haben das Potenzial, den Tourismus effizienter, nachhaltiger und benutzerfreundlicher zu gestalten.<br><br>
+                    Unsere App bietet eine Lösung, die es Städten und Touristen gleichermaßen ermöglicht, das Beste aus der digitalen Revolution im Tourismussektor herauszuholen.`}
+      ]
+    };
+  }
+};
