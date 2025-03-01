@@ -10,7 +10,7 @@ export default defineContentConfig({
             title: z.string(),
             description: z.string(),
             image: z.string(),
-            date: z.date()
+            date: z.string()
           })
         })
         

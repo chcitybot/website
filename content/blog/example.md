@@ -2,6 +2,8 @@
 title: "Sample Blog Post"
 description: "This is a test blog post."
 image: "scify_web.webp"
+tags: ["Case Study", "Industry News"]
+date: "01-03-2025"
 ---
 
 # Top 5 Productivity Tips for a Busy Lifestyle

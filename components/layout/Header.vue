@@ -15,6 +15,8 @@
                     </NuxtLink>
                     <NuxtLink  class="ml-4  hover:cursor-pointer  hover:text-bot_pink  font-bold" :to="localePath('/team')">Team
                     </NuxtLink>
+                    <NuxtLink  class="ml-4  hover:cursor-pointer  hover:text-bot_pink  font-bold" :to="localePath('/blog')">Einblicke
+                    </NuxtLink>
                     <NuxtLink   class="ml-4  hover:cursor-pointer  hover:text-bot_pink  font-bold" :to="localePath('/contact')">Kontakt
                     </NuxtLink>
                 </div>

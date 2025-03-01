@@ -2,6 +2,8 @@
 title: "Mastering the Vue 3 Composition API"
 description: "Learn how to leverage Vue 3's Composition API to build modern, scalable, and maintainable applications."
 image: "scify_web.webp"
+tags: ["Case Study", "Industry News"]
+date: "01-03-2025"
 ---
 
 # Mastering the Vue 3 Composition API

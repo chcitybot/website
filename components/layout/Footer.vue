@@ -6,7 +6,7 @@ const { locale, t } = useI18n();
 <template>
     <footer class="bg-white" aria-labelledby="footer-heading">
         <h2 id="footer-heading" class="sr-only">Footer</h2>
-        <div class="mx-auto max-w-7xl px-6 pb-8 pt-16 sm:pt-24 lg:px-8 lg:pt-32">
+        <div class="mx-auto max-w-7xl px-6 py-8">
             <div class="xl:grid xl:grid-cols-2 xl:gap-8">
                 <div class="space-y-8">
                     <!-- <svgLogo class="h-20 w-20" /> -->
