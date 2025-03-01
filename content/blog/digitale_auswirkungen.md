@@ -11,3 +11,7 @@ Moderne Apps und digitale Plattformen ermöglichen es Reisenden, ihre gesamte Re
 
 # ... und deren Auswirkungen
 Für Städte bietet die Digitalisierung eine Möglichkeit, den Tourismussektor nachhaltiger und effizienter zu gestalten, indem Ressourcen gezielt eingesetzt werden. Hier setzt unsere App an – sie vereint sämtliche touristische Inhalte in einer benutzerfreundlichen Plattform, die Touristen einen einfachen Zugriff auf alle relevanten Informationen ermöglicht.
+
+---
+
+*Bereit für CityBot? Schreibt uns, um eine massgeschneiderte Demo für eure Stadt oder Region zu bekommen!*

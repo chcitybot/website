@@ -28,3 +28,7 @@ Nach Hause gingen wir zwar ohne Award, aber mit einer Menge neuer Kontakten und 
 # Als nächstes
 Zusammengefasst: In einer Smart City soll es um die Menschen gehen. Und darum, ihnen das Leben einfacher zu machen. Ob bei der Arbeit, dem Bestellen von Dokumenten, oder beim Erkunden der Stadt oder Region, wie mit unserer KI-basierten App. Wir freuen uns darauf noch mehr Städte ‘smarter’ zu machen! Vielen Dank Smart City Hub Switzerlandfür die Organisation des Events, und Stadt Zug für die stetige Unterstützung.
 
+
+---
+
+*Bereit für CityBot? Schreibt uns, um eine massgeschneiderte Demo für eure Stadt oder Region zu bekommen!*
