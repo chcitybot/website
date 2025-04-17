@@ -4,7 +4,7 @@
       <h1 class="text-6xl font-bold text-center text-bot_pink">Einblicke</h1>
     </div>
     <div
-      class="flex flex-col max-w-7xl bg-white rounded-3xl shadow-md -mt-20 mx-auto p-10"
+      class="flex flex-col max-w-7xl bg-white rounded-t-3xl shadow-md -mt-20 mx-auto p-10"
     >
       <!-- Tag Filter Dropdown -->
       <div class="py-4">
@@ -30,7 +30,6 @@
 </template>
 
 <script setup>
-console.log("setup run");
 const tagFilter = ref("");
 const allTags = ref([]);
 
