@@ -3,7 +3,7 @@ title: "Nominiert beim SCH Award"
 description: "6 min zu lesen"
 image: "scify_web.webp"
 tags: ["Case Study", "Industry News"]
-date: "16-12-2024"
+date: "2025-10-03"
 ---
 
 # Der SCH Award

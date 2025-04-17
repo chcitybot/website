@@ -3,7 +3,7 @@ title: "Tourismus - massgeschneidert"
 description: "5 min zu lesen"
 image: "scify_web.webp"
 tags: ["Case Study", "Industry News"]
-date: "01-03-2025"
+date: "2025-08-03"
 ---
         {
           title: "Digitalisierung im Tourismus – Chancen für eine maßgeschneiderte Reiseerfahrung",

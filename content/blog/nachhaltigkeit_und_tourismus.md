@@ -3,7 +3,7 @@ title: "Nachhaltigkeit und Tourismus"
 description: "4 min zu lesen"
 image: "scify_web.webp"
 tags: ["Case Study", "Industry News"]
-date: "01-03-2025"
+date: "2025-11-03"
 ---
 
 # Nachhaltigkeit und Digitalisierung im Tourismus – Wie Städte umweltfreundlicher werden können

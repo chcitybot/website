@@ -3,7 +3,7 @@ title: "Ein neuer Reisemarkt"
 description: "4 min zu lesen"
 image: "scify_web.webp"
 tags: ["Case Study", "Industry News"]
-date: "01-03-2025"
+date: "2025-15-03"
 ---
 
 # Die Digitalisierung im Tourismus

@@ -3,6 +3,13 @@ import colors from 'tailwindcss/colors'
 export default {
   theme: {
     extend: {
+      typography: {
+        DEFAULT: {
+          css: {
+            maxWidth: '100ch', // add required value here
+          }
+        }
+      },
       colors: {
         primary: colors.teal,
         backgroundMain:  colors.gray[800],

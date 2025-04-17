@@ -3,7 +3,7 @@ title: "Headless CMS"
 description: "5 min zu lesen"
 image: "scify_web.webp"
 tags: ["Case Study", "Industry News"]
-date: "01-03-2025"
+date: "2025-13-03"
 ---
         {
           title: "",

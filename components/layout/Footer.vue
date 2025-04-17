@@ -1,6 +1,4 @@
 <script lang="ts" setup>
-const { locale, t } = useI18n();
-
 </script>
 
 <template>
@@ -69,7 +67,7 @@ const { locale, t } = useI18n();
                     </a>
                     </div>
                     <div class="flex flex-col">
-                    <NuxtLink :to="localePath('/privacy')" class="footer-link-two">Datenschutz</NuxtLink>
+                    <NuxtLink :to="'/privacy'" class="footer-link-two">Datenschutz</NuxtLink>
                     </div>
                 </div>
                 <!-- <div class="mt-16 grid grid-cols-2 gap-8 xl:col-span-2 xl:mt-0">

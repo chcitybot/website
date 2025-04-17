@@ -28,7 +28,7 @@ export default defineNuxtConfig({
       })
     },
   },
-  modules: ['@nuxtjs/tailwindcss', "@nuxtjs/i18n", '@nuxt/content'],
+  modules: ['@nuxtjs/tailwindcss', '@nuxt/content'],
   content: {
     // Options for @nuxt/content
   },
@@ -41,29 +41,29 @@ export default defineNuxtConfig({
     config: {},
     viewer: true,
   },
-  i18n: {
-    vueI18n: "./i18n.config.ts",
-    locales: [
-      {
-        code: 'en',
-        name: 'English'
-      },
-      {
-        code: 'fr',
-        name: 'Francaise'
-      },
-      {
-        code: 'de',
-        name: 'Deutsch'
-      }
-    ], // used in URL path prefix
-    defaultLocale: 'de',
-    strategy: "prefix_except_default", // Use "prefix_except_default"
-    detectBrowserLanguage: {
-      useCookie: true,
-      cookieKey: 'i18n_redirected',
-      alwaysRedirect: true,
-      fallbackLocale: 'de', // Ensure fallback is set to German
-    },
-  }
+  // i18n: {
+  //   vueI18n: "./i18n.config.ts",
+  //   locales: [
+  //     {
+  //       code: 'en',
+  //       name: 'English'
+  //     },
+  //     {
+  //       code: 'fr',
+  //       name: 'Francaise'
+  //     },
+  //     {
+  //       code: 'de',
+  //       name: 'Deutsch'
+  //     }
+  //   ], // used in URL path prefix
+  //   defaultLocale: 'de',
+  //   strategy: "prefix_except_default", // Use "prefix_except_default"
+  //   detectBrowserLanguage: {
+  //     useCookie: true,
+  //     cookieKey: 'i18n_redirected',
+  //     alwaysRedirect: true,
+  //     fallbackLocale: 'de', // Ensure fallback is set to German
+  //   },
+  // }
 })

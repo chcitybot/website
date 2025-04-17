@@ -3,7 +3,7 @@ title: "Digitale Auswirkungen"
 description: "2 min zu lesen"
 image: "scify_web.webp"
 tags: ["Case Study", "Industry News"]
-date: "01-03-2025"
+date: "2025-16-03"
 ---
 
 # Digitale Plattformen

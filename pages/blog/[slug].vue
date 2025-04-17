@@ -12,9 +12,9 @@
       <p class="absolute bottom-4 right-4 bg-gray-400 p-2 font-bold rounded-md text-white">{{ post.date }}</p>
     </div>
     <div
-      class="max-w-7xl mx-auto p-10 "
+      class="max-w-7xl mx-auto py-10 px-4"
     >
-      <ContentRenderer :value="post" class="prose" />
+      <ContentRenderer :value="post" class="prose lg:prose-xl" />
       <div class="my-8 flex flex-col items-center">
         <p>Interested in how this could be applied to your own case? Contact us for a free consultation.</p>
         <NuxtLink class="mt-2 hover:text-white hover:cursor-pointer" :to="'/contact'">

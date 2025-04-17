@@ -3,7 +3,7 @@ title: "Eine Geschichte in III Akten"
 description: "5 min zu lesen"
 image: "scify_web.webp"
 tags: ["Case Study", "Industry News"]
-date: "1-03-2024"
+date: "2025-14-03"
 ---
 
 # I: Prag - Vor 5 Jahren         

@@ -2,7 +2,7 @@
 title: "Aus einem Guss"
 description: "Smart Cities stehen für die Zukunft der urbanen Entwicklung – und sie bieten enorme Potenziale für den Tourismus. Der Begriff „Smart City“ bezeichnet eine Stadt, die moderne Technologien wie das Internet der Dinge (IoT), Künstliche Intelligenz (KI) und Big Data nutzt, um das Leben für ihre Einwohnende und Besuchende zu verbessern."
 image: "scify_web.webp"
-tags: ["Case Study", "Industry News"]
+tags: ["Test"]
 date: "2025-19-03"
 ---
 

@@ -3,7 +3,7 @@ title: "Departements-Durchbruch"
 description: "5 min zu lesen"
 image: "scify_web.webp"
 tags: ["Case Study", "Industry News"]
-date: "01-03-2025"
+date: "2025-18-03"
 ---
 
 # Die Herausforderung der Zusammenarbeit

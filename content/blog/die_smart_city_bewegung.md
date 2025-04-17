@@ -3,7 +3,7 @@ title: "Die Smart City Bewegung"
 description: "4 min zu lesen"
 image: "scify_web.webp"
 tags: ["Case Study", "Industry News"]
-date: "01-03-2025"
+date: "2025-17-03"
 ---
 
 # Die Herausforderung

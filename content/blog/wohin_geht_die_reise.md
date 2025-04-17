@@ -3,7 +3,7 @@ title: "Wohin geht die Reise?"
 description: "4 min zu lesen"
 image: "scify_web.webp"
 tags: ["Case Study", "Industry News"]
-date: "01-03-2025"
+date: "2025-07-03"
 ---
         {
           title: "Die Zukunft des digitalen Tourismus – Wohin geht die Reise?",
