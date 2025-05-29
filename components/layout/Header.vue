@@ -32,6 +32,7 @@
             :to="'/contact'"
             >Kontakt
           </NuxtLink>
+          <LayoutLanguageSwitcher />
         </div>
 
         <!-- <LayoutLanguageSwitcher :class="isMenuOpen ? 'hidden' : 'block'" /> -->
@@ -122,7 +123,7 @@
 <script setup>
 const router = useRouter();
 const isMenuOpen = ref(false);
-
+const { locales, setLocale } = useI18n();
 function toggleMenu() {
   isMenuOpen.value = !isMenuOpen.value;
 }

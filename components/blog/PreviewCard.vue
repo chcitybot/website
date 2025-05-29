@@ -21,7 +21,7 @@
             v-for="tag in post.tags"
             :key="tag"
             :tag="tag"
-            :container-classes="'bg-bot_pink'"
+            :container-classes="'bg-bot_dark_blue'"
           />
         </div>
       </div>
