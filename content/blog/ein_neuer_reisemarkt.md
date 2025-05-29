@@ -17,5 +17,3 @@ Ein Schlüsselfaktor dabei ist die Integration von Daten aus verschiedenen Quell
 und skalierbar.
 
 ---
-
-*Bereit für CityBot? Schreibt uns, um eine massgeschneiderte Demo für eure Stadt oder Region zu bekommen!*

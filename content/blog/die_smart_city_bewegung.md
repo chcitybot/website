@@ -16,5 +16,3 @@ Städte und Regionen stehen vor der Herausforderung, den Tourismus modern und ef
 CityBot ist eine zentrale Plattform für Städte, die all diese Probleme löst. Besuchende erhalten maßgeschneiderte Vorschläge, aktuelle Event-Updates und digitale Touren – alles an einem Ort. So kann Content jederzeit angepasst werden, ohne Druckkosten oder veraltete Informationen. Eine moderne Lösung für zukunftsorientierten Tourismus.
 
 ---
-
-*Bereit für CityBot? Schreibt uns, um eine massgeschneiderte Demo für eure Stadt oder Region zu bekommen!*

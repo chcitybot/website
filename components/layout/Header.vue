@@ -32,7 +32,7 @@
             :to="$localePath('contact')"
             >Kontakt
           </NuxtLink>
-          <LayoutLanguageSwitcher />
+          <!-- <LayoutLanguageSwitcher /> -->
         </div>
 
         <!-- <LayoutLanguageSwitcher :class="isMenuOpen ? 'hidden' : 'block'" /> -->
@@ -141,7 +141,7 @@ function scrollToSection(sectionId) {
       window.scrollTo({ top: y, behavior: "smooth" });
     }
   } else {
-    router.push(`/${locale.value}`).then(() => {
+    router.push(`/`).then(() => {
       setTimeout(() => {
         const element = document.getElementById(sectionId);
         if (element) {

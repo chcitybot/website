@@ -20,5 +20,3 @@ CityBot bietet ein Besuchenden-Erlebnis aus einem Guss. Es gibt keine Unterbrüc
 und der Navigation, um an den Ort zu gelangen. Eine All-in-One-Lösung für Besuchende, Städte und Regionen zugleich.
 
 ---
-
-*Bereit für CityBot? Schreibt uns unter contact.citybot@gmail.com, um eine massgeschneiderte Demo für eure Stadt oder Region zu bekommen!*

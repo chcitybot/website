@@ -14,5 +14,3 @@ Dank unseres Headless Content Management System (CMS) könnt ihr ohne viel Aufwa
 einfach und schnell auf die Telefone zu Einheimischen und Besuchende eurer Stadt oder Region durch unsere App gebracht werden. Echtzeit-Updates zu Veranstaltungen, Sehenswürdigkeiten und den besten Ecken, die eine Stadt oder Region zu bieten hat, gehören so zur Tagesordnung.
 
 ---
-
-*Bereit für CityBot? Schreibt uns, um eine massgeschneiderte Demo für eure Stadt oder Region zu bekommen!*

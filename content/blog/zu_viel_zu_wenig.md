@@ -16,5 +16,3 @@ Besuchende werden häufig von der Informationsflut erschlagen und wissen nicht, 
 CityBot löst dieses Problem, denn durch die App sind alle Inhalte an einem Ort: Navigation, Events, Touren, Restaurants, Cafés, Natur und vieles mehr. Durch unser intuitives Content-Management-System können Städte und Regionen zielgerichtet Informationen bereitstellen, die für Besuchende wirklich relevant sind. So wird das digitale Erlebnis klar, benutzerfreundlich und individuell.
 
 ---
-
-*Bereit für CityBot? Schreibt uns, um eine massgeschneiderte Demo für eure Stadt oder Region zu bekommen!*

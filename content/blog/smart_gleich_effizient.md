@@ -17,5 +17,3 @@ In einer Smart City wird jede Entscheidung von Daten unterstützt. Ob es um die 
 Mit CityBot erleben TouristInnen eine Stadt oder Region wie ihr zuhause. Und Städte oder Regionen bekommen einmalige Einblicke in die Dynamik des Tourismus, um so ihre Entwicklung gezielt zu untersützen.
 
 ---
-
-*Bereit für CityBot? Schreibt uns, um eine massgeschneiderte Demo für eure Stadt oder Region zu bekommen!*

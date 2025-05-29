@@ -17,4 +17,3 @@ Wenn städtische Akteure besser zusammenarbeiten, können Städte nicht nur ihre
 
 ---
 
-*Bereit für CityBot? Schreibt uns, um eine massgeschneiderte Demo für eure Stadt oder Region zu bekommen!*

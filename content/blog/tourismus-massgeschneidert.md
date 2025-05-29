@@ -19,5 +19,3 @@ Die digitale Transformation macht den Tourismus nicht nur einfacher, sondern auc
 Es gibt keine App oder Plattform, die alles so zusammenbringt wie CityBot und den Tourismus durch digitale Vernetzung revolutioniert. Unsere App bietet eine Lösung, die es Städten und TouristInnen gleichermaßen ermöglicht, das Beste aus der digitalen Revolution im Tourismussektor herauszuholen.
 
 ---
-
-*Bereit für CityBot? Schreibt uns, um eine massgeschneiderte Demo für eure Stadt oder Region zu bekommen!*

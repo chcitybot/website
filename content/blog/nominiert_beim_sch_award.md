@@ -30,5 +30,3 @@ Zusammengefasst: In einer Smart City soll es um die Menschen gehen. Und darum, i
 
 
 ---
-
-*Bereit für CityBot? Schreibt uns, um eine massgeschneiderte Demo für eure Stadt oder Region zu bekommen!*

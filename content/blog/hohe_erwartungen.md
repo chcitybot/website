@@ -19,4 +19,3 @@ Die Herausforderung liegt darin, dass viele Städte und Regionen diese digitalen
 
 ---
 
-*Bereit für CityBot? Schreibt uns, um eine massgeschneiderte Demo für eure Stadt oder Region zu bekommen!*

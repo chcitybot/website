@@ -21,8 +21,8 @@
       <ContentRenderer :value="post" class="prose lg:prose-xl" />
       <div class="my-8 flex flex-col items-center">
         <p>
-          Interested in how this could be applied to your own case? Contact us
-          for a free consultation.
+          Bereit für CityBot? Schreibt uns, um eine massgeschneiderte Demo für
+          eure Stadt oder Region zu bekommen!
         </p>
         <NuxtLink
           class="mt-2 hover:text-white hover:cursor-pointer"

@@ -8,7 +8,7 @@
     >
       <!-- Tag Filter Dropdown -->
       <div class="py-4">
-        <label class="font-bold text-bot_pink">Filter by Topic:</label>
+        <label class="font-bold text-bot_pink">Nach Topic:</label>
         <select v-model="tagFilter" class="ml-2 p-2 border rounded">
           <option value="">All</option>
           <option v-for="tag in allTags" :key="tag" :value="tag">
@@ -16,7 +16,6 @@
           </option>
         </select>
       </div>
-      {{ locale }}
       <div
         class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 items-stretch gap-10"
       >
@@ -35,29 +34,20 @@ const { locale } = useI18n();
 const tagFilter = ref("");
 const allTags = ref([]);
 
-// const { data: allPosts } = await useAsyncData(`blog-${locale.value}`, () =>
-//   queryCollection("blog")
-//     .andWhere({ _filename: locale.value }) // This filters by the language code in the filename
-//     .order("date", "DESC")
-//     .all()
-// );
 const { data: allPosts } = await useAsyncData("blog", async () => {
   const posts = await queryCollection("blog").order("date", "DESC").all();
 
+  if (locale.value === "en") {
+    return posts;
+  }
   // Filter posts whose `id` or `path` includes `.{locale}.md`
   return posts.filter((post) => post.id.includes(`.${locale.value}.md`));
 });
-console.log("Debug posts:", allPosts.value);
 
 const filteredPosts = computed(() => {
   if (!allPosts.value) return [];
   if (!tagFilter.value) return allPosts.value;
   return allPosts.value.filter((post) => post.tags?.includes(tagFilter.value));
-});
-
-watch([tagFilter, filteredPosts], () => {
-  console.log("Tag filter is now:", tagFilter.value);
-  console.log("Filtered posts:", filteredPosts.value);
 });
 
 watchEffect(() => {

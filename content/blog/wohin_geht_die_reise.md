@@ -16,5 +16,3 @@ Zukunftsweisende Technologien wie Augmented Reality (AR), Virtual Reality (VR) u
 Unsere App ist Teil dieser digitalen Zukunft und bietet bereits jetzt ein innovatives Erlebnis, das nicht nur den Tourismus optimiert, sondern die gesamte Reiseplanung revolutioniert. Durch den Einsatz modernster Technologien können wir den Nutzern maßgeschneiderte Inhalte bieten, die ihre Reisen noch komfortabler und unvergesslicher machen.
 
 ---
-
-*Bereit für CityBot? Schreibt uns, um eine massgeschneiderte Demo für eure Stadt oder Region zu bekommen!*

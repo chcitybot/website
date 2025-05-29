@@ -22,5 +22,3 @@ Das Telefon klingelt. Regula Kaiser, Leiterin des Smart City Departements von Zu
 First dieses Projektes erschaffen. Nach einigen erfolglosen Versuchen, Städte als PartnerInnen für unser Projekt zu gewinnen, ist es endlich soweit!
 
 ---
-
-*Bereit für CityBot? Schreibt uns, um eine massgeschneiderte Demo für eure Stadt oder Region zu bekommen!*
