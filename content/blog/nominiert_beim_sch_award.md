@@ -1,12 +1,12 @@
 ---
 title: "Nominiert beim SCH Award"
-description: "6 min zu lesen"
+description: "CityBot wurde für den SmartCity Hub Award nominiert und präsentierte Erfolge wie 5000 Nutzende und den Ersatz von Stadtführern in Zug. Auch ohne Auszeichnung sammelte das Team wertvolle Erkenntnisse zur Umsetzung smarter Städte. - 6 min zu lesen"
 image: "scify_web.webp"
-tags: ["Case Study", "Industry News"]
+tags: ["Neuigkeiten", "Smart City"]
 date: "2025-10-03"
 ---
 
-# Der SCH Award
+### Der SCH Award
 Heute durften wir am ersten Schweizer SmartCity Hub (SCH) Award unser nominiertes Projekt “CityBot” zusammen mit der Stadt Zug vorstellen. Unser CTO [Vladislav Bunkin](https://www.linkedin.com/in/bunkinv/) hat 
 aufgezeigt was wir mit CityBot in Zug zusammen mit Zug erreicht haben:
 
@@ -16,7 +16,7 @@ aufgezeigt was wir mit CityBot in Zug zusammen mit Zug erreicht haben:
 - Kollaboration zwischen Departementen gefördert
 
 
-# Viel gelernt
+### Viel gelernt
 Nach Hause gingen wir zwar ohne Award, aber mit einer Menge neuer Kontakten und Ideen:
 
 1) Für eine Smart City müssen viele Interessengruppen der Region vernetzt werden
@@ -25,7 +25,7 @@ Nach Hause gingen wir zwar ohne Award, aber mit einer Menge neuer Kontakten und 
 4) Ein geteiltes Betriebsmodell kann helfen, kosteneffizient Smart City Konzepte umzusetzen
 
 
-# Als nächstes
+### Als nächstes
 Zusammengefasst: In einer Smart City soll es um die Menschen gehen. Und darum, ihnen das Leben einfacher zu machen. Ob bei der Arbeit, dem Bestellen von Dokumenten, oder beim Erkunden der Stadt oder Region, wie mit unserer KI-basierten App. Wir freuen uns darauf noch mehr Städte ‘smarter’ zu machen! Vielen Dank Smart City Hub Switzerlandfür die Organisation des Events, und Stadt Zug für die stetige Unterstützung.
 
 
