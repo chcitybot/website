@@ -1,10 +1,8 @@
 <template>
     <LayoutHeader />
-    <slot />
+    <NuxtPage />
     <LayoutFooter />
 </template>
 
 <script setup>
-const { locale, t } = useI18n();
-
 </script>

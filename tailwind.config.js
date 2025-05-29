@@ -3,6 +3,13 @@ import colors from 'tailwindcss/colors'
 export default {
   theme: {
     extend: {
+      typography: {
+        DEFAULT: {
+          css: {
+            maxWidth: '100ch', // add required value here
+          }
+        }
+      },
       colors: {
         primary: colors.teal,
         backgroundMain:  colors.gray[800],
@@ -24,5 +31,9 @@ export default {
         'desktop-hero': "url('/public/img/home_hero_bw.png')",
       },
     }
-  }
+  },
+  plugins: [
+    require('@tailwindcss/typography'),
+    // ...
+  ],
 }

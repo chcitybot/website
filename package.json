@@ -11,18 +11,17 @@
     "postinstall": "nuxt prepare"
   },
   "dependencies": {
-    "@nuxt/content": "^3.0.0",
-    "@nuxtjs/i18n": "^8.3.1",
-    "nuxt": "^3.12.4",
-    "nuxt-i18n": "^6.28.1",
-    "three": "^0.166.1",
+    "@nuxt/content": "^3.3.0",
+    "@nuxtjs/i18n": "^9.5.4",
+    "@tailwindcss/typography": "^0.5.16",
+    "nuxt": "^3.15.4",
     "uuid": "^10.0.0",
     "vue": "latest"
   },
   "devDependencies": {
-    "@nuxtjs/tailwindcss": "^6.12.1",
-    "autoprefixer": "^10.4.19",
-    "postcss": "^8.4.39",
-    "tailwindcss": "^3.4.6"
+    "@nuxtjs/tailwindcss": "^6.13.1",
+    "autoprefixer": "^10.4.20",
+    "postcss": "^8.5.3",
+    "tailwindcss": "^3.4.17"
   }
 }
