@@ -27,7 +27,7 @@
         <button
           v-for="locale in locales"
           :key="locale.code"
-          @click="setLocale(locale.code)"
+          @click="setLanguage(locale.code)"
           class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 w-full text-left"
         >
           {{ locale.name }}
@@ -38,16 +38,16 @@
 </template>
 
 <script setup>
-const { locales, locale } = useI18n();
+const { locales, locale, setLocale } = useI18n();
 const dropdownOpen = ref(false);
 
 const toggleDropdown = () => {
   dropdownOpen.value = !dropdownOpen.value;
 };
 
-const setLocale = (code) => {
-  locale.value = code;
+const setLanguage = (code) => {
   dropdownOpen.value = false;
+  setLocale(code);
 };
 </script>
 

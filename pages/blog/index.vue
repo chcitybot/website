@@ -16,6 +16,7 @@
           </option>
         </select>
       </div>
+      {{ locale }}
       <div
         class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 items-stretch gap-10"
       >
@@ -30,12 +31,23 @@
 </template>
 
 <script setup>
+const { locale } = useI18n();
 const tagFilter = ref("");
 const allTags = ref([]);
 
-const { data: allPosts } = await useAsyncData("blog", () =>
-  queryCollection("blog").order("date", "DESC").all()
-);
+// const { data: allPosts } = await useAsyncData(`blog-${locale.value}`, () =>
+//   queryCollection("blog")
+//     .andWhere({ _filename: locale.value }) // This filters by the language code in the filename
+//     .order("date", "DESC")
+//     .all()
+// );
+const { data: allPosts } = await useAsyncData("blog", async () => {
+  const posts = await queryCollection("blog").order("date", "DESC").all();
+
+  // Filter posts whose `id` or `path` includes `.{locale}.md`
+  return posts.filter((post) => post.id.includes(`.${locale.value}.md`));
+});
+console.log("Debug posts:", allPosts.value);
 
 const filteredPosts = computed(() => {
   if (!allPosts.value) return [];

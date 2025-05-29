@@ -19,17 +19,17 @@
           </NuxtLink>
           <NuxtLink
             class="ml-4 hover:cursor-pointer hover:text-bot_pink font-bold"
-            :to="'/team'"
+            :to="$localePath('team')"
             >Team
           </NuxtLink>
           <NuxtLink
             class="ml-4 hover:cursor-pointer hover:text-bot_pink font-bold"
-            :to="'/blog'"
+            :to="$localePath('blog')"
             >Einblicke
           </NuxtLink>
           <NuxtLink
             class="ml-4 hover:cursor-pointer hover:text-bot_pink font-bold"
-            :to="'/contact'"
+            :to="$localePath('contact')"
             >Kontakt
           </NuxtLink>
           <LayoutLanguageSwitcher />
@@ -122,8 +122,9 @@
 
 <script setup>
 const router = useRouter();
+const { locale } = useI18n();
+
 const isMenuOpen = ref(false);
-const { locales, setLocale } = useI18n();
 function toggleMenu() {
   isMenuOpen.value = !isMenuOpen.value;
 }
@@ -140,7 +141,7 @@ function scrollToSection(sectionId) {
       window.scrollTo({ top: y, behavior: "smooth" });
     }
   } else {
-    router.push("/").then(() => {
+    router.push(`/${locale.value}`).then(() => {
       setTimeout(() => {
         const element = document.getElementById(sectionId);
         if (element) {
