@@ -2,7 +2,7 @@
 title: "Headless CMS"
 description: "CityBot nutzt ein Headless CMS, um touristische Inhalte effizient zu erfassen und auf mobilen Geräten bereitzustellen. So erhalten Einheimische und Gäste Echtzeitinformationen über Sehenswürdigkeiten und Veranstaltungen. - 5 min zu lesen"
 image: "scify_web.webp"
-tags: ["Fallstudie", "Smater Tourismus"]
+tags: ["Fallstudie", "Smarter Tourismus"]
 date: "2025-13-03"
 ---
 
