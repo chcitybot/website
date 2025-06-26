@@ -1,8 +1,9 @@
 {
+  "loading": "Caricamento",
   "contact": "Contacto",
-  "functionalities": "Funktionen",
+  "functionalities": "Funzionalità",
   "team": "Team",
-  "insights": "Einblicke",
+  "insights": "Approfondimenti",
   "home_hero_title": "La piattaforma per la precettazione digitale della vostra città o destinazione!",
   "home_hero_subtitle": "Create, configurate e coinvolgete i vostri visitatori a vostro piacimento!",
   "cta_app_test": "Prova l'applicazione",
@@ -56,5 +57,20 @@
   "stats_average_rating_title": "Valutazione media",
   "stats_average_rating_text": "4.2+ ⭐",
   "stats_nr_crashes_title": "Crash di sistema fatali",
-  "stats_nr_crashes_text": "0"
+  "stats_nr_crashes_text": "0",
+  "testimonials_title": "Cosa dicono i nostri clienti.",
+  "testimonials_customer_support_title": "Assistenza clienti efficiente",
+  "testimonials_customer_support_text": "«L'assistenza clienti di CityBot è molto cordiale e disponibile. Il team di CityBot mi ha supportato dall'inizio alla fine nel creare nuovi percorsi.»",
+  "testimonials_citydev_title": "Responsabile dello sviluppo urbano",
+  "testimonials_broad_offerings_title": "Ampia offerta",
+  "testimonials_broad_offerings_text": "«I nostri visitatori sono entusiasti della varietà di informazioni disponibili spontaneamente nell'app!»",
+  "testimonials_ceo_title": "Amministratore delegato",
+  "footer_slogan": "Soluzioni turistiche di nuova generazione integrate",
+  "contact_form_title": "Sei interessato a una possibile collaborazione? Scrivici e ti contatteremo subito per valutare insieme, in un primo colloquio senza impegno, le possibilità.",
+  "app_download_title": "Scarica l’app per il tuo sistema operativo",
+  "team_title": "Conosci il team",
+  "team_subtitle": "Ci impegniamo per la presenza digitale della tua città/destinazione.",
+  "blog_by_topic_filter": "Per argomento:",
+  "blog_topic_all": "Tutti",
+  "blog_no_posts": "Nessuna voce trovata"
 }

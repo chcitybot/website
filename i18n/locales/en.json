@@ -1,4 +1,5 @@
 {
+  "loading": "Loading",
   "contact": "Contact",
   "functionalities": "Functionalities",
   "team": "Team",
@@ -56,5 +57,20 @@
   "stats_average_rating_title": "Average Rating",
   "stats_average_rating_text": "4.2+ ⭐",
   "stats_nr_crashes_title": "Fatal System Crashes",
-  "stats_nr_crashes_text": "0"
+  "stats_nr_crashes_text": "0",
+  "testimonials_title": "What our customers have to say.",
+  "testimonials_customer_support_title": "Efficient Customer Support",
+  "testimonials_customer_support_text": "«Customer support at CityBot is very courteous and helpful. The CityBot team supported me from A to Z in the process of creating new tours.»",
+  "testimonials_citydev_title": "Head of Urban Development",
+  "testimonials_broad_offerings_title": "Broad Offering",
+  "testimonials_broad_offerings_text": "«Our guests are thrilled by the variety of information that is spontaneously available in the app!»",
+  "testimonials_ceo_title": "Managing Director",
+  "footer_slogan": "Next level tourism solutions built in",
+  "contact_form_title": "Are you interested in a potential collaboration? Write to us and we’ll get back to you immediately to explore your options in an initial, non-binding conversation.",
+  "app_download_title": "Download the app for your OS",
+  "team_title": "Meet the Team",
+  "team_subtitle": "We are committed to strengthening the digital presence of your city/destination.",
+  "blog_by_topic_filter": "By Topic:",
+  "blog_topic_all": "All",
+  "blog_no_posts": "No entries found"
 }

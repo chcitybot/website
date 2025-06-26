@@ -1,16 +1,21 @@
 <template>
   <div>
+    {{ locale }}
     <div class="w-full py-40 bg-gray-100 px-4">
-      <h1 class="text-6xl font-bold text-center text-bot_pink">Einblicke</h1>
+      <h1 class="text-6xl font-bold text-center text-bot_pink">
+        {{ $t("insights") }}
+      </h1>
     </div>
     <div
       class="flex flex-col max-w-7xl bg-white rounded-t-3xl shadow-md -mt-20 mx-auto p-4 md:p-10"
     >
       <!-- Tag Filter Dropdown -->
       <div class="py-4">
-        <label class="font-bold text-bot_pink">Nach Topic:</label>
+        <label class="font-bold text-bot_pink">{{
+          $t("blog_by_topic_filter")
+        }}</label>
         <select v-model="tagFilter" class="ml-2 p-2 border rounded">
-          <option value="">All</option>
+          <option value="">{{ $t("blog_topic_all") }}</option>
           <option v-for="tag in allTags" :key="tag" :value="tag">
             {{ tag }}
           </option>
@@ -19,9 +24,9 @@
       <div
         class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 items-stretch gap-10"
       >
-        <div v-if="loading">Loading...</div>
+        <div v-if="loading">{{ $t("loading") }}</div>
         <div v-else-if="filteredPosts.length === 0">
-          No posts for this filter
+          {{ $t("blog_no_posts") }}
         </div>
         <BlogPreviewCard
           v-else
@@ -46,7 +51,7 @@ const fetchPosts = async () => {
     const posts = await queryCollection("blog").order("date", "DESC").all();
 
     // Filter based on locale
-    if (locale.value === "en") {
+    if (locale.value === "de") {
       return posts;
     }
     return posts.filter((post) => post.id.includes(`.${locale.value}.md`));

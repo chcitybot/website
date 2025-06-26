@@ -98,18 +98,27 @@
               </div>
             </div>
             <div class="py-6 px-4 text-black font-bold">
-              <NuxtLink @click.prevent="scrollToSection('section2')"
-                >Funktionen</NuxtLink
+              <NuxtLink
+                @click.prevent="scrollToSection('section2')"
+                :to="$localePath('functionalities')"
+                >{{ $t("functionalities") }}</NuxtLink
               >
             </div>
             <div class="py-6 px-4 text-black font-bold">
-              <NuxtLink @click.prevent="toggleMenu" :to="'/team'"
-                >Team</NuxtLink
-              >
+              <NuxtLink @click.prevent="toggleMenu" :to="$localePath('team')">{{
+                $t("team")
+              }}</NuxtLink>
             </div>
             <div class="py-6 px-4 text-black font-bold">
-              <NuxtLink @click.prevent="toggleMenu" :to="'/contact'"
-                >Kontakt</NuxtLink
+              <NuxtLink @click.prevent="toggleMenu" :to="$localePath('blog')">{{
+                $t("insights")
+              }}</NuxtLink>
+            </div>
+            <div class="py-6 px-4 text-black font-bold">
+              <NuxtLink
+                @click.prevent="toggleMenu"
+                :to="$localePath('contact')"
+                >{{ $t("contact") }}</NuxtLink
               >
             </div>
             <LayoutLanguageSwitcher :class="isMenuOpen ? 'hidden' : 'block'" />

@@ -12,7 +12,7 @@
           <!-- <svgLogo class="h-20 w-20" /> -->
           <img class="h-20 m-2" src="/img/citybot_logo.png" alt="" />
           <p class="text-sm leading-6 text-gray-600">
-            Next level tourism solutions built in
+            {{ $t("footer_slogan") }}
             <svgSwissFlag class="h-5 w-5 inline-block ml-1" />
           </p>
           <!-- <div class="flex space-x-6">
