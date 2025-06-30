@@ -13,7 +13,7 @@
           <h2 class="text-2xl font-bold text-bot_dark_blue">
             {{ post.title }}
           </h2>
-          <p class="whitespace-nowrap">{{ post.date }}</p>
+          <p class="whitespace-nowrap mb-2 italic">{{ post.date }}</p>
           <p>{{ post.description }}</p>
         </div>
         <div class="mt-4 flex gap-2">

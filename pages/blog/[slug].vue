@@ -20,10 +20,6 @@
     <div class="max-w-7xl mx-auto py-10 px-4">
       <ContentRenderer :value="post" class="prose lg:prose-xl" />
       <div class="my-8 flex flex-col items-center">
-        <p>
-          Bereit für CityBot? Schreibt uns, um eine massgeschneiderte Demo für
-          eure Stadt oder Region zu bekommen!
-        </p>
         <NuxtLink
           class="mt-2 hover:text-white hover:cursor-pointer"
           :to="'/contact'"
@@ -42,8 +38,32 @@
 
 <script lang="ts" setup>
 const route = useRoute();
-
+const { locale, locales } = useI18n();
 const { data: post } = await useAsyncData(route.path, () => {
   return queryCollection("blog").path(route.path).first();
 });
+
+const siteUrl = "https://citybot.ch";
+const fullPath = route.fullPath;
+
+// useHead(() => {
+//   const canonicalUrl = `${siteUrl}/${locale.value}${fullPath}`;
+//   const alternateLinks = locales.value.map((loc: any) => {
+//     return {
+//       rel: "alternate",
+//       hreflang: loc.code,
+//       href: `${siteUrl}/${loc.code}${fullPath}`,
+//     };
+//   });
+
+//   return {
+//     title: post.value?.title,
+//     meta: [
+//       { name: "description", content: post.value?.description },
+//       { property: "og:title", content: post.value?.title },
+//       { property: "og:description", content: post.value?.description },
+//     ],
+//     link: [{ rel: "canonical", href: canonicalUrl }, ...alternateLinks],
+//   };
+// });
 </script>

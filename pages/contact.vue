@@ -11,7 +11,7 @@
             <div class="text-white relative px-4 py-10 bg-bot_light_blue shadow-lg sm:rounded-3xl sm:p-20">
 
                 <div class="text-center pb-6">
-                    <h1 class="text-3xl">Sie sind an einer möglichen Zusammenarbeit interessiert? Schreiben Sie uns und wir melden uns postwendend, um in einem ersten unverbindlichen Gespräch ihre Möglichkeiten zu eruieren.</h1>
+                    <h1 class="text-3xl">{{ $t("contact_form_title") }}</h1>
 
                     <p class="text-2xl mt-10 text-bot_salmon">
                         <!-- Füllen Sie das Formular aus um uns eine Nachricht zu senden. Wir melden uns so schnell wie möglich zurück. -->

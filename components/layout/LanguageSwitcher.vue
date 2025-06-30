@@ -1,8 +1,7 @@
 <template>
   <div class="relative inline-block text-left group mx-2">
     <button
-      @click="toggleDropdown"
-      class="inline-flex items-center px-3 py-2 text-sm leading-4 font-medium rounded-md group-hover:bg-gray-50 group-hover:text-gray-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"
+      class="inline-flex items-center px-3 py-2 text-sm leading-4 font-medium rounded-md group-hover:text-bot_pink focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"
     >
       {{ locale.toLocaleUpperCase() }}
       <svg
@@ -21,7 +20,7 @@
     </button>
 
     <div
-      class="origin-top-right invisible group-hover:visible absolute right-0 mt-2 w-40 rounded-md shadow-lg bg-white ring-1 ring-black ring-opacity-5 focus:outline-none"
+      class="origin-top-right invisible group-hover:visible absolute right-0 w-40 rounded-md shadow-lg bg-white ring-1 ring-black ring-opacity-5 focus:outline-none"
     >
       <div class="py-1">
         <button
@@ -39,14 +38,8 @@
 
 <script setup>
 const { locales, locale, setLocale } = useI18n();
-const dropdownOpen = ref(false);
-
-const toggleDropdown = () => {
-  dropdownOpen.value = !dropdownOpen.value;
-};
 
 const setLanguage = (code) => {
-  dropdownOpen.value = false;
   setLocale(code);
 };
 </script>
