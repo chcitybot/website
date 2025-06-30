@@ -50,10 +50,6 @@ const fetchPosts = async () => {
   try {
     const posts = await queryCollection("blog").order("date", "DESC").all();
 
-    // Filter based on locale
-    if (locale.value === "de") {
-      return posts;
-    }
     return posts.filter((post) => post.id.includes(`.${locale.value}.md`));
   } catch (error) {
     console.error(error);

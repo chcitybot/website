@@ -18,6 +18,7 @@ export default defineNuxtConfig({
       ],
     },
   },
+  site: {  url: 'https://citybot.ch',  name: 'The platform for your digital city or destination' }, 
   compatibilityDate: '2024-04-03',
   devtools: { enabled: true },
   hooks: {
@@ -49,8 +50,8 @@ export default defineNuxtConfig({
       { code: 'it', name: 'Italiano', file: 'it.json' }
     ],
     defaultLocale: 'en',
-    strategy: "prefix_except_default", // Use "prefix_except_default"
+    strategy: "prefix_except_default",
     detectBrowserLanguage: false,
     langDir: 'locales',
-  }
+  },
 })
