@@ -48,7 +48,6 @@ const loading = ref(true);
 
 const fetchPosts = async () => {
   try {
-    const localePrefix = `/${locale.value}/blog/`;
     const posts = await queryCollection("blog")
       .where("path", "LIKE", `/${locale.value}/blog/%`)
       .order("date", "DESC")
