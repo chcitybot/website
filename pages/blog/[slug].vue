@@ -46,24 +46,24 @@ const { data: post } = await useAsyncData(route.path, () => {
 const siteUrl = "https://citybot.ch";
 const fullPath = route.fullPath;
 
-// useHead(() => {
-//   const canonicalUrl = `${siteUrl}/${locale.value}${fullPath}`;
-//   const alternateLinks = locales.value.map((loc: any) => {
-//     return {
-//       rel: "alternate",
-//       hreflang: loc.code,
-//       href: `${siteUrl}/${loc.code}${fullPath}`,
-//     };
-//   });
+useHead(() => {
+  const canonicalUrl = `${siteUrl}/${locale.value}${fullPath}`;
+  const alternateLinks = locales.value.map((loc: any) => {
+    return {
+      rel: "alternate",
+      hreflang: loc.code,
+      href: `${siteUrl}/${loc.code}${fullPath}`,
+    };
+  });
 
-//   return {
-//     title: post.value?.title,
-//     meta: [
-//       { name: "description", content: post.value?.description },
-//       { property: "og:title", content: post.value?.title },
-//       { property: "og:description", content: post.value?.description },
-//     ],
-//     link: [{ rel: "canonical", href: canonicalUrl }, ...alternateLinks],
-//   };
-// });
+  return {
+    title: post.value?.title,
+    meta: [
+      { name: "description", content: post.value?.description },
+      { property: "og:title", content: post.value?.title },
+      { property: "og:description", content: post.value?.description },
+    ],
+    link: [{ rel: "canonical", href: canonicalUrl }, ...alternateLinks],
+  };
+});
 </script>

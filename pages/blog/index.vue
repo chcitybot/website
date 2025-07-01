@@ -48,9 +48,11 @@ const loading = ref(true);
 
 const fetchPosts = async () => {
   try {
-    const posts = await queryCollection("blog").order("date", "DESC").all();
-
-    return posts.filter((post) => post.id.includes(`.${locale.value}.md`));
+    const posts = await queryCollection("blog")
+      .where("path", "LIKE", `/${locale.value}/blog/%`)
+      .order("date", "DESC")
+      .all();
+    return posts;
   } catch (error) {
     console.error(error);
   } finally {
@@ -65,6 +67,7 @@ watchEffect(async () => {
   allPosts.value = posts;
 
   // Extract tags if not yet initialized
+  if (!posts) return;
   const tagsSet = new Set();
   posts.forEach((post) => {
     if (Array.isArray(post.tags)) {
