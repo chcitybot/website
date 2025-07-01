@@ -3,7 +3,9 @@ import { defineContentConfig, defineCollection, z} from '@nuxt/content'
 export default defineContentConfig({
     collections: {
         blog: defineCollection({
-          source: 'blog/*.md',
+          // one “directory” above /blog, then /blog/*.md
+          // works for /en/blog, /de/blog, /fr/blog, …
+          source: '**/blog/*.md',
           type: 'page',
           schema: z.object({
             tags: z.array(z.string()),

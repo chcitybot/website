@@ -50,7 +50,7 @@ export default defineNuxtConfig({
       { code: 'it', name: 'Italiano', file: 'it.json' }
     ],
     defaultLocale: 'en',
-    strategy: "prefix_except_default",
+    strategy: "prefix",
     detectBrowserLanguage: false,
     langDir: 'locales',
   },
