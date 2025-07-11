@@ -1,7 +1,7 @@
 ---
 title: "Durabilité : Réduire l’empreinte carbone grâce à CityBot"
 description: "Fini le papier imprimé : vers une gestion numérique des infos sur votre ville. ⏱️ Temps de lecture : 5 min."
-image: "ddm.png"
+image: "sustainability_with_citybot.png"
 tags: ["Destination Mangement", "Digital Tourism"]
 date: "2025-12-07"
 ---

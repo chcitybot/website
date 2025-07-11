@@ -1,7 +1,7 @@
 ---
 title: "Sustainability: Reducing the CO₂ Footprint with CityBot"
 description: "Moving away from printed paper towards digital management of city information. ⏱️ Reading time: 5 min"
-image: "ddm.png"
+image: "sustainability_with_citybot.png"
 tags: ["Destination Management", "Sustainability"]
 date: "2025-12-07"
 ---
@@ -60,7 +60,7 @@ The FU for both products is "usage for 1 hour per week over an entire year." The
 
 All significant life cycle stages were considered. Specific assumptions were made for both products (see below). For both products, no other life cycle stages (e.g., investments) were considered, as they are deemed negligible.
 
-**CityBot**: The CO₂ emissions of the phone's life cycle (excluding usage) were allocated to the usage time (1 hour per week for a year) based on [Scope3 methodology](https://methodology.scope3.com/consumer_devices).
+**CityBot**: The CO₂ emissions of the phone's life cycle (excluding usage) were allocated to the usage time (1 hour per week for a year) based on this [Scope3 methodology](https://methodology.scope3.com/consumer_devices).
 
 **Paper Tour Guide**: CO₂ emissions during usage were neglected, as, for example, reading the paper tour guide doesn't produce emissions.
 
