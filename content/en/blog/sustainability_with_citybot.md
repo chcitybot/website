@@ -1,5 +1,5 @@
 ---
-title: "Sustainability: Reducing the CO₂ Footprint with CityBot"
+title: "Sustainability: Reducing the CO₂ Footprint with Digital Tourism Tools"
 description: "Moving away from printed paper towards digital management of city information. ⏱️ Reading time: 5 min"
 image: "sustainability_with_citybot.png"
 tags: ["Destination Management", "Sustainability"]
