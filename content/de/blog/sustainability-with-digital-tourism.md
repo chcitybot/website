@@ -1,5 +1,5 @@
 ---
-title: "Nachhaltigkeit: Mit CityBot den CO2-Fussabruck reduzieren"
+title: "Nachhaltigkeit: Mit digitalen Tools den CO2-Fussabruck im Tourismus reduzieren"
 description: "Weg von bedrucktem Papier und hin zur digitalen Verwaltung der Infos über ihre Stadt. ⏱️ Lesezeit: 5 Min. zu lesen"
 image: "sustainability_with_citybot.png"
 tags: ["Destination Mangement", "Sustainability"]
