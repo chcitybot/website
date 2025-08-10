@@ -1,8 +1,8 @@
 ---
 title: "Durabilité : réduire l'empreinte CO₂ grâce aux outils de tourisme numérique"
-description: "Fini le papier imprimé : vers une gestion numérique des infos sur votre ville. ⏱️ Temps de lecture : 5 min."
+description: "Fini le papier imprimé : vers une gestion numérique des infos sur votre ville."
 image: "sustainability_with_citybot.png"
-tags: ["Destination Mangement", "Digital Tourism"]
+tags: ["Destination Management", "Digital Tourism"]
 date: "2025-12-07"
 ---
 
