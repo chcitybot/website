@@ -7,7 +7,7 @@
         :alt="`image for ${post.title} article`"
       />
       <h1
-        class="absolute bottom-4 left-4 bg-bot_dark_blue p-2 text-4xl rounded-md text-white font-bold text-center"
+        class="absolute bottom-4 bg-bot_dark_blue p-2 m-4 text-4xl rounded-md text-white font-bold text-center"
       >
         {{ post.title }}
       </h1>

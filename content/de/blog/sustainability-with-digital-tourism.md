@@ -1,8 +1,8 @@
 ---
 title: "Nachhaltigkeit: Mit digitalen Tools den CO2-Fussabruck im Tourismus reduzieren"
-description: "Weg von bedrucktem Papier und hin zur digitalen Verwaltung der Infos über ihre Stadt. ⏱️ Lesezeit: 5 Min. zu lesen"
+description: "Weg von bedrucktem Papier und hin zur digitalen Verwaltung der Infos über ihre Stadt."
 image: "sustainability_with_citybot.png"
-tags: ["Destination Mangement", "Sustainability"]
+tags: ["Destination Management", "Sustainability"]
 date: "2025-12-07"
 ---
 # Nachhaltigkeit: Mit digitalen Tourismuslösungen den CO2-Fussabruck reduzieren 

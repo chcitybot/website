@@ -5,7 +5,7 @@
     >
       <img
         :src="`/img/${post.image}`"
-        class="w-full h-40 rounded-t-lg object-cover"
+        class="w-full h-40 rounded-t-lg object-cover object-top"
         :alt="`image for ${post.title} article`"
       />
       <div class="p-4 flex flex-col flex-1 justify-between">

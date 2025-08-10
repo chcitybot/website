@@ -50,7 +50,7 @@ const fetchPosts = async () => {
   try {
     const posts = await queryCollection("blog")
       .where("path", "LIKE", `/${locale.value}/blog/%`)
-      .order("date", "DESC")
+      .order("date", "ASC")
       .all();
     return posts;
   } catch (error) {
