@@ -3,7 +3,7 @@ title: "Che cos’è la Gestione Digitale delle Destinazioni (GDD)"
 description: "Con la GDD, le destinazioni non si limitano a promuovere il turismo — lo orchestrano."
 image: "ddm.png"
 tags: ["Destination Management", "Digital Tourism"]
-date: "2025-29-06"
+date: "2025-06-29"
 ---
 **Come la tecnologia sta ridefinendo il modo in cui guidiamo e sviluppiamo il turismo**
 

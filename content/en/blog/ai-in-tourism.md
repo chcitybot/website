@@ -2,8 +2,8 @@
 title: "How AI is Transforming Tourism – And How Your Destination Can Benefit"
 description: "Discover how AI is transforming tourism with smart, personalized POI recommendations powered by Retrieval-Augmented Generation (RAG)."
 image: "ai_in_tourism.jpg"
-tags: ["Artificial Intelligence"]
-date: "2025-10-08"
+tags: ["Artificiel Intelligence"]
+date: "2025-08-02"
 ---
 
 The tourism industry is undergoing a quiet revolution — one powered by artificial intelligence (AI). From personalized travel recommendations to smarter destination management, AI is helping destinations deliver richer, more engaging experiences for visitors while streamlining operations behind the scenes.
@@ -24,12 +24,12 @@ AI is no longer science fiction. It's already shaping how travelers plan, experi
 
 - **Data-Driven Decisions**: By analyzing visitor behavior and preferences, AI provides actionable insights that help DMOs optimize marketing, manage crowds, and improve infrastructure.
 
-At **Citybot**, we’ve integrated AI directly into our mobile guest app, allowing visitors to request personalized recommendations. The app engages users by presenting a curated selection of highly relevant POIs, each accompanied by a clear explanation of why it matches their interests.
+At **CityBot**, we’ve integrated AI directly into our mobile guest app, allowing visitors to request personalized recommendations. The app engages users by presenting a curated selection of highly relevant POIs, each accompanied by a clear explanation of why it matches their interests.
 This approach helps visitors discover what they’re looking for quickly and accurately, reducing decision fatigue and preventing disengagement caused by overwhelming choice.
 
 ---
 
-## Meet The Citybot AI Travel Assistant: Smarter POI Recommendations in Real Time
+## Meet The CityBot AI Travel Assistant: Smarter POI Recommendations in Real Time
 
 ### How It Works: The Power of Retrieval-Augmented Generation (RAG)
 

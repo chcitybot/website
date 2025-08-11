@@ -2,8 +2,8 @@
 title: "Durabilité : réduire l'empreinte CO₂ grâce aux outils de tourisme numérique"
 description: "Fini le papier imprimé : vers une gestion numérique des infos sur votre ville."
 image: "sustainability_with_citybot.png"
-tags: ["Destination Management", "Digital Tourism"]
-date: "2025-12-07"
+tags: ["Destination Management", "Sustainability"]
+date: "2025-07-12"
 ---
 
 # Durabilité : Réduire l’empreinte carbone grâce à CityBot  

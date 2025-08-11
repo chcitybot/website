@@ -2,6 +2,10 @@
 export default defineNuxtConfig({
   app: {
     head: {
+      title: 'CityBt',
+      meta: [
+        { name: 'description', content: 'The platform for the digital precence of your city or destination!' }
+      ],
       link: [
         {
           rel: 'stylesheet',
@@ -18,7 +22,7 @@ export default defineNuxtConfig({
       ],
     },
   },
-  site: {  url: 'https://citybot.ch',  name: 'The platform for your digital city or destination' }, 
+  ssr: true,
   compatibilityDate: '2024-04-03',
   devtools: { enabled: true },
   hooks: {

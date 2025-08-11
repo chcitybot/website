@@ -3,7 +3,7 @@ title: "Qu’est-ce que la Gestion Numérique des Destinations (GND)"
 description: "Avec la GND, les destinations ne se contentent plus de promouvoir le tourisme — elles l’orchestrent."
 image: "ddm.png"
 tags: ["Destination Management", "Digital Tourism"]
-date: "2025-29-06"
+date: "2025-06-29"
 ---
 **Comment la technologie transforme notre manière de concevoir et de développer le tourisme**
 

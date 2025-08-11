@@ -3,7 +3,7 @@ title: "Was ist Digitales Destinationsmanagement (DDM)"
 description: "Mit DDM fördern Destinationen nicht nur den Tourismus – sie orchestrieren ihn"
 image: "ddm.png"
 tags: ["Destination Management", "Digital Tourism"]
-date: "2025-29-06"
+date: "2025-06-29"
 ---
 **Wie Technologie die Art verändert, wie wir Tourismus gestalten und entwickeln**
 

@@ -3,7 +3,7 @@ title: "Wie KI den Tourismus verändert – und wie Ihre Destination davon profi
 description: "Erfahren Sie, wie KI den Tourismus mit intelligenten, personalisierten POI-Empfehlungen auf Basis von Retrieval-Augmented Generation (RAG) verändert."
 image: "ai_in_tourism.jpg"
 tags: ["Künstliche Intelligenz"]
-date: "2025-10-08"
+date: "2025-08-02"
 ---
 
 Die Tourismusbranche durchlebt eine stille Revolution – getragen von künstlicher Intelligenz (KI). Von personalisierten Reiseempfehlungen bis hin zu intelligenteren Destination-Managementsystemen: KI hilft Orten, ihren Besuchern bereichernde und ansprechendere Erlebnisse zu bieten und gleichzeitig ihre internen Abläufe zu optimieren.
@@ -24,12 +24,12 @@ KI ist keine Science-Fiction mehr. Sie beeinflusst bereits heute, wie Reisende p
 
 - **Datenbasierte Entscheidungen**: Durch die Analyse des Besucherverhaltens und der Präferenzen liefert KI handfeste Erkenntnisse, mit denen DMOs Marketing optimieren, Besucherströme steuern und Infrastruktur verbessern können.
 
-Bei **Citybot** haben wir KI direkt in unsere mobile Gast-App integriert, sodass Besucher personalisierte Empfehlungen anfordern können. Die App engagiert Nutzer, indem sie eine sorgfältig kuratierte Auswahl besonders relevanter POIs präsentiert, jede Option mit einer klaren Erklärung, warum sie zu den Interessen des Nutzers passt.  
+Bei **CityBot** haben wir KI direkt in unsere mobile Gast-App integriert, sodass Besucher personalisierte Empfehlungen anfordern können. Die App engagiert Nutzer, indem sie eine sorgfältig kuratierte Auswahl besonders relevanter POIs präsentiert, jede Option mit einer klaren Erklärung, warum sie zu den Interessen des Nutzers passt.  
 Dieser Ansatz hilft Besuchern, schnell und präzise zu finden, wonach sie suchen, reduziert die Entscheidungsüberlastung und verhindert, dass Interesse verloren geht.
 
 ---
 
-## Der Citybot KI-Reiseassistent: Intelligente POI-Empfehlungen in Echtzeit
+## Der CityBot KI-Reiseassistent: Intelligente POI-Empfehlungen in Echtzeit
 
 ### So funktioniert es: Die Kraft der Retrieval-Augmented Generation (RAG)
 

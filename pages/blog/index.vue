@@ -1,6 +1,5 @@
 <template>
   <div>
-    {{ locale }}
     <div class="w-full py-40 bg-gray-100 px-4">
       <h1 class="text-6xl font-bold text-center text-bot_pink">
         {{ $t("insights") }}
@@ -50,7 +49,7 @@ const fetchPosts = async () => {
   try {
     const posts = await queryCollection("blog")
       .where("path", "LIKE", `/${locale.value}/blog/%`)
-      .order("date", "ASC")
+      .order("date", "DESC")
       .all();
     return posts;
   } catch (error) {

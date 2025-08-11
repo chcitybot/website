@@ -2,8 +2,8 @@
 title: "Comment l'IA transforme le tourisme – et comment votre destination peut en bénéficier"
 description: "Découvrez comment l’IA révolutionne le tourisme grâce à des recommandations de POI personnalisées basées sur la Retrieval-Augmented Generation (RAG)."
 image: "ai_in_tourism.jpg"
-tags: ["Intelligence Artificielle"]
-date: "2025-10-08"
+tags: ["Intelligence Artificielle", "Digital Tourism"]
+date: "2025-08-02"
 ---
 
 # Comment l'IA transforme le tourisme – et comment votre destination peut en bénéficier

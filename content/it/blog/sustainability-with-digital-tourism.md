@@ -2,8 +2,8 @@
 title: "Sostenibilità: ridurre l'impronta di CO₂ con strumenti di turismo digitale"
 description: "Addio carta stampata: verso una gestione digitale delle informazioni sulla città."
 image: "sustainability_with_citybot.png"
-tags: ["Destination Management", "Digital Tourism"]
-date: "2025-12-07"
+tags: ["Destination Management", "Sustainability"]
+date: "2025-07-12"
 ---
 
 # Sostenibilità: Ridurre l’impronta di CO2 con CityBot  

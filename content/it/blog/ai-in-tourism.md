@@ -2,8 +2,8 @@
 title: "Come l'IA sta trasformando il turismo – e come la tua destinazione può trarne vantaggio"
 description: "Scopri come l'IA sta rivoluzionando il turismo con raccomandazioni personalizzate di POI grazie alla Retrieval-Augmented Generation (RAG)."
 image: "ai_in_tourism.jpg"
-tags: ["Intelligenza Artificiale"]
-date: "2025-10-08"
+tags: ["Intelligenza Artificiale", "Digital Tourism"]
+date: "2025-08-02"
 ---
 
 # Come l'IA sta trasformando il turismo – e come la tua destinazione può trarne vantaggio
@@ -26,12 +26,12 @@ L’IA non è più fantascienza. Sta già plasmando il modo in cui i viaggiatori
 
 - **Decisioni basate sui dati**: Analizzando comportamenti e preferenze dei visitatori, l’IA fornisce insight concreti per ottimizzare il marketing, gestire gli afflussi e migliorare l’infrastruttura.
 
-In **Citybot**, abbiamo integrato l’IA direttamente nella nostra app mobile per gli ospiti, consentendo ai visitatori di richiedere raccomandazioni personalizzate. L’app coinvolge gli utenti mostrando una selezione curata di POI altamente pertinenti, ciascuno accompagnato da una chiara spiegazione del perché potrebbe interessarli.  
+In **CityBot**, abbiamo integrato l’IA direttamente nella nostra app mobile per gli ospiti, consentendo ai visitatori di richiedere raccomandazioni personalizzate. L’app coinvolge gli utenti mostrando una selezione curata di POI altamente pertinenti, ciascuno accompagnato da una chiara spiegazione del perché potrebbe interessarli.  
 Questo approccio aiuta i visitatori a trovare ciò che cercano in modo rapido e preciso, riducendo la fatica decisionale e prevenendo la perdita di interesse causata da troppe opzioni.
 
 ---
 
-## Scopri l’assistente di viaggio AI di Citybot: raccomandazioni intelligenti di POI in tempo reale
+## Scopri l’assistente di viaggio AI di CityBot: raccomandazioni intelligenti di POI in tempo reale
 
 ### Come funziona: la potenza della Retrieval-Augmented Generation (RAG)
 
@@ -93,6 +93,6 @@ Questo approccio RAG garantisce che l’IA non “allucini” mai: raccomanda so
 
 ## Il futuro è personalizzato, intelligente e facile da gestire
 
-Non hai bisogno di un team tecnico o di un grande budget per integrare l’IA nella strategia digitale della tua destinazione. Con **Citybot**, l’IA è integrata, intuitiva e progettata per funzionare nel modo in cui i viaggiatori moderni si aspettano.
+Non hai bisogno di un team tecnico o di un grande budget per integrare l’IA nella strategia digitale della tua destinazione. Con **CityBot**, l’IA è integrata, intuitiva e progettata per funzionare nel modo in cui i viaggiatori moderni si aspettano.
 
 Unendo una potente gestione dei contenuti a un coinvolgimento intelligente dei visitatori, stiamo aiutando destinazioni in tutto il mondo a creare connessioni più significative con i viaggiatori – una raccomandazione personalizzata alla volta.

@@ -8,7 +8,7 @@
     <div class="absolute inset-0">
       <img
         src="/img/bot_hero_image.png"
-        alt="Background Image"
+        alt="CityBot Tourism Platform"
         class="object-cover object-center w-full h-full"
       />
       <div class="absolute inset-0 bg-bot_dark_blue opacity-60"></div>

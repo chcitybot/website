@@ -1,13 +1,13 @@
 <template>
   <div v-if="post" class="w-full max-w-7xl mx-auto">
-    <div class="relative h-[50vh]">
+    <div class="relative h-[50vh] mt-28">
       <img
         :src="`/img/${post.image}`"
         class="w-full h-[50vh] object-cover mx-auto"
         :alt="`image for ${post.title} article`"
       />
       <h1
-        class="absolute bottom-4 bg-bot_dark_blue p-2 m-4 text-4xl rounded-md text-white font-bold text-center"
+        class="absolute bottom-8 bg-bot_dark_blue p-2 m-4 text-4xl rounded-md text-white font-bold text-center"
       >
         {{ post.title }}
       </h1>
