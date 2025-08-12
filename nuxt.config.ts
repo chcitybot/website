@@ -2,7 +2,7 @@
 export default defineNuxtConfig({
   app: {
     head: {
-      title: 'CityBt',
+      title: 'CityBot',
       meta: [
         { name: 'description', content: 'The platform for the digital precence of your city or destination!' }
       ],
