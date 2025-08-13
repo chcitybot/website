@@ -27,7 +27,7 @@
           <button
             class="bg-bot_dark_blue text-white px-6 py-3 rounded-lg font-semibold relative group-hover:text-bot_pink tx-xl"
           >
-            Partner werden
+             {{ $t('cta_become_partner') }}
           </button>
         </NuxtLink>
       </div>
