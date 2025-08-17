@@ -1,3 +1,42 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+/* ------------------------
+   Custom Markdown Heading Styles
+   ------------------------ */
+
+/* NOTE: Uncomment the font-family lines after you load Raleway via Google Fonts
+   Example for nuxt.config.ts:
+   {
+     rel: 'stylesheet',
+     href: "https://fonts.googleapis.com/css2?family=Raleway:wght@400;700&display=swap"
+   }
+*/
+
+.prose h1,
+.prose h1 a {
+  font-weight: bold;
+  font-size: 30px;
+  color: #1E40AF;
+  border-bottom: none;
+  text-decoration: none;
+}
+
+.prose h2,
+.prose h2 a {
+  font-weight: bold;
+  font-size: 24px;
+  color: #1E40AF;
+  border-bottom: none;
+  text-decoration: none;
+}
+
+.prose h3,
+.prose h3 a {
+  font-weight: bold;
+  font-size: 20px;
+  color: #1E40AF;
+  border-bottom: none;
+  text-decoration: none;
+}
