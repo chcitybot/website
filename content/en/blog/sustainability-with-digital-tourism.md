@@ -2,7 +2,7 @@
 title: "Sustainability: Reducing the CO₂ Footprint in Toursim with Digital Tools"
 description: "Moving away from printed paper towards digital management of city information."
 image: "sustainability_with_citybot.png"
-tags: ["Destination Management", "Sustainability"]
+tags: ["Digital Tourism", "Sustainability"]
 date: "2025-07-12"
 ---
 

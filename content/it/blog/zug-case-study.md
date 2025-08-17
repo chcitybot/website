@@ -2,7 +2,7 @@
 title: "Raccomandazioni intelligenti, contenuti vivaci, risultati misurabili"
 description: "Il caso di studio della città di Zugo mostra come CityBot colga il polso della città."
 image: "zug_case_study.jpg"
-tags: ["Caso di studio", "Turismo digitale"]
+tags: ["Caso di Studio", "Digital Tourism"]
 date: "2025-06-29"
 metaTitle: "Caso di studio CityBot Zugo – Come le città digitalizzano con successo l'accoglienza turistica"
 metaDescription: "Scopri come Zugo sta trasformando digitalmente il turismo con CityBot – dalle raccomandazioni intelligenti ai contenuti locali fino a risultati misurabili. Un esempio per ogni città."
