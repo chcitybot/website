@@ -2,7 +2,7 @@
 title: "Recommandations intelligentes, contenus vivants, résultats mesurables"
 description: "L’étude de cas dans la ville de Zoug montre comment CityBot prend le pouls de la ville."
 image: "zug_case_study.jpg"
-tags: ["Étude de cas", "Tourisme numérique"]
+tags: ["Étude de cas", "Digital Tourism"]
 date: "2025-06-29"
 metaTitle: "Étude de cas CityBot Zoug – Comment les villes numérisent avec succès leur accueil touristique"
 metaDescription: "Découvrez comment Zoug transforme numériquement le tourisme avec CityBot – des recommandations intelligentes aux contenus locaux en passant par des résultats mesurables. Un exemple à suivre pour toute ville."

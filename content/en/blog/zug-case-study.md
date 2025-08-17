@@ -1,8 +1,8 @@
 ---
-title: "Smart recommendations, engaging content, measurable results"
+title: "Smart Recommendations, Engaging Content, Measurable Results"
 description: "The case study in the city of Zug shows how CityBot measures the pulse of the city."
 image: "zug_case_study.jpg"
-tags: ["Case study", "Digital Tourism"]
+tags: ["Case Study", "Digital Tourism"]
 date: "2025-06-29"
 metaTitle: "CityBot Case Study Zug – How cities successfully digitalize their guided tours"
 metaDescription: "Discover how Zug is digitally transforming tourism with CityBot – from smart recommendations and local content to measurable visitor success. A best practice for any city."

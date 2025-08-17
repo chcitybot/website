@@ -2,7 +2,7 @@
 title: "Smarte Empfehlungen, lebendige Inhalte, messbare Erfolge"
 description: "Die Fallstudie in der Stadt Zug zeigt, wie CityBot den Puls der Stadt misst."
 image: "zug_case_study.jpg"
-tags: ["Case study", "Digital Tourism"]
+tags: ["Case Study", "Digital Tourism"]
 date: "2025-06-29"
 metaTitle: "CityBot Fallstudie Zug – So digitalisieren Städte ihre Gästeführung erfolgreich"
 metaDescription: "Entdecken Sie, wie Zug mit CityBot Tourismus digital transformiert – von smarten Empfehlungen über lokale Inhalte bis zu messbaren Besucher-Erfolgen. Ein Best Practice für jede Stadt."

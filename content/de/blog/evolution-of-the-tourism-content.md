@@ -2,11 +2,9 @@
 title: "Von der Broschüre bis zur KI: Die Entwicklung touristischer Inhalte"
 description: "Wie sich touristische Informationen von Papierflyern zu intelligenten KI-Assistenten entwickelt haben – und was das für Ihre Destination bedeutet."
 image: "evolution_of_tourism.png"
-tags: ["Digitale Transformation", "Destination Management"]
+tags: ["Digitale Transformation", "Digital Tourism"]
 date: "2025-08-11"
 ---
-
-# Von der Broschüre bis zur KI: Die Entwicklung touristischer Inhalte
 
 Noch vor einigen Jahren war der erste Stopp eines jeden Reisenden das örtliche Tourismusbüro: Dort griff man zu einer Papierkarte, blätterte durch einen Stapel Broschüren und hoffte, dass die Informationen noch aktuell waren.
 

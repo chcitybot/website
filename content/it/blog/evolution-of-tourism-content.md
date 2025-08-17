@@ -6,8 +6,6 @@ tags: ["Digital Transformation", "Destination Management"]
 date: "2025-08-11"
 ---
 
-# Dalle brochure all'IA: L'evoluzione dei contenuti turistici
-
 Non molto tempo fa, la prima tappa per ogni viaggiatore era l'ufficio turistico locale, dove prendeva una mappa cartacea, sfogliava una pila di brochure e sperava che le informazioni fossero ancora aggiornate.
 
 Oggi, i visitatori arrivano con lo smartphone in mano e fanno domande come:

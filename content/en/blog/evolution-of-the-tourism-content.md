@@ -2,11 +2,9 @@
 title: "From Brochures to AI: The Evolution of Tourism Content"
 description: "How tourism information has evolved from paper leaflets to smart AI assistants — and what it means for your destination."
 image: "evolution_of_tourism.png"
-tags: ["Digital Transformation", "Destination Management"]
+tags: ["Digital Transformation", "Digital Tourism"]
 date: "2025-08-11"
 ---
-
-# From Brochures to AI: The Evolution of Tourism Content
 
 Not so long ago, the first stop for any traveler was the local tourist office where they’d grab a paper map, flip through a stack of brochures, and hope the information was still up to date.
 
