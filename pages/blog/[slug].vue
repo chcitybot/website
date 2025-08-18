@@ -64,11 +64,11 @@ useHead(() => {
       { property: "og:description", content: post.value?.description },
       {
         property: "og:image",
-        content: `https://yourdomain.com${post.value?.image}`,
+        content: `${siteUrl}/${post.value?.image}`,
       },
       {
         property: "og:url",
-        content: `https://yourdomain.com${useRoute().path}`,
+        content: `${siteUrl}/${useRoute().path}`,
       },
       { property: "og:type", content: "article" },
     ],
