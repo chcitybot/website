@@ -1,5 +1,5 @@
 ---
-title: "Wie KI den Tourismus verändert – und wie Ihre Destination davon profitieren kann"
+title: "Wie KI im Tourismus anwenden – wie kann Ihre Destination davon profitieren?"
 description: "Erfahren Sie, wie KI den Tourismus mit intelligenten, personalisierten POI-Empfehlungen auf Basis von Retrieval-Augmented Generation (RAG) verändert."
 image: "ai_in_tourism.jpg"
 tags: ["Künstliche Intelligenz"]
