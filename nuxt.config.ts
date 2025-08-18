@@ -37,6 +37,7 @@ export default defineNuxtConfig({
   content: {
     // Options for @nuxt/content
   },
+  site: {  url: 'https://citybot.ch',  name: 'CityBot - The platform for the digital precence of your city or destination'  },
   tailwindcss: {
     cssPath: ['~/assets/css/tailwind.css', { injectPosition: "first" }],
     configPath: 'tailwind.config',
@@ -47,6 +48,7 @@ export default defineNuxtConfig({
     viewer: true,
   },
   i18n: {
+    baseUrl: 'https://citybot.ch',
     locales: [
       { code: 'en', name: 'English', file: 'en.json' },
       { code: 'fr', name: 'Francaise', file: 'fr.json' },
@@ -58,4 +60,5 @@ export default defineNuxtConfig({
     detectBrowserLanguage: false,
     langDir: 'locales',
   },
+  
 })

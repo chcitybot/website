@@ -1,0 +1,10 @@
+User-agent: *
+Allow: /
+
+# Sitemap
+Sitemap: https://citybot.ch/sitemap.xml
+
+# Disallow crawling of dev/staging paths (optional)
+Disallow: /__nuxt/
+Disallow: /_nuxt/
+Disallow: /node_modules/
