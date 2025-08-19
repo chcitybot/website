@@ -39,14 +39,26 @@
 <script lang="ts" setup>
 const route = useRoute();
 const { locale, locales } = useI18n();
-const { data: post } = await useAsyncData(route.path, () => {
-  return queryCollection("blog").path(route.path).first();
-});
 
 const siteUrl = "https://citybot.ch";
 const fullPath = route.fullPath;
 
+const { data: post, error } = await useAsyncData(
+  `blog-${route.params.slug}-${locale.value}`,
+  () => {
+    return queryCollection("blog").path(route.path).first();
+  }
+);
+
+// Set up head with proper error handling
 useHead(() => {
+  if (!post.value) {
+    return {};
+  }
+
+  const siteUrl = "https://citybot.ch";
+  const fullPath = route.fullPath;
+
   const canonicalUrl = `${siteUrl}/${locale.value}${fullPath}`;
   const alternateLinks = locales.value.map((loc: any) => {
     return {
@@ -64,15 +76,20 @@ useHead(() => {
       { property: "og:description", content: post.value?.description },
       {
         property: "og:image",
-        content: `https://yourdomain.com${post.value?.image}`,
+        content: `${siteUrl}${post.value?.image}`,
       },
       {
         property: "og:url",
-        content: `https://yourdomain.com${useRoute().path}`,
+        content: `${siteUrl}${route.path}`,
       },
       { property: "og:type", content: "article" },
     ],
     link: [{ rel: "canonical", href: canonicalUrl }, ...alternateLinks],
   };
 });
+
+// Handle 404 if post doesn't exist
+if (!post.value && process.client) {
+  throw createError({ statusCode: 404, statusMessage: "Page Not Found" });
+}
 </script>
