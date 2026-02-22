@@ -17,6 +17,10 @@ export default defineNuxtConfig({
         },
         {
           rel: 'stylesheet',
+          href: "https://fonts.googleapis.com/css2?family=Eczar:wght@400;500;600;700&display=swap",
+        },
+        {
+          rel: 'stylesheet',
           href: 'https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css',
         },
       ],
@@ -50,9 +54,9 @@ export default defineNuxtConfig({
   i18n: {
     baseUrl: 'https://citybot.ch',
     locales: [
-      { code: 'en', name: 'English', file: 'en.json' },
-      { code: 'fr', name: 'Francaise', file: 'fr.json' },
       { code: 'de', name: 'Deutsch', file: 'de.json' },
+      { code: 'en', name: 'English', file: 'en.json' },
+      { code: 'fr', name: 'Français', file: 'fr.json' },
       { code: 'it', name: 'Italiano', file: 'it.json' }
     ],
     defaultLocale: 'en',

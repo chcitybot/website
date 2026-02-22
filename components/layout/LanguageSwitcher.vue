@@ -1,11 +1,11 @@
 <template>
   <div class="relative inline-block text-left group mx-2">
     <button
-      class="inline-flex items-center px-3 py-2 text-sm leading-4 font-medium rounded-md group-hover:text-bot_pink focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"
+      class="inline-flex items-center px-3 py-2 text-sm font-medium rounded-md transition-colors duration-200 text-gray-700 hover:text-bot_dark_blue"
     >
       {{ locale.toLocaleUpperCase() }}
       <svg
-        class="-mr-1 ml-2 h-5 w-5"
+        class="-mr-1 ml-1 h-4 w-4"
         xmlns="http://www.w3.org/2000/svg"
         viewBox="0 0 20 20"
         fill="currentColor"
@@ -20,30 +20,34 @@
     </button>
 
     <div
-      class="origin-top-right invisible group-hover:visible absolute right-0 w-40 rounded-md shadow-lg bg-white ring-1 ring-black ring-opacity-5 focus:outline-none"
+      class="origin-top-right invisible group-hover:visible absolute right-0 w-36 rounded-xl shadow-xl bg-white border border-gray-100 py-2 mt-1 transition-all duration-200"
     >
-      <div class="py-1">
-        <button
-          v-for="locale in locales"
-          :key="locale.code"
-          @click="setLanguage(locale.code)"
-          class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 w-full text-left"
-        >
-          {{ locale.name }}
-        </button>
-      </div>
+      <button
+        v-for="loc in locales"
+        :key="loc.code"
+        @click="setLanguage(loc.code)"
+        :class="[
+          'block px-4 py-2 text-sm w-full text-left transition-colors duration-150',
+          loc.code === locale ? 'bg-bot_dark_blue/5 text-bot_dark_blue font-medium' : 'text-gray-700 hover:bg-gray-50'
+        ]"
+      >
+        {{ loc.name }}
+      </button>
     </div>
   </div>
 </template>
 
 <script setup>
-const { locales, locale, setLocale } = useI18n();
+const props = defineProps({
+  scrolled: {
+    type: Boolean,
+    default: true
+  }
+})
+
+const { locales, locale, setLocale } = useI18n()
 
 const setLanguage = (code) => {
-  setLocale(code);
-};
+  setLocale(code)
+}
 </script>
-
-<style scoped>
-/* Tailwind CSS classes will handle most of the styling */
-</style>

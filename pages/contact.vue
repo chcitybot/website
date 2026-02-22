@@ -1,54 +1,21 @@
-<script lang="ts" setup>
-
-</script>
-
 <template>
-    <div class="min-h-screen bg-gray-800 py-6 flex flex-col justify-center sm:py-12">
-        <div class="relative py-3 sm:max-w-7xl sm:mx-auto">
-            <div
-                class="absolute inset-0 bg-gradient-to-r from-bot_salmon to-bot_pink shadow-lg transform -skew-y-6 sm:skew-y-0 sm:-rotate-6 sm:rounded-3xl">
-            </div>
-            <div class="text-white relative px-4 py-10 bg-bot_light_blue shadow-lg sm:rounded-3xl sm:p-20">
-
-                <div class="text-center pb-6">
-                    <h1 class="text-3xl">{{ $t("contact_form_title") }}</h1>
-
-                    <p class="text-2xl mt-10 text-bot_salmon">
-                        <!-- Füllen Sie das Formular aus um uns eine Nachricht zu senden. Wir melden uns so schnell wie möglich zurück. -->
-                         contact.citybot@gmail.com
-                    </p>
-                </div>
-
-                <!-- <form action="https://fabform.io/f/{form-id}" method="post">
-
-                    <input
-                        class="shadow mb-4 appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
-                        type="text" placeholder="Name" name="name">
-
-                    <input
-                        class="shadow mb-4 appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
-                        type="email" placeholder="Email" name="email">
-
-                    <input
-                        class="shadow mb-4 appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
-                        type="text" placeholder="Betreff" name="_subject">
-
-                    <textarea
-                        class="shadow mb-4 min-h-0 appearance-none border rounded  w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
-                        type="text" placeholder="Ihre Nachricht..." name="message"
-                        style="height: 121px;"></textarea>
-
-                    <div class="flex justify-between">
-                        <input
-                            class="shadow bg-bot_dark_blue hover:bg-indigo-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline"
-                            type="submit" value="Senden ➤">
-                        <input
-                            class="shadow bg-red-600 hover:bg-red-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline"
-                            type="reset" value="Löschen">
-                    </div>
-                </form> -->
-            </div>
-
-        </div>
+  <div class="min-h-screen flex flex-col items-center justify-center px-6 py-32 bg-white font-main">
+    <div class="max-w-2xl text-center reveal">
+      <h1 class="font-heading text-display-sm text-gray-900 mb-4">
+        {{ $t("contact_form_title") }}
+      </h1>
+      <p class="text-paragraph text-bot_gray mb-10">
+        {{ $t("contact_form_subtitle") || '' }}
+      </p>
+      <a
+        href="mailto:contact.citybot@gmail.com"
+        class="inline-flex items-center px-8 py-4 rounded-full bg-bot_dark_blue text-white text-paragraph font-semibold hover:bg-bot_dark_blue/90 transition-all duration-200 shadow-lg shadow-bot_dark_blue/25 hover:shadow-xl hover:-translate-y-0.5"
+      >
+        <svg class="w-5 h-5 mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+          <path stroke-linecap="round" stroke-linejoin="round" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
+        </svg>
+        contact.citybot@gmail.com
+      </a>
     </div>
+  </div>
 </template>

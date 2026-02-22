@@ -2,41 +2,60 @@
 @tailwind components;
 @tailwind utilities;
 
-/* ------------------------
-   Custom Markdown Heading Styles
-   ------------------------ */
+/* Smooth scroll globally */
+html {
+  scroll-behavior: smooth;
+}
 
-/* NOTE: Uncomment the font-family lines after you load Raleway via Google Fonts
-   Example for nuxt.config.ts:
-   {
-     rel: 'stylesheet',
-     href: "https://fonts.googleapis.com/css2?family=Raleway:wght@400;700&display=swap"
-   }
-*/
+/* Font smoothing */
+body {
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
 
+/* Scroll-reveal animation */
+.reveal {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+}
+.reveal.is-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+.reveal-delay-1 { transition-delay: 0.1s; }
+.reveal-delay-2 { transition-delay: 0.2s; }
+.reveal-delay-3 { transition-delay: 0.3s; }
+.reveal-delay-4 { transition-delay: 0.4s; }
+
+/* Prose heading styles */
 .prose h1,
 .prose h1 a {
-  font-weight: bold;
-  font-size: 30px;
-  color: #1E40AF;
+  font-family: 'Eczar', serif;
+  font-weight: 600;
+  font-size: 32px;
+  line-height: 36px;
+  color: #4047D2;
   border-bottom: none;
   text-decoration: none;
 }
 
 .prose h2,
 .prose h2 a {
-  font-weight: bold;
-  font-size: 24px;
-  color: #1E40AF;
+  font-weight: 500;
+  font-size: 20px;
+  line-height: 26px;
+  color: #4047D2;
   border-bottom: none;
   text-decoration: none;
 }
 
 .prose h3,
 .prose h3 a {
-  font-weight: bold;
+  font-weight: 500;
   font-size: 20px;
-  color: #1E40AF;
+  line-height: 26px;
+  color: #4047D2;
   border-bottom: none;
   text-decoration: none;
 }
