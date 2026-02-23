@@ -1,7 +1,7 @@
 <template>
   <section class="overflow-hidden bg-white">
-    <!-- Title content -->
-    <div class="pt-32 pb-16 lg:pt-40 lg:pb-20 max-w-7xl mx-auto px-6 lg:px-8">
+    <!-- Full-viewport hero -->
+    <div class="min-h-screen flex flex-col items-center justify-center px-6 lg:px-8">
       <div class="max-w-2xl mx-auto text-center">
         <h1 class="font-heading text-display-sm lg:text-display text-gray-900 opacity-0 animate-fade-up-delay-1">
           {{ $t("home_hero_title") }}
@@ -29,12 +29,22 @@
           </NuxtLink>
         </div>
       </div>
+
+      <!-- Scroll indicator -->
+      <div class="absolute bottom-8 opacity-0 animate-fade-up-delay-3 transition-opacity duration-300" :style="{ opacity: scrollIndicatorOpacity }">
+        <div class="animate-bounce">
+          <svg class="w-6 h-6 text-bot_gray" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M19 14l-7 7m0 0l-7-7" />
+          </svg>
+        </div>
+      </div>
     </div>
 
     <!-- Phone screenshots strip -->
     <div
       ref="stripContainer"
       class="relative pb-12 lg:pb-16"
+      :style="{ marginTop: `${stripPullUp}px` }"
       @mouseenter="onMouseEnter"
       @mouseleave="onMouseLeave"
       @mousemove="onMouseMove"
@@ -91,6 +101,20 @@ const autoSpeed = 1.0
 let animFrame = null
 let targetX = 0
 let hoverSpeed = 0
+
+// Scroll-driven: pull screenshots up to close the gap
+const stripPullUp = ref(0)
+const scrollIndicatorOpacity = ref(1)
+
+function onScrollHero() {
+  const scrollY = window.scrollY
+  const vh = window.innerHeight
+  // Over the first viewport of scrolling, pull the strip up by up to 40vh
+  const progress = Math.min(scrollY / vh, 1)
+  stripPullUp.value = -progress * vh * 0.4
+  // Fade out scroll indicator quickly
+  scrollIndicatorOpacity.value = Math.max(1 - scrollY / 100, 0)
+}
 
 function getHalfWidth() {
   if (!stripEl.value) return 3000
@@ -166,9 +190,12 @@ function onTouchEnd() {
 
 onMounted(() => {
   animFrame = requestAnimationFrame(tick)
+  window.addEventListener('scroll', onScrollHero, { passive: true })
+  onScrollHero()
 })
 
 onUnmounted(() => {
   if (animFrame) cancelAnimationFrame(animFrame)
+  window.removeEventListener('scroll', onScrollHero)
 })
 </script>
