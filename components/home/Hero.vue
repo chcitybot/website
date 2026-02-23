@@ -86,7 +86,7 @@
       </div>
 
       <!-- Scroll indicator -->
-      <div class="absolute bottom-8 z-10 opacity-0 animate-fade-up-delay-3 transition-opacity duration-300" :style="{ opacity: scrollIndicatorOpacity }">
+      <div class="absolute bottom-8 z-10 animate-fade-up-delay-3 transition-opacity duration-500" :style="{ opacity: scrollIndicatorOpacity, visibility: scrollIndicatorOpacity === 0 ? 'hidden' : 'visible' }">
         <div class="animate-bounce">
           <svg class="w-6 h-6 text-bot_gray" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
             <path stroke-linecap="round" stroke-linejoin="round" d="M19 14l-7 7m0 0l-7-7" />
@@ -210,7 +210,7 @@ function onScrollHero() {
   const vh = window.innerHeight
   const progress = Math.min(scrollY / vh, 1)
   stripPullUp.value = -progress * vh * 0.4
-  scrollIndicatorOpacity.value = Math.max(1 - scrollY / 100, 0)
+  scrollIndicatorOpacity.value = Math.max(1 - scrollY / 20, 0)
 }
 
 function getHalfWidth() {
