@@ -1,10 +1,13 @@
 <template>
   <header
     :class="[
-      'fixed top-0 z-50 w-full transition-all duration-300 font-main bg-white',
+      'fixed top-0 z-50 w-full transition-all duration-500 font-main bg-white',
       scrolled
         ? 'border-b border-gray-200/60 shadow-sm'
-        : ''
+        : '',
+      headerVisible
+        ? 'translate-y-0 opacity-100'
+        : '-translate-y-full opacity-0'
     ]"
   >
     <div class="max-w-7xl mx-auto px-6 lg:px-8">
@@ -108,6 +111,7 @@ const { locale } = useI18n()
 const isMenuOpen = ref(false)
 const scrolled = ref(false)
 const activeNav = ref('home')
+const headerVisible = ref(true)
 
 // Determine active nav item based on current page + scroll position
 function getPageKey() {
@@ -146,8 +150,19 @@ function updateActiveFromScroll() {
   activeNav.value = 'home'
 }
 
+function isHomePage() {
+  const pageKey = getPageKey()
+  return pageKey === 'home'
+}
+
 function handleScroll() {
   scrolled.value = window.scrollY > 50
+  // On homepage, hide navbar until user scrolls past the hero
+  if (isHomePage()) {
+    headerVisible.value = window.scrollY > 100
+  } else {
+    headerVisible.value = true
+  }
   updateActiveFromScroll()
 }
 
@@ -175,14 +190,19 @@ function mobileNavLink(key) {
 onMounted(() => {
   window.addEventListener('scroll', handleScroll, { passive: true })
   updateActiveFromScroll()
+  // Hide navbar initially on homepage
+  headerVisible.value = !isHomePage() || window.scrollY > 100
 })
 onUnmounted(() => {
   window.removeEventListener('scroll', handleScroll)
 })
 
-// Update active nav on route change
+// Update active nav and header visibility on route change
 watch(() => route.path, () => {
-  nextTick(() => updateActiveFromScroll())
+  nextTick(() => {
+    updateActiveFromScroll()
+    headerVisible.value = !isHomePage() || window.scrollY > 100
+  })
 })
 
 function toggleMenu() {
