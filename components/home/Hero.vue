@@ -14,7 +14,7 @@
         <div class="mt-10 flex flex-wrap justify-center gap-4 opacity-0 animate-fade-up-delay-3">
           <NuxtLink
             :to="'/download'"
-            class="inline-flex items-center px-8 py-4 rounded-full bg-bot_dark_blue text-white text-paragraph font-semibold hover:bg-bot_dark_blue/90 transition-all duration-200 shadow-lg shadow-bot_dark_blue/25 hover:shadow-xl hover:shadow-bot_dark_blue/30 hover:-translate-y-0.5"
+            class="inline-flex items-center px-8 py-4 rounded-full bg-bot_red text-white text-paragraph font-semibold hover:bg-bot_red/90 transition-all duration-200 shadow-lg shadow-bot_red/25 hover:shadow-xl hover:shadow-bot_red/30 hover:-translate-y-0.5"
           >
             {{ $t("cta_app_test") }}
             <svg class="ml-2 w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
@@ -23,7 +23,7 @@
           </NuxtLink>
           <NuxtLink
             :to="'/contact'"
-            class="inline-flex items-center px-8 py-4 rounded-full border-2 border-gray-200 text-gray-700 text-paragraph font-semibold hover:border-bot_dark_blue hover:text-bot_dark_blue transition-all duration-200 hover:-translate-y-0.5"
+            class="inline-flex items-center px-8 py-4 rounded-full border-2 border-bot_dark_blue text-bot_dark_blue text-paragraph font-semibold hover:bg-bot_dark_blue hover:text-white transition-all duration-200 hover:-translate-y-0.5"
           >
             {{ $t("cta_become_partner") }}
           </NuxtLink>

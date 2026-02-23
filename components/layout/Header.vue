@@ -30,15 +30,23 @@
           <NuxtLink :to="localePath('/blog')" :class="navLink('blog')">
             {{ $t("insights") }}
           </NuxtLink>
+          <NuxtLink :to="localePath('/contact')" :class="navLink('contact')">
+            {{ $t("contact") }}
+          </NuxtLink>
         </nav>
 
-        <!-- Right side: contact + language -->
+        <!-- Right side: download CTA + language -->
         <div class="hidden md:flex items-center gap-4">
           <NuxtLink
-            :to="localePath('/contact')"
-            class="inline-flex items-center px-5 py-2.5 rounded-full text-paragraph font-semibold bg-bot_dark_blue text-white hover:bg-bot_dark_blue/90 transition-colors duration-200"
+            to="/download"
+            :class="[
+              'inline-flex items-center px-5 py-2.5 rounded-full text-paragraph font-semibold transition-colors duration-200',
+              activeNav === 'download'
+                ? 'bg-bot_red text-white'
+                : 'border-2 border-bot_red text-bot_red hover:bg-bot_red hover:text-white'
+            ]"
           >
-            {{ $t("contact") }}
+            {{ $t("download") }}
           </NuxtLink>
           <LayoutLanguageSwitcher :scrolled="scrolled" />
         </div>
@@ -76,6 +84,9 @@
           <NuxtLink :to="localePath('/blog')" @click="toggleMenu" :class="mobileNavLink('blog')">
             {{ $t("insights") }}
           </NuxtLink>
+          <NuxtLink to="/download" @click="toggleMenu" :class="mobileNavLink('download')">
+            {{ $t("download") }}
+          </NuxtLink>
           <NuxtLink :to="localePath('/contact')" @click="toggleMenu" :class="mobileNavLink('contact')">
             {{ $t("contact") }}
           </NuxtLink>
@@ -105,6 +116,7 @@ function getPageKey() {
   if (path === '/team') return 'team'
   if (path.startsWith('/blog')) return 'blog'
   if (path === '/contact') return 'contact'
+  if (path === '/download') return 'download'
   return 'home'
 }
 
