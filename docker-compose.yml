@@ -1,15 +1,19 @@
 services:
   website:
     build: .
+    container_name: citybot-website
+    restart: on-failure:10
+    logging:
+      driver: json-file
+      options:
+        max-size: "10m"
+        max-file: "3"
     labels:
-      - traefik.enable=true
-      - traefik.http.routers.website.rule=Host(`citybot.ch`)
-      - traefik.http.routers.website.entrypoints=websecure
-      - traefik.http.routers.website.tls.certresolver=letsencrypt
-      - traefik.http.routers.website-http.rule=Host(`citybot.ch`)
-      - traefik.http.routers.website-http.entrypoints=web
-      - traefik.http.routers.website-http.middlewares=redirect-https
-      - traefik.http.middlewares.redirect-https.redirectscheme.scheme=https
+      - "traefik.enable=true"
+      - "traefik.http.routers.website.rule=Host(`citybot-test-website.duckdns.org`)"
+      - "traefik.http.routers.website.entrypoints=web-secure"
+      - "traefik.http.routers.website.tls.certresolver=le"
+      - "traefik.http.services.website.loadbalancer.server.port=80"
     networks:
       - traefik-public
 
