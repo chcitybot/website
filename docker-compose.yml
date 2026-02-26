@@ -1,0 +1,18 @@
+services:
+  website:
+    build: .
+    labels:
+      - traefik.enable=true
+      - traefik.http.routers.website.rule=Host(`citybot.ch`)
+      - traefik.http.routers.website.entrypoints=websecure
+      - traefik.http.routers.website.tls.certresolver=letsencrypt
+      - traefik.http.routers.website-http.rule=Host(`citybot.ch`)
+      - traefik.http.routers.website-http.entrypoints=web
+      - traefik.http.routers.website-http.middlewares=redirect-https
+      - traefik.http.middlewares.redirect-https.redirectscheme.scheme=https
+    networks:
+      - traefik-public
+
+networks:
+  traefik-public:
+    external: true
