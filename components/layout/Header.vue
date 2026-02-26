@@ -42,12 +42,7 @@
         <div class="hidden md:flex items-center gap-4">
           <NuxtLink
             to="/download"
-            :class="[
-              'inline-flex items-center px-5 py-2.5 rounded-full text-paragraph font-semibold transition-colors duration-200',
-              activeNav === 'download'
-                ? 'bg-bot_red text-white'
-                : 'border-2 border-bot_red text-bot_red hover:bg-bot_red hover:text-white'
-            ]"
+            class="inline-flex items-center px-5 py-2.5 rounded-full text-paragraph font-semibold transition-colors duration-200 bg-bot_red text-white hover:bg-bot_red/90"
           >
             {{ $t("download") }}
           </NuxtLink>

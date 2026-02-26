@@ -1,7 +1,7 @@
 export function useScrollReveal() {
   onMounted(() => {
     function revealVisible() {
-      document.querySelectorAll('.reveal:not(.is-visible)').forEach((el) => {
+      document.querySelectorAll('.reveal:not(.is-visible), .reveal-slide-left:not(.is-visible)').forEach((el) => {
         const rect = el.getBoundingClientRect()
         if (rect.top < window.innerHeight * 1.1 && rect.bottom > 0) {
           el.classList.add('is-visible')

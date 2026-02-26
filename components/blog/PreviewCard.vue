@@ -1,6 +1,6 @@
 <template>
   <NuxtLink :to="post.path" class="group">
-    <div class="rounded-2xl overflow-hidden bg-white shadow-sm hover:shadow-lg transition-all duration-300 hover:-translate-y-1 h-full flex flex-col justify-between">
+    <div class="rounded-2xl overflow-hidden bg-white team-glow transition-all duration-500 hover:-translate-y-1 h-full flex flex-col justify-between" style="--glow-color: #4047D2;">
       <div class="overflow-hidden">
         <img
           :src="`/img/${post.image}`"
