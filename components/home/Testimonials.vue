@@ -11,7 +11,7 @@
         <!-- Testimonial 1 -->
         <div class="group reveal">
           <div
-            class="bg-white rounded-2xl p-8 lg:p-10 border border-bot_dark_blue/20 h-full"
+            class="bg-white rounded-2xl p-8 lg:p-10 h-full hover:shadow-lg transition-shadow duration-300"
           >
             <img
               src="/img/stadt_zug_logo.webp"
@@ -39,7 +39,7 @@
         <!-- Testimonial 2 -->
         <div class="group reveal reveal-delay-2">
           <div
-            class="bg-white rounded-2xl p-8 lg:p-10 border border-bot_dark_blue/20 h-full"
+            class="bg-white rounded-2xl p-8 lg:p-10 h-full hover:shadow-lg transition-shadow duration-300"
           >
             <img
               src="/img/zug_tourism_logo.png"
