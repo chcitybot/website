@@ -39,48 +39,51 @@
             </mask>
           </defs>
 
-          <!-- Persistent lines (committed, stay visible, fade out when trimmed) -->
+          <!-- Persistent lines (committed) — colored by their destination -->
           <path
             v-for="line in completedLines"
             :key="line.id"
             :d="getPathD(line.from, line.to)"
             fill="none"
-            stroke="#4047D2"
+            :stroke="line.color"
             stroke-width="1.5"
             stroke-linecap="round"
             class="persistent-line"
             :style="{ opacity: line.opacity }"
           />
 
-          <!-- Traveling dashed line, revealed by the mask -->
+          <!-- Traveling dashed line, revealed by the mask — destination color -->
           <path
             :key="travelCycleKey"
             :d="getPathD(travelingFrom, travelingTo)"
             fill="none"
-            stroke="#4047D2"
+            :stroke="pois[travelingTo].color"
             stroke-width="1.5"
             stroke-linecap="round"
             class="hero-connect-line"
             :mask="`url(#travel-mask-${travelCycleKey})`"
           />
 
-          <!-- Bloom circles: expand from icon center when bubble arrives, then contract -->
+          <!-- Bloom rings: expand from icon center when bubble arrives, fade out -->
           <circle
             v-for="bloom in blooms"
             :key="bloom.id"
             :cx="bloom.x"
             :cy="bloom.y"
             r="5"
-            fill="#4047D2"
+            fill="none"
+            :stroke="bloom.color"
+            stroke-width="5"
+            vector-effect="non-scaling-stroke"
             class="poi-bloom"
           />
 
-          <!-- Traveling bubble: organic drop that stretches/contracts with velocity -->
+          <!-- Traveling bubble: organic drop — takes destination color -->
           <path
             v-if="bubbleVisible"
             :transform="`translate(${bubbleX}, ${bubbleY}) rotate(${travelLineAngle})`"
             :d="bubblePath"
-            fill="#4047D2"
+            :fill="bubbleColor"
             fill-opacity="0.6"
           />
         </svg>
@@ -98,8 +101,9 @@
         >
           <!-- Icon -->
           <div
-            class="w-12 h-12 rounded-xl bg-bot_dark_blue backdrop-blur-sm shadow-md flex items-center justify-center overflow-hidden"
+            class="w-12 h-12 rounded-xl backdrop-blur-sm shadow-md flex items-center justify-center overflow-hidden"
             :style="{
+              backgroundColor: poi.color,
               opacity: poi.visible ? 0.35 : 0,
               transform: `scale(${poi.visible ? 1 : 0.5})`,
               transition: poi.visible ? 'all 0.5s cubic-bezier(0.34, 1.56, 0.64, 1)' : 'all 0.8s ease-out',
@@ -230,15 +234,15 @@ const scrollIndicatorOpacity = ref(1)
 // Odd indices (1,3,5,7) pulled toward center; even (0,2,4,6,8) pushed to edges
 // Each consecutive step stays ~28-36 viewBox units (≈ 30% of screen)
 const pois = reactive([
-  { x: 18, y: 10, image: '/img/category_sights_neg.png',   visible: false}, // outer top-left
-  { x: 52, y: 22, image: '/img/category_art_neg.png',      visible: false}, // inner top
-  { x: 84, y: 10, image: '/img/category_nature_neg.png',   visible: false}, // outer top-right
-  { x: 75, y: 44, image: '/img/category_coffee_neg.png',   visible: false}, // inner right
-  { x: 92, y: 70, image: '/img/category_bar_neg.png',      visible: false}, // outer right-bottom
-  { x: 60, y: 88, image: '/img/category_food_neg.png',     visible: false}, // inner bottom
-  { x: 28, y: 92, image: '/img/category_shopping_neg.png', visible: false}, // outer bottom-left
-  { x: 22, y: 70, image: '/img/category_activity_neg.png', visible: false}, // inner left
-  { x: 8,  y: 40, image: '/img/category_sports.png',       visible: false}, // outer left
+  { x: 18, y: 10, image: '/img/category_sights_neg.png',   visible: false, color: '#F9B666' }, // sights — yellow
+  { x: 52, y: 22, image: '/img/category_art_neg.png',      visible: false, color: '#AF94D6' }, // art — violet
+  { x: 84, y: 10, image: '/img/category_nature_neg.png',   visible: false, color: '#4047D2' }, // nature — blue
+  { x: 75, y: 44, image: '/img/category_coffee_neg.png',   visible: false, color: '#AF94D6' }, // coffee — violet
+  { x: 92, y: 70, image: '/img/category_bar_neg.png',      visible: false, color: '#4047D2' }, // bar — blue
+  { x: 60, y: 88, image: '/img/category_food_neg.png',     visible: false, color: '#4047D2' }, // food — blue
+  { x: 28, y: 92, image: '/img/category_shopping_neg.png', visible: false, color: '#FA634B' }, // shopping — orange
+  { x: 22, y: 70, image: '/img/category_activity_neg.png', visible: false, color: '#FA634B' }, // activity — orange
+  { x: 8,  y: 40, image: '/img/category_sports.png',       visible: false, color: '#F9B666' }, // sports — yellow
 ])
 
 // Actual pixel dimensions of the hero — updated by ResizeObserver
@@ -284,6 +288,17 @@ let lineIdCounter = 0
 
 // History of poi indices in the current visible window
 const iconHistory = ref([])
+
+// Drop color interpolates between source and destination color as it travels
+const bubbleColor = ref('#4047D2')
+
+function hexToRgb(hex) {
+  return [parseInt(hex.slice(1,3),16), parseInt(hex.slice(3,5),16), parseInt(hex.slice(5,7),16)]
+}
+function lerpColor(a, b, t) {
+  const [r1,g1,b1] = hexToRgb(a), [r2,g2,b2] = hexToRgb(b)
+  return `rgb(${Math.round(r1+(r2-r1)*t)},${Math.round(g1+(g2-g1)*t)},${Math.round(b1+(b2-b1)*t)})`
+}
 
 // Bubble position + organic shape — driven by rAF, deforms with velocity
 const bubbleX = ref(0)
@@ -341,6 +356,7 @@ function animateBubble(timestamp) {
   // Speed is derivative of easeInOut, normalized to 0–1 (peaks at midpoint)
   const speed = rawT < 0.5 ? 4 * rawT : 4 - 4 * rawT
   bubblePath.value = buildBubblePath(speed / 2)
+  bubbleColor.value = lerpColor(pois[travelingFrom.value].color, pois[travelingTo.value].color, progress)
   if (rawT < 1) {
     bubbleRaf = requestAnimationFrame(animateBubble)
   }
@@ -352,7 +368,7 @@ let bloomIdCounter = 0
 
 function triggerBloom(poiIdx) {
   const p = px(pois[poiIdx])
-  const bloom = { id: bloomIdCounter++, x: p.x, y: p.y }
+  const bloom = { id: bloomIdCounter++, x: p.x, y: p.y, color: pois[poiIdx].color }
   blooms.push(bloom)
   setTimeout(() => {
     const i = blooms.indexOf(bloom)
@@ -389,7 +405,7 @@ function runCycle() {
   const lineEnd = 80 + LINE_DUR
   cycleTimers.push(setTimeout(() => {
     lineVisible.value = false
-    completedLines.push({ id: lineIdCounter++, from, to, opacity: 1 })
+    completedLines.push({ id: lineIdCounter++, from, to, opacity: 1, color: pois[to].color })
   }, lineEnd))
 
   // T+(lineEnd+100)ms: user departs on the journey

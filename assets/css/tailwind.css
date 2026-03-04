@@ -108,17 +108,17 @@ body {
 }
 
 /* POI discovery pulse — stronger ring */
-/* Bloom: filled bubble that expands from icon center then contracts (replaces old pulse ring) */
+/* Bloom ring: expands from icon center, blurry wide stroke, fades out (no contraction) */
 .poi-bloom {
   transform-box: fill-box;
   transform-origin: center;
-  animation: bloom-enlighten 0.9s cubic-bezier(0.25, 0.46, 0.45, 0.94) forwards;
+  filter: blur(1.5px);
+  animation: bloom-enlighten 1.1s ease-out forwards;
 }
 
 @keyframes bloom-enlighten {
-  0%   { transform: scale(1);   fill-opacity: 0.3; }
-  35%  { transform: scale(12);  fill-opacity: 0.12; }
-  100% { transform: scale(1);   fill-opacity: 0; }
+  0%   { transform: scale(1);  opacity: 1; }
+  100% { transform: scale(18); opacity: 0; }
 }
 
 /* Traveling dashed line — mask handles progressive reveal, no CSS animation needed */
