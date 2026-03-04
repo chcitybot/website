@@ -44,15 +44,15 @@ export default {
         main: ['DM Sans', 'sans-serif'],
       },
       fontSize: {
-        // Figma CI typography
-        'h1': ['32px', { lineHeight: '36px', fontWeight: '600' }],
-        'h2': ['20px', { lineHeight: '26px', fontWeight: '500' }],
-        'h3': ['20px', { lineHeight: '26px', fontWeight: '500' }],
-        'paragraph': ['15px', { lineHeight: '21px', fontWeight: '400' }],
-        'caption': ['15px', { lineHeight: '20px', fontWeight: '400' }],
-        // Larger display sizes for hero/sections
-        'display': ['3.5rem', { lineHeight: '1.1', letterSpacing: '-0.02em', fontWeight: '600' }],
-        'display-sm': ['2.5rem', { lineHeight: '1.15', letterSpacing: '-0.015em', fontWeight: '600' }],
+        // Figma CI typography (+2px)
+        'h1': ['36px', { lineHeight: '40px', fontWeight: '600' }],
+        'h2': ['24px', { lineHeight: '30px', fontWeight: '500' }],
+        'h3': ['24px', { lineHeight: '30px', fontWeight: '500' }],
+        'paragraph': ['19px', { lineHeight: '25px', fontWeight: '400' }],
+        'caption': ['19px', { lineHeight: '24px', fontWeight: '400' }],
+        // Larger display sizes for hero/sections (+2px)
+        'display': ['3.75rem', { lineHeight: '1.1', letterSpacing: '-0.02em', fontWeight: '600' }],
+        'display-sm': ['2.75rem', { lineHeight: '1.15', letterSpacing: '-0.015em', fontWeight: '600' }],
       },
       keyframes: {
         'fade-up': {

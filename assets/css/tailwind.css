@@ -107,23 +107,38 @@ body {
   50% { transform: scale(1.22); opacity: 0.7; }
 }
 
-/* POI discovery pulse */
-.poi-pulse {
-  animation: poi-ring 1.2s cubic-bezier(0.25, 0.46, 0.45, 0.94) forwards;
+/* POI discovery pulse — stronger ring */
+/* Bloom: filled bubble that expands from icon center then contracts (replaces old pulse ring) */
+.poi-bloom {
+  transform-box: fill-box;
+  transform-origin: center;
+  animation: bloom-enlighten 0.9s cubic-bezier(0.25, 0.46, 0.45, 0.94) forwards;
 }
 
-@keyframes poi-ring {
-  0% {
-    transform: scale(1);
-    opacity: 0.35;
-  }
-  60% {
-    opacity: 0.15;
-  }
-  100% {
-    transform: scale(3.5);
-    opacity: 0;
-  }
+@keyframes bloom-enlighten {
+  0%   { transform: scale(1);   fill-opacity: 0.3; }
+  35%  { transform: scale(12);  fill-opacity: 0.12; }
+  100% { transform: scale(1);   fill-opacity: 0; }
+}
+
+/* Traveling dashed line — mask handles progressive reveal, no CSS animation needed */
+.hero-connect-line {
+  stroke-dasharray: 5 8;
+  stroke-opacity: 0.18;
+}
+
+/* Persistent (committed) line between connected icons */
+.persistent-line {
+  stroke-dasharray: 5 8;
+  stroke-dashoffset: 0;
+  transition: opacity 0.8s ease-out;
+  animation: dash-scroll 1.6s linear infinite;
+  stroke-opacity: 0.15;
+}
+
+@keyframes dash-scroll {
+  from { stroke-dashoffset: 0; }
+  to   { stroke-dashoffset: -13; }
 }
 
 /* Slide-from-left reveal (team bio sections) */
@@ -176,8 +191,8 @@ body {
 .prose h1 a {
   font-family: 'Eczar', serif;
   font-weight: 600;
-  font-size: 32px;
-  line-height: 36px;
+  font-size: 36px;
+  line-height: 40px;
   color: #4047D2;
   border-bottom: none;
   text-decoration: none;
@@ -186,8 +201,8 @@ body {
 .prose h2,
 .prose h2 a {
   font-weight: 500;
-  font-size: 20px;
-  line-height: 26px;
+  font-size: 24px;
+  line-height: 30px;
   color: #4047D2;
   border-bottom: none;
   text-decoration: none;
@@ -196,8 +211,8 @@ body {
 .prose h3,
 .prose h3 a {
   font-weight: 500;
-  font-size: 20px;
-  line-height: 26px;
+  font-size: 24px;
+  line-height: 30px;
   color: #4047D2;
   border-bottom: none;
   text-decoration: none;

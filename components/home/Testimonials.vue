@@ -27,7 +27,7 @@
               </p>
             </blockquote>
             <div class="flex items-center gap-3">
-              <div class="w-10 h-10 rounded-full bg-bot_dark_blue/10 flex items-center justify-center text-bot_dark_blue font-bold text-sm">RK</div>
+              <img src="/img/regula_kaiser.jpeg" alt="Regula Kaiser" class="w-10 h-10 rounded-full object-cover" />
               <div>
                 <p class="text-sm font-semibold text-gray-900">Regula Kaiser</p>
                 <p class="text-xs text-bot_gray">{{ $t("testimonials_citydev_title") }} Zug</p>

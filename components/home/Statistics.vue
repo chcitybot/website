@@ -78,7 +78,7 @@
               <path stroke-linecap="round" stroke-linejoin="round" d="M9 12.75L11.25 15 15 9.75m-3-7.036A11.959 11.959 0 013.598 6 11.99 11.99 0 003 9.749c0 5.592 3.824 10.29 9 11.623 5.176-1.332 9-6.03 9-11.622 0-1.31-.21-2.571-.598-3.751h-.152c-3.196 0-6.1-1.248-8.25-3.285z" />
             </svg>
           </div>
-          <div class="font-heading text-display-sm text-bot_dark_blue">0</div>
+          <div class="font-heading text-display-sm text-bot_dark_blue">15+</div>
           <p class="mt-2 text-caption text-bot_gray">{{ $t("stats_nr_crashes_title") }}</p>
         </div>
       </div>
@@ -120,9 +120,9 @@ onMounted(() => {
     (entries) => {
       if (entries[0].isIntersecting && !visible.value) {
         visible.value = true
-        animateValue(0, 1000, 2000, (v) => { animatedStat1.value = v })
-        animateValue(0, 130000, 2500, (v) => { animatedStat2.value = v })
-        animateValue(0, 200, 1800, (v) => { animatedStat3.value = v })
+        animateValue(0, 60000, 2000, (v) => { animatedStat1.value = v })
+        animateValue(0, 330000, 2500, (v) => { animatedStat2.value = v })
+        animateValue(0, 3100, 1800, (v) => { animatedStat3.value = v })
         animateValue(0, 4.2, 2000, (v) => { animatedStat4.value = v }, true)
         observer.disconnect()
       }
