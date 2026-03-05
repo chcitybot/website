@@ -11,17 +11,39 @@
         </p>
       </div>
 
+      <!-- Team Description -->
+      <div class="max-w-3xl mx-auto mb-16 reveal">
+        <p class="text-paragraph text-bot_gray leading-relaxed">
+          We're a team of engineers from the suburbs of Zug, united by the conviction that technology can strengthen communities and destinations without compromising what makes them special. With backgrounds spanning environmental engineering, mathematics, cybersecurity, and IT, we bring different lenses to the same mission: making digital tools that real people can immediately understand and use.
+        </p>
+        <p class="text-paragraph text-bot_gray leading-relaxed mt-4">
+          Whether it's
+          <span
+            v-for="(phrase, i) in highlightPhrases"
+            :key="i"
+          ><span
+              class="team-highlight rounded-md transition-all duration-500"
+              :class="{ 'active': hoveredMember === i, 'streak': introPlaying === i }"
+              :style="{
+                ...(hoveredMember === i ? { backgroundColor: teamMembers[i].color + '20', color: teamMembers[i].color, boxShadow: `0 0 16px ${teamMembers[i].color}25` } : {}),
+                '--streak-color': teamMembers[i].color,
+              }"
+            >{{ phrase.text }}</span><template v-if="i < highlightPhrases.length - 1">{{ phrase.separator }}</template></span>
+          — each of us contributes a piece that makes CityBot genuinely useful. We turn complex problems into clean solutions, and we're there to guide our partners through every step.
+        </p>
+      </div>
+
       <!-- Team Members Grid -->
-      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-x-10 gap-y-10 lg:grid-rows-[auto_auto_1fr]">
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-x-10 gap-y-10">
         <div
           v-for="(member, index) in teamMembers"
           :key="member.name"
-          class="group flex flex-col items-center reveal lg:row-span-3 lg:grid lg:grid-rows-subgrid lg:justify-items-center"
+          class="group flex flex-col items-center reveal"
           :class="index > 0 ? `reveal-delay-${index}` : ''"
         >
           <!-- Photo with glow -->
           <img
-            class="aspect-square w-full max-w-[280px] rounded-2xl object-cover team-glow transition-all duration-500"
+            class="aspect-square w-full max-w-[280px] rounded-2xl object-cover team-glow transition-all duration-500 cursor-pointer"
             :class="member.imgClass || ''"
             :src="member.image"
             :alt="member.name"
@@ -29,14 +51,14 @@
               '--glow-color': member.color,
               animationDuration: `${14 + index * 2}s`,
             }"
+            @mouseenter="hoveredMember = index"
+            @mouseleave="hoveredMember = null"
           />
 
           <!-- Name & Role -->
-          <div class="text-center mt-6 lg:mt-0 w-full flex flex-col justify-between">
-            <div>
-              <h2 class="text-h2 text-gray-900 font-semibold mb-1">{{ member.name }}</h2>
-              <p class="text-caption text-bot_gray mb-3">{{ member.role }}</p>
-            </div>
+          <div class="text-center mt-6 w-full">
+            <h2 class="text-h2 text-gray-900 font-semibold mb-1">{{ member.name }}</h2>
+            <p class="text-caption text-bot_gray mb-3">{{ member.role }}</p>
             <!-- LinkedIn or Website link -->
             <div class="h-5">
               <a
@@ -61,28 +83,6 @@
               </span>
             </div>
           </div>
-
-          <!-- Bio / Story -->
-          <div
-            class="mt-4 lg:mt-0 w-full rounded-xl px-4 py-5 bio-discoverable transition-all duration-200 self-start"
-            :style="{ backgroundColor: member.color + '0A' }"
-          >
-            <div class="w-8 h-0.5 mx-auto mb-3 rounded-full" :style="{ backgroundColor: member.color + '30' }" />
-            <!-- Structured story format -->
-            <div v-if="member.story" class="space-y-3 text-left">
-              <div v-for="item in member.story" :key="item.label" class="flex flex-col gap-1">
-                <span
-                  class="inline-block self-start text-xs font-bold uppercase tracking-wider px-3 py-1 rounded-full"
-                  :style="{ backgroundColor: member.color + '20', color: member.color }"
-                >{{ item.label }}</span>
-                <p class="text-caption text-bot_gray leading-relaxed">{{ item.text }}</p>
-              </div>
-            </div>
-            <!-- Plain bio fallback -->
-            <p v-else class="text-caption text-bot_gray leading-relaxed text-center">
-              {{ member.bio }}
-            </p>
-          </div>
         </div>
       </div>
     </div>
@@ -90,6 +90,27 @@
 </template>
 
 <script setup>
+const hoveredMember = ref(null)
+const introPlaying = ref(null)
+
+onMounted(() => {
+  const delay = 800
+  const duration = 600
+  const gap = 200
+
+  highlightPhrases.forEach((_, i) => {
+    setTimeout(() => { introPlaying.value = i }, delay + i * (duration + gap))
+    setTimeout(() => { if (introPlaying.value === i) introPlaying.value = null }, delay + i * (duration + gap) + duration)
+  })
+})
+
+const highlightPhrases = [
+  { text: 'translating user insights into product decisions', separator: ', ' },
+  { text: 'architecting intelligent AI systems', separator: ', ' },
+  { text: 'helping destinations bring their content to life', separator: ', or ' },
+  { text: 'shaping interfaces that feel intuitive regardless of technical background', separator: '' },
+]
+
 const teamMembers = [
   {
     name: 'Thierry Hohmann',
@@ -98,12 +119,6 @@ const teamMembers = [
     imgClass: 'object-[35%_20%]',
     color: '#4047D2',
     linkedin: 'https://ch.linkedin.com/in/thierryhohmann',
-    story: [
-      { label: 'I am', text: 'An environmental engineer from the suburbs of Zug, driven by the belief that technology and nature don\'t have to compete.' },
-      { label: 'I love', text: 'Taking big, abstract ideas and turning them into something practical that real people can immediately understand and use.' },
-      { label: 'Outside work', text: 'Lifting weights at the gym to reset my mind, or settling into a good book at a café.' },
-      { label: 'CityBot & I', text: 'I dig into how people actually use CityBot, translate those insights into product decisions, and keep the whole team moving forward.' },
-    ],
   },
   {
     name: 'Vladislav Bunkin',
@@ -112,12 +127,6 @@ const teamMembers = [
     imgClass: '',
     color: '#FA634B',
     linkedin: 'https://ch.linkedin.com/in/bunkinv',
-    story: [
-      { label: 'I am', text: 'A mathematician at heart — raised in the suburbs of Zug, and intrigued by technology and its interaction with people.' },
-      { label: 'I love', text: 'Turning complex problems into clean, elegant solutions — whether that means hours at the whiteboard or deep dives into a codebase.' },
-      { label: 'Outside work', text: 'You\'ll find me on the dance floor perfecting Hip Hop moves, or pushing my limits at the gym.' },
-      { label: 'CityBot & I', text: 'I lead our technical strategy, architect the core systems, and drive our AI features forward to make CityBot feel genuinely intelligent.' },
-    ],
   },
   {
     name: 'Andri Bösch',
@@ -126,12 +135,6 @@ const teamMembers = [
     imgClass: '',
     color: '#AF94D6',
     linkedin: 'https://ch.linkedin.com/in/andri-b%C3%B6sch-0682446a',
-    story: [
-      { label: 'I am', text: 'A mechanical and cybersecurity engineer from the suburbs of Zug, fascinated by how AI and society shape each other.' },
-      { label: 'I love', text: 'Understanding what drives people\'s decisions and finding ways to foster their creativity: Through a conversation, a system, or a well-placed feature.' },
-      { label: 'Outside work', text: 'Buried in a good book, sketching whatever catches my eye, or sending it over a kicker on my snowboard.' },
-      { label: 'CityBot & I', text: 'I make it effortless for destinations to bring their content to life in the app — and I\'m there to hold their hand through every step.' },
-    ],
   },
   {
     name: 'Lucas Thorbecke',
@@ -141,12 +144,36 @@ const teamMembers = [
     color: '#F9B666',
     linkedin: null,
     website: 'https://lucasthorbecke.ch',
-    story: [
-      { label: 'I am', text: 'An IT engineer from the suburbs of Zug, on a mission to build apps that matter and bring about positive change.' },
-      { label: 'I love', text: 'Translating what users actually need into interfaces that feel intuitive and accessible — no matter your technical background.' },
-      { label: 'Outside work', text: 'On a snowboard, in a lake, or somewhere down the road in my van — wherever the next adventure takes me.' },
-      { label: 'CityBot & I', text: 'I shape the interface and website design, and develop key components like AR that push CityBot forward.' },
-    ],
   },
 ]
 </script>
+
+<style scoped>
+.team-highlight {
+  padding: 2px 6px;
+  margin: -2px -6px;
+  background-color: transparent;
+  color: inherit;
+  background-size: 200% 100%;
+  background-position: 100% 0;
+}
+.team-highlight.active {
+  font-weight: 600;
+}
+.team-highlight.streak {
+  animation: streak-sweep 600ms ease-out forwards;
+  background-image: linear-gradient(
+    90deg,
+    transparent 0%,
+    color-mix(in srgb, var(--streak-color) 15%, transparent) 30%,
+    color-mix(in srgb, var(--streak-color) 25%, transparent) 50%,
+    color-mix(in srgb, var(--streak-color) 15%, transparent) 70%,
+    transparent 100%
+  );
+  background-size: 200% 100%;
+}
+@keyframes streak-sweep {
+  0%   { background-position: 100% 0; }
+  100% { background-position: -100% 0; }
+}
+</style>

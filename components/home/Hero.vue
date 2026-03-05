@@ -57,7 +57,7 @@
             :key="travelCycleKey"
             :d="getPathD(travelingFrom, travelingTo)"
             fill="none"
-            :stroke="pois[travelingTo].color"
+            :stroke="travelLineColor"
             stroke-width="1.5"
             stroke-linecap="round"
             class="hero-connect-line"
@@ -76,6 +76,17 @@
             stroke-width="5"
             vector-effect="non-scaling-stroke"
             class="poi-bloom"
+          />
+
+          <!-- Firework particles -->
+          <circle
+            v-for="p in fireworkParticles"
+            :key="p.id"
+            :cx="p.x"
+            :cy="p.y"
+            :r="p.r"
+            :fill="p.color"
+            :fill-opacity="p.opacity"
           />
 
           <!-- Traveling bubble: organic drop — takes destination color -->
@@ -120,7 +131,7 @@
 
       <div class="max-w-2xl mx-auto text-center relative z-10">
         <!-- Logo + brand -->
-        <div class="flex flex-col items-center mb-12 opacity-0 animate-fade-up-delay-1">
+        <div ref="logoEl" class="flex flex-col items-center mb-12 opacity-0 animate-fade-up-delay-1">
           <SvgBot class="h-32 w-32 lg:h-44 lg:w-44" />
           <span class="mt-2 font-heading text-4xl lg:text-5xl font-semibold text-bot_dark_blue tracking-tight">CityBot</span>
         </div>
@@ -153,31 +164,30 @@
       </div>
 
       <!-- Scroll indicator -->
-      <div class="absolute bottom-8 z-10 animate-fade-up-delay-3 transition-opacity duration-500" :style="{ opacity: scrollIndicatorOpacity, visibility: scrollIndicatorOpacity === 0 ? 'hidden' : 'visible' }">
-        <div class="animate-bounce">
-          <svg class="w-6 h-6 text-bot_gray" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+      <button
+        @click="$el.closest('section').querySelector('.group\\/strip')?.scrollIntoView({ behavior: 'smooth', block: 'center' })"
+        class="absolute bottom-8 z-10 animate-fade-up-delay-3 transition-all duration-500 group/chevron cursor-pointer"
+        :style="{ opacity: scrollIndicatorOpacity, visibility: scrollIndicatorOpacity === 0 ? 'hidden' : 'visible' }"
+        aria-label="Scroll to screenshots"
+      >
+        <div class="animate-bounce w-10 h-10 rounded-full flex items-center justify-center transition-all duration-300 text-bot_gray/40 bg-transparent group-hover/chevron:text-bot_dark_blue group-hover/chevron:bg-white group-hover/chevron:shadow-md">
+          <svg class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
             <path stroke-linecap="round" stroke-linejoin="round" d="M19 14l-7 7m0 0l-7-7" />
           </svg>
         </div>
-      </div>
+      </button>
     </div>
 
     <!-- Phone screenshots strip -->
     <div
       ref="stripContainer"
-      class="relative pb-12 lg:pb-16"
+      class="relative pb-12 lg:pb-16 group/strip"
       :style="{ marginTop: `${stripPullUp}px` }"
-      @mouseenter="onMouseEnter"
-      @mouseleave="onMouseLeave"
-      @mousemove="onMouseMove"
-      @touchstart="onTouchStart"
-      @touchmove="onTouchMove"
-      @touchend="onTouchEnd"
     >
       <!-- Left arrow -->
       <button
         @click="nudge(300)"
-        class="absolute left-2 lg:left-6 top-1/2 -translate-y-1/2 z-10 w-10 h-10 rounded-full bg-white/80 backdrop-blur-sm shadow-md flex items-center justify-center text-bot_gray hover:text-bot_dark_blue hover:bg-white transition-all duration-200"
+        class="absolute left-2 lg:left-6 top-1/2 -translate-y-1/2 z-10 w-10 h-10 rounded-full flex items-center justify-center transition-all duration-300 text-bot_gray/40 bg-transparent group-hover/strip:text-bot_gray group-hover/strip:bg-white/50 group-hover/strip:shadow-sm hover:!text-bot_dark_blue hover:!bg-white hover:!shadow-md"
         aria-label="Scroll left"
       >
         <svg class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
@@ -188,7 +198,7 @@
       <!-- Right arrow -->
       <button
         @click="nudge(-300)"
-        class="absolute right-2 lg:right-6 top-1/2 -translate-y-1/2 z-10 w-10 h-10 rounded-full bg-white/80 backdrop-blur-sm shadow-md flex items-center justify-center text-bot_gray hover:text-bot_dark_blue hover:bg-white transition-all duration-200"
+        class="absolute right-2 lg:right-6 top-1/2 -translate-y-1/2 z-10 w-10 h-10 rounded-full flex items-center justify-center transition-all duration-300 text-bot_gray/40 bg-transparent group-hover/strip:text-bot_gray group-hover/strip:bg-white/50 group-hover/strip:shadow-sm hover:!text-bot_dark_blue hover:!bg-white hover:!shadow-md"
         aria-label="Scroll right"
       >
         <svg class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
@@ -216,33 +226,33 @@
 
 <script setup>
 const heroEl = ref(null)
+const logoEl = ref(null)
 const poiWrapEl = ref(null)
-const stripContainer = ref(null)
 const stripEl = ref(null)
 const offsetX = ref(0)
-const isHovering = ref(false)
 const autoSpeed = 1.0
 let animFrame = null
 let targetX = 0
-let hoverSpeed = 0
 
 // Scroll-driven: pull screenshots up to close the gap
 const stripPullUp = ref(0)
 const scrollIndicatorOpacity = ref(1)
 
+// Virtual index representing the CityBot logo center
+const CENTER_IDX = -1
+const CITYBOT_COLOR = '#FA634B'
+
 // POI icons — clockwise flow but alternating outer/inner to create zigzag feel
-// Odd indices (1,3,5,7) pulled toward center; even (0,2,4,6,8) pushed to edges
-// Each consecutive step stays ~28-36 viewBox units (≈ 30% of screen)
 const pois = reactive([
-  { x: 18, y: 10, image: '/img/category_sights_neg.png',   visible: false, color: '#F9B666' }, // sights — yellow
-  { x: 52, y: 22, image: '/img/category_art_neg.png',      visible: false, color: '#AF94D6' }, // art — violet
-  { x: 84, y: 10, image: '/img/category_nature_neg.png',   visible: false, color: '#4047D2' }, // nature — blue
-  { x: 75, y: 44, image: '/img/category_coffee_neg.png',   visible: false, color: '#AF94D6' }, // coffee — violet
-  { x: 92, y: 70, image: '/img/category_bar_neg.png',      visible: false, color: '#4047D2' }, // bar — blue
-  { x: 60, y: 88, image: '/img/category_food_neg.png',     visible: false, color: '#4047D2' }, // food — blue
-  { x: 28, y: 92, image: '/img/category_shopping_neg.png', visible: false, color: '#FA634B' }, // shopping — orange
-  { x: 22, y: 70, image: '/img/category_activity_neg.png', visible: false, color: '#FA634B' }, // activity — orange
-  { x: 8,  y: 40, image: '/img/category_sports.png',       visible: false, color: '#F9B666' }, // sports — yellow
+  { x: 18, y: 10, image: '/img/category_sights_neg.png',   visible: false, color: '#F9B666' },
+  { x: 52, y: 22, image: '/img/category_art_neg.png',      visible: false, color: '#AF94D6' },
+  { x: 84, y: 10, image: '/img/category_nature_neg.png',   visible: false, color: '#4047D2' },
+  { x: 75, y: 44, image: '/img/category_coffee_neg.png',   visible: false, color: '#AF94D6' },
+  { x: 92, y: 70, image: '/img/category_bar_neg.png',      visible: false, color: '#4047D2' },
+  { x: 60, y: 88, image: '/img/category_food_neg.png',     visible: false, color: '#4047D2' },
+  { x: 28, y: 92, image: '/img/category_shopping_neg.png', visible: false, color: '#FA634B' },
+  { x: 22, y: 70, image: '/img/category_activity_neg.png', visible: false, color: '#FA634B' },
+  { x: 8,  y: 40, image: '/img/category_sports.png',       visible: false, color: '#F9B666' },
 ])
 
 // Actual pixel dimensions of the hero — updated by ResizeObserver
@@ -250,20 +260,38 @@ const svgW = ref(1)
 const svgH = ref(1)
 let resizeObserver = null
 
-// Convert % position to actual pixels for pixel-accurate dash sizing
+// Convert % position to actual pixels
 function px(poi) {
   return { x: poi.x * svgW.value / 100, y: poi.y * svgH.value / 100 }
 }
 
+// Get pixel position for a POI index or CENTER_IDX (CityBot logo)
+function getPos(idx) {
+  if (idx === CENTER_IDX) {
+    if (logoEl.value && poiWrapEl.value) {
+      const lr = logoEl.value.getBoundingClientRect()
+      const wr = poiWrapEl.value.getBoundingClientRect()
+      return { x: lr.left + lr.width / 2 - wr.left, y: lr.top + lr.height / 2 - wr.top }
+    }
+    return { x: svgW.value / 2, y: svgH.value * 0.4 }
+  }
+  return px(pois[idx])
+}
+
+function getColor(idx) {
+  if (idx === CENTER_IDX) return CITYBOT_COLOR
+  return pois[idx].color
+}
+
 function getPathD(from, to) {
-  const f = px(pois[from])
-  const t = px(pois[to])
+  const f = getPos(from)
+  const t = getPos(to)
   return `M ${f.x} ${f.y} L ${t.x} ${t.y}`
 }
 
 // Geometry for the growing mask rect on the traveling line
-const travelFromPx = computed(() => px(pois[travelingFrom.value]))
-const travelToPx = computed(() => px(pois[travelingTo.value]))
+const travelFromPx = computed(() => getPos(travelingFrom.value))
+const travelToPx = computed(() => getPos(travelingTo.value))
 const travelLineLength = computed(() => {
   const f = travelFromPx.value, t = travelToPx.value
   return Math.sqrt((t.x - f.x) ** 2 + (t.y - f.y) ** 2)
@@ -272,12 +300,13 @@ const travelLineAngle = computed(() => {
   const f = travelFromPx.value, t = travelToPx.value
   return Math.atan2(t.y - f.y, t.x - f.x) * 180 / Math.PI
 })
+const travelLineColor = computed(() => getColor(travelingTo.value))
 
 // Auto-cycling animation state — sliding window of TRAIL_SIZE icons
 const TRAIL_SIZE = 3
 
-const travelingFrom = ref(0)
-const travelingTo = ref(1)
+const travelingFrom = ref(CENTER_IDX)
+const travelingTo = ref(0)
 const lineVisible = ref(false)
 const bubbleVisible = ref(false)
 const travelCycleKey = ref(0)
@@ -306,22 +335,18 @@ const bubbleY = ref(0)
 const bubblePath = ref('')
 let bubbleRaf = null
 let bubbleStartTime = null
-const LINE_DUR = 1100  // ms — line draws (app "calculates" the route)
-const BUBBLE_DUR = 1600 // ms — bubble travels (user's journey along the drawn line)
+const LINE_DUR = 1100
+const BUBBLE_DUR = 1600
 
 function easeInOut(t) {
   return t < 0.5 ? 2 * t * t : -1 + (4 - 2 * t) * t
 }
 
-// Build organic drop path. stretch=0: compact blob; stretch=1: pulled-gum elongation.
-// Head (front, in +x direction) is a semicircle of headR.
-// Tail extends behind in -x direction, stretching and thinning with velocity.
 function buildBubblePath(stretch) {
   const headR = 14
-  const tailLen = headR + stretch * 32   // 14 (compact) → 46 (max stretch)
-  const bodyW = headR                    // max half-width at head
-  const tailW = bodyW * (0.07 + (1 - stretch) * 0.45) // thin thread when fast, thick when slow
-
+  const tailLen = headR + stretch * 32
+  const bodyW = headR
+  const tailW = bodyW * (0.07 + (1 - stretch) * 0.45)
   const cp1x = -(tailLen * 0.88)
   const cp2x = -(headR * 0.5)
   return [
@@ -339,10 +364,8 @@ function animateBubble(timestamp) {
   const elapsed = timestamp - bubbleStartTime
   const rawT = Math.min(elapsed / BUBBLE_DUR, 1)
   const progress = easeInOut(rawT)
-  const f = px(pois[travelingFrom.value])
-  const t = px(pois[travelingTo.value])
-  // Offset start to icon edge so drop appears right where the line exits the icon,
-  // not from underneath it (icon is w-12 = 48px, radius ≈ 24px + 2px gap = 26px)
+  const f = getPos(travelingFrom.value)
+  const t = getPos(travelingTo.value)
   const dx = t.x - f.x
   const dy = t.y - f.y
   const dist = Math.sqrt(dx * dx + dy * dy)
@@ -353,35 +376,90 @@ function animateBubble(timestamp) {
   const sy = f.y + uy * ICON_R
   bubbleX.value = sx + (t.x - sx) * progress
   bubbleY.value = sy + (t.y - sy) * progress
-  // Speed is derivative of easeInOut, normalized to 0–1 (peaks at midpoint)
   const speed = rawT < 0.5 ? 4 * rawT : 4 - 4 * rawT
   bubblePath.value = buildBubblePath(speed / 2)
-  bubbleColor.value = lerpColor(pois[travelingFrom.value].color, pois[travelingTo.value].color, progress)
+  bubbleColor.value = lerpColor(getColor(travelingFrom.value), getColor(travelingTo.value), progress)
   if (rawT < 1) {
     bubbleRaf = requestAnimationFrame(animateBubble)
   }
 }
 
-// Bloom circles — filled bubbles that expand from icon center on arrival
+// Bloom circles
 const blooms = reactive([])
 let bloomIdCounter = 0
 
 function triggerBloom(poiIdx) {
-  const p = px(pois[poiIdx])
-  const bloom = { id: bloomIdCounter++, x: p.x, y: p.y, color: pois[poiIdx].color }
+  const p = getPos(poiIdx)
+  const bloom = { id: bloomIdCounter++, x: p.x, y: p.y, color: getColor(poiIdx) }
   blooms.push(bloom)
   setTimeout(() => {
     const i = blooms.indexOf(bloom)
     if (i > -1) blooms.splice(i, 1)
-  }, 1000) // remove after 0.9s animation + buffer
+  }, 1000)
+}
+
+// Firework particles — subtle burst at CityBot logo
+const fireworkParticles = reactive([])
+let fireworkIdCounter = 0
+let fireworkRaf = null
+let fireworkStartTime = null
+const FIREWORK_DUR = 1000
+
+function triggerFirework(cx, cy) {
+  fireworkParticles.length = 0
+  const PARTICLE_COUNT = 16
+  const colors = ['#FA634B', '#4047D2', '#AF94D6', '#F9B666']
+  for (let i = 0; i < PARTICLE_COUNT; i++) {
+    const angle = (Math.PI * 2 * i) / PARTICLE_COUNT + (Math.random() - 0.5) * 0.4
+    const dist = 50 + Math.random() * 70
+    fireworkParticles.push({
+      id: fireworkIdCounter++,
+      startX: cx, startY: cy,
+      x: cx, y: cy,
+      endX: cx + Math.cos(angle) * dist,
+      endY: cy + Math.sin(angle) * dist,
+      color: colors[i % colors.length],
+      r: 2.5 + Math.random() * 2.5,
+      opacity: 0.7,
+    })
+  }
+  fireworkStartTime = null
+  fireworkRaf = requestAnimationFrame(animateFirework)
+}
+
+function animateFirework(timestamp) {
+  if (fireworkStartTime === null) fireworkStartTime = timestamp
+  const t = Math.min((timestamp - fireworkStartTime) / FIREWORK_DUR, 1)
+  const ease = 1 - (1 - t) * (1 - t) // easeOut
+  for (const p of fireworkParticles) {
+    p.x = p.startX + (p.endX - p.startX) * ease
+    p.y = p.startY + (p.endY - p.startY) * ease
+    p.opacity = 0.7 * (1 - t)
+    p.r = (2.5 + Math.random() * 0.3) * (1 - t * 0.4)
+  }
+  if (t < 1) {
+    fireworkRaf = requestAnimationFrame(animateFirework)
+  } else {
+    fireworkParticles.length = 0
+  }
 }
 
 let cycleTimers = []
-let fadeTimers = [] // separate — not cleared on cycle reset
+let fadeTimers = []
 
 function clearCycleTimers() {
   cycleTimers.forEach(t => clearTimeout(t))
   cycleTimers = []
+}
+
+// Fade out all remaining POIs and committed lines
+function fadeOutAll() {
+  for (const poi of pois) poi.visible = false
+  for (const line of completedLines) line.opacity = 0
+  fadeTimers.push(setTimeout(() => {
+    completedLines.length = 0
+  }, 800))
+  iconHistory.value = []
 }
 
 function runCycle() {
@@ -393,22 +471,27 @@ function runCycle() {
 
   const from = travelingFrom.value
   const to = travelingTo.value
+  const isFromCenter = from === CENTER_IDX
+  const isToCenter = to === CENTER_IDX
 
-  if (!pois[from].visible) pois[from].visible = true
+  // Make source POI visible (skip for center — it's the logo)
+  if (!isFromCenter && !pois[from].visible) pois[from].visible = true
 
-  // T+80ms: line draws — app calculates the route
+  // T+80ms: line draws
   cycleTimers.push(setTimeout(() => {
     lineVisible.value = true
   }, 80))
 
-  // T+(80+LINE_DUR)ms: route calculated — commit line, bubble departs after brief pause
   const lineEnd = 80 + LINE_DUR
   cycleTimers.push(setTimeout(() => {
     lineVisible.value = false
-    completedLines.push({ id: lineIdCounter++, from, to, opacity: 1, color: pois[to].color })
+    // Don't commit lines involving center
+    if (!isFromCenter && !isToCenter) {
+      completedLines.push({ id: lineIdCounter++, from, to, opacity: 1, color: getColor(to) })
+    }
   }, lineEnd))
 
-  // T+(lineEnd+100)ms: user departs on the journey
+  // Bubble departs
   const bubbleStart = lineEnd + 100
   cycleTimers.push(setTimeout(() => {
     bubblePath.value = buildBubblePath(0)
@@ -417,41 +500,58 @@ function runCycle() {
     bubbleRaf = requestAnimationFrame(animateBubble)
   }, bubbleStart))
 
-  // T+(bubbleStart+BUBBLE_DUR)ms: user arrives — destination discovered, bloom!
+  // Bubble arrives
   const bubbleEnd = bubbleStart + BUBBLE_DUR
   cycleTimers.push(setTimeout(() => {
     bubbleVisible.value = false
-    pois[to].visible = true
-    triggerBloom(to)
 
-    iconHistory.value.push(to)
+    if (isToCenter) {
+      // Arrived back at CityBot logo — firework!
+      const c = getPos(CENTER_IDX)
+      triggerFirework(c.x, c.y)
+      fadeOutAll()
+    } else {
+      // Normal POI arrival
+      pois[to].visible = true
+      triggerBloom(to)
+      iconHistory.value.push(to)
 
-    // If window is full, fade out oldest icon and its outgoing line
-    if (iconHistory.value.length > TRAIL_SIZE) {
-      const oldestIcon = iconHistory.value[0]
-      const secondIcon = iconHistory.value[1]
-      iconHistory.value.shift()
-
-      pois[oldestIcon].visible = false
-
-      const oldLine = completedLines.find(l => l.from === oldestIcon && l.to === secondIcon)
-      if (oldLine) {
-        oldLine.opacity = 0
-        fadeTimers.push(setTimeout(() => {
-          const i = completedLines.indexOf(oldLine)
-          if (i > -1) completedLines.splice(i, 1)
-        }, 800))
+      // Sliding window: fade oldest icon + line
+      if (iconHistory.value.length > TRAIL_SIZE) {
+        const oldestIcon = iconHistory.value[0]
+        const secondIcon = iconHistory.value[1]
+        iconHistory.value.shift()
+        pois[oldestIcon].visible = false
+        const oldLine = completedLines.find(l => l.from === oldestIcon && l.to === secondIcon)
+        if (oldLine) {
+          oldLine.opacity = 0
+          fadeTimers.push(setTimeout(() => {
+            const i = completedLines.indexOf(oldLine)
+            if (i > -1) completedLines.splice(i, 1)
+          }, 800))
+        }
       }
     }
   }, bubbleEnd))
 
-  // T+(bubbleEnd+320)ms: advance to next pair
+  // Advance to next pair
+  const pauseAfter = isToCenter ? 1200 : 320 // longer pause after firework
   cycleTimers.push(setTimeout(() => {
-    travelingFrom.value = to
-    travelingTo.value = (to + 1) % pois.length
+    if (isToCenter) {
+      // Restart: center → first POI
+      travelingFrom.value = CENTER_IDX
+      travelingTo.value = 0
+    } else if (to === pois.length - 1) {
+      // Last POI reached — next stop is center
+      travelingFrom.value = to
+      travelingTo.value = CENTER_IDX
+    } else {
+      travelingFrom.value = to
+      travelingTo.value = to + 1
+    }
     travelCycleKey.value++
     runCycle()
-  }, bubbleEnd + 320))
+  }, bubbleEnd + pauseAfter))
 }
 
 function onScrollHero() {
@@ -482,52 +582,14 @@ function wrapX() {
 }
 
 function tick() {
-  if (isHovering.value) {
-    targetX += hoverSpeed
-  } else {
-    targetX -= autoSpeed
-  }
+  targetX -= autoSpeed
   wrapX()
   offsetX.value += (targetX - offsetX.value) * 0.08
   animFrame = requestAnimationFrame(tick)
 }
 
-function onMouseEnter() {
-  isHovering.value = true
-}
-
-function onMouseLeave() {
-  isHovering.value = false
-  hoverSpeed = 0
-}
-
-function onMouseMove(e) {
-  if (!stripContainer.value) return
-  const rect = stripContainer.value.getBoundingClientRect()
-  const ratio = (e.clientX - rect.left) / rect.width
-  hoverSpeed = -(ratio - 0.5) * 6
-}
-
 function nudge(px) {
   targetX += px
-}
-
-let touchStartX = 0
-let touchStartOffset = 0
-
-function onTouchStart(e) {
-  isHovering.value = true
-  touchStartX = e.touches[0].clientX
-  touchStartOffset = targetX
-}
-
-function onTouchMove(e) {
-  const dx = e.touches[0].clientX - touchStartX
-  targetX = touchStartOffset + dx
-}
-
-function onTouchEnd() {
-  isHovering.value = false
 }
 
 onMounted(() => {
@@ -535,7 +597,6 @@ onMounted(() => {
   window.addEventListener('scroll', onScrollHero, { passive: true })
   onScrollHero()
 
-  // Observe the exact wrapper that both the SVG and icon % positions share
   resizeObserver = new ResizeObserver(([entry]) => {
     svgW.value = entry.contentRect.width
     svgH.value = entry.contentRect.height
@@ -544,16 +605,16 @@ onMounted(() => {
   svgW.value = poiWrapEl.value.offsetWidth
   svgH.value = poiWrapEl.value.offsetHeight
 
-  // Show first icon immediately with a bloom, then start cycling after bloom contracts
-  pois[0].visible = true
-  triggerBloom(0)
-  iconHistory.value.push(0)
-  setTimeout(() => runCycle(), 1200)
+  // Start from CityBot logo — first cycle departs to POI 0
+  travelingFrom.value = CENTER_IDX
+  travelingTo.value = 0
+  setTimeout(() => runCycle(), 800)
 })
 
 onUnmounted(() => {
   if (animFrame) cancelAnimationFrame(animFrame)
   if (bubbleRaf) cancelAnimationFrame(bubbleRaf)
+  if (fireworkRaf) cancelAnimationFrame(fireworkRaf)
   window.removeEventListener('scroll', onScrollHero)
   clearCycleTimers()
   fadeTimers.forEach(t => clearTimeout(t))
