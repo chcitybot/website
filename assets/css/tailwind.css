@@ -7,6 +7,11 @@ html {
   scroll-behavior: smooth;
 }
 
+/* Offset scroll targets so the fixed header doesn't cover content */
+section[id] {
+  scroll-margin-top: 5rem;
+}
+
 /* Font smoothing */
 body {
   -webkit-font-smoothing: antialiased;
@@ -141,13 +146,24 @@ body {
   to   { stroke-dashoffset: -13; }
 }
 
-/* Slide-from-left reveal (team bio sections) */
+/* Slide-from-left reveal (team bio sections, app features) */
 .reveal-slide-left {
   opacity: 0;
   transform: translateX(-80px);
   transition: opacity 0.9s ease-out, transform 0.9s ease-out;
 }
 .reveal-slide-left.is-visible {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+/* Slide-from-right reveal (app features alternating) */
+.reveal-slide-right {
+  opacity: 0;
+  transform: translateX(80px);
+  transition: opacity 0.9s ease-out, transform 0.9s ease-out;
+}
+.reveal-slide-right.is-visible {
   opacity: 1;
   transform: translateX(0);
 }
