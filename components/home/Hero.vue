@@ -22,48 +22,6 @@
           class="absolute inset-0 w-full h-full"
           :viewBox="`0 0 ${svgW} ${svgH}`"
         >
-          <!-- Mask + invisible path reference for bubble motion -->
-          <defs>
-            <mask :id="`travel-mask-${travelCycleKey}`" maskUnits="userSpaceOnUse">
-              <rect
-                :x="travelFromPx.x"
-                :y="travelFromPx.y - 6"
-                height="12"
-                fill="white"
-                :transform="`rotate(${travelLineAngle}, ${travelFromPx.x}, ${travelFromPx.y})`"
-                :style="{
-                  width: lineVisible ? travelLineLength + 'px' : '0px',
-                  transition: lineVisible ? `width ${LINE_DUR}ms ease-in-out` : 'none'
-                }"
-              />
-            </mask>
-          </defs>
-
-          <!-- Persistent lines (committed) — colored by their destination -->
-          <path
-            v-for="line in completedLines"
-            :key="line.id"
-            :d="getPathD(line.from, line.to)"
-            fill="none"
-            :stroke="line.color"
-            stroke-width="1.5"
-            stroke-linecap="round"
-            class="persistent-line"
-            :style="{ opacity: line.opacity }"
-          />
-
-          <!-- Traveling dashed line, revealed by the mask — destination color -->
-          <path
-            :key="travelCycleKey"
-            :d="getPathD(travelingFrom, travelingTo)"
-            fill="none"
-            :stroke="travelLineColor"
-            stroke-width="1.5"
-            stroke-linecap="round"
-            class="hero-connect-line"
-            :mask="`url(#travel-mask-${travelCycleKey})`"
-          />
-
           <!-- Bloom rings: expand from icon center when bubble arrives, fade out -->
           <circle
             v-for="bloom in blooms"
@@ -131,8 +89,8 @@
 
       <div class="max-w-2xl mx-auto text-center relative z-10">
         <!-- Logo + brand -->
-        <div ref="logoEl" class="flex flex-col items-center mb-12 opacity-0 animate-fade-up-delay-1">
-          <SvgBot class="h-32 w-32 lg:h-44 lg:w-44" />
+        <div class="flex flex-col items-center mb-12 opacity-0 animate-fade-up-delay-1">
+          <SvgBot ref="botIconEl" class="h-32 w-32 lg:h-44 lg:w-44" />
           <span class="mt-2 font-heading text-4xl lg:text-5xl font-semibold text-bot_dark_blue tracking-tight">CityBot</span>
         </div>
 
@@ -226,11 +184,11 @@
 
 <script setup>
 const heroEl = ref(null)
-const logoEl = ref(null)
+const botIconEl = ref(null)
 const poiWrapEl = ref(null)
 const stripEl = ref(null)
 const offsetX = ref(0)
-const autoSpeed = 1.0
+const autoSpeed = 0.6
 let animFrame = null
 let targetX = 0
 
@@ -245,7 +203,7 @@ const CITYBOT_COLOR = '#FA634B'
 // POI icons — clockwise flow but alternating outer/inner to create zigzag feel
 const pois = reactive([
   { x: 18, y: 10, image: '/img/category_sights_neg.png',   visible: false, color: '#F9B666' },
-  { x: 52, y: 22, image: '/img/category_art_neg.png',      visible: false, color: '#AF94D6' },
+  { x: 52, y: 8,  image: '/img/category_art_neg.png',      visible: false, color: '#AF94D6' },
   { x: 84, y: 10, image: '/img/category_nature_neg.png',   visible: false, color: '#4047D2' },
   { x: 75, y: 44, image: '/img/category_coffee_neg.png',   visible: false, color: '#AF94D6' },
   { x: 92, y: 70, image: '/img/category_bar_neg.png',      visible: false, color: '#4047D2' },
@@ -268,10 +226,11 @@ function px(poi) {
 // Get pixel position for a POI index or CENTER_IDX (CityBot logo)
 function getPos(idx) {
   if (idx === CENTER_IDX) {
-    if (logoEl.value && poiWrapEl.value) {
-      const lr = logoEl.value.getBoundingClientRect()
+    const el = botIconEl.value?.$el || botIconEl.value
+    if (el && poiWrapEl.value) {
+      const ir = el.getBoundingClientRect()
       const wr = poiWrapEl.value.getBoundingClientRect()
-      return { x: lr.left + lr.width / 2 - wr.left, y: lr.top + lr.height / 2 - wr.top }
+      return { x: ir.left + ir.width / 2 - wr.left, y: ir.top + ir.height / 2 - wr.top }
     }
     return { x: svgW.value / 2, y: svgH.value * 0.4 }
   }
@@ -283,37 +242,19 @@ function getColor(idx) {
   return pois[idx].color
 }
 
-function getPathD(from, to) {
-  const f = getPos(from)
-  const t = getPos(to)
-  return `M ${f.x} ${f.y} L ${t.x} ${t.y}`
-}
-
-// Geometry for the growing mask rect on the traveling line
-const travelFromPx = computed(() => getPos(travelingFrom.value))
-const travelToPx = computed(() => getPos(travelingTo.value))
-const travelLineLength = computed(() => {
-  const f = travelFromPx.value, t = travelToPx.value
-  return Math.sqrt((t.x - f.x) ** 2 + (t.y - f.y) ** 2)
-})
+// Bubble travel angle (used for drop rotation)
 const travelLineAngle = computed(() => {
-  const f = travelFromPx.value, t = travelToPx.value
+  const f = getPos(travelingFrom.value), t = getPos(travelingTo.value)
   return Math.atan2(t.y - f.y, t.x - f.x) * 180 / Math.PI
 })
-const travelLineColor = computed(() => getColor(travelingTo.value))
 
 // Auto-cycling animation state — sliding window of TRAIL_SIZE icons
 const TRAIL_SIZE = 3
 
 const travelingFrom = ref(CENTER_IDX)
 const travelingTo = ref(0)
-const lineVisible = ref(false)
 const bubbleVisible = ref(false)
 const travelCycleKey = ref(0)
-
-// Committed (persistent) lines between icons
-const completedLines = reactive([])
-let lineIdCounter = 0
 
 // History of poi indices in the current visible window
 const iconHistory = ref([])
@@ -335,8 +276,7 @@ const bubbleY = ref(0)
 const bubblePath = ref('')
 let bubbleRaf = null
 let bubbleStartTime = null
-const LINE_DUR = 1100
-const BUBBLE_DUR = 1600
+const BUBBLE_DUR = 1100
 
 function easeInOut(t) {
   return t < 0.5 ? 2 * t * t : -1 + (4 - 2 * t) * t
@@ -403,7 +343,7 @@ const fireworkParticles = reactive([])
 let fireworkIdCounter = 0
 let fireworkRaf = null
 let fireworkStartTime = null
-const FIREWORK_DUR = 1000
+const FIREWORK_DUR = 750
 
 function triggerFirework(cx, cy) {
   fireworkParticles.length = 0
@@ -452,13 +392,9 @@ function clearCycleTimers() {
   cycleTimers = []
 }
 
-// Fade out all remaining POIs and committed lines
+// Fade out all remaining POIs
 function fadeOutAll() {
   for (const poi of pois) poi.visible = false
-  for (const line of completedLines) line.opacity = 0
-  fadeTimers.push(setTimeout(() => {
-    completedLines.length = 0
-  }, 800))
   iconHistory.value = []
 }
 
@@ -466,7 +402,6 @@ function runCycle() {
   clearCycleTimers()
   if (bubbleRaf) { cancelAnimationFrame(bubbleRaf); bubbleRaf = null }
   bubbleVisible.value = false
-  lineVisible.value = false
   bubbleStartTime = null
 
   const from = travelingFrom.value
@@ -477,22 +412,8 @@ function runCycle() {
   // Make source POI visible (skip for center — it's the logo)
   if (!isFromCenter && !pois[from].visible) pois[from].visible = true
 
-  // T+80ms: line draws
-  cycleTimers.push(setTimeout(() => {
-    lineVisible.value = true
-  }, 80))
-
-  const lineEnd = 80 + LINE_DUR
-  cycleTimers.push(setTimeout(() => {
-    lineVisible.value = false
-    // Don't commit lines involving center
-    if (!isFromCenter && !isToCenter) {
-      completedLines.push({ id: lineIdCounter++, from, to, opacity: 1, color: getColor(to) })
-    }
-  }, lineEnd))
-
   // Bubble departs
-  const bubbleStart = lineEnd + 100
+  const bubbleStart = 50
   cycleTimers.push(setTimeout(() => {
     bubblePath.value = buildBubblePath(0)
     bubbleVisible.value = true
@@ -516,26 +437,17 @@ function runCycle() {
       triggerBloom(to)
       iconHistory.value.push(to)
 
-      // Sliding window: fade oldest icon + line
+      // Sliding window: fade oldest icon
       if (iconHistory.value.length > TRAIL_SIZE) {
         const oldestIcon = iconHistory.value[0]
-        const secondIcon = iconHistory.value[1]
         iconHistory.value.shift()
         pois[oldestIcon].visible = false
-        const oldLine = completedLines.find(l => l.from === oldestIcon && l.to === secondIcon)
-        if (oldLine) {
-          oldLine.opacity = 0
-          fadeTimers.push(setTimeout(() => {
-            const i = completedLines.indexOf(oldLine)
-            if (i > -1) completedLines.splice(i, 1)
-          }, 800))
-        }
       }
     }
   }, bubbleEnd))
 
   // Advance to next pair
-  const pauseAfter = isToCenter ? 1200 : 320 // longer pause after firework
+  const pauseAfter = isToCenter ? 600 : 80 // longer pause after firework
   cycleTimers.push(setTimeout(() => {
     if (isToCenter) {
       // Restart: center → first POI
@@ -608,7 +520,7 @@ onMounted(() => {
   // Start from CityBot logo — first cycle departs to POI 0
   travelingFrom.value = CENTER_IDX
   travelingTo.value = 0
-  setTimeout(() => runCycle(), 800)
+  setTimeout(() => runCycle(), 500)
 })
 
 onUnmounted(() => {

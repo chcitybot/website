@@ -79,5 +79,18 @@
   "blog_subtitle": "Les dernières actualités autour de CityBot, la digitalisation et le tourisme.",
   "blog_by_topic_filter": "Par thème :",
   "blog_topic_all": "Tous",
-  "blog_no_posts": "Aucune entrée trouvée"
+  "blog_no_posts": "Aucune entrée trouvée",
+  "blog_back": "Retour au blog",
+  "blog_min_read": "min de lecture",
+  "blog_featured": "Dernier",
+  "team_desc_p1": "Nous sommes une équipe d'ingénieurs des environs de Zoug, unis par la conviction que la technologie peut renforcer les communautés et les destinations sans compromettre ce qui les rend spéciales. Forts de parcours en ingénierie environnementale, mathématiques, cybersécurité et informatique, nous apportons des perspectives variées à la même mission : créer des outils numériques que les gens comprennent et utilisent immédiatement.",
+  "team_desc_before": "Qu'il s'agisse de",
+  "team_desc_phrase_0": "transformer les retours utilisateurs en décisions produit",
+  "team_desc_phrase_1": "concevoir des systèmes d'IA intelligents",
+  "team_desc_phrase_2": "aider les destinations à donner vie à leurs contenus",
+  "team_desc_phrase_3": "créer des interfaces intuitives quel que soit le niveau technique",
+  "team_desc_sep_0": ", ",
+  "team_desc_sep_1": ", ",
+  "team_desc_sep_2": " ou ",
+  "team_desc_after": "— chacun de nous apporte une pièce qui rend CityBot véritablement utile. Nous transformons des problèmes complexes en solutions claires et accompagnons nos partenaires à chaque étape."
 }

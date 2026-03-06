@@ -14,22 +14,23 @@
       <!-- Team Description -->
       <div class="max-w-3xl mx-auto mb-16 reveal">
         <p class="text-paragraph text-bot_gray leading-relaxed">
-          We're a team of engineers from the suburbs of Zug, united by the conviction that technology can strengthen communities and destinations without compromising what makes them special. With backgrounds spanning environmental engineering, mathematics, cybersecurity, and IT, we bring different lenses to the same mission: making digital tools that real people can immediately understand and use.
+          {{ $t("team_desc_p1") }}
         </p>
         <p class="text-paragraph text-bot_gray leading-relaxed mt-4">
-          Whether it's
+          {{ $t("team_desc_before") }}
           <span
             v-for="(phrase, i) in highlightPhrases"
             :key="i"
           ><span
-              class="team-highlight rounded-md transition-all duration-500"
-              :class="{ 'active': hoveredMember === i, 'streak': introPlaying === i }"
-              :style="{
-                ...(hoveredMember === i ? { backgroundColor: teamMembers[i].color + '20', color: teamMembers[i].color, boxShadow: `0 0 16px ${teamMembers[i].color}25` } : {}),
-                '--streak-color': teamMembers[i].color,
-              }"
-            >{{ phrase.text }}</span><template v-if="i < highlightPhrases.length - 1">{{ phrase.separator }}</template></span>
-          — each of us contributes a piece that makes CityBot genuinely useful. We turn complex problems into clean solutions, and we're there to guide our partners through every step.
+              class="team-highlight rounded-md"
+              :class="{ 'active': hoveredMember === i }"
+              :style="hoveredMember === i ? { backgroundColor: teamMembers[i].color + '20', color: teamMembers[i].color, boxShadow: `0 0 16px ${teamMembers[i].color}25` } : {}"
+            ><span
+                v-for="(char, ci) in phrase.text"
+                :key="ci"
+                :style="getCharStyle(i, ci)"
+              >{{ char }}</span></span><template v-if="i < highlightPhrases.length - 1">{{ $t(`team_desc_sep_${i}`) }}</template></span>
+          {{ $t("team_desc_after") }}
         </p>
       </div>
 
@@ -90,26 +91,60 @@
 </template>
 
 <script setup>
+const { t } = useI18n()
 const hoveredMember = ref(null)
-const introPlaying = ref(null)
+const TRAIL = 6
+const cursorPos = reactive([-TRAIL - 1, -TRAIL - 1, -TRAIL - 1, -TRAIL - 1])
+let streakIntervals = []
+
+const highlightPhrases = computed(() => [
+  { text: t('team_desc_phrase_0') },
+  { text: t('team_desc_phrase_1') },
+  { text: t('team_desc_phrase_2') },
+  { text: t('team_desc_phrase_3') },
+])
+
+function hexToRgb(hex) {
+  return `${parseInt(hex.slice(1,3),16)},${parseInt(hex.slice(3,5),16)},${parseInt(hex.slice(5,7),16)}`
+}
+
+function getCharStyle(phraseIdx, charIdx) {
+  if (hoveredMember.value === phraseIdx) return {}
+  const pos = cursorPos[phraseIdx]
+  const dist = pos - charIdx
+  if (dist < 0 || dist > TRAIL) return {}
+  const rgb = hexToRgb(teamMembers[phraseIdx].color)
+  const strength = 1 - dist / TRAIL
+  return {
+    backgroundColor: `rgba(${rgb}, ${strength * 0.3})`,
+    borderRadius: dist === 0 ? '0 3px 3px 0' : dist === TRAIL ? '3px 0 0 3px' : '0',
+  }
+}
 
 onMounted(() => {
-  const delay = 800
-  const duration = 600
-  const gap = 200
+  const SWEEP_MS = 900
 
-  highlightPhrases.forEach((_, i) => {
-    setTimeout(() => { introPlaying.value = i }, delay + i * (duration + gap))
-    setTimeout(() => { if (introPlaying.value === i) introPlaying.value = null }, delay + i * (duration + gap) + duration)
-  })
+  setTimeout(() => {
+    highlightPhrases.value.forEach((phrase, i) => {
+      const len = phrase.text.length
+      const tick = SWEEP_MS / (len + TRAIL)
+
+      cursorPos[i] = 0
+      const iv = setInterval(() => {
+        cursorPos[i]++
+        if (cursorPos[i] >= len + TRAIL) {
+          clearInterval(iv)
+          cursorPos[i] = -TRAIL - 1
+        }
+      }, tick)
+      streakIntervals.push(iv)
+    })
+  }, 800)
 })
 
-const highlightPhrases = [
-  { text: 'translating user insights into product decisions', separator: ', ' },
-  { text: 'architecting intelligent AI systems', separator: ', ' },
-  { text: 'helping destinations bring their content to life', separator: ', or ' },
-  { text: 'shaping interfaces that feel intuitive regardless of technical background', separator: '' },
-]
+onUnmounted(() => {
+  streakIntervals.forEach(iv => clearInterval(iv))
+})
 
 const teamMembers = [
   {
@@ -154,26 +189,9 @@ const teamMembers = [
   margin: -2px -6px;
   background-color: transparent;
   color: inherit;
-  background-size: 200% 100%;
-  background-position: 100% 0;
+  transition: background-color 0.5s, color 0.5s, box-shadow 0.5s, font-weight 0.5s;
 }
 .team-highlight.active {
   font-weight: 600;
-}
-.team-highlight.streak {
-  animation: streak-sweep 600ms ease-out forwards;
-  background-image: linear-gradient(
-    90deg,
-    transparent 0%,
-    color-mix(in srgb, var(--streak-color) 15%, transparent) 30%,
-    color-mix(in srgb, var(--streak-color) 25%, transparent) 50%,
-    color-mix(in srgb, var(--streak-color) 15%, transparent) 70%,
-    transparent 100%
-  );
-  background-size: 200% 100%;
-}
-@keyframes streak-sweep {
-  0%   { background-position: 100% 0; }
-  100% { background-position: -100% 0; }
 }
 </style>

@@ -79,5 +79,18 @@
   "blog_subtitle": "Die neusten Entwicklungen rund um CityBot, Digitalisierung und Tourismus.",
   "blog_by_topic_filter": "Nach Topic:",
   "blog_topic_all": "Alle",
-  "blog_no_posts": "Keine Beiträge"
+  "blog_no_posts": "Keine Beiträge",
+  "blog_back": "Zurück zum Blog",
+  "blog_min_read": "Min. Lesezeit",
+  "blog_featured": "Neueste",
+  "team_desc_p1": "Wir sind ein Team von Ingenieuren aus der Umgebung von Zug, vereint durch die Überzeugung, dass Technologie Gemeinschaften und Destinationen stärken kann, ohne das zu beeinträchtigen, was sie besonders macht. Mit Hintergründen in Umweltingenieurwesen, Mathematik, Cybersicherheit und Informatik bringen wir unterschiedliche Perspektiven in dieselbe Mission ein: digitale Werkzeuge zu schaffen, die echte Menschen sofort verstehen und nutzen können.",
+  "team_desc_before": "Ob es darum geht,",
+  "team_desc_phrase_0": "Nutzererkenntnisse in Produktentscheidungen umzusetzen",
+  "team_desc_phrase_1": "intelligente KI-Systeme zu entwickeln",
+  "team_desc_phrase_2": "Destinationen dabei zu helfen, ihre Inhalte zum Leben zu erwecken",
+  "team_desc_phrase_3": "Interfaces zu gestalten, die sich unabhängig vom technischen Hintergrund intuitiv anfühlen",
+  "team_desc_sep_0": ", ",
+  "team_desc_sep_1": ", ",
+  "team_desc_sep_2": " oder ",
+  "team_desc_after": "— jeder von uns trägt ein Stück dazu bei, CityBot wirklich nützlich zu machen. Wir verwandeln komplexe Probleme in klare Lösungen und begleiten unsere Partner bei jedem Schritt."
 }

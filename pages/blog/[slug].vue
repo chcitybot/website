@@ -1,17 +1,58 @@
 <template>
-  <div v-if="post" class="w-full max-w-7xl mx-auto font-main pt-24 px-6 lg:px-8">
-    <div class="overflow-hidden rounded-2xl">
-      <img
-        :src="`/img/${post.image}`"
-        class="w-full h-[40vh] lg:h-[50vh] object-cover"
-        :alt="`image for ${post.title} article`"
-      />
+  <div v-if="post" class="w-full font-main">
+    <!-- Reading progress bar -->
+    <div
+      class="fixed top-0 left-0 h-[3px] bg-bot_dark_blue z-50 transition-none"
+      :style="{ width: readProgress + '%' }"
+    />
+
+    <!-- Full-bleed hero image -->
+    <div class="relative">
+      <div class="w-full h-[45vh] lg:h-[55vh] overflow-hidden">
+        <img
+          :src="`/img/${post.image}`"
+          class="w-full h-full object-cover"
+          :alt="`image for ${post.title} article`"
+        />
+        <div class="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-transparent" />
+      </div>
+
+      <!-- Overlapping title card -->
+      <div class="max-w-4xl mx-auto px-6 lg:px-8 -mt-24 relative z-10">
+        <div class="bg-white rounded-2xl shadow-xl p-8 lg:p-10">
+          <!-- Back to blog -->
+          <NuxtLink
+            :to="`/${locale}/blog`"
+            class="inline-flex items-center gap-2 text-sm text-bot_gray hover:text-bot_dark_blue transition-colors mb-4"
+          >
+            <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M15 19l-7-7 7-7" />
+            </svg>
+            {{ $t("blog_back") }}
+          </NuxtLink>
+
+          <h1 class="font-heading text-display-sm text-gray-900 mb-3">{{ post.title }}</h1>
+
+          <div class="flex items-center gap-3 text-caption text-bot_gray">
+            <span>{{ post.date }}</span>
+            <span>&middot;</span>
+            <span>{{ readingTime }} {{ $t("blog_min_read") }}</span>
+          </div>
+
+          <div v-if="post.tags?.length" class="mt-4 flex flex-wrap gap-2">
+            <BlogTagChip
+              v-for="tag in post.tags"
+              :key="tag"
+              :tag="tag"
+              :container-classes="'bg-bot_dark_blue/10 text-bot_dark_blue'"
+            />
+          </div>
+        </div>
+      </div>
     </div>
-    <div class="mt-8 mb-6">
-      <h1 class="font-heading text-display-sm text-gray-900">{{ post.title }}</h1>
-      <p class="mt-2 text-caption text-bot_gray">{{ post.date }}</p>
-    </div>
-    <div class="max-w-4xl py-10">
+
+    <!-- Article content -->
+    <div ref="articleEl" class="max-w-4xl mx-auto px-6 lg:px-8 py-12">
       <ContentRenderer :value="post" class="prose lg:prose-xl" />
       <div class="my-12 flex flex-col items-center">
         <NuxtLink :to="'/contact'">
@@ -31,12 +72,39 @@
 const route = useRoute()
 const { locale, locales } = useI18n()
 
+const articleEl = ref<HTMLElement | null>(null)
+const readProgress = ref(0)
+
 const { data: post, error } = await useAsyncData(
   `blog-${route.params.slug}-${locale.value}`,
   () => {
     return queryCollection("blog").path(route.path).first()
   }
 )
+
+const readingTime = computed(() => {
+  const words = (post.value?.description || '').split(/\s+/).length + 200
+  return Math.max(1, Math.ceil(words / 200))
+})
+
+function onScroll() {
+  if (!articleEl.value) return
+  const rect = articleEl.value.getBoundingClientRect()
+  const start = rect.top + window.scrollY
+  const end = start + rect.height
+  const scroll = window.scrollY + window.innerHeight
+  const progress = Math.max(0, Math.min(1, (scroll - start) / (end - start)))
+  readProgress.value = progress * 100
+}
+
+onMounted(() => {
+  window.addEventListener('scroll', onScroll, { passive: true })
+  onScroll()
+})
+
+onUnmounted(() => {
+  window.removeEventListener('scroll', onScroll)
+})
 
 useHead(() => {
   if (!post.value) {

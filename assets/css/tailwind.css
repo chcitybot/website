@@ -217,3 +217,45 @@ body {
   border-bottom: none;
   text-decoration: none;
 }
+
+/* Pull quote blockquotes */
+.prose blockquote {
+  border-left: 4px solid #4047D2;
+  background: linear-gradient(135deg, rgba(64, 71, 210, 0.05) 0%, rgba(175, 148, 214, 0.05) 100%);
+  border-radius: 0 12px 12px 0;
+  padding: 1.5rem 2rem;
+  margin: 2rem 0;
+  font-style: italic;
+  font-size: 1.15em;
+  color: #374151;
+  position: relative;
+}
+.prose blockquote::before {
+  content: '\201C';
+  position: absolute;
+  top: -8px;
+  left: 12px;
+  font-size: 4rem;
+  color: #4047D2;
+  opacity: 0.15;
+  font-family: 'Eczar', serif;
+  line-height: 1;
+}
+.prose blockquote p {
+  margin: 0;
+}
+
+/* Image captions */
+.prose figcaption {
+  border-left: 3px solid #4047D2;
+  padding-left: 12px;
+  margin-top: 8px;
+  font-size: 0.875rem;
+  color: #6b7280;
+  font-style: italic;
+}
+
+/* Images in prose — rounded */
+.prose img {
+  border-radius: 12px;
+}

@@ -79,5 +79,18 @@
   "blog_subtitle": "Le ultime novità su CityBot, digitalizzazione e turismo.",
   "blog_by_topic_filter": "Per argomento:",
   "blog_topic_all": "Tutti",
-  "blog_no_posts": "Nessuna voce trovata"
+  "blog_no_posts": "Nessuna voce trovata",
+  "blog_back": "Torna al blog",
+  "blog_min_read": "min di lettura",
+  "blog_featured": "Ultimo",
+  "team_desc_p1": "Siamo un team di ingegneri dei dintorni di Zugo, uniti dalla convinzione che la tecnologia possa rafforzare le comunità e le destinazioni senza compromettere ciò che le rende speciali. Con competenze in ingegneria ambientale, matematica, cybersicurezza e informatica, portiamo prospettive diverse alla stessa missione: creare strumenti digitali che le persone possano capire e usare immediatamente.",
+  "team_desc_before": "Che si tratti di",
+  "team_desc_phrase_0": "tradurre le intuizioni degli utenti in decisioni di prodotto",
+  "team_desc_phrase_1": "progettare sistemi di intelligenza artificiale",
+  "team_desc_phrase_2": "aiutare le destinazioni a dare vita ai loro contenuti",
+  "team_desc_phrase_3": "creare interfacce intuitive indipendentemente dal background tecnico",
+  "team_desc_sep_0": ", ",
+  "team_desc_sep_1": ", ",
+  "team_desc_sep_2": " o ",
+  "team_desc_after": "— ognuno di noi contribuisce a rendere CityBot davvero utile. Trasformiamo problemi complessi in soluzioni chiare e accompagniamo i nostri partner in ogni passo."
 }

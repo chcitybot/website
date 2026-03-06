@@ -10,10 +10,13 @@
       </div>
       <div class="p-6 flex flex-col flex-1 justify-between">
         <div>
-          <h2 class="font-heading text-h1 text-gray-900 mb-2">
+          <h2 class="font-heading text-h1 text-gray-900 mb-2 group-hover:text-bot_dark_blue transition-colors">
             {{ post.title }}
           </h2>
-          <p class="text-caption text-bot_gray mb-3 italic">{{ post.date }}</p>
+          <div class="flex items-center gap-2 mb-3">
+            <p class="text-caption text-bot_gray italic">{{ post.date }}</p>
+            <span class="text-caption text-bot_gray">&middot; {{ readingTime }} {{ $t("blog_min_read") }}</span>
+          </div>
           <p class="text-paragraph text-bot_gray">{{ post.description }}</p>
         </div>
         <div class="mt-4 flex flex-wrap gap-2">
@@ -32,5 +35,10 @@
 <script setup>
 const { post } = defineProps({
   post: Object,
+})
+
+const readingTime = computed(() => {
+  const words = (post.description || '').split(/\s+/).length + 200
+  return Math.max(1, Math.ceil(words / 200))
 })
 </script>

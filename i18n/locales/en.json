@@ -79,5 +79,18 @@
   "blog_subtitle": "The latest on CityBot, digitalization, and tourism.",
   "blog_by_topic_filter": "By Topic:",
   "blog_topic_all": "All",
-  "blog_no_posts": "No entries found"
+  "blog_no_posts": "No entries found",
+  "blog_back": "Back to blog",
+  "blog_min_read": "min read",
+  "blog_featured": "Latest",
+  "team_desc_p1": "We're a team of engineers from the suburbs of Zug, united by the conviction that technology can strengthen communities and destinations without compromising what makes them special. With backgrounds spanning environmental engineering, mathematics, cybersecurity, and IT, we bring different lenses to the same mission: making digital tools that real people can immediately understand and use.",
+  "team_desc_before": "Whether it's",
+  "team_desc_phrase_0": "translating user insights into product decisions",
+  "team_desc_phrase_1": "architecting intelligent AI systems",
+  "team_desc_phrase_2": "helping destinations bring their content to life",
+  "team_desc_phrase_3": "shaping interfaces that feel intuitive regardless of technical background",
+  "team_desc_sep_0": ", ",
+  "team_desc_sep_1": ", ",
+  "team_desc_sep_2": ", or ",
+  "team_desc_after": "— each of us contributes a piece that makes CityBot genuinely useful. We turn complex problems into clean solutions, and we're there to guide our partners through every step."
 }
