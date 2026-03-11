@@ -59,7 +59,7 @@
                 <span class="hidden sm:block text-gray-300">|</span>
                 <NuxtLink :to="`/${locale}/contact`">
                   <button class="inline-flex items-center px-5 py-2.5 rounded-full bg-bot_dark_blue text-white text-sm font-semibold hover:bg-bot_dark_blue/90 transition-all duration-200 shadow-md shadow-bot_dark_blue/20 hover:shadow-lg hover:-translate-y-0.5">
-                    {{ $t("cta_become_partner") }}
+                    {{ $t("cta_destination_enquiry") }}
                   </button>
                 </NuxtLink>
               </div>
