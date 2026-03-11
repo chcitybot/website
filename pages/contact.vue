@@ -41,3 +41,26 @@
     </div>
   </div>
 </template>
+
+<script setup>
+const { locale, locales } = useI18n()
+const siteUrl = 'https://citybot.ch'
+
+useSeoMeta({
+  title: 'Contact – CityBot | Partner with Us',
+  ogTitle: 'Contact – CityBot | Partner with Us',
+  description: 'Interested in bringing CityBot to your destination? Get in touch with our team for a free, non-binding conversation about how we can help digitize your visitor experience.',
+  ogDescription: 'Get in touch with the CityBot team. We\'d love to explore how our digital destination management platform can work for you.',
+  ogType: 'website',
+  ogImage: `${siteUrl}/img/CItybot_Logo_highres.png`,
+  twitterCard: 'summary_large_image',
+})
+
+useHead({
+  link: computed(() => [
+    { rel: 'canonical', href: `${siteUrl}/${locale.value}/contact` },
+    ...locales.value.map((loc) => ({ rel: 'alternate', hreflang: loc.code, href: `${siteUrl}/${loc.code}/contact` })),
+    { rel: 'alternate', hreflang: 'x-default', href: `${siteUrl}/en/contact` },
+  ]),
+})
+</script>

@@ -2,9 +2,12 @@
 export default defineNuxtConfig({
   app: {
     head: {
-      title: 'CityBot',
+      title: 'CityBot – Digital Destination Management Platform',
       meta: [
-        { name: 'description', content: 'The platform for the digital precence of your city or destination!' }
+        { name: 'description', content: 'CityBot helps cities and tourism destinations digitize their visitor experience with an AI-powered mobile app, content management, and analytics.' },
+        { property: 'og:site_name', content: 'CityBot' },
+        { property: 'og:type', content: 'website' },
+        { name: 'twitter:card', content: 'summary_large_image' },
       ],
       link: [
         {
@@ -41,7 +44,7 @@ export default defineNuxtConfig({
   content: {
     // Options for @nuxt/content
   },
-  site: {  url: 'https://citybot.ch',  name: 'CityBot - The platform for the digital precence of your city or destination'  },
+
   tailwindcss: {
     cssPath: ['~/assets/css/tailwind.css', { injectPosition: "first" }],
     configPath: 'tailwind.config',

@@ -84,7 +84,27 @@
 </template>
 
 <script setup>
-const { locale } = useI18n()
+const { locale, locales } = useI18n()
+const siteUrl = 'https://citybot.ch'
+
+useSeoMeta({
+  title: 'Blog – CityBot | Tourism & Digital Destination Insights',
+  ogTitle: 'Blog – CityBot | Tourism & Digital Destination Insights',
+  description: 'Expert insights on digital destination management, AI in tourism, smart city apps, and sustainable travel. Research and case studies from the CityBot team.',
+  ogDescription: 'Expert insights on digital destination management, AI in tourism, and sustainable travel.',
+  ogType: 'website',
+  ogImage: `${siteUrl}/img/CItybot_Logo_highres.png`,
+  twitterCard: 'summary_large_image',
+  twitterTitle: 'Blog – CityBot | Tourism & Digital Destination Insights',
+})
+
+useHead({
+  link: computed(() => [
+    { rel: 'canonical', href: `${siteUrl}/${locale.value}/blog` },
+    ...locales.value.map((loc) => ({ rel: 'alternate', hreflang: loc.code, href: `${siteUrl}/${loc.code}/blog` })),
+    { rel: 'alternate', hreflang: 'x-default', href: `${siteUrl}/en/blog` },
+  ]),
+})
 const tagFilter = ref("")
 const allTags = ref([])
 const allPosts = ref([])

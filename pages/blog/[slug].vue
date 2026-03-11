@@ -112,34 +112,68 @@ useHead(() => {
   }
 
   const siteUrl = "https://citybot.ch"
-  const fullPath = route.fullPath
+  const slug = route.params.slug
+  const canonicalUrl = `${siteUrl}${route.path}`
+  const imageUrl = `${siteUrl}/img/${post.value?.image}`
 
-  const canonicalUrl = `${siteUrl}/${locale.value}${fullPath}`
-  const alternateLinks = locales.value.map((loc: any) => {
-    return {
-      rel: "alternate",
-      hreflang: loc.code,
-      href: `${siteUrl}/${loc.code}${fullPath}`,
-    }
-  })
+  const alternateLinks = locales.value.map((loc: any) => ({
+    rel: "alternate",
+    hreflang: loc.code,
+    href: `${siteUrl}/${loc.code}/blog/${slug}`,
+  }))
+
+  const articleSchema = {
+    '@context': 'https://schema.org',
+    '@type': 'Article',
+    headline: post.value?.title,
+    description: post.value?.description,
+    image: imageUrl,
+    datePublished: post.value?.date,
+    dateModified: post.value?.date,
+    url: canonicalUrl,
+    inLanguage: locale.value,
+    publisher: {
+      '@type': 'Organization',
+      '@id': `${siteUrl}/#organization`,
+      name: 'CityBot',
+      logo: {
+        '@type': 'ImageObject',
+        url: `${siteUrl}/img/CItybot_Logo_highres.png`,
+      },
+    },
+    author: {
+      '@type': 'Organization',
+      name: 'CityBot',
+      url: siteUrl,
+    },
+    mainEntityOfPage: {
+      '@type': 'WebPage',
+      '@id': canonicalUrl,
+    },
+  }
 
   return {
-    title: post.value?.title,
+    title: `${post.value?.title} – CityBot`,
     meta: [
       { name: "description", content: post.value?.description },
       { property: "og:title", content: post.value?.title },
       { property: "og:description", content: post.value?.description },
-      {
-        property: "og:image",
-        content: `${siteUrl}${post.value?.image}`,
-      },
-      {
-        property: "og:url",
-        content: `${siteUrl}${route.path}`,
-      },
+      { property: "og:image", content: imageUrl },
+      { property: "og:url", content: canonicalUrl },
       { property: "og:type", content: "article" },
+      { name: "twitter:card", content: "summary_large_image" },
+      { name: "twitter:title", content: post.value?.title },
+      { name: "twitter:description", content: post.value?.description },
+      { name: "twitter:image", content: imageUrl },
     ],
-    link: [{ rel: "canonical", href: canonicalUrl }, ...alternateLinks],
+    link: [
+      { rel: "canonical", href: canonicalUrl },
+      ...alternateLinks,
+      { rel: "alternate", hreflang: "x-default", href: `${siteUrl}/en/blog/${slug}` },
+    ],
+    script: [
+      { type: 'application/ld+json', innerHTML: JSON.stringify(articleSchema) },
+    ],
   }
 })
 

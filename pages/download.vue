@@ -48,7 +48,53 @@
 
 <script lang="ts" setup>
 const route = useRoute()
+const { locale, locales } = useI18n()
+const siteUrl = 'https://citybot.ch'
+
 if (route.path === "/download.html") {
   navigateTo("/download", { redirectCode: 301 })
 }
+
+useSeoMeta({
+  title: 'Download CityBot – Free on iOS & Android',
+  ogTitle: 'Download CityBot – Free on iOS & Android',
+  description: 'Download the CityBot app for free on iOS and Android. Discover attractions, join tours, and explore your destination with AI-powered personalized suggestions.',
+  ogDescription: 'Download the CityBot visitor app for free on iOS and Android. AI-powered local discovery for tourists and city explorers.',
+  ogType: 'website',
+  ogImage: `${siteUrl}/img/CItybot_Logo_highres.png`,
+  twitterCard: 'summary_large_image',
+})
+
+useHead({
+  link: computed(() => [
+    { rel: 'canonical', href: `${siteUrl}/${locale.value}/download` },
+    ...locales.value.map((loc: any) => ({ rel: 'alternate', hreflang: loc.code, href: `${siteUrl}/${loc.code}/download` })),
+    { rel: 'alternate', hreflang: 'x-default', href: `${siteUrl}/en/download` },
+  ]),
+  script: [
+    {
+      type: 'application/ld+json',
+      innerHTML: JSON.stringify({
+        '@context': 'https://schema.org',
+        '@type': 'MobileApplication',
+        name: 'CityBot',
+        operatingSystem: 'iOS, Android',
+        applicationCategory: 'TravelApplication',
+        offers: { '@type': 'Offer', price: '0', priceCurrency: 'CHF' },
+        description: 'AI-powered destination discovery app. Explore attractions, join guided tours, and get personalized suggestions for your city visit.',
+        publisher: { '@id': `${siteUrl}/#organization` },
+        downloadUrl: [
+          'https://apps.apple.com/ch/app/citybot-zug/id6443655653',
+          'https://play.google.com/store/apps/details?id=ch.citybot.citybot',
+        ],
+        aggregateRating: {
+          '@type': 'AggregateRating',
+          ratingValue: '4.2',
+          bestRating: '5',
+          ratingCount: '1000',
+        },
+      }),
+    },
+  ],
+})
 </script>

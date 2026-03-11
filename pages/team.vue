@@ -91,7 +91,64 @@
 </template>
 
 <script setup>
-const { t } = useI18n()
+const { t, locale, locales } = useI18n()
+const siteUrl = 'https://citybot.ch'
+
+useSeoMeta({
+  title: 'Team – CityBot | Meet the Founders',
+  ogTitle: 'Team – CityBot | Meet the Founders',
+  description: 'Meet the team behind CityBot — engineers from Zug, Switzerland, building digital destination management tools for cities and tourism organizations.',
+  ogDescription: 'Meet the engineers and founders behind CityBot, a Swiss digital destination management platform.',
+  ogType: 'website',
+  ogImage: `${siteUrl}/img/CItybot_Logo_highres.png`,
+  twitterCard: 'summary_large_image',
+})
+
+useHead({
+  link: computed(() => [
+    { rel: 'canonical', href: `${siteUrl}/${locale.value}/team` },
+    ...locales.value.map((loc) => ({ rel: 'alternate', hreflang: loc.code, href: `${siteUrl}/${loc.code}/team` })),
+    { rel: 'alternate', hreflang: 'x-default', href: `${siteUrl}/en/team` },
+  ]),
+  script: [
+    {
+      type: 'application/ld+json',
+      innerHTML: JSON.stringify({
+        '@context': 'https://schema.org',
+        '@type': 'AboutPage',
+        url: `${siteUrl}/en/team`,
+        name: 'CityBot Team',
+        description: 'Meet the team behind CityBot — engineers from Zug, Switzerland building digital destination management tools.',
+        isPartOf: { '@id': `${siteUrl}/#website` },
+        about: { '@id': `${siteUrl}/#organization` },
+        mentions: [
+          {
+            '@type': 'Person',
+            name: 'Thierry Hohmann',
+            jobTitle: 'Founder & Backend Developer',
+            worksFor: { '@id': `${siteUrl}/#organization` },
+            sameAs: 'https://ch.linkedin.com/in/thierryhohmann',
+          },
+          {
+            '@type': 'Person',
+            name: 'Vladislav Bunkin',
+            jobTitle: 'Founder, Strategy & Full Stack Developer',
+            worksFor: { '@id': `${siteUrl}/#organization` },
+            sameAs: 'https://ch.linkedin.com/in/bunkinv',
+          },
+          {
+            '@type': 'Person',
+            name: 'Andri Bösch',
+            jobTitle: 'Founder & Backend Developer',
+            worksFor: { '@id': `${siteUrl}/#organization` },
+            sameAs: 'https://ch.linkedin.com/in/andri-b%C3%B6sch-0682446a',
+          },
+        ],
+      }),
+    },
+  ],
+})
+
 const hoveredMember = ref(null)
 const TRAIL = 6
 const cursorPos = reactive([-TRAIL - 1, -TRAIL - 1, -TRAIL - 1, -TRAIL - 1])
