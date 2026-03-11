@@ -27,6 +27,10 @@
             @click.prevent="scrollToSection('section2')"
             :class="navLink('howItWorks')"
           >{{ $t("functionalities") }}</a>
+          <a
+            @click.prevent="scrollToSection('section7')"
+            :class="navLink('faq')"
+          >{{ $t("faq_eyebrow") }}</a>
           <NuxtLink :to="localePath('/team')" :class="navLink('team')">
             {{ $t("team") }}
           </NuxtLink>
@@ -76,6 +80,10 @@
             @click.prevent="scrollToSection('section2')"
             :class="mobileNavLink('howItWorks')"
           >{{ $t("functionalities") }}</a>
+          <a
+            @click.prevent="scrollToSection('section7')"
+            :class="mobileNavLink('faq')"
+          >{{ $t("faq_eyebrow") }}</a>
           <NuxtLink :to="localePath('/team')" @click="toggleMenu" :class="mobileNavLink('team')">
             {{ $t("team") }}
           </NuxtLink>
@@ -127,15 +135,16 @@ function updateActiveFromScroll() {
     return
   }
 
-  const sections = ['section6', 'section5', 'section4', 'section3', 'section2', 'section1']
+  const sections = ['section7', 'section6', 'section5', 'section4', 'section3', 'section2', 'section1']
   const offset = 150 // account for header height
 
   for (const id of sections) {
     const el = document.getElementById(id)
     if (el && el.getBoundingClientRect().top <= offset) {
-      // section1 = home, section2+ = howItWorks
       if (id === 'section1') {
         activeNav.value = 'home'
+      } else if (id === 'section7') {
+        activeNav.value = 'faq'
       } else {
         activeNav.value = 'howItWorks'
       }

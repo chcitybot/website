@@ -18,6 +18,9 @@
     <section id="section6">
       <HomeTestimonials />
     </section>
+    <section id="section7">
+      <HomeFAQ />
+    </section>
   </div>
 </template>
 
@@ -93,10 +96,10 @@ useHead({
             mainEntity: [
               {
                 '@type': 'Question',
-                name: 'What is CityBot?',
+                name: 'Is CityBot free?',
                 acceptedAnswer: {
                   '@type': 'Answer',
-                  text: 'CityBot is a digital destination management platform that helps cities, tourism boards, and destinations create, manage, and deliver personalized visitor experiences. It combines an AI-powered mobile app for visitors with a cloud-based CMS and analytics tools for destination managers.',
+                  text: 'Yes — the app is completely free for visitors and users. For cities and destinations that want to partner and list their content on the platform, we discuss pricing individually based on the destination\'s needs.',
                 },
               },
               {

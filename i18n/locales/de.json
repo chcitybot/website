@@ -99,5 +99,17 @@
   "team_desc_sep_0": ", ",
   "team_desc_sep_1": ", ",
   "team_desc_sep_2": " oder ",
-  "team_desc_after": "— jeder von uns trägt ein Stück dazu bei, CityBot wirklich nützlich zu machen. Wir verwandeln komplexe Probleme in klare Lösungen und begleiten unsere Partner bei jedem Schritt."
+  "team_desc_after": "— jeder von uns trägt ein Stück dazu bei, CityBot wirklich nützlich zu machen. Wir verwandeln komplexe Probleme in klare Lösungen und begleiten unsere Partner bei jedem Schritt.",
+  "faq_eyebrow": "FAQ",
+  "faq_title": "Häufig gestellte Fragen",
+  "faq_q1": "Ist CityBot kostenlos?",
+  "faq_a1": "Ja — die App ist für Besucher und Nutzer vollständig kostenlos. Für Städte und Destinationen, die eine Partnerschaft eingehen und ihre Inhalte auf der Plattform anbieten möchten, besprechen wir die Preise individuell je nach Bedarf der Destination.",
+  "faq_q2": "Wie hilft CityBot Tourismusdestinationen?",
+  "faq_a2": "CityBot bietet Destinationen eine gebrandete App-Erfahrung für Besucher, ein CMS zur Verwaltung von Attraktionen, Touren und Events, Echtzeit-Analysen sowie KI-gestützte personalisierte Empfehlungen — zu einem Bruchteil der Kosten einer Eigenentwicklung. Über 130.000 personalisierte Empfehlungen wurden bereits über die Plattform ausgespielt.",
+  "faq_q3": "Ist CityBot für iOS und Android verfügbar?",
+  "faq_a3": "Ja. Die CityBot-Besucher-App ist sowohl für iOS (Apple App Store) als auch für Android (Google Play Store) kostenlos erhältlich.",
+  "faq_q4": "Wo ist CityBot ansässig?",
+  "faq_a4": "CityBot ist ein Schweizer Startup, das in Zug, Schweiz, von einem Team aus Ingenieuren mit Hintergründen in Umwelttechnik, Mathematik, Cybersicherheit und IT gegründet wurde.",
+  "faq_q5": "Was bedeutet digitales Destinationsmanagement?",
+  "faq_a5": "Digitales Destinationsmanagement bezeichnet den Einsatz von Technologieplattformen, um Inhalte einer Destination — Attraktionen, Touren, Events und Angebote — für Besucher über digitale Kanäle wie mobile Apps zu organisieren, zu verteilen und zu personalisieren. CityBot bietet dies als gebrauchsfertige, kosteneffiziente Plattform."
 }

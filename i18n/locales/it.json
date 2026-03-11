@@ -99,5 +99,17 @@
   "team_desc_sep_0": ", ",
   "team_desc_sep_1": ", ",
   "team_desc_sep_2": " o ",
-  "team_desc_after": "— ognuno di noi contribuisce a rendere CityBot davvero utile. Trasformiamo problemi complessi in soluzioni chiare e accompagniamo i nostri partner in ogni passo."
+  "team_desc_after": "— ognuno di noi contribuisce a rendere CityBot davvero utile. Trasformiamo problemi complessi in soluzioni chiare e accompagniamo i nostri partner in ogni passo.",
+  "faq_eyebrow": "FAQ",
+  "faq_title": "Domande frequenti",
+  "faq_q1": "CityBot è gratuito?",
+  "faq_a1": "Sì — l'app è completamente gratuita per visitatori e utenti. Per le città e le destinazioni che vogliono diventare partner e pubblicare i propri contenuti sulla piattaforma, discutiamo i prezzi individualmente in base alle esigenze della destinazione.",
+  "faq_q2": "In che modo CityBot aiuta le destinazioni turistiche?",
+  "faq_a2": "CityBot offre alle destinazioni un'esperienza app mobile personalizzata per i visitatori, un CMS per gestire attrazioni, tour ed eventi, analisi in tempo reale e suggerimenti personalizzati basati sull'IA — a una frazione del costo di una soluzione personalizzata. Oltre 130.000 suggerimenti personalizzati sono stati generati tramite la piattaforma.",
+  "faq_q3": "CityBot è disponibile su iOS e Android?",
+  "faq_a3": "Sì. L'app CityBot per i visitatori è disponibile gratuitamente su iOS (App Store di Apple) e Android (Google Play Store).",
+  "faq_q4": "Dove ha sede CityBot?",
+  "faq_a4": "CityBot è una startup svizzera fondata e con sede a Zugo, in Svizzera, da un team di ingegneri con background in ingegneria ambientale, matematica, cybersicurezza e informatica.",
+  "faq_q5": "Cosa significa gestione digitale delle destinazioni?",
+  "faq_a5": "La gestione digitale delle destinazioni si riferisce all'uso di piattaforme tecnologiche per organizzare, distribuire e personalizzare i contenuti di una destinazione — attrazioni, tour, eventi e offerte — per i visitatori tramite canali digitali come le app mobili. CityBot offre questo come piattaforma pronta all'uso ed economicamente vantaggiosa."
 }

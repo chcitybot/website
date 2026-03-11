@@ -99,5 +99,17 @@
   "team_desc_sep_0": ", ",
   "team_desc_sep_1": ", ",
   "team_desc_sep_2": " ou ",
-  "team_desc_after": "— chacun de nous apporte une pièce qui rend CityBot véritablement utile. Nous transformons des problèmes complexes en solutions claires et accompagnons nos partenaires à chaque étape."
+  "team_desc_after": "— chacun de nous apporte une pièce qui rend CityBot véritablement utile. Nous transformons des problèmes complexes en solutions claires et accompagnons nos partenaires à chaque étape.",
+  "faq_eyebrow": "FAQ",
+  "faq_title": "Questions fréquentes",
+  "faq_q1": "CityBot est-il gratuit ?",
+  "faq_a1": "Oui — l'application est entièrement gratuite pour les visiteurs et les utilisateurs. Pour les villes et les destinations qui souhaitent devenir partenaires et référencer leurs contenus sur la plateforme, nous discutons des tarifs individuellement selon les besoins de chaque destination.",
+  "faq_q2": "Comment CityBot aide-t-il les destinations touristiques ?",
+  "faq_a2": "CityBot offre aux destinations une expérience d'application mobile personnalisée pour les visiteurs, un CMS pour gérer les attractions, les tours et les événements, des analyses en temps réel et des suggestions personnalisées par l'IA — à une fraction du coût d'une solution sur mesure. Plus de 130 000 suggestions personnalisées ont été générées via la plateforme.",
+  "faq_q3": "CityBot est-il disponible sur iOS et Android ?",
+  "faq_a3": "Oui. L'application CityBot pour les visiteurs est disponible gratuitement sur iOS (App Store d'Apple) et Android (Google Play Store).",
+  "faq_q4": "Où CityBot est-il basé ?",
+  "faq_a4": "CityBot est une startup suisse fondée et basée à Zoug, en Suisse, par une équipe d'ingénieurs spécialisés en ingénierie environnementale, mathématiques, cybersécurité et informatique.",
+  "faq_q5": "Que signifie la gestion de destination numérique ?",
+  "faq_a5": "La gestion de destination numérique désigne l'utilisation de plateformes technologiques pour organiser, distribuer et personnaliser le contenu d'une destination — attractions, tours, événements et offres — pour les visiteurs via des canaux numériques comme les applications mobiles. CityBot propose cela comme une plateforme prête à l'emploi et économique."
 }

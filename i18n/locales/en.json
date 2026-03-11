@@ -99,5 +99,17 @@
   "team_desc_sep_0": ", ",
   "team_desc_sep_1": ", ",
   "team_desc_sep_2": ", or ",
-  "team_desc_after": "— each of us contributes a piece that makes CityBot genuinely useful. We turn complex problems into clean solutions, and we're there to guide our partners through every step."
+  "team_desc_after": "— each of us contributes a piece that makes CityBot genuinely useful. We turn complex problems into clean solutions, and we're there to guide our partners through every step.",
+  "faq_eyebrow": "FAQ",
+  "faq_title": "Frequently Asked Questions",
+  "faq_q1": "Is CityBot free?",
+  "faq_a1": "Yes — the app is completely free for visitors and users. For cities and destinations that want to partner and list their content on the platform, we discuss pricing individually based on the destination's needs.",
+  "faq_q2": "How does CityBot help tourism destinations?",
+  "faq_a2": "CityBot provides destinations with a branded mobile app experience for visitors, a CMS for managing attractions, tours, and events, real-time analytics, and AI-powered personalized suggestions — all at a fraction of the cost of building a custom solution. Over 130,000 personalized suggestions have been made through the platform.",
+  "faq_q3": "Is CityBot available on iOS and Android?",
+  "faq_a3": "Yes. The CityBot visitor app is available on both iOS (Apple App Store) and Android (Google Play Store), free to download and use for visitors.",
+  "faq_q4": "Where is CityBot based?",
+  "faq_a4": "CityBot is a Swiss startup founded and based in Zug, Switzerland, by a team of engineers with backgrounds in environmental engineering, mathematics, cybersecurity, and IT.",
+  "faq_q5": "What does digital destination management mean?",
+  "faq_a5": "Digital destination management refers to using technology platforms to organize, distribute, and personalize a destination's content — attractions, tours, events, and offers — for visitors via digital channels like mobile apps. CityBot provides this as a ready-to-use, cost-efficient platform so destinations don't need to build their own solution."
 }
