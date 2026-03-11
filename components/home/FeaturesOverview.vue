@@ -46,17 +46,6 @@
                 </div>
               </li>
             </ul>
-            <div class="mt-10">
-              <button
-                @click.prevent="scrollToSection('section4')"
-                class="inline-flex items-center px-8 py-4 rounded-full bg-bot_dark_blue text-white text-paragraph font-semibold hover:bg-bot_dark_blue/90 transition-all duration-200 shadow-lg shadow-bot_dark_blue/25 hover:shadow-xl hover:shadow-bot_dark_blue/30 hover:-translate-y-0.5 cursor-pointer"
-              >
-                {{ $t("cta_more_details") }}
-                <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
-                  <path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7" />
-                </svg>
-              </button>
-            </div>
           </div>
           <div class="order-1 md:order-1">
             <img
@@ -116,17 +105,6 @@
                 </div>
               </li>
             </ul>
-            <div class="mt-10">
-              <button
-                @click.prevent="scrollToSection('section5')"
-                class="inline-flex items-center px-8 py-4 rounded-full bg-bot_dark_blue text-white text-paragraph font-semibold hover:bg-bot_dark_blue/90 transition-all duration-200 shadow-lg shadow-bot_dark_blue/25 hover:shadow-xl hover:shadow-bot_dark_blue/30 hover:-translate-y-0.5 cursor-pointer"
-              >
-                {{ $t("cta_more_details") }}
-                <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
-                  <path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7" />
-                </svg>
-              </button>
-            </div>
           </div>
           <div>
             <img
@@ -142,11 +120,3 @@
   </div>
 </template>
 
-<script setup>
-function scrollToSection(sectionId) {
-  const element = document.getElementById(sectionId)
-  if (element) {
-    element.scrollIntoView({ behavior: 'smooth', block: 'start' })
-  }
-}
-</script>
