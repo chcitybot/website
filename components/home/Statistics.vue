@@ -19,10 +19,8 @@
               <path stroke-linecap="round" stroke-linejoin="round" d="M19.5 10.5c0 7.142-7.5 11.25-7.5 11.25S4.5 17.642 4.5 10.5a7.5 7.5 0 1115 0z" />
             </svg>
           </div>
-          <div class="font-heading text-display-sm text-bot_dark_blue" ref="stat1">
-            <span v-if="visible">{{ animatedStat1 }}</span>
-            <span v-else>0</span>
-            <span>+</span>
+          <div class="font-heading text-display-sm text-bot_dark_blue">
+            <MagicNumberTicker :value="60000" /><span>+</span>
           </div>
           <p class="mt-2 text-caption text-bot_gray">{{ $t("stats_nr_visited_pois_title") }}</p>
         </div>
@@ -35,9 +33,7 @@
             </svg>
           </div>
           <div class="font-heading text-display-sm text-bot_dark_blue">
-            <span v-if="visible">{{ animatedStat2 }}</span>
-            <span v-else>0</span>
-            <span>+</span>
+            <MagicNumberTicker :value="330000" :delay="0.1" /><span>+</span>
           </div>
           <p class="mt-2 text-caption text-bot_gray">{{ $t("stats_suggestions_title") }}</p>
         </div>
@@ -50,9 +46,7 @@
             </svg>
           </div>
           <div class="font-heading text-display-sm text-bot_dark_blue">
-            <span v-if="visible">{{ animatedStat3 }}</span>
-            <span v-else>0</span>
-            <span>+</span>
+            <MagicNumberTicker :value="3100" :delay="0.2" /><span>+</span>
           </div>
           <p class="mt-2 text-caption text-bot_gray">{{ $t("stats_finished_tours_title") }}</p>
         </div>
@@ -65,8 +59,7 @@
             </svg>
           </div>
           <div class="font-heading text-display-sm text-bot_dark_blue">
-            <span v-if="visible">{{ animatedStat4 }}</span>
-            <span v-else>0</span>
+            <MagicNumberTicker :value="4.2" :decimal-places="1" :delay="0.3" />
           </div>
           <p class="mt-2 text-caption text-bot_gray">{{ $t("stats_average_rating_title") }}</p>
         </div>
@@ -85,50 +78,3 @@
     </div>
   </div>
 </template>
-
-<script setup>
-const stat1 = ref(null)
-const visible = ref(false)
-const animatedStat1 = ref(0)
-const animatedStat2 = ref(0)
-const animatedStat3 = ref(0)
-const animatedStat4 = ref('0.0')
-
-function animateValue(from, to, duration, setter, isDecimal = false) {
-  const start = performance.now()
-  function step(now) {
-    const elapsed = now - start
-    const progress = Math.min(elapsed / duration, 1)
-    // Ease out cubic
-    const eased = 1 - Math.pow(1 - progress, 3)
-    const current = from + (to - from) * eased
-    if (isDecimal) {
-      setter(current.toFixed(1))
-    } else {
-      setter(Math.round(current).toLocaleString())
-    }
-    if (progress < 1) {
-      requestAnimationFrame(step)
-    }
-  }
-  requestAnimationFrame(step)
-}
-
-onMounted(() => {
-  if (!stat1.value) return
-  const observer = new IntersectionObserver(
-    (entries) => {
-      if (entries[0].isIntersecting && !visible.value) {
-        visible.value = true
-        animateValue(0, 60000, 2000, (v) => { animatedStat1.value = v })
-        animateValue(0, 330000, 2500, (v) => { animatedStat2.value = v })
-        animateValue(0, 3100, 1800, (v) => { animatedStat3.value = v })
-        animateValue(0, 4.2, 2000, (v) => { animatedStat4.value = v }, true)
-        observer.disconnect()
-      }
-    },
-    { threshold: 0.3 }
-  )
-  observer.observe(stat1.value)
-})
-</script>

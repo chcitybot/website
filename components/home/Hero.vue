@@ -50,7 +50,7 @@
           <!-- Traveling bubble: organic drop — takes destination color -->
           <path
             v-if="bubbleVisible"
-            :transform="`translate(${bubbleX}, ${bubbleY}) rotate(${travelLineAngle})`"
+            :transform="`translate(${bubbleX}, ${bubbleY}) rotate(${travelLineAngle}) scale(${bubbleScale})`"
             :d="bubblePath"
             :fill="bubbleColor"
             fill-opacity="0.6"
@@ -91,26 +91,24 @@
         <!-- Logo + brand -->
         <div class="flex flex-col items-center mb-12 opacity-0 animate-fade-up-delay-1">
           <SvgBot ref="botIconEl" class="h-32 w-32 lg:h-44 lg:w-44" />
-          <span class="mt-2 font-heading text-4xl lg:text-5xl font-semibold text-bot_dark_blue tracking-tight">CityBot</span>
         </div>
 
         <h1 class="font-heading text-display-sm lg:text-display text-gray-900 opacity-0 animate-fade-up-delay-1">
-          {{ $t("home_hero_title") }}
+          {{ $t("home_hero_title_prefix") }}<br>
+          <MagicWordRotate
+            :words="heroRotatingPhrases"
+            :colors="heroRotatingColors"
+            :manual-index="wordIndex"
+            class="text-bot_dark_blue"
+          />
         </h1>
 
-        <p class="mt-6 text-paragraph text-bot_gray max-w-lg mx-auto opacity-0 animate-fade-up-delay-2">
-          {{ $t("home_hero_subtitle") }}
-        </p>
-
-        <div class="mt-10 flex flex-wrap justify-center gap-4 opacity-0 animate-fade-up-delay-3">
+        <div class="mt-28 lg:mt-36 flex flex-wrap justify-center gap-4 opacity-0 animate-fade-up-delay-2">
           <NuxtLink
             :to="'/download'"
             class="inline-flex items-center px-8 py-4 rounded-full bg-bot_red text-white text-paragraph font-semibold hover:bg-bot_red/90 transition-all duration-200 shadow-lg shadow-bot_red/25 hover:shadow-xl hover:shadow-bot_red/30 hover:-translate-y-0.5"
           >
             {{ $t("cta_app_test") }}
-            <svg class="ml-2 w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
-              <path stroke-linecap="round" stroke-linejoin="round" d="M17 8l4 4m0 0l-4 4m4-4H3" />
-            </svg>
           </NuxtLink>
           <NuxtLink
             :to="'/contact'"
@@ -183,6 +181,60 @@
 </template>
 
 <script setup>
+const { locale } = useI18n()
+
+const heroRotatingPhrases = computed(() => {
+  switch (locale.value) {
+    case 'de': return [
+      'CityBot.',
+      'lokal erleben.',
+      'Inhalte verwalten.',
+      'Besucher begeistern.',
+      'Destinationen stärken.',
+      'Neugier wecken.',
+      'frei erkunden.',
+      'einfach du sein.',
+    ]
+    case 'fr': return [
+      'CityBot.',
+      'vivre local.',
+      'gérer le contenu.',
+      'captiver les visiteurs.',
+      'valoriser les destinations.',
+      'éveiller la curiosité.',
+      'explorer librement.',
+      'être soi-même.',
+    ]
+    case 'it': return [
+      'CityBot.',
+      'vivere locale.',
+      'gestire i contenuti.',
+      'affascinare i visitatori.',
+      'valorizzare le destinazioni.',
+      'destare curiosità.',
+      'esplorare liberamente.',
+      'essere te stesso.',
+    ]
+    default: return [
+      'CityBot.',
+      'feel local.',
+      'manage content.',
+      'captivate visitors.',
+      'empower destinations.',
+      'spark curiosity.',
+      'explore freely.',
+      'be yourself.',
+    ]
+  }
+})
+
+const heroRotatingColors = computed(() => {
+  const len = heroRotatingPhrases.value.length
+  return Array.from({ length: len }, (_, i) => i === len - 1 ? '#FA634B' : null)
+})
+
+const wordIndex = ref(-1)
+
 const heroEl = ref(null)
 const botIconEl = ref(null)
 const poiWrapEl = ref(null)
@@ -200,17 +252,15 @@ const scrollIndicatorOpacity = ref(1)
 const CENTER_IDX = -1
 const CITYBOT_COLOR = '#FA634B'
 
-// POI icons — clockwise flow but alternating outer/inner to create zigzag feel
+// POI icons — strict clockwise from top-right, ending at yellow sports before returning to center
 const pois = reactive([
-  { x: 18, y: 10, image: '/img/category_sights_neg.png',   visible: false, color: '#F9B666' },
-  { x: 52, y: 8,  image: '/img/category_art_neg.png',      visible: false, color: '#AF94D6' },
-  { x: 84, y: 10, image: '/img/category_nature_neg.png',   visible: false, color: '#4047D2' },
-  { x: 75, y: 44, image: '/img/category_coffee_neg.png',   visible: false, color: '#AF94D6' },
-  { x: 92, y: 70, image: '/img/category_bar_neg.png',      visible: false, color: '#4047D2' },
-  { x: 60, y: 88, image: '/img/category_food_neg.png',     visible: false, color: '#4047D2' },
-  { x: 28, y: 92, image: '/img/category_shopping_neg.png', visible: false, color: '#FA634B' },
-  { x: 22, y: 70, image: '/img/category_activity_neg.png', visible: false, color: '#FA634B' },
-  { x: 8,  y: 40, image: '/img/category_sports.png',       visible: false, color: '#F9B666' },
+  { x: 84, y: 10, image: '/img/category_nature_neg.png',   visible: false, color: '#4047D2' }, // top-right → start
+  { x: 75, y: 44, image: '/img/category_coffee_neg.png',   visible: false, color: '#AF94D6' }, // right-mid
+  { x: 92, y: 70, image: '/img/category_bar_neg.png',      visible: false, color: '#4047D2' }, // right-lower
+  { x: 60, y: 88, image: '/img/category_food_neg.png',     visible: false, color: '#4047D2' }, // bottom-right
+  { x: 28, y: 92, image: '/img/category_shopping_neg.png', visible: false, color: '#FA634B' }, // bottom-left
+  { x: 22, y: 70, image: '/img/category_activity_neg.png', visible: false, color: '#FA634B' }, // left-lower
+  { x: 8,  y: 40, image: '/img/category_sports.png',       visible: false, color: '#F9B666' }, // left-mid → last yellow before center
 ])
 
 // Actual pixel dimensions of the hero — updated by ResizeObserver
@@ -240,6 +290,13 @@ function getPos(idx) {
 function getColor(idx) {
   if (idx === CENTER_IDX) return CITYBOT_COLOR
   return pois[idx].color
+}
+
+function getCenterRadius() {
+  const el = botIconEl.value?.$el || botIconEl.value
+  if (!el) return 72
+  const rect = el.getBoundingClientRect()
+  return Math.max(rect.width, rect.height) / 2
 }
 
 // Bubble travel angle (used for drop rotation)
@@ -274,6 +331,7 @@ function lerpColor(a, b, t) {
 const bubbleX = ref(0)
 const bubbleY = ref(0)
 const bubblePath = ref('')
+const bubbleScale = ref(0)
 let bubbleRaf = null
 let bubbleStartTime = null
 const BUBBLE_DUR = 1100
@@ -311,13 +369,23 @@ function animateBubble(timestamp) {
   const dist = Math.sqrt(dx * dx + dy * dy)
   const ux = dx / dist
   const uy = dy / dist
-  const ICON_R = 26
+  const fromCenter = travelingFrom.value === CENTER_IDX
+  const toCenter = travelingTo.value === CENTER_IDX
+  const ICON_R = fromCenter ? getCenterRadius() : 26
   const sx = f.x + ux * ICON_R
   const sy = f.y + uy * ICON_R
-  bubbleX.value = sx + (t.x - sx) * progress
-  bubbleY.value = sy + (t.y - sy) * progress
+  // Stop at logo edge on return, not at logo center
+  const centerR = toCenter ? getCenterRadius() : 0
+  const ex = t.x - ux * centerR
+  const ey = t.y - uy * centerR
+  bubbleX.value = sx + (ex - sx) * progress
+  bubbleY.value = sy + (ey - sy) * progress
   const speed = rawT < 0.5 ? 4 * rawT : 4 - 4 * rawT
   bubblePath.value = buildBubblePath(speed / 2)
+  // Grow from dot on departure; shrink to dot on return to center
+  bubbleScale.value = toCenter
+    ? Math.max(0, 1 - Math.max(0, rawT - 0.6) / 0.4)
+    : Math.min(rawT * 6, 1)
   bubbleColor.value = lerpColor(getColor(travelingFrom.value), getColor(travelingTo.value), progress)
   if (rawT < 1) {
     bubbleRaf = requestAnimationFrame(animateBubble)
@@ -331,6 +399,15 @@ let bloomIdCounter = 0
 function triggerBloom(poiIdx) {
   const p = getPos(poiIdx)
   const bloom = { id: bloomIdCounter++, x: p.x, y: p.y, color: getColor(poiIdx) }
+  blooms.push(bloom)
+  setTimeout(() => {
+    const i = blooms.indexOf(bloom)
+    if (i > -1) blooms.splice(i, 1)
+  }, 1000)
+}
+
+function triggerBloomAt(x, y, color) {
+  const bloom = { id: bloomIdCounter++, x, y, color }
   blooms.push(bloom)
   setTimeout(() => {
     const i = blooms.indexOf(bloom)
@@ -413,12 +490,25 @@ function runCycle() {
   if (!isFromCenter && !pois[from].visible) pois[from].visible = true
 
   // Bubble departs
-  const bubbleStart = 50
+  const bubbleStart = isFromCenter ? 650 : 50
   cycleTimers.push(setTimeout(() => {
     bubblePath.value = buildBubblePath(0)
+    bubbleScale.value = 0
     bubbleVisible.value = true
     bubbleStartTime = null
     bubbleRaf = requestAnimationFrame(animateBubble)
+
+    // Pulse from logo edge when departing from center
+    if (isFromCenter) {
+      const f = getPos(CENTER_IDX)
+      const dest = getPos(to)
+      const dx = dest.x - f.x, dy = dest.y - f.y
+      const dist = Math.sqrt(dx * dx + dy * dy)
+      const r = getCenterRadius()
+      triggerBloomAt(f.x + dx / dist * r, f.y + dy / dist * r, CITYBOT_COLOR)
+      // Animate in first word ("CityBot.") as bubble launches
+      if (wordIndex.value < 0) wordIndex.value = 0
+    }
   }, bubbleStart))
 
   // Bubble arrives
@@ -427,14 +517,29 @@ function runCycle() {
     bubbleVisible.value = false
 
     if (isToCenter) {
-      // Arrived back at CityBot logo — firework!
+      // Arrived back at CityBot logo — absorption bloom, firework + "be yourself"
       const c = getPos(CENTER_IDX)
-      triggerFirework(c.x, c.y)
+      if (!isFromCenter) {
+        const p = getPos(from)
+        const dx = c.x - p.x, dy = c.y - p.y
+        const dist = Math.sqrt(dx * dx + dy * dy)
+        const r = getCenterRadius()
+        const edgeX = c.x - dx / dist * r
+        const edgeY = c.y - dy / dist * r
+        triggerBloomAt(edgeX, edgeY, CITYBOT_COLOR)
+        triggerFirework(edgeX, edgeY)
+      }
       fadeOutAll()
     } else {
       // Normal POI arrival
       pois[to].visible = true
       triggerBloom(to)
+      if (to === pois.length - 1) {
+        // Last icon — show "be yourself.", firework fires on return to logo edge
+        wordIndex.value = heroRotatingPhrases.value.length - 1
+      } else {
+        wordIndex.value = (wordIndex.value + 1) % (heroRotatingPhrases.value.length - 1)
+      }
       iconHistory.value.push(to)
 
       // Sliding window: fade oldest icon
@@ -450,9 +555,10 @@ function runCycle() {
   const pauseAfter = isToCenter ? 600 : 80 // longer pause after firework
   cycleTimers.push(setTimeout(() => {
     if (isToCenter) {
-      // Restart: center → first POI
+      // Restart: center → first POI; go directly to "CityBot." to avoid twitch
       travelingFrom.value = CENTER_IDX
       travelingTo.value = 0
+      wordIndex.value = 0
     } else if (to === pois.length - 1) {
       // Last POI reached — next stop is center
       travelingFrom.value = to

@@ -9,7 +9,8 @@
 
       <div class="grid grid-cols-1 md:grid-cols-2 gap-12 lg:gap-16">
         <!-- Testimonial 1 -->
-        <div class="group reveal relative">
+        <div class="group reveal relative rounded-2xl">
+          <MagicBorderBeam :duration="10" color-from="#4047D2" color-to="#9297FF" :border-width="1.5" />
           <!-- Orb radiating from top-left corner of this card -->
           <div class="absolute top-0 left-0 w-[600px] h-[600px] rounded-full pointer-events-none z-0" style="background: radial-gradient(circle, rgba(64,71,210,0.25) 0%, transparent 55%); filter: blur(65px); transform: translate(-25%, -25%);"></div>
           <div class="relative z-10 p-8 lg:p-10">
@@ -44,7 +45,8 @@
         </div>
 
         <!-- Testimonial 2 -->
-        <div class="group reveal reveal-delay-2 relative">
+        <div class="group reveal reveal-delay-2 relative rounded-2xl">
+          <MagicBorderBeam :duration="10" color-from="#FA634B" color-to="#F9B666" :border-width="1.5" :delay="5" />
           <!-- Orb radiating from top-left corner of this card -->
           <div class="absolute top-0 left-0 w-[600px] h-[600px] rounded-full pointer-events-none z-0" style="background: radial-gradient(circle, rgba(250,99,75,0.22) 0%, transparent 55%); filter: blur(65px); transform: translate(-25%, -25%);"></div>
           <div class="relative z-10 p-8 lg:p-10">
