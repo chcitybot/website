@@ -17,12 +17,10 @@ const props = defineProps({
 
 const maskStyle = computed(() => ({
   border: `${props.borderWidth}px solid transparent`,
-  WebkitMask: 'linear-gradient(transparent, transparent), linear-gradient(#000, #000)',
-  WebkitMaskComposite: 'destination-in',
-  mask: 'linear-gradient(transparent, transparent), linear-gradient(#000, #000)',
-  maskComposite: 'intersect',
-  WebkitMaskClip: 'padding-box, border-box',
-  maskClip: 'padding-box, border-box',
+  WebkitMask: 'linear-gradient(#000, #000) padding-box, linear-gradient(#000, #000) border-box',
+  WebkitMaskComposite: 'xor',
+  mask: 'linear-gradient(#000, #000) padding-box, linear-gradient(#000, #000) border-box',
+  maskComposite: 'exclude',
 }))
 
 const particleStyle = computed(() => ({

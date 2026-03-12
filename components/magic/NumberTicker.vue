@@ -64,17 +64,21 @@ function start() {
 }
 
 onMounted(() => {
+  // Observe the closest reveal card ancestor so we start counting when
+  // the card becomes visible (not when the tiny span first enters viewport)
+  const target = el.value?.closest('.reveal') ?? el.value
   const observer = new IntersectionObserver(
     (entries) => {
       if (entries[0].isIntersecting && !started) {
         started = true
         observer.disconnect()
-        start()
+        // Small delay so the reveal CSS transition has started before counting
+        setTimeout(start, 200)
       }
     },
-    { threshold: 0 }
+    { threshold: 0.1 }
   )
-  observer.observe(el.value)
+  observer.observe(target)
 })
 
 onUnmounted(() => {
