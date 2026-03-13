@@ -67,7 +67,7 @@
       </div>
     </div>
 
-    <!-- Walking figurine: scroll-driven entry from the right -->
+    <!-- Walking figurine: position tracks scroll direction continuously -->
     <div
       class="absolute bottom-0 right-0 pointer-events-none"
       :style="{ transform: `translateX(${figureX}px)` }"
@@ -75,8 +75,8 @@
       <img
         src="/img/figurines_man_walking.png"
         alt=""
+        :style="{ animation: figureX > 4 && figureX < 316 ? 'figurine-bob 0.38s ease-in-out infinite' : 'none' }"
         class="h-36 lg:h-48 w-auto"
-        :class="isWalking ? 'figurine-bob' : ''"
       />
     </div>
   </div>
@@ -84,37 +84,28 @@
 
 <script setup>
 const sectionEl = ref(null)
-const figureX = ref(300)
-const isWalking = ref(false)
+const figureX = ref(320)
+let rafId = null
 
-function onScroll() {
-  if (!sectionEl.value) return
-  const rect = sectionEl.value.getBoundingClientRect()
-  const vh = window.innerHeight
-  // progress 0 → section top at viewport bottom; progress 1 → section top at 30% from top
-  const progress = Math.max(0, Math.min(1, (vh - rect.top) / (vh * 0.7)))
-  figureX.value = 300 * (1 - progress)
-  isWalking.value = progress > 0 && progress < 1
+function tick() {
+  const el = sectionEl.value
+  if (el) {
+    const rect = el.getBoundingClientRect()
+    const vh = window.innerHeight
+    const progress = Math.max(0, Math.min(1, (vh - rect.top) / (vh * 0.7)))
+    figureX.value = Math.round(320 * (1 - progress))
+  }
+  rafId = requestAnimationFrame(tick)
 }
 
-onMounted(() => {
-  window.addEventListener('scroll', onScroll, { passive: true })
-  onScroll()
-})
-
-onUnmounted(() => {
-  window.removeEventListener('scroll', onScroll)
-})
+onMounted(() => { rafId = requestAnimationFrame(tick) })
+onUnmounted(() => { if (rafId) cancelAnimationFrame(rafId) })
 </script>
 
 <style scoped>
 @keyframes figurine-bob {
   0%, 100% { transform: translateY(0px); }
-  25%       { transform: translateY(-4px); }
+  25%       { transform: translateY(-5px); }
   75%       { transform: translateY(-2px); }
-}
-
-.figurine-bob {
-  animation: figurine-bob 0.4s ease-in-out infinite;
 }
 </style>

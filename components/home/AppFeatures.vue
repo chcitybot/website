@@ -2,7 +2,7 @@
   <!-- Scroll runway: tall enough so vertical scroll drives horizontal motion -->
   <div ref="runwayEl" class="relative bg-white" :style="{ height: runwayHeight + 'px' }">
     <!-- Sticky viewport: pins the carousel in view while scrolling -->
-    <div class="sticky top-0 h-screen bg-white overflow-hidden flex flex-col justify-start pt-20 lg:pt-24 font-main">
+    <div class="sticky top-0 h-screen bg-white overflow-hidden flex flex-col justify-start pt-16 lg:pt-20 font-main">
 
       <!-- Animated blob — single element, color + position driven by scroll -->
       <div
@@ -22,12 +22,6 @@
 
       <!-- Section header -->
       <div class="relative text-center mb-4 lg:mb-6 px-6">
-        <p class="text-caption uppercase tracking-widest text-bot_dark_blue font-semibold mb-3">
-          {{ $t("app_features_eyebrow") }}
-        </p>
-        <h2 class="font-heading text-display-sm text-gray-900 mb-4">
-          {{ $t("app_features_title") }}
-        </h2>
         <!-- Inline scroll nav -->
         <div class="flex items-center justify-center gap-4">
           <button
