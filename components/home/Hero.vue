@@ -15,7 +15,7 @@
       </div>
 
       <!-- Floating POI icons with connecting line -->
-      <div ref="poiWrapEl" class="absolute inset-0 overflow-hidden pointer-events-none z-[2]">
+      <div ref="poiWrapEl" class="absolute inset-0 overflow-hidden pointer-events-none z-[2]" :style="{ opacity: iconsOpacity, transition: 'opacity 0.2s ease' }">
         <!-- SVG lines: persistent committed lines + one traveling line -->
         <!-- viewBox matches actual pixels so stroke-dasharray is always in real px -->
         <svg
@@ -103,7 +103,7 @@
           />
         </h1>
 
-        <div class="mt-28 lg:mt-36 flex flex-wrap justify-center gap-4 opacity-0 animate-fade-up-delay-2">
+        <div class="mt-28 lg:mt-36 flex flex-col items-center gap-4 opacity-0 animate-fade-up-delay-2">
           <NuxtLink
             :to="'/download'"
             class="inline-flex items-center px-8 py-4 rounded-full bg-bot_red text-white text-paragraph font-semibold hover:bg-bot_red/90 transition-all duration-200 shadow-lg shadow-bot_red/25 hover:shadow-xl hover:shadow-bot_red/30 hover:-translate-y-0.5"
@@ -195,6 +195,16 @@ const heroRotatingPhrases = computed(() => {
       'frei erkunden.',
       'einfach du sein.',
     ]
+    case 'ch': return [
+      'CityBot.',
+      'lokal erläbe.',
+      'Inhalt verwalte.',
+      'Besucher begeischtre.',
+      'Destinatione stärke.',
+      'Nüügier wecke.',
+      'frei entdecke.',
+      'eifach du si.',
+    ]
     case 'fr': return [
       'CityBot.',
       'vivre local.',
@@ -247,6 +257,7 @@ let targetX = 0
 // Scroll-driven: pull screenshots up to close the gap
 const stripPullUp = ref(0)
 const scrollIndicatorOpacity = ref(1)
+const iconsOpacity = ref(1)
 
 // Virtual index representing the CityBot logo center
 const CENTER_IDX = -1
@@ -576,8 +587,10 @@ function onScrollHero() {
   const scrollY = window.scrollY
   const vh = window.innerHeight
   const progress = Math.min(scrollY / vh, 1)
-  stripPullUp.value = -progress * vh * 0.4
+  const isMobile = window.innerWidth < 1024
+  stripPullUp.value = -progress * vh * (isMobile ? 0.1 : 0.2)
   scrollIndicatorOpacity.value = Math.max(1 - scrollY / 20, 0)
+  iconsOpacity.value = Math.max(0, 1 - Math.max(0, progress - 0.15) / 0.3)
 }
 
 function getHalfWidth() {

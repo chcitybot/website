@@ -63,7 +63,7 @@ useHead({
               '@type': 'ImageObject',
               url: `${siteUrl}/img/CItybot_Logo_highres.png`,
             },
-            email: 'contact.citybot@gmail.com',
+            email: 'info@citybot.ch',
             foundingDate: '2021',
             foundingLocation: { '@type': 'Place', name: 'Zug, Switzerland' },
             description: 'CityBot is a Swiss digital destination management platform that helps cities and tourism organizations enhance visitor experiences through AI-powered mobile apps and cloud-based content management tools.',

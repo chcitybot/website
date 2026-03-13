@@ -105,5 +105,6 @@ const faqItems = computed(() => [
   { q: t('faq_q3'), a: t('faq_a3') },
   { q: t('faq_q4'), a: t('faq_a4') },
   { q: t('faq_q5'), a: t('faq_a5') },
+  { q: t('faq_q6'), a: t('faq_a6') },
 ])
 </script>

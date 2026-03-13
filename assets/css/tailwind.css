@@ -187,8 +187,8 @@ body {
 
 /* Intensified glow on hover */
 .group:hover .team-glow {
-  box-shadow: 0 0 25px 8px color-mix(in srgb, var(--glow-color) 55%, transparent),
-              0 0 50px 18px color-mix(in srgb, var(--glow-color) 30%, transparent) !important;
+  box-shadow: 0 0 25px 8px color-mix(in srgb, var(--glow-color) 28%, transparent),
+              0 0 50px 18px color-mix(in srgb, var(--glow-color) 15%, transparent) !important;
   animation: none;
 }
 

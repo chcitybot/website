@@ -35,8 +35,8 @@
           <address class="not-italic text-sm text-white/60 space-y-2.5">
             <p>CityBot GmbH</p>
             <p>Berninaplatz 1, 8050 Zürich</p>
-            <a href="mailto:contact.citybot@gmail.com" class="block hover:text-white transition-colors duration-200">
-              contact.citybot@gmail.com
+            <a href="mailto:info@citybot.ch" class="block hover:text-white transition-colors duration-200">
+              info@citybot.ch
             </a>
           </address>
         </div>
