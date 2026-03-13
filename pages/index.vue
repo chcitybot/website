@@ -3,14 +3,15 @@
     <section id="section1">
       <HomeHero />
     </section>
+    <HomeAppBridge />
     <section id="section2">
-      <HomeCMTFeatures />
+      <HomeAppFeatures />
     </section>
     <section id="section3">
-      <HomeFeaturesOverview />
+      <HomeCMTFeatures />
     </section>
     <section id="section4">
-      <HomeAppFeatures />
+      <HomeFeaturesOverview />
     </section>
     <section id="section5">
       <HomeStatistics />

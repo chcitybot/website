@@ -2,7 +2,7 @@
   <!-- Scroll runway: tall enough so vertical scroll drives horizontal motion -->
   <div ref="runwayEl" class="relative bg-white" :style="{ height: runwayHeight + 'px' }">
     <!-- Sticky viewport: pins the carousel in view while scrolling -->
-    <div class="sticky top-0 h-screen overflow-hidden flex flex-col justify-start pt-20 lg:pt-24 font-main">
+    <div class="sticky top-0 h-screen bg-white overflow-hidden flex flex-col justify-start pt-20 lg:pt-24 font-main">
 
       <!-- Animated blob — single element, color + position driven by scroll -->
       <div
@@ -25,33 +25,38 @@
         <p class="text-caption uppercase tracking-widest text-bot_dark_blue font-semibold mb-3">
           {{ $t("app_features_eyebrow") }}
         </p>
-        <h2 class="font-heading text-display-sm text-gray-900">
+        <h2 class="font-heading text-display-sm text-gray-900 mb-4">
           {{ $t("app_features_title") }}
         </h2>
-      </div>
-
-      <!-- Right scroll hint -->
-      <div
-        class="absolute right-2 lg:right-6 top-1/2 -translate-y-1/2 z-10 flex flex-col items-center gap-2 transition-all duration-500"
-        :class="activeSlide < features.length - 1 ? 'opacity-100' : 'opacity-0 pointer-events-none'"
-      >
-        <span class="text-xs text-bot_gray tracking-widest uppercase" style="writing-mode: vertical-rl; letter-spacing: 0.15em;">{{ $t("app_features_scroll_hint") }}</span>
-        <div class="animate-bounce-x-right w-10 h-10 rounded-full flex items-center justify-center text-bot_gray/40">
-          <svg class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
-            <path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7" />
-          </svg>
-        </div>
-      </div>
-
-      <!-- Left scroll hint -->
-      <div
-        class="absolute left-2 lg:left-6 top-1/2 -translate-y-1/2 z-10 flex flex-col items-center gap-2 transition-all duration-500"
-        :class="activeSlide > 0 ? 'opacity-100' : 'opacity-0 pointer-events-none'"
-      >
-        <div class="animate-bounce-x-left w-10 h-10 rounded-full flex items-center justify-center text-bot_gray/40">
-          <svg class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
-            <path stroke-linecap="round" stroke-linejoin="round" d="M15 19l-7-7 7-7" />
-          </svg>
+        <!-- Inline scroll nav -->
+        <div class="flex items-center justify-center gap-4">
+          <button
+            class="w-9 h-9 rounded-full flex items-center justify-center transition-all duration-200 border-2"
+            :class="activeSlide > 0
+              ? 'border-bot_dark_blue text-bot_dark_blue hover:bg-bot_dark_blue hover:text-white'
+              : 'border-gray-200 text-gray-300 cursor-default'"
+            :disabled="activeSlide === 0"
+            aria-label="Previous"
+            @click="scrollToSlide(activeSlide - 1)"
+          >
+            <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M15 19l-7-7 7-7" />
+            </svg>
+          </button>
+          <span class="text-xs text-bot_dark_blue font-semibold tracking-widest uppercase">{{ $t("app_features_scroll_hint") }}</span>
+          <button
+            class="w-9 h-9 rounded-full flex items-center justify-center transition-all duration-200 border-2"
+            :class="activeSlide < features.length - 1
+              ? 'border-bot_dark_blue text-bot_dark_blue hover:bg-bot_dark_blue hover:text-white'
+              : 'border-gray-200 text-gray-300 cursor-default'"
+            :disabled="activeSlide === features.length - 1"
+            aria-label="Next"
+            @click="scrollToSlide(activeSlide + 1)"
+          >
+            <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7" />
+            </svg>
+          </button>
         </div>
       </div>
 
@@ -216,6 +221,15 @@ function lerp(a, b, t) {
 function measure() {
   slideWidth.value = window.innerWidth
   runwayHeight.value = window.innerHeight * (1 + (SLIDE_COUNT - 1) * 0.3)
+}
+
+function scrollToSlide(idx) {
+  if (!runwayEl.value) return
+  const target = Math.max(0, Math.min(idx, SLIDE_COUNT - 1))
+  const progress = target / (SLIDE_COUNT - 1)
+  const maxScroll = runwayHeight.value - window.innerHeight
+  const runwayTop = runwayEl.value.getBoundingClientRect().top + window.scrollY
+  window.scrollTo({ top: runwayTop + progress * maxScroll, behavior: 'smooth' })
 }
 
 function onScroll() {

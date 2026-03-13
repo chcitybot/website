@@ -1,5 +1,5 @@
 <template>
-  <div class="overflow-hidden bg-bot_bg py-16 lg:py-24">
+  <div ref="sectionEl" class="relative overflow-hidden bg-bot_bg py-16 lg:py-24">
     <div class="mx-auto max-w-7xl px-6 lg:px-8 font-main">
       <div class="grid grid-cols-1 md:grid-cols-2 gap-12 md:gap-16 lg:gap-20 items-center">
         <div>
@@ -66,5 +66,55 @@
         </div>
       </div>
     </div>
+
+    <!-- Walking figurine: scroll-driven entry from the right -->
+    <div
+      class="absolute bottom-0 right-0 pointer-events-none"
+      :style="{ transform: `translateX(${figureX}px)` }"
+    >
+      <img
+        src="/img/figurines_man_walking.png"
+        alt=""
+        class="h-36 lg:h-48 w-auto"
+        :class="isWalking ? 'figurine-bob' : ''"
+      />
+    </div>
   </div>
 </template>
+
+<script setup>
+const sectionEl = ref(null)
+const figureX = ref(300)
+const isWalking = ref(false)
+
+function onScroll() {
+  if (!sectionEl.value) return
+  const rect = sectionEl.value.getBoundingClientRect()
+  const vh = window.innerHeight
+  // progress 0 → section top at viewport bottom; progress 1 → section top at 30% from top
+  const progress = Math.max(0, Math.min(1, (vh - rect.top) / (vh * 0.7)))
+  figureX.value = 300 * (1 - progress)
+  isWalking.value = progress > 0 && progress < 1
+}
+
+onMounted(() => {
+  window.addEventListener('scroll', onScroll, { passive: true })
+  onScroll()
+})
+
+onUnmounted(() => {
+  window.removeEventListener('scroll', onScroll)
+})
+</script>
+
+<style scoped>
+@keyframes figurine-bob {
+  0%, 100% { transform: translateY(0px); }
+  25%       { transform: translateY(-4px); }
+  75%       { transform: translateY(-2px); }
+}
+
+.figurine-bob {
+  animation: figurine-bob 0.4s ease-in-out infinite;
+}
+</style>
