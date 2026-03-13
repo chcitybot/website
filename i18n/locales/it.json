@@ -117,5 +117,8 @@
   "faq_q5": "Cosa significa gestione digitale delle destinazioni?",
   "faq_a5": "La gestione digitale delle destinazioni si riferisce all'uso di piattaforme tecnologiche per organizzare, distribuire e personalizzare i contenuti di una destinazione — attrazioni, tour, eventi e offerte — per i visitatori tramite canali digitali come le app mobili. CityBot offre questo come piattaforma pronta all'uso ed economicamente vantaggiosa.",
   "faq_q6": "In quali città è disponibile CityBot?",
-  "faq_a6": "CityBot è attualmente disponibile a Zugo, in Svizzera. Stiamo espandendo attivamente verso nuove destinazioni — restate sintonizzati!"
+  "faq_a6": "CityBot è attualmente disponibile a Zugo, in Svizzera. Stiamo espandendo attivamente verso nuove destinazioni — restate sintonizzati!",
+  "cookie_title": "Niente cookie!",
+  "cookie_message": "Questo sito non raccoglie dati personali — proprio come la nostra app.",
+  "cookie_dismiss": "OK"
 }

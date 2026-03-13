@@ -85,6 +85,7 @@ const figureEl = ref(null)
 const figureImgEl = ref(null)
 let rafId = null
 
+let lastLog = 0
 function tick() {
   const section = sectionEl.value
   const wrapper = figureEl.value
@@ -96,6 +97,17 @@ function tick() {
     const x = Math.round(320 * (1 - progress))
     wrapper.style.transform = `translateX(${x}px)`
     if (img) img.style.animation = (x > 4 && x < 316) ? 'figurine-bob 0.38s ease-in-out infinite' : 'none'
+    const now = Date.now()
+    if (now - lastLog > 500) {
+      lastLog = now
+      console.log('[CMTFigure] rect.top:', Math.round(rect.top), 'vh:', vh, 'progress:', progress.toFixed(2), 'x:', x)
+    }
+  } else {
+    const now = Date.now()
+    if (now - lastLog > 500) {
+      lastLog = now
+      console.log('[CMTFigure] refs missing — section:', !!section, 'wrapper:', !!wrapper)
+    }
   }
   rafId = requestAnimationFrame(tick)
 }

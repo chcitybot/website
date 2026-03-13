@@ -117,5 +117,8 @@
   "faq_q5": "What does digital destination management mean?",
   "faq_a5": "Digital destination management refers to using technology platforms to organize, distribute, and personalize a destination's content — attractions, tours, events, and offers — for visitors via digital channels like mobile apps. CityBot provides this as a ready-to-use, cost-efficient platform so destinations don't need to build their own solution.",
   "faq_q6": "In which cities is CityBot available?",
-  "faq_a6": "CityBot is currently available in Zug, Switzerland. We are actively expanding to new destinations — stay tuned!"
+  "faq_a6": "CityBot is currently available in Zug, Switzerland. We are actively expanding to new destinations — stay tuned!",
+  "cookie_title": "No cookies!",
+  "cookie_message": "This website does not track any personal information — just like our app.",
+  "cookie_dismiss": "OK"
 }

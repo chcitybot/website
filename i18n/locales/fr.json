@@ -117,5 +117,8 @@
   "faq_q5": "Que signifie la gestion de destination numérique ?",
   "faq_a5": "La gestion de destination numérique désigne l'utilisation de plateformes technologiques pour organiser, distribuer et personnaliser le contenu d'une destination — attractions, tours, événements et offres — pour les visiteurs via des canaux numériques comme les applications mobiles. CityBot propose cela comme une plateforme prête à l'emploi et économique.",
   "faq_q6": "Dans quelles villes CityBot est-il disponible ?",
-  "faq_a6": "CityBot est actuellement disponible à Zoug, en Suisse. Nous sommes en pleine expansion vers de nouvelles destinations — restez connectés !"
+  "faq_a6": "CityBot est actuellement disponible à Zoug, en Suisse. Nous sommes en pleine expansion vers de nouvelles destinations — restez connectés !",
+  "cookie_title": "Pas de cookies !",
+  "cookie_message": "Ce site ne collecte aucune donnée personnelle — tout comme notre application.",
+  "cookie_dismiss": "OK"
 }

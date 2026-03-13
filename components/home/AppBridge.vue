@@ -1,5 +1,5 @@
 <template>
-  <div class="relative bg-white pt-40 pb-20 lg:pt-56 lg:pb-24 font-main overflow-hidden">
+  <div class="relative bg-white py-40 lg:py-56 font-main overflow-hidden">
     <!-- Concentric pulse rings -->
     <div class="ring ring-1" />
     <div class="ring ring-2" />
@@ -57,7 +57,8 @@
 
 @keyframes ring-expand {
   0%   { transform: translate(-50%, -50%) scale(0);   opacity: 0.7; }
-  80%  { opacity: 0.1; }
+  55%  { opacity: 0.15; }
+  75%  { opacity: 0; }
   100% { transform: translate(-50%, -50%) scale(1);   opacity: 0; }
 }
 </style>

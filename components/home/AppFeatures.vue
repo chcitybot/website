@@ -2,7 +2,7 @@
   <!-- Scroll runway: tall enough so vertical scroll drives horizontal motion -->
   <div ref="runwayEl" class="relative bg-white" :style="{ height: runwayHeight + 'px' }">
     <!-- Sticky viewport: pins the carousel in view while scrolling -->
-    <div class="sticky top-0 h-screen bg-white overflow-hidden flex flex-col justify-start pt-16 lg:pt-20 font-main">
+    <div class="sticky top-0 h-screen bg-white overflow-hidden flex flex-col justify-start pt-6 lg:pt-8 font-main">
 
       <!-- Animated blob — single element, color + position driven by scroll -->
       <div
