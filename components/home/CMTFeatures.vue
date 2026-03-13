@@ -67,15 +67,12 @@
       </div>
     </div>
 
-    <!-- Walking figurine: position tracks scroll direction continuously -->
-    <div
-      class="absolute bottom-0 right-0 pointer-events-none"
-      :style="{ transform: `translateX(${figureX}px)` }"
-    >
+    <!-- Walking figurine -->
+    <div ref="figureEl" class="absolute bottom-0 right-0 pointer-events-none" style="transform: translateX(320px)">
       <img
+        ref="figureImgEl"
         src="/img/figurines_man_walking.png"
         alt=""
-        :style="{ animation: figureX > 4 && figureX < 316 ? 'figurine-bob 0.38s ease-in-out infinite' : 'none' }"
         class="h-36 lg:h-48 w-auto"
       />
     </div>
@@ -84,16 +81,21 @@
 
 <script setup>
 const sectionEl = ref(null)
-const figureX = ref(320)
+const figureEl = ref(null)
+const figureImgEl = ref(null)
 let rafId = null
 
 function tick() {
-  const el = sectionEl.value
-  if (el) {
-    const rect = el.getBoundingClientRect()
+  const section = sectionEl.value
+  const wrapper = figureEl.value
+  const img = figureImgEl.value
+  if (section && wrapper) {
+    const rect = section.getBoundingClientRect()
     const vh = window.innerHeight
     const progress = Math.max(0, Math.min(1, (vh - rect.top) / (vh * 0.7)))
-    figureX.value = Math.round(320 * (1 - progress))
+    const x = Math.round(320 * (1 - progress))
+    wrapper.style.transform = `translateX(${x}px)`
+    if (img) img.style.animation = (x > 4 && x < 316) ? 'figurine-bob 0.38s ease-in-out infinite' : 'none'
   }
   rafId = requestAnimationFrame(tick)
 }

@@ -140,6 +140,8 @@
       class="relative pb-12 lg:pb-16 group/strip"
       :style="{ marginTop: `${stripPullUp}px` }"
     >
+      <!-- Bottom fade to white -->
+      <div class="absolute inset-x-0 bottom-0 h-40 z-10 pointer-events-none" style="background: linear-gradient(to top, #ffffff, transparent)" />
       <!-- Left arrow -->
       <button
         @click="nudge(300)"
