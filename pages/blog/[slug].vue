@@ -30,6 +30,45 @@
       </div>
     </div>
 
+    <!-- Mobile TL;DR: collapsible panel fixed to right edge (below xl) -->
+    <div class="xl:hidden fixed right-0 top-16 z-40 flex items-start">
+      <!-- Content panel — expands/collapses to the right -->
+      <div
+        class="transition-all duration-300 ease-in-out overflow-hidden"
+        :class="mobileTldrExpanded ? 'max-w-[260px] opacity-100' : 'max-w-0 opacity-0'"
+      >
+        <div class="w-[260px] relative overflow-hidden bg-bot_dark_blue shadow-lg shadow-bot_dark_blue/30 p-4 max-h-[calc(100vh-5rem)] overflow-y-auto">
+          <div class="absolute -top-6 -right-6 w-24 h-24 rounded-full pointer-events-none" style="background: radial-gradient(circle, #ffffff 0%, transparent 65%); opacity: 0.08; filter: blur(10px)"></div>
+          <p class="text-xs font-semibold uppercase tracking-widest text-white/60 mb-3">TL;DR</p>
+          <ul v-if="post.tldr?.length" class="space-y-2">
+            <li v-for="point in post.tldr" :key="point" class="flex items-start gap-2 text-sm text-white leading-relaxed">
+              <span class="mt-1.5 w-1.5 h-1.5 rounded-full bg-white/60 flex-shrink-0"></span>
+              <span>{{ point }}</span>
+            </li>
+          </ul>
+          <p v-else class="text-sm text-white leading-relaxed">{{ post.description }}</p>
+          <div class="mt-3 h-[3px] w-full bg-white/20 rounded-full overflow-hidden">
+            <div class="h-full bg-white rounded-full transition-none" :style="{ width: readProgress + '%' }"></div>
+          </div>
+        </div>
+      </div>
+      <!-- Arrow tab — always visible at the right edge -->
+      <button
+        class="w-8 flex-shrink-0 bg-bot_dark_blue flex items-center justify-center shadow-lg rounded-bl-xl"
+        style="height: 3.5rem"
+        :aria-label="mobileTldrExpanded ? 'Collapse TL;DR' : 'Expand TL;DR'"
+        @click="mobileTldrExpanded = !mobileTldrExpanded"
+      >
+        <svg
+          class="w-4 h-4 text-white transition-transform duration-300"
+          :class="mobileTldrExpanded ? 'rotate-0' : 'rotate-180'"
+          fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"
+        >
+          <path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7" />
+        </svg>
+      </button>
+    </div>
+
     <!-- Full-bleed hero image -->
     <div ref="heroContainerEl" class="relative">
       <div class="sticky top-0 w-full h-[51vh] lg:h-[62vh] overflow-hidden">
@@ -100,6 +139,8 @@ const articleEl = ref<HTMLElement | null>(null)
 const heroContainerEl = ref<HTMLElement | null>(null)
 const readProgress = ref(0)
 const hasScrolled = ref(false)
+const mobileTldrExpanded = ref(false)
+const tldrAutoShown = ref(false)
 
 const { data: post, error } = await useAsyncData(
   `blog-${route.params.slug}-${locale.value}`,

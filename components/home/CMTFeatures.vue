@@ -2,11 +2,11 @@
   <div ref="sectionEl" class="relative overflow-hidden bg-bot_bg py-16 lg:py-24">
     <div class="relative z-10 mx-auto max-w-7xl px-6 lg:px-8 font-main">
       <div class="grid grid-cols-1 md:grid-cols-2 gap-12 md:gap-16 lg:gap-20 items-center">
-        <div>
-          <p class="text-caption uppercase tracking-widest text-bot_dark_blue font-semibold mb-3">
+        <div ref="textEl">
+          <p class="text-sm sm:text-caption uppercase tracking-widest text-bot_dark_blue font-semibold mb-3">
             {{ $t("cmt_features_suptitle") }}
           </p>
-          <h2 class="font-heading text-display-sm text-gray-900 mb-4">
+          <h2 class="font-heading text-display-xs sm:text-display-sm text-gray-900 mb-4">
             {{ $t("cmt_features_headline_title") }}
           </h2>
           <ul class="space-y-6 mt-8">
@@ -18,7 +18,7 @@
               </div>
               <div>
                 <h3 class="text-h2 text-gray-900">{{ $t("cmt_features_multimedia_title") }}</h3>
-                <p class="mt-1 text-paragraph text-bot_gray">{{ $t("cmt_features_multimedia_text") }}</p>
+                <p class="mt-1 text-base sm:text-paragraph text-bot_gray">{{ $t("cmt_features_multimedia_text") }}</p>
               </div>
             </li>
             <li class="flex gap-4 items-start">
@@ -29,7 +29,7 @@
               </div>
               <div>
                 <h3 class="text-h2 text-gray-900">{{ $t("cmt_features_events_title") }}</h3>
-                <p class="mt-1 text-paragraph text-bot_gray">{{ $t("cmt_features_events_text") }}</p>
+                <p class="mt-1 text-base sm:text-paragraph text-bot_gray">{{ $t("cmt_features_events_text") }}</p>
               </div>
             </li>
             <li class="flex gap-4 items-start">
@@ -41,7 +41,7 @@
               </div>
               <div>
                 <h3 class="text-h2 text-gray-900">{{ $t("cmt_features_pois_title") }}</h3>
-                <p class="mt-1 text-paragraph text-bot_gray">{{ $t("cmt_features_pois_text") }}</p>
+                <p class="mt-1 text-base sm:text-paragraph text-bot_gray">{{ $t("cmt_features_pois_text") }}</p>
               </div>
             </li>
             <li class="flex gap-4 items-start">
@@ -52,7 +52,7 @@
               </div>
               <div>
                 <h3 class="text-h2 text-gray-900">{{ $t("cmt_features_digital_branding_title") }}</h3>
-                <p class="mt-1 text-paragraph text-bot_gray">{{ $t("cmt_features_digital_branding_text") }}</p>
+                <p class="mt-1 text-base sm:text-paragraph text-bot_gray">{{ $t("cmt_features_digital_branding_text") }}</p>
               </div>
             </li>
           </ul>
@@ -62,14 +62,14 @@
 
     <!-- Walking figurine: vertically centered, horizontally animated, behind text -->
     <div class="absolute inset-0 flex items-center pointer-events-none z-0">
-    <div :style="{ transform: `translateX(${figureXPx}px)` }">
+    <div :style="{ transform: `translateX(${figureXPx}px)`, opacity: figureOpacity }">
       <!-- scaleX(-1) flips the man to face left; separate element keeps translateX axis intact -->
       <div style="transform: scaleX(-1)">
         <img
           ref="figureImgEl"
           src="/img/citybot_figurine_woman_walking_with_backpack_no_floor.png"
           alt=""
-          class="h-[26rem] lg:h-[34rem] w-auto block"
+          class="h-[16rem] sm:h-[20rem] lg:h-[34rem] w-auto block"
           :style="{ animation: figureWalking ? 'figurine-bob 0.38s ease-in-out infinite' : 'none' }"
           @load="measure"
         />
@@ -82,35 +82,57 @@
 <script setup>
 const sectionEl = ref(null)
 const figureImgEl = ref(null)
+const textEl = ref(null)
 const figureXPx = ref(1000)
 const figureWalking = ref(false)
+const figureOpacity = ref(1)
 
 let stopX = 0   // translateX when centered
 let startX = 1000  // translateX when off-screen right
+let figW = 200, textRight = 0
+let rafPending = false
+
+const FADE_ZONE = 80
+const FADE_BUFFER = 92
+const MIN_OPACITY = 0.25
 
 function measure() {
   if (!sectionEl.value || !figureImgEl.value) return
+  const secRect = sectionEl.value.getBoundingClientRect()
   const secWidth = sectionEl.value.offsetWidth
   const el = figureImgEl.value
   const renderedH = el.offsetHeight
-  const figWidth = el.offsetWidth > 0
+  figW = el.offsetWidth > 0
     ? el.offsetWidth
     : el.naturalWidth > 0 && el.naturalHeight > 0
       ? Math.round(renderedH * el.naturalWidth / el.naturalHeight)
       : 200
 
-  stopX = Math.round((secWidth - figWidth) / 2)  // centered
-  startX = secWidth                               // off-screen right
+  stopX = Math.round((secWidth - figW) / 2)  // centered
+  startX = secWidth                            // off-screen right
+  if (textEl.value) {
+    const textRect = textEl.value.getBoundingClientRect()
+    textRight = textRect.right - secRect.left
+  }
   onScroll()
 }
 
-function onScroll() {
+function updateFigure() {
+  rafPending = false
   if (!sectionEl.value) return
   const rect = sectionEl.value.getBoundingClientRect()
   const vh = window.innerHeight
-  const progress = Math.max(0, Math.min(1, (vh * 0.7 - rect.top) / vh))
+  const progress = Math.max(0, Math.min(1, (vh * 0.85 - rect.top) / vh))
   figureXPx.value = Math.round(stopX + (startX - stopX) * (1 - progress))
   figureWalking.value = progress > 0.02 && progress < 0.98
+  const overlap = Math.max(0, textRight - figureXPx.value - FADE_BUFFER)
+  figureOpacity.value = Math.max(MIN_OPACITY, 1 - overlap / FADE_ZONE)
+}
+
+function onScroll() {
+  if (rafPending) return
+  rafPending = true
+  requestAnimationFrame(updateFigure)
 }
 
 onMounted(async () => {

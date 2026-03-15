@@ -284,3 +284,18 @@ body {
 .prose p {
   margin-bottom: 0.75em;
 }
+
+/* Pause heavy animations for users who prefer reduced motion */
+@media (prefers-reduced-motion: reduce) {
+  .hero-orb,
+  .poi-bloom,
+  .faq-fig-bob,
+  .persistent-line {
+    animation: none !important;
+  }
+  .reveal,
+  .reveal-slide-left,
+  .reveal-slide-right {
+    transition: none !important;
+  }
+}

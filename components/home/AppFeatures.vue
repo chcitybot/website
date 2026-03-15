@@ -63,7 +63,7 @@
         <div
           v-for="(feature, idx) in features"
           :key="idx"
-          class="flex-shrink-0 flex flex-col lg:flex-row items-center justify-center gap-8 lg:gap-16 px-6 lg:px-12"
+          class="flex-shrink-0 flex flex-col lg:flex-row items-center justify-center gap-8 lg:gap-16 px-12 sm:px-14 lg:px-12"
           :style="{ width: slideWidth + 'px' }"
         >
           <!-- Normal screenshot + text slide -->
@@ -72,7 +72,7 @@
               <img
                 v-for="(img, imgIdx) in feature.images"
                 :key="imgIdx"
-                class="w-44 sm:w-60 lg:w-72 rounded-3xl shadow-lg"
+                class="w-32 sm:w-56 lg:w-72 rounded-3xl shadow-lg"
                 :alt="img.alt"
                 :src="img.src"
               />
@@ -81,7 +81,7 @@
               <h3 class="font-heading text-h1 text-gray-900 mb-4">
                 {{ $t(feature.titleKey) }}
               </h3>
-              <p class="text-paragraph text-bot_gray">
+              <p class="text-base sm:text-paragraph text-bot_gray">
                 {{ $t(feature.textKey) }}
               </p>
             </div>
@@ -95,10 +95,10 @@
                   <path stroke-linecap="round" stroke-linejoin="round" d="M10.5 1.5H8.25A2.25 2.25 0 006 3.75v16.5a2.25 2.25 0 002.25 2.25h7.5A2.25 2.25 0 0018 20.25V3.75a2.25 2.25 0 00-2.25-2.25H13.5m-3 0V3h3V1.5m-3 0h3m-3 8.25h3" />
                 </svg>
               </div>
-              <h3 class="font-heading text-display-sm text-gray-900 mb-3">
+              <h3 class="font-heading text-display-xs sm:text-display-sm text-gray-900 mb-3">
                 {{ $t(feature.titleKey) }}
               </h3>
-              <p class="text-paragraph text-bot_gray mb-8">
+              <p class="text-base sm:text-paragraph text-bot_gray mb-8">
                 {{ $t(feature.textKey) }}
               </p>
               <div class="flex justify-center flex-wrap gap-4">
@@ -119,10 +119,10 @@
               :style="{ opacity: diveDeepOpacity }"
             >
               <div class="flex flex-col items-center">
-                <span class="text-caption uppercase tracking-widest font-semibold text-bot_dark_blue/50 mb-2">
+                <span class="text-sm sm:text-caption uppercase tracking-widest font-semibold text-bot_dark_blue/50 mb-2">
                   {{ $t('dive_deeper_sub') }}
                 </span>
-                <h2 class="font-heading text-display text-bot_dark_blue mb-6">
+                <h2 class="font-heading text-display-xs sm:text-display text-bot_dark_blue mb-6">
                   {{ $t('dive_deeper') }}
                 </h2>
                 <div class="animate-bounce text-bot_dark_blue/70">
@@ -135,7 +135,7 @@
                 <img
                   src="/img/citybot_figurine_man_biking_green_bike_no_floor.png"
                   alt=""
-                  class="h-36 lg:h-48 w-auto"
+                  class="h-[173px] lg:h-[230px] w-auto"
                   :style="{ animation: diveBikeRiding ? 'figurine-bob 0.38s ease-in-out infinite' : 'none' }"
                 />
               </div>

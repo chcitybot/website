@@ -5,8 +5,8 @@
       ref="heroEl"
       class="min-h-screen flex flex-col items-center justify-center px-6 lg:px-8 relative"
     >
-      <!-- Animated gradient orbs (pulsate in place) -->
-      <div class="absolute inset-0 overflow-hidden pointer-events-none">
+      <!-- Animated gradient orbs (pulsate in place) — hidden on small screens for performance -->
+      <div class="hidden sm:block absolute inset-0 overflow-hidden pointer-events-none">
         <div
           v-for="i in 5"
           :key="i"
@@ -93,7 +93,7 @@
           <SvgBot ref="botIconEl" class="h-32 w-32 lg:h-44 lg:w-44" />
         </div>
 
-        <h1 class="font-heading text-display-sm lg:text-display text-gray-900 opacity-0 animate-fade-up-delay-1">
+        <h1 class="font-heading text-display-xs sm:text-display-sm lg:text-display text-gray-900 opacity-0 animate-fade-up-delay-1">
           {{ $t("home_hero_title_prefix") }}<br>
           <MagicWordRotate
             :words="heroRotatingPhrases"

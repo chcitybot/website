@@ -32,7 +32,7 @@
                 src="/img/citybot_figurine_woman_dancing_with_coffee_no_floor.png"
                 alt=""
                 aria-hidden="true"
-                class="absolute bottom-0 right-0 translate-x-full translate-y-full h-[336px] w-auto max-w-none pointer-events-none select-none"
+                class="absolute bottom-0 left-1/2 -translate-x-1/2 translate-y-[130%] h-52 sm:left-auto sm:right-0 sm:translate-x-full sm:translate-y-full sm:h-[336px] w-auto max-w-none pointer-events-none select-none"
               />
               <a
                 href="mailto:info@citybot.ch"

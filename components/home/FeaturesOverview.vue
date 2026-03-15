@@ -4,11 +4,11 @@
     <div ref="section1El" class="relative overflow-hidden py-16 lg:py-24 bg-white">
       <div class="relative z-10 max-w-7xl mx-auto px-6 lg:px-8">
         <div class="grid grid-cols-1 md:grid-cols-2 gap-12 md:gap-16 lg:gap-20 items-center">
-          <div class="order-2 md:order-2">
-            <p class="text-caption uppercase tracking-widest text-bot_dark_blue font-semibold mb-3">
+          <div ref="text1El" class="order-2 md:order-2">
+            <p class="text-sm sm:text-caption uppercase tracking-widest text-bot_dark_blue font-semibold mb-3">
               {{ $t("sum_features_for_cities_title") }}
             </p>
-            <h2 class="font-heading text-display-sm text-gray-900 mb-4">
+            <h2 class="font-heading text-display-xs sm:text-display-sm text-gray-900 mb-4">
               {{ $t("sum_features_for_cities_text") }}
             </h2>
             <ul class="space-y-6 mt-8">
@@ -20,7 +20,7 @@
                 </div>
                 <div>
                   <h3 class="text-h2 text-gray-900">{{ $t("sum_features_full_control_title") }}</h3>
-                  <p class="mt-1 text-paragraph text-bot_gray">{{ $t("sum_features_full_control_text") }}</p>
+                  <p class="mt-1 text-base sm:text-paragraph text-bot_gray">{{ $t("sum_features_full_control_text") }}</p>
                 </div>
               </li>
               <li class="flex gap-4 items-start">
@@ -31,7 +31,7 @@
                 </div>
                 <div>
                   <h3 class="text-h2 text-gray-900">{{ $t("sum_features_analytics_title") }}</h3>
-                  <p class="mt-1 text-paragraph text-bot_gray">{{ $t("sum_features_analytics_text") }}</p>
+                  <p class="mt-1 text-base sm:text-paragraph text-bot_gray">{{ $t("sum_features_analytics_text") }}</p>
                 </div>
               </li>
               <li class="flex gap-4 items-start">
@@ -42,7 +42,7 @@
                 </div>
                 <div>
                   <h3 class="text-h2 text-gray-900">{{ $t("sum_features_cost_title") }}</h3>
-                  <p class="mt-1 text-paragraph text-bot_gray">{{ $t("sum_features_cost_text") }}</p>
+                  <p class="mt-1 text-base sm:text-paragraph text-bot_gray">{{ $t("sum_features_cost_text") }}</p>
                 </div>
               </li>
             </ul>
@@ -52,12 +52,12 @@
       </div>
 
       <div class="absolute inset-0 flex items-center pointer-events-none z-0">
-        <div :style="{ transform: `translateX(${figure1XPx}px)` }">
+        <div :style="{ transform: `translateX(${figure1XPx}px)`, opacity: figure1Opacity }">
           <img
             ref="figure1ImgEl"
             src="/img/citybot_figurine_man_biking_green_bike_no_floor.png"
             alt=""
-            class="h-[26rem] lg:h-[34rem] w-auto block"
+            class="h-[16rem] sm:h-[20rem] lg:h-[34rem] w-auto block"
             :style="{ animation: figure1Walking ? 'figurine-bob 0.38s ease-in-out infinite' : 'none' }"
             @load="measure1"
           />
@@ -69,11 +69,11 @@
     <div ref="section2El" class="relative overflow-hidden py-16 lg:py-24 bg-bot_bg">
       <div class="relative z-10 max-w-7xl mx-auto px-6 lg:px-8">
         <div class="grid grid-cols-1 md:grid-cols-2 gap-12 md:gap-16 lg:gap-20 items-center">
-          <div>
-            <p class="text-caption uppercase tracking-widest text-bot_dark_blue font-semibold mb-3">
+          <div ref="text2El">
+            <p class="text-sm sm:text-caption uppercase tracking-widest text-bot_dark_blue font-semibold mb-3">
               {{ $t("sum_features_for_visitors_title") }}
             </p>
-            <h2 class="font-heading text-display-sm text-gray-900 mb-4">
+            <h2 class="font-heading text-display-xs sm:text-display-sm text-gray-900 mb-4">
               {{ $t("sum_features_for_visitors_text") }}
             </h2>
             <ul class="space-y-6 mt-8">
@@ -85,7 +85,7 @@
                 </div>
                 <div>
                   <h3 class="text-h2 text-gray-900">{{ $t("sum_features_wholistic_experience_title") }}</h3>
-                  <p class="mt-1 text-paragraph text-bot_gray">{{ $t("sum_features_wholistic_experience_text") }}</p>
+                  <p class="mt-1 text-base sm:text-paragraph text-bot_gray">{{ $t("sum_features_wholistic_experience_text") }}</p>
                 </div>
               </li>
               <li class="flex gap-4 items-start">
@@ -96,7 +96,7 @@
                 </div>
                 <div>
                   <h3 class="text-h2 text-gray-900">{{ $t("sum_features_personalized_title") }}</h3>
-                  <p class="mt-1 text-paragraph text-bot_gray">{{ $t("sum_features_personalized_text") }}</p>
+                  <p class="mt-1 text-base sm:text-paragraph text-bot_gray">{{ $t("sum_features_personalized_text") }}</p>
                 </div>
               </li>
               <li class="flex gap-4 items-start">
@@ -108,7 +108,7 @@
                 </div>
                 <div>
                   <h3 class="text-h2 text-gray-900">{{ $t("sum_features_multi_destination_title") }}</h3>
-                  <p class="mt-1 text-paragraph text-bot_gray">{{ $t("sum_features_multi_destination_text") }}</p>
+                  <p class="mt-1 text-base sm:text-paragraph text-bot_gray">{{ $t("sum_features_multi_destination_text") }}</p>
                 </div>
               </li>
             </ul>
@@ -118,13 +118,13 @@
       </div>
 
       <div class="absolute inset-0 flex items-center pointer-events-none z-0">
-        <div :style="{ transform: `translateX(${figure2XPx}px)` }">
+        <div :style="{ transform: `translateX(${figure2XPx}px)`, opacity: figure2Opacity }">
           <div style="transform: scaleX(-1)">
             <img
               ref="figure2ImgEl"
               src="/img/citybot_figurine_man_shopping_blue_sweater_no_floor.png"
               alt=""
-              class="h-[26rem] lg:h-[34rem] w-auto block"
+              class="h-[16rem] sm:h-[20rem] lg:h-[34rem] w-auto block"
               :style="{ animation: figure2Walking ? 'figurine-bob 0.38s ease-in-out infinite' : 'none' }"
               @load="measure2"
             />
@@ -140,42 +140,56 @@
 // Section 1: biking man from left
 const section1El = ref(null)
 const figure1ImgEl = ref(null)
+const text1El = ref(null)
 const figure1XPx = ref(-1000)
 const figure1Walking = ref(false)
-let stop1 = 0, start1 = -1000
+const figure1Opacity = ref(1)
+let stop1 = 0, start1 = -1000, figW1 = 200, textLeft1 = 9999
+let rafPending = false
 
 function measure1() {
   if (!section1El.value || !figure1ImgEl.value) return
+  const secRect = section1El.value.getBoundingClientRect()
   const secWidth = section1El.value.offsetWidth
   const el = figure1ImgEl.value
-  const figWidth = el.offsetWidth > 0
+  figW1 = el.offsetWidth > 0
     ? el.offsetWidth
     : el.naturalWidth > 0 && el.naturalHeight > 0
       ? Math.round(el.offsetHeight * el.naturalWidth / el.naturalHeight)
       : 200
-  stop1 = Math.round((secWidth - figWidth) / 2)
-  start1 = -(figWidth + 20)
+  stop1 = Math.round((secWidth - figW1) / 2)
+  start1 = -(figW1 + 20)
+  if (text1El.value) {
+    textLeft1 = text1El.value.getBoundingClientRect().left - secRect.left
+  }
   onScroll()
 }
 
 // Section 2: shopping man from right
 const section2El = ref(null)
 const figure2ImgEl = ref(null)
+const text2El = ref(null)
 const figure2XPx = ref(1000)
 const figure2Walking = ref(false)
-let stop2 = 0, start2 = 1000
+const figure2Opacity = ref(1)
+let stop2 = 0, start2 = 1000, figW2 = 200, textRight2 = 0
 
 function measure2() {
   if (!section2El.value || !figure2ImgEl.value) return
+  const secRect = section2El.value.getBoundingClientRect()
   const secWidth = section2El.value.offsetWidth
   const el = figure2ImgEl.value
-  const figWidth = el.offsetWidth > 0
+  figW2 = el.offsetWidth > 0
     ? el.offsetWidth
     : el.naturalWidth > 0 && el.naturalHeight > 0
       ? Math.round(el.offsetHeight * el.naturalWidth / el.naturalHeight)
       : 200
-  stop2 = Math.round((secWidth - figWidth) / 2)
+  stop2 = Math.round((secWidth - figW2) / 2)
   start2 = secWidth
+  if (text2El.value) {
+    const textRect = text2El.value.getBoundingClientRect()
+    textRight2 = textRect.right - secRect.left
+  }
   onScroll()
 }
 
@@ -183,17 +197,32 @@ function getProgress(el) {
   if (!el) return 0
   const rect = el.getBoundingClientRect()
   const vh = window.innerHeight
-  return Math.max(0, Math.min(1, (vh * 0.7 - rect.top) / vh))
+  return Math.max(0, Math.min(1, (vh * 0.85 - rect.top) / vh))
 }
 
-function onScroll() {
+const FADE_ZONE = 80   // px of overlap over which fade completes
+const FADE_BUFFER = 80 // px of overlap before fade even starts
+const MIN_OPACITY = 0.25
+
+function updateFigures() {
+  rafPending = false
   const p1 = getProgress(section1El.value)
   figure1XPx.value = Math.round(stop1 + (start1 - stop1) * (1 - p1))
   figure1Walking.value = p1 > 0.02 && p1 < 0.98
+  const overlap1 = Math.max(0, (figure1XPx.value + figW1) - textLeft1 - FADE_BUFFER)
+  figure1Opacity.value = Math.max(MIN_OPACITY, 1 - overlap1 / FADE_ZONE)
 
   const p2 = getProgress(section2El.value)
   figure2XPx.value = Math.round(stop2 + (start2 - stop2) * (1 - p2))
   figure2Walking.value = p2 > 0.02 && p2 < 0.98
+  const overlap2 = Math.max(0, textRight2 - figure2XPx.value - FADE_BUFFER)
+  figure2Opacity.value = Math.max(MIN_OPACITY, 1 - overlap2 / FADE_ZONE)
+}
+
+function onScroll() {
+  if (rafPending) return
+  rafPending = true
+  requestAnimationFrame(updateFigures)
 }
 
 onMounted(async () => {

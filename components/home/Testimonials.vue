@@ -1,9 +1,9 @@
 <template>
-  <div class="py-24 lg:py-32 bg-bot_bg font-main relative overflow-hidden">
+  <div class="py-16 lg:py-24 xl:py-32 bg-bot_bg font-main relative overflow-hidden">
     <div class="relative max-w-5xl mx-auto px-6 lg:px-8">
       <div class="text-center mb-16 reveal">
-        <p class="text-caption font-semibold uppercase tracking-widest text-bot_dark_blue mb-3">{{ $t("testimonials_eyebrow") }}</p>
-        <h2 class="font-heading text-display-sm text-gray-900">
+        <p class="text-sm sm:text-caption font-semibold uppercase tracking-widest text-bot_dark_blue mb-3">{{ $t("testimonials_eyebrow") }}</p>
+        <h2 class="font-heading text-display-xs sm:text-display-sm text-gray-900">
           {{ $t("testimonials_title") }}
         </h2>
       </div>
@@ -30,7 +30,7 @@
               <p class="font-bold text-h2 text-bot_dark_blue mb-4">
                 {{ $t("testimonials_customer_support_title") }}
               </p>
-              <p class="text-paragraph text-gray-700 mb-6">
+              <p class="text-base sm:text-paragraph text-gray-700 mb-6">
                 {{ $t("testimonials_customer_support_text") }}
               </p>
             </blockquote>
@@ -65,7 +65,7 @@
               <p class="font-bold text-h2 text-bot_dark_blue mb-4">
                 {{ $t("testimonials_broad_offerings_title") }}
               </p>
-              <p class="text-paragraph text-gray-700 mb-6">
+              <p class="text-base sm:text-paragraph text-gray-700 mb-6">
                 {{ $t("testimonials_broad_offerings_text") }}
               </p>
             </blockquote>

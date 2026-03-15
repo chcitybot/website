@@ -53,6 +53,7 @@ export default {
         // Larger display sizes for hero/sections (+2px)
         'display': ['3.75rem', { lineHeight: '1.1', letterSpacing: '-0.02em', fontWeight: '600' }],
         'display-sm': ['2.75rem', { lineHeight: '1.15', letterSpacing: '-0.015em', fontWeight: '600' }],
+        'display-xs': ['1.875rem', { lineHeight: '1.2', letterSpacing: '-0.01em', fontWeight: '600' }],
       },
       keyframes: {
         'fade-up': {
