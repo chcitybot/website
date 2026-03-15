@@ -20,7 +20,8 @@
     </button>
 
     <div
-      class="origin-top-right invisible group-hover:visible absolute right-0 w-36 rounded-xl shadow-xl bg-white border border-gray-100 py-2 mt-1 transition-all duration-200"
+      class="invisible group-hover:visible absolute w-36 rounded-xl shadow-xl bg-white border border-gray-100 py-2 mt-1 transition-all duration-200"
+      :class="align === 'left' ? 'origin-top-left left-0' : 'origin-top-right right-0'"
     >
       <button
         v-for="loc in [...locales].sort((a, b) => a.name.localeCompare(b.name))"
@@ -42,6 +43,10 @@ const props = defineProps({
   scrolled: {
     type: Boolean,
     default: true
+  },
+  align: {
+    type: String,
+    default: 'right'
   }
 })
 

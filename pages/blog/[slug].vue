@@ -140,9 +140,10 @@ const heroContainerEl = ref<HTMLElement | null>(null)
 const readProgress = ref(0)
 const hasScrolled = ref(false)
 const mobileTldrExpanded = ref(false)
-const tldrAutoShown = ref(false)
+const tldrOpened = ref(false)      // fired once when showTldr triggers
+const tldrAutoClosed = ref(false)  // fired once when hero passes navbar
 
-const { data: post, error } = await useAsyncData(
+const { data: post } = await useAsyncData(
   `blog-${route.params.slug}-${locale.value}`,
   () => {
     return queryCollection("blog").path(route.path).first()
@@ -156,10 +157,23 @@ const readingTime = computed(() => {
   return Math.max(1, Math.ceil(words / 200))
 })
 
+const MOBILE_HEADER_H = 64 // px — height of mobile header
+
 function onScroll() {
   if (heroContainerEl.value) {
     const imageHeight = heroContainerEl.value.querySelector('div')?.offsetHeight ?? 0
-    hasScrolled.value = heroContainerEl.value.getBoundingClientRect().bottom <= imageHeight
+    const heroBottom = heroContainerEl.value.getBoundingClientRect().bottom
+    hasScrolled.value = heroBottom <= imageHeight
+
+    // Mobile TL;DR: open when showTldr fires (once), close when hero passes navbar (once)
+    if (hasScrolled.value && !tldrOpened.value) {
+      tldrOpened.value = true
+      mobileTldrExpanded.value = true
+    }
+    if (tldrOpened.value && !tldrAutoClosed.value && heroBottom <= MOBILE_HEADER_H) {
+      tldrAutoClosed.value = true
+      mobileTldrExpanded.value = false
+    }
   }
   if (!articleEl.value) return
   const rect = articleEl.value.getBoundingClientRect()
@@ -170,8 +184,18 @@ function onScroll() {
   readProgress.value = progress * 100
 }
 
-onMounted(() => {
+watch(() => route.params.slug, async () => {
+  mobileTldrExpanded.value = false
+  tldrOpened.value = false
+  tldrAutoClosed.value = false
+  hasScrolled.value = false
+  await nextTick()
+  onScroll()
+})
+
+onMounted(async () => {
   window.addEventListener('scroll', onScroll, { passive: true })
+  await nextTick()
   onScroll()
 })
 
@@ -250,7 +274,7 @@ useHead(() => {
   }
 })
 
-if (!post.value && process.client) {
+if (!post.value && import.meta.client) {
   throw createError({ statusCode: 404, statusMessage: "Page Not Found" })
 }
 </script>

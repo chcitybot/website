@@ -97,7 +97,7 @@
             {{ $t("contact") }}
           </NuxtLink>
           <div class="pt-4 border-t border-gray-100 mt-2">
-            <LayoutLanguageSwitcher :scrolled="true" />
+            <LayoutLanguageSwitcher :scrolled="true" align="left" />
           </div>
         </nav>
       </div>
