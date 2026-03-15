@@ -23,12 +23,16 @@
         <div class="mt-4 h-[3px] w-full bg-white/20 rounded-full overflow-hidden">
           <div class="h-full bg-white rounded-full transition-none" :style="{ width: readProgress + '%' }"></div>
         </div>
+        <!-- CTA -->
+        <NuxtLink :to="localePath('/contact')" class="mt-4 flex items-center justify-center px-4 py-2 rounded-full bg-white text-bot_dark_blue text-sm font-semibold hover:bg-white/90 transition-colors duration-200">
+          {{ $t("cta_become_partner") }}
+        </NuxtLink>
       </div>
     </div>
 
     <!-- Full-bleed hero image -->
-    <div class="relative">
-      <div class="w-full h-[51vh] lg:h-[62vh] overflow-hidden">
+    <div ref="heroContainerEl" class="relative">
+      <div class="sticky top-0 w-full h-[51vh] lg:h-[62vh] overflow-hidden">
         <img
           :src="`/img/${post.image}`"
           class="w-full h-full object-cover object-top"
@@ -36,7 +40,7 @@
         />
       </div>
 
-      <!-- Overlapping title card -->
+      <!-- Overlapping title card — scrolls up over the sticky image -->
       <div class="max-w-4xl mx-auto px-6 lg:px-8 -mt-24 relative z-10">
         <div class="bg-white rounded-2xl shadow-xl p-8 lg:p-10">
           <!-- Back to blog -->
@@ -93,7 +97,9 @@ const { locale, locales } = useI18n()
 const localePath = useLocalePath()
 
 const articleEl = ref<HTMLElement | null>(null)
+const heroContainerEl = ref<HTMLElement | null>(null)
 const readProgress = ref(0)
+const hasScrolled = ref(false)
 
 const { data: post, error } = await useAsyncData(
   `blog-${route.params.slug}-${locale.value}`,
@@ -102,7 +108,7 @@ const { data: post, error } = await useAsyncData(
   }
 )
 
-const showTldr = computed(() => readProgress.value > 2)
+const showTldr = computed(() => hasScrolled.value)
 
 const readingTime = computed(() => {
   const words = (post.value?.description || '').split(/\s+/).length + 200
@@ -110,6 +116,10 @@ const readingTime = computed(() => {
 })
 
 function onScroll() {
+  if (heroContainerEl.value) {
+    const imageHeight = heroContainerEl.value.querySelector('div')?.offsetHeight ?? 0
+    hasScrolled.value = heroContainerEl.value.getBoundingClientRect().bottom <= imageHeight
+  }
   if (!articleEl.value) return
   const rect = articleEl.value.getBoundingClientRect()
   const start = rect.top + window.scrollY
