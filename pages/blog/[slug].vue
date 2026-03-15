@@ -1,5 +1,16 @@
 <template>
   <div v-if="post" class="w-full font-main">
+    <!-- Back to blog — floating arrow -->
+    <NuxtLink
+      :to="localePath('/blog')"
+      :aria-label="$t('blog_back')"
+      class="fixed left-4 top-20 lg:top-24 z-40 w-9 h-9 flex items-center justify-center rounded-full bg-white/90 backdrop-blur-sm shadow-md text-bot_dark_blue hover:bg-white transition-colors duration-200"
+    >
+      <svg class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5">
+        <path stroke-linecap="round" stroke-linejoin="round" d="M15 19l-7-7 7-7" />
+      </svg>
+    </NuxtLink>
+
     <!-- Sticky TL;DR post-it (desktop only) -->
     <div
       class="hidden xl:block fixed right-6 top-24 w-72 z-40 transition-all duration-500"
@@ -31,7 +42,7 @@
     </div>
 
     <!-- Mobile TL;DR: collapsible panel fixed to right edge (below xl) -->
-    <div class="xl:hidden fixed right-0 top-16 z-40 flex items-start">
+    <div ref="mobileTldrEl" class="xl:hidden fixed right-0 top-16 z-40 flex items-start">
       <!-- Content panel — expands/collapses to the right -->
       <div
         class="transition-all duration-300 ease-in-out overflow-hidden"
@@ -57,7 +68,7 @@
         class="w-8 flex-shrink-0 bg-bot_dark_blue flex items-center justify-center shadow-lg rounded-bl-xl"
         style="height: 3.5rem"
         :aria-label="mobileTldrExpanded ? 'Collapse TL;DR' : 'Expand TL;DR'"
-        @click="mobileTldrExpanded = !mobileTldrExpanded"
+        @click="toggleMobileTldr"
       >
         <svg
           class="w-4 h-4 text-white transition-transform duration-300"
@@ -80,19 +91,8 @@
       </div>
 
       <!-- Overlapping title card — scrolls up over the sticky image -->
-      <div class="max-w-4xl mx-auto px-6 lg:px-8 -mt-24 relative z-10">
+      <div ref="titleCardEl" class="max-w-4xl mx-auto px-6 lg:px-8 -mt-24 relative z-10">
         <div class="bg-white rounded-2xl shadow-xl p-8 lg:p-10">
-          <!-- Back to blog -->
-          <NuxtLink
-            :to="`/${locale}/blog`"
-            class="inline-flex items-center gap-2 text-sm text-bot_gray hover:text-bot_dark_blue transition-colors mb-4"
-          >
-            <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
-              <path stroke-linecap="round" stroke-linejoin="round" d="M15 19l-7-7 7-7" />
-            </svg>
-            {{ $t("blog_back") }}
-          </NuxtLink>
-
           <h1 class="font-heading text-display-sm text-gray-900 mb-3">{{ post.title }}</h1>
 
           <div class="flex items-center gap-3 text-caption text-bot_gray">
@@ -137,11 +137,12 @@ const localePath = useLocalePath()
 
 const articleEl = ref<HTMLElement | null>(null)
 const heroContainerEl = ref<HTMLElement | null>(null)
+const mobileTldrEl = ref<HTMLElement | null>(null)
+const titleCardEl = ref<HTMLElement | null>(null)
 const readProgress = ref(0)
 const hasScrolled = ref(false)
-const mobileTldrExpanded = ref(false)
-const tldrOpened = ref(false)      // fired once when showTldr triggers
-const tldrAutoClosed = ref(false)  // fired once when hero passes navbar
+const mobileTldrExpanded = ref(true)
+const tldrManuallyOpened = ref(false)
 
 const { data: post } = await useAsyncData(
   `blog-${route.params.slug}-${locale.value}`,
@@ -157,22 +158,40 @@ const readingTime = computed(() => {
   return Math.max(1, Math.ceil(words / 200))
 })
 
-const MOBILE_HEADER_H = 64 // px — height of mobile header
+const OVERLAP_THRESHOLD_PX = 38 // ~1cm
+let lastScrollY = 0
+
+function toggleMobileTldr() {
+  if (mobileTldrExpanded.value) {
+    mobileTldrExpanded.value = false
+    tldrManuallyOpened.value = false
+  } else {
+    mobileTldrExpanded.value = true
+    tldrManuallyOpened.value = true
+  }
+}
 
 function onScroll() {
+  const currentScrollY = window.scrollY
+  const scrollingDown = currentScrollY > lastScrollY
+  lastScrollY = currentScrollY
+
   if (heroContainerEl.value) {
     const imageHeight = heroContainerEl.value.querySelector('div')?.offsetHeight ?? 0
     const heroBottom = heroContainerEl.value.getBoundingClientRect().bottom
     hasScrolled.value = heroBottom <= imageHeight
 
-    // Mobile TL;DR: open when showTldr fires (once), close when hero passes navbar (once)
-    if (hasScrolled.value && !tldrOpened.value) {
-      tldrOpened.value = true
+    // Mobile TL;DR: reset to open at top of page
+    if (currentScrollY < 10) {
       mobileTldrExpanded.value = true
-    }
-    if (tldrOpened.value && !tldrAutoClosed.value && heroBottom <= MOBILE_HEADER_H) {
-      tldrAutoClosed.value = true
-      mobileTldrExpanded.value = false
+      tldrManuallyOpened.value = false
+    } else if (scrollingDown && !tldrManuallyOpened.value && mobileTldrEl.value && titleCardEl.value) {
+      // Collapse when scrolling down and title card overlaps tldr bottom by ~1cm
+      const tldrBottom = mobileTldrEl.value.getBoundingClientRect().bottom
+      const titleTop = titleCardEl.value.getBoundingClientRect().top
+      if (titleTop <= tldrBottom - OVERLAP_THRESHOLD_PX) {
+        mobileTldrExpanded.value = false
+      }
     }
   }
   if (!articleEl.value) return
@@ -185,18 +204,16 @@ function onScroll() {
 }
 
 watch(() => route.params.slug, async () => {
-  mobileTldrExpanded.value = false
-  tldrOpened.value = false
-  tldrAutoClosed.value = false
+  mobileTldrExpanded.value = true
+  tldrManuallyOpened.value = false
   hasScrolled.value = false
+  lastScrollY = 0
   await nextTick()
-  onScroll()
 })
 
-onMounted(async () => {
+onMounted(() => {
+  lastScrollY = window.scrollY
   window.addEventListener('scroll', onScroll, { passive: true })
-  await nextTick()
-  onScroll()
 })
 
 onUnmounted(() => {
