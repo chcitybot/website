@@ -6,6 +6,10 @@ tags: ["Étude de cas", "Digital Tourism"]
 date: "2025-06-29"
 metaTitle: "Étude de cas CityBot Zoug – Comment les villes numérisent avec succès leur accueil touristique"
 metaDescription: "Découvrez comment Zoug transforme numériquement le tourisme avec CityBot – des recommandations intelligentes aux contenus locaux en passant par des résultats mesurables. Un exemple à suivre pour toute ville."
+tldr:
+  - "Le système de recommandation s'adapte à l'heure, la localisation et les préférences — sans données personnelles"
+  - "8 circuits curatés par des experts + 562 POI font découvrir les trésors cachés"
+  - "6 000+ téléchargements et 200 000+ recommandations avec conversion mesurable en visites réelles"
 ---
 
 # Aperçu de l’étude de cas

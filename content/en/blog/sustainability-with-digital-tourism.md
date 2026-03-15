@@ -4,6 +4,10 @@ description: "Moving away from printed paper towards digital management of city 
 image: "sustainability_with_citybot.png"
 tags: ["Digital Tourism", "Sustainability"]
 date: "2025-07-12"
+tldr:
+  - "A paper tour guide produces ~155g CO₂/year; CityBot produces only ~16g — about 10%"
+  - "In the best case, CityBot emits less than 1% of a paper guide's footprint"
+  - "Switching to digital isn't just cheaper — it's a measurable climate action"
 ---
 
 # Sustainability: Reducing the CO₂ Footprint with CityBot

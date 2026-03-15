@@ -6,6 +6,10 @@ tags: ["Caso di Studio", "Digital Tourism"]
 date: "2025-06-29"
 metaTitle: "Caso di studio CityBot Zugo – Come le città digitalizzano con successo l'accoglienza turistica"
 metaDescription: "Scopri come Zugo sta trasformando digitalmente il turismo con CityBot – dalle raccomandazioni intelligenti ai contenuti locali fino a risultati misurabili. Un esempio per ogni città."
+tldr:
+  - "Il sistema di raccomandazione si adatta all'ora, alla posizione e alle preferenze — senza dati personali"
+  - "8 tour curati da esperti + 562 POI portano alla luce gemme nascoste accanto alle attrazioni principali"
+  - "6 000+ download e 200 000+ raccomandazioni con conversione misurabile in visite reali"
 ---
 
 # Panoramica del caso di studio

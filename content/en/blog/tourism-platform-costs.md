@@ -4,6 +4,10 @@ description: "Discover how licensing a cloud platform like CityBot could save Sw
 image: "money-franken.jpg"
 tags: ["Tourism Economics", "Case Study"]
 date: "2025-08-17"
+tldr:
+  - "Building a custom Swiss tourism app from scratch costs ~CHF 174,000 just to develop"
+  - "Annual maintenance adds CHF 26,000/year — CityBot licensing starts at CHF 5,000/year"
+  - "Over 3 years, CityBot saves a destination over CHF 216,000 vs. building custom"
 ---
 
 When a destination decides to go digital, one of the first questions is:  

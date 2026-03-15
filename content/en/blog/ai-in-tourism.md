@@ -4,6 +4,10 @@ description: "Discover how AI is transforming tourism with smart, personalized P
 image: "ai_in_tourism.jpg"
 tags: ["Artificiel Intelligence"]
 date: "2025-08-02"
+tldr:
+  - "Travelers expect personalized recommendations — AI makes this possible at scale"
+  - "CityBot uses RAG to match visitor queries to real POI data, not generic results"
+  - "No hallucinations: the AI only recommends places that actually exist in your destination"
 ---
 
 The tourism industry is undergoing a quiet revolution — one powered by artificial intelligence (AI). From personalized travel recommendations to smarter destination management, AI is helping destinations deliver richer, more engaging experiences for visitors while streamlining operations behind the scenes.

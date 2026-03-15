@@ -4,6 +4,10 @@ description: "Découvrez comment l’IA révolutionne le tourisme grâce à des 
 image: "ai_in_tourism.jpg"
 tags: ["Intelligence Artificielle", "Digital Tourism"]
 date: "2025-08-02"
+tldr:
+  - "Les voyageurs attendent des recommandations personnalisées — l'IA le rend possible à grande échelle"
+  - "CityBot utilise le RAG pour faire correspondre les requêtes des visiteurs aux données POI réelles"
+  - "Pas d'hallucinations : l'IA ne recommande que des lieux qui existent vraiment dans votre destination"
 ---
 
 # Comment l'IA transforme le tourisme – et comment votre destination peut en bénéficier

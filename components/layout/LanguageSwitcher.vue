@@ -23,7 +23,7 @@
       class="origin-top-right invisible group-hover:visible absolute right-0 w-36 rounded-xl shadow-xl bg-white border border-gray-100 py-2 mt-1 transition-all duration-200"
     >
       <button
-        v-for="loc in locales"
+        v-for="loc in [...locales].sort((a, b) => a.name.localeCompare(b.name))"
         :key="loc.code"
         @click="setLanguage(loc.code)"
         :class="[

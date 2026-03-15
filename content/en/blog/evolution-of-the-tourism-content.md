@@ -4,6 +4,10 @@ description: "How tourism information has evolved from paper leaflets to smart A
 image: "evolution_of_tourism.png"
 tags: ["Digital Transformation", "Digital Tourism"]
 date: "2025-08-11"
+tldr:
+  - "Paper → websites → apps → AI: each era solved new problems but created new ones"
+  - "AI assistants answer natural-language questions instantly, without visitors having to search"
+  - "The first step is structuring your POI data in a cloud CMS — everything else follows"
 ---
 
 Not so long ago, the first stop for any traveler was the local tourist office where they’d grab a paper map, flip through a stack of brochures, and hope the information was still up to date.

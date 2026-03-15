@@ -1,5 +1,5 @@
 <template>
-  <div class="py-24 lg:py-32 bg-bot_bg font-main relative overflow-hidden">
+  <div class="py-24 lg:py-32 bg-white font-main relative overflow-hidden">
     <div class="max-w-3xl mx-auto px-6 lg:px-8 relative z-10">
       <div class="text-center mb-16 reveal">
         <p class="text-caption font-semibold uppercase tracking-widest text-bot_dark_blue mb-3">{{ $t("faq_eyebrow") }}</p>
@@ -10,7 +10,7 @@
         <div
           v-for="(item, index) in faqItems"
           :key="index"
-          class="bg-white rounded-2xl overflow-hidden transition-shadow duration-300"
+          class="bg-bot_bg rounded-2xl overflow-hidden transition-shadow duration-300"
           :class="openIndex === index ? 'shadow-md' : 'shadow-sm hover:shadow-md'"
         >
           <button

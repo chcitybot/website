@@ -4,6 +4,10 @@ description: "Avec la GND, les destinations ne se contentent plus de promouvoir 
 image: "ddm.png"
 tags: ["Destination Management", "Digital Tourism"]
 date: "2025-06-29"
+tldr:
+  - "La GDD remplace les tableurs éparpillés et les brochures par une plateforme centralisée"
+  - "Les destinations contrôlent en temps réel les POI, circuits, événements et analyses"
+  - "CityBot offre aux petites destinations une GDD professionnelle sans coût élevé"
 ---
 **Comment la technologie transforme notre manière de concevoir et de développer le tourisme**
 

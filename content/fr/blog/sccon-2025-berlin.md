@@ -6,6 +6,10 @@ tags: ["Smart City", "Digital Tourism", "Events"]
 date: "2025-10-06"
 metaTitle: "CityBot à la SCCON 2025 Berlin – La digitalisation des villes intelligentes pour les communes et destinations"
 metaDescription: "CityBot était présent à la Smart Country Convention 2025 à Berlin. Découvrez comment le nouveau ministère allemand du numérique et l'innovation suisse façonnent l'avenir des Smart Cities et du tourisme digital."
+tldr:
+  - "L'Allemagne a créé un ministère dédié à la numérisation — le numérique est désormais une infrastructure nationale"
+  - "La devise de SCCON 'Copier est encouragé' marque le passage aux plateformes partagées"
+  - "Zoug a présenté CityBot comme preuve que les plateformes partagées réduisent les coûts"
 ---
 
 # SCCON 2025 : quand un pays prend la digitalisation au sérieux

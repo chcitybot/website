@@ -1,20 +1,39 @@
 <template>
   <div v-if="post" class="w-full font-main">
-    <!-- Reading progress bar -->
+    <!-- Sticky TL;DR post-it (desktop only) -->
     <div
-      class="fixed top-0 left-0 h-[3px] bg-bot_dark_blue z-50 transition-none"
-      :style="{ width: readProgress + '%' }"
-    />
+      class="hidden xl:block fixed right-6 top-24 w-72 z-40 transition-all duration-500"
+      :class="showTldr ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-3 pointer-events-none'"
+    >
+      <div class="relative overflow-hidden rounded-2xl bg-bot_dark_blue shadow-lg shadow-bot_dark_blue/30 p-5">
+        <!-- Bubble orb background -->
+        <div class="absolute -top-8 -right-8 w-32 h-32 rounded-full pointer-events-none" style="background: radial-gradient(circle, #ffffff 0%, transparent 65%); opacity: 0.08; filter: blur(12px)"></div>
+        <div class="absolute -bottom-6 -left-6 w-24 h-24 rounded-full pointer-events-none" style="background: radial-gradient(circle, #AF94D6 0%, transparent 65%); opacity: 0.15; filter: blur(10px)"></div>
+        <!-- Label -->
+        <p class="text-xs font-semibold uppercase tracking-widest text-white/60 mb-3">TL;DR</p>
+        <!-- Summary text -->
+        <ul v-if="post.tldr?.length" class="space-y-2">
+          <li v-for="point in post.tldr" :key="point" class="flex items-start gap-2 text-sm text-white leading-relaxed">
+            <span class="mt-1.5 w-1.5 h-1.5 rounded-full bg-white/60 flex-shrink-0"></span>
+            <span>{{ point }}</span>
+          </li>
+        </ul>
+        <p v-else class="text-sm text-white leading-relaxed">{{ post.description }}</p>
+        <!-- Mini progress bar -->
+        <div class="mt-4 h-[3px] w-full bg-white/20 rounded-full overflow-hidden">
+          <div class="h-full bg-white rounded-full transition-none" :style="{ width: readProgress + '%' }"></div>
+        </div>
+      </div>
+    </div>
 
     <!-- Full-bleed hero image -->
     <div class="relative">
-      <div class="w-full h-[45vh] lg:h-[55vh] overflow-hidden">
+      <div class="w-full h-[51vh] lg:h-[62vh] overflow-hidden">
         <img
           :src="`/img/${post.image}`"
-          class="w-full h-full object-cover"
+          class="w-full h-full object-cover object-top"
           :alt="`image for ${post.title} article`"
         />
-        <div class="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-transparent" />
       </div>
 
       <!-- Overlapping title card -->
@@ -53,7 +72,7 @@
 
     <!-- Article content -->
     <div ref="articleEl" class="max-w-4xl mx-auto px-6 lg:px-8 py-12">
-      <ContentRenderer :value="post" class="prose lg:prose-xl" />
+      <ContentRenderer :value="post" class="prose" />
       <div class="my-12 flex flex-col items-center">
         <NuxtLink :to="localePath('/contact')">
           <button
@@ -82,6 +101,8 @@ const { data: post, error } = await useAsyncData(
     return queryCollection("blog").path(route.path).first()
   }
 )
+
+const showTldr = computed(() => readProgress.value > 2)
 
 const readingTime = computed(() => {
   const words = (post.value?.description || '').split(/\s+/).length + 200

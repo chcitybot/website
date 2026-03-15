@@ -4,6 +4,10 @@ description: "CityBot at the Smart Country Convention 2025 — how Germany and S
 image: "sccon_blogpost.jpg"
 tags: ["Smart City", "Digital Tourism", "Events"]
 date: "2025-10-06"
+tldr:
+  - "Germany created a dedicated Ministry for Digitalization — digital is now national infrastructure"
+  - "SCCON's motto 'Copying is encouraged' signals a shift from custom builds to shared platforms"
+  - "Zug showcased CityBot as proof that shared city platforms cut costs and launch faster"
 metaTitle: "CityBot at SCCON 2025 Berlin – Smart City Digitalization for Cities and Destinations"
 metaDescription: "CityBot presented at the Smart Country Convention 2025 in Berlin. Learn how Germany's new Ministry for Digitalization and Swiss innovation are driving the future of smart cities and digital tourism."
 ---

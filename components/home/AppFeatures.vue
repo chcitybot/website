@@ -112,14 +112,13 @@
             </div>
           </template>
 
-          <!-- Dive Deeper panel — enters from right with the slide, bike exits left -->
+          <!-- Dive Deeper panel — enters from right with the slide -->
           <template v-else-if="feature.isDiveDeeper">
             <div
               class="flex flex-col items-center text-center gap-4 lg:gap-6"
               :style="{ opacity: diveDeepOpacity }"
             >
-              <!-- Text stays centered once the slide is in view -->
-              <div class="flex flex-col items-center" :style="{ transform: `translateX(${diveTextOffsetX}px)` }">
+              <div class="flex flex-col items-center">
                 <span class="text-caption uppercase tracking-widest font-semibold text-bot_dark_blue/50 mb-2">
                   {{ $t('dive_deeper_sub') }}
                 </span>
@@ -132,8 +131,7 @@
                   </svg>
                 </div>
               </div>
-              <!-- Bike enters with the slide, then exits left in phase 2 -->
-              <div :style="{ transform: `translateX(${diveBikeExitX}px) scaleX(-1)` }">
+              <div :style="{ transform: `translateX(${bikeDiveExitX}px) scaleX(-1)` }">
                 <img
                   src="/img/citybot_figurine_man_biking_green_bike_no_floor.png"
                   alt=""
@@ -167,6 +165,7 @@ const translateX = ref(0)
 const slideWidth = ref(0)
 const runwayHeight = ref(0)
 const activeSlide = ref(0)
+const bikeExitProgress = ref(0)
 
 // 0 = CTA slide fully visible, 1 = Dive Deeper panel fully in view
 const diveDeepProgress = computed(() => {
@@ -175,25 +174,18 @@ const diveDeepProgress = computed(() => {
   return Math.max(0, Math.min(slideIdx - (features.length - 2), 1))
 })
 
-// Text fades in as slide enters
+// Content fades in as slide enters
 const diveDeepOpacity = computed(() => Math.min(1, diveDeepProgress.value * 3))
 
-// Phase 2 (p > 0.5): text locks at viewport center by counteracting the slide's own motion
-const diveTextOffsetX = computed(() => {
-  const p = diveDeepProgress.value
-  if (p <= 0.5) return 0
-  return Math.round(slideWidth.value * (p - 1))
-})
+// Bike exit: driven by extra scroll after all slides are done (bikeExitProgress 0→1)
+const bikeDiveExitX = computed(() =>
+  Math.round(-slideWidth.value * bikeExitProgress.value * 1.2)
+)
 
-// Bike continues at same speed past center and exits left by p=1
-const diveBikeExitX = computed(() => {
-  const p = diveDeepProgress.value
-  if (p <= 0.5) return 0
-  return Math.round(-slideWidth.value * (p - 0.5) * 1.2)
-})
-
+// Bike bobs while either the slide is scrolling in OR the bike is exiting
 const diveBikeRiding = computed(() =>
-  diveDeepProgress.value > 0.02 && diveDeepProgress.value < 0.98
+  (diveDeepProgress.value > 0.02 && diveDeepProgress.value < 0.98) ||
+  (bikeExitProgress.value > 0 && bikeExitProgress.value < 0.98)
 )
 
 // Blob state — driven by scroll interpolation
@@ -278,31 +270,39 @@ function lerp(a, b, t) {
   return a + (b - a) * t
 }
 
+// Extra scroll after all slides for the bike exit animation
+const BIKE_EXIT_H = () => window.innerHeight * 0.7
+// Slides-only runway height (stored so both measure + onScroll use the same value)
+const slidesRunwayH = ref(0)
+
 function measure() {
   const headerH = window.innerWidth >= 1024 ? 80 : 64
   slideWidth.value = window.innerWidth
-  runwayHeight.value = window.innerHeight * (1 + (SLIDE_COUNT - 1) * 0.3) + headerH
+  slidesRunwayH.value = window.innerHeight * (1 + (SLIDE_COUNT - 1) * 0.3) + headerH
+  // Content below reveals when bike is ~half off-screen
+  runwayHeight.value = slidesRunwayH.value + BIKE_EXIT_H() * 0.45
 }
 
 function scrollToSlide(idx) {
   if (!runwayEl.value) return
   const target = Math.max(0, Math.min(idx, SLIDE_COUNT - 1))
   const progress = target / (SLIDE_COUNT - 1)
-  const maxScroll = runwayHeight.value - window.innerHeight
+  const slidesMaxScroll = slidesRunwayH.value - window.innerHeight
   const runwayTop = runwayEl.value.getBoundingClientRect().top + window.scrollY
-  window.scrollTo({ top: runwayTop + progress * maxScroll, behavior: 'smooth' })
+  window.scrollTo({ top: runwayTop + progress * slidesMaxScroll, behavior: 'smooth' })
 }
 
 function onScroll() {
   if (!runwayEl.value) return
   const rect = runwayEl.value.getBoundingClientRect()
   const scrolled = -rect.top
-  const maxScroll = runwayHeight.value - window.innerHeight
-  const progress = Math.max(0, Math.min(scrolled / maxScroll, 1))
+  const slidesMaxScroll = slidesRunwayH.value - window.innerHeight
+  const progress = Math.max(0, Math.min(scrolled / slidesMaxScroll, 1))
 
   const maxTranslate = (SLIDE_COUNT - 1) * slideWidth.value
   translateX.value = -progress * maxTranslate
   activeSlide.value = Math.round(progress * (SLIDE_COUNT - 1))
+  bikeExitProgress.value = Math.max(0, Math.min((scrolled - slidesMaxScroll) / BIKE_EXIT_H(), 1))
 
   const slideProgress = progress * (SLIDE_COUNT - 1)
   const fromIdx = Math.min(Math.floor(slideProgress), SLIDE_COUNT - 2)

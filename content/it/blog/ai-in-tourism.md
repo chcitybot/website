@@ -4,6 +4,10 @@ description: "Scopri come l'IA sta rivoluzionando il turismo con raccomandazioni
 image: "ai_in_tourism.jpg"
 tags: ["Intelligenza Artificiale", "Digital Tourism"]
 date: "2025-08-02"
+tldr:
+  - "I viaggiatori si aspettano raccomandazioni personalizzate — l'IA lo rende possibile su larga scala"
+  - "CityBot usa il RAG per abbinare le richieste dei visitatori ai dati POI reali"
+  - "Niente allucinazioni: l'IA consiglia solo luoghi che esistono davvero nella tua destinazione"
 ---
 
 # Come l'IA sta trasformando il turismo – e come la tua destinazione può trarne vantaggio

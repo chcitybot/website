@@ -4,6 +4,10 @@ description: "Découvrez comment la licence d'une plateforme cloud comme CityBot
 image: "money-franken.jpg"
 tags: ["Économie touristique", "Étude de cas"]
 date: "2025-08-17"
+tldr:
+  - "Développer une app touristique suisse sur mesure coûte ~CHF 174 000 rien que pour le développement"
+  - "La maintenance annuelle ajoute CHF 26 000/an — la licence CityBot commence à CHF 5 000/an"
+  - "Sur 3 ans, CityBot fait économiser plus de CHF 216 000 par rapport au développement sur mesure"
 ---
 
 Lorsqu'une destination décide de passer au numérique, l'une des premières questions est :  

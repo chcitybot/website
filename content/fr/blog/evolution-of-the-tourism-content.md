@@ -4,6 +4,10 @@ description: "Comment l'information touristique est passée des dépliants papie
 image: "evolution_of_tourism.png"
 tags: ["Digital Transformation", "Destination Management"]
 date: "2025-08-11"
+tldr:
+  - "Papier → sites web → apps → IA : chaque ère a résolu de nouveaux problèmes mais en a créé"
+  - "Les assistants IA répondent instantanément aux questions en langage naturel, sans recherche"
+  - "La première étape est la structuration de vos données POI — tout le reste suit"
 ---
 
 Il n’y a pas si longtemps, le premier arrêt de tout voyageur était l’office de tourisme local, où il s’emparait d’une carte papier, feuilletait un tas de brochures et espérait que les informations étaient encore à jour.

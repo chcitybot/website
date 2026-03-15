@@ -216,9 +216,9 @@ body {
 
 .prose h2,
 .prose h2 a {
-  font-weight: 500;
-  font-size: 24px;
-  line-height: 30px;
+  font-weight: 600;
+  font-size: 22px;
+  line-height: 28px;
   color: #4047D2;
   border-bottom: none;
   text-decoration: none;
@@ -227,8 +227,8 @@ body {
 .prose h3,
 .prose h3 a {
   font-weight: 500;
-  font-size: 24px;
-  line-height: 30px;
+  font-size: 18px;
+  line-height: 24px;
   color: #4047D2;
   border-bottom: none;
   text-decoration: none;
@@ -274,4 +274,13 @@ body {
 /* Images in prose — rounded */
 .prose img {
   border-radius: 12px;
+}
+
+/* Tighter prose layout */
+.prose {
+  max-width: 70ch;
+}
+
+.prose p {
+  margin-bottom: 0.75em;
 }

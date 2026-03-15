@@ -4,6 +4,10 @@ description: "Addio carta stampata: verso una gestione digitale delle informazio
 image: "sustainability_with_citybot.png"
 tags: ["Destination Management", "Sustainability"]
 date: "2025-07-12"
+tldr:
+  - "Una guida cartacea produce ~155g CO₂/anno; CityBot solo ~16g — circa il 10%"
+  - "Nel caso migliore, CityBot emette meno dell'1% di una guida cartacea"
+  - "Passare al digitale non è solo più economico — è un'azione climatica misurabile"
 ---
 
 # Sostenibilità: Ridurre l’impronta di CO2 con CityBot  

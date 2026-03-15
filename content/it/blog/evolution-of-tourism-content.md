@@ -4,6 +4,10 @@ description: "Come l'informazione turistica è passata dai dépliant cartacei ag
 image: "evolution_of_tourism.png"
 tags: ["Digital Transformation", "Destination Management"]
 date: "2025-08-11"
+tldr:
+  - "Carta → siti web → app → IA: ogni era ha risolto nuovi problemi ma ne ha creati altri"
+  - "Gli assistenti IA rispondono istantaneamente a domande in linguaggio naturale, senza ricerca"
+  - "Il primo passo è strutturare i dati POI nel cloud CMS — tutto il resto segue"
 ---
 
 Non molto tempo fa, la prima tappa per ogni viaggiatore era l'ufficio turistico locale, dove prendeva una mappa cartacea, sfogliava una pila di brochure e sperava che le informazioni fossero ancora aggiornate.

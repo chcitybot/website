@@ -1,7 +1,8 @@
 <template>
-  <div class="py-24 lg:py-32 bg-white font-main relative overflow-hidden">
+  <div class="py-24 lg:py-32 bg-bot_bg font-main relative overflow-hidden">
     <div class="relative max-w-5xl mx-auto px-6 lg:px-8">
       <div class="text-center mb-16 reveal">
+        <p class="text-caption font-semibold uppercase tracking-widest text-bot_dark_blue mb-3">{{ $t("testimonials_eyebrow") }}</p>
         <h2 class="font-heading text-display-sm text-gray-900">
           {{ $t("testimonials_title") }}
         </h2>

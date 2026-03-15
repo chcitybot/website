@@ -4,6 +4,10 @@ description: "The case study in the city of Zug shows how CityBot measures the p
 image: "zug_case_study.jpg"
 tags: ["Case Study", "Digital Tourism"]
 date: "2025-06-29"
+tldr:
+  - "Zug's recommender adapts to time of day, location, and interests — no personal data stored"
+  - "8 expert-curated tours + 562 POIs surface hidden gems alongside flagship attractions"
+  - "6,000+ downloads and 200,000+ recommendations with measurable real-world visit conversion"
 metaTitle: "CityBot Case Study Zug – How cities successfully digitalize their guided tours"
 metaDescription: "Discover how Zug is digitally transforming tourism with CityBot – from smart recommendations and local content to measurable visitor success. A best practice for any city."
 ---

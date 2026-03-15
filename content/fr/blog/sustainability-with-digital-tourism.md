@@ -4,6 +4,10 @@ description: "Fini le papier imprimé : vers une gestion numérique des infos su
 image: "sustainability_with_citybot.png"
 tags: ["Destination Management", "Sustainability"]
 date: "2025-07-12"
+tldr:
+  - "Un guide papier produit ~155g CO₂/an ; CityBot seulement ~16g — environ 10%"
+  - "Dans le meilleur des cas, CityBot émet moins de 1% d'un guide papier"
+  - "Passer au numérique n'est pas seulement moins cher — c'est une action climatique mesurable"
 ---
 
 # Durabilité : Réduire l’empreinte carbone grâce à CityBot  
