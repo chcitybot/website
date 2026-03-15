@@ -42,7 +42,7 @@
     </div>
 
     <!-- Mobile TL;DR: collapsible panel fixed to right edge (below xl) -->
-    <div ref="mobileTldrEl" class="xl:hidden fixed right-0 top-16 z-40 flex items-start">
+    <div v-if="tldrReady" ref="mobileTldrEl" class="xl:hidden fixed right-0 top-16 z-40 flex items-start">
       <!-- Content panel — expands/collapses to the right -->
       <div
         class="transition-all duration-300 ease-in-out overflow-hidden"
@@ -143,6 +143,7 @@ const readProgress = ref(0)
 const hasScrolled = ref(false)
 const mobileTldrExpanded = ref(true)
 const tldrManuallyOpened = ref(false)
+const tldrReady = ref(true)
 
 const { data: post } = await useAsyncData(
   `blog-${route.params.slug}-${locale.value}`,
@@ -181,10 +182,12 @@ function onScroll() {
     const heroBottom = heroContainerEl.value.getBoundingClientRect().bottom
     hasScrolled.value = heroBottom <= imageHeight
 
-    // Mobile TL;DR: reset to open at top of page
+    // Mobile TL;DR: reset to open at top of page (only once ready)
     if (currentScrollY < 10) {
-      mobileTldrExpanded.value = true
-      tldrManuallyOpened.value = false
+      if (tldrReady.value) {
+        mobileTldrExpanded.value = true
+        tldrManuallyOpened.value = false
+      }
     } else if (scrollingDown && !tldrManuallyOpened.value && mobileTldrEl.value && titleCardEl.value) {
       // Collapse when scrolling down and title card overlaps tldr bottom by ~1cm
       const tldrBottom = mobileTldrEl.value.getBoundingClientRect().bottom

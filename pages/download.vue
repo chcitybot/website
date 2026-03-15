@@ -9,7 +9,7 @@
 
     <div class="relative z-10 text-center px-6">
       <h1 class="font-heading text-display-sm text-gray-900 mb-3">
-        {{ $t("download") }}
+        {{ $t("download_page_title") }}
       </h1>
       <p class="text-paragraph text-bot_gray">
         {{ $t("download_subtitle") }}
