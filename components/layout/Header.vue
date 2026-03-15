@@ -45,7 +45,7 @@
         <!-- Right side: download CTA + language -->
         <div class="hidden md:flex items-center gap-4">
           <NuxtLink
-            to="/download"
+            :to="localePath('/download')"
             class="inline-flex items-center px-5 py-2.5 rounded-full text-paragraph font-semibold transition-colors duration-200 bg-bot_red text-white hover:bg-bot_red/90"
           >
             {{ $t("download") }}
@@ -90,7 +90,7 @@
           <NuxtLink :to="localePath('/blog')" @click="toggleMenu" :class="mobileNavLink('blog')">
             {{ $t("insights") }}
           </NuxtLink>
-          <NuxtLink to="/download" @click="toggleMenu" :class="mobileNavLink('download')">
+          <NuxtLink :to="localePath('/download')" @click="toggleMenu" :class="mobileNavLink('download')">
             {{ $t("download") }}
           </NuxtLink>
           <NuxtLink :to="localePath('/contact')" @click="toggleMenu" :class="mobileNavLink('contact')">

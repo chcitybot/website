@@ -105,13 +105,13 @@
 
         <div class="mt-28 lg:mt-36 flex flex-col items-center gap-4 opacity-0 animate-fade-up-delay-2">
           <NuxtLink
-            :to="'/download'"
+            :to="localePath('/download')"
             class="inline-flex items-center px-8 py-4 rounded-full bg-bot_red text-white text-paragraph font-semibold hover:bg-bot_red/90 transition-all duration-200 shadow-lg shadow-bot_red/25 hover:shadow-xl hover:shadow-bot_red/30 hover:-translate-y-0.5"
           >
             {{ $t("cta_app_test") }}
           </NuxtLink>
           <NuxtLink
-            :to="'/contact'"
+            :to="localePath('/contact')"
             class="inline-flex items-center px-8 py-4 rounded-full border-2 border-bot_dark_blue text-bot_dark_blue text-paragraph font-semibold hover:bg-bot_dark_blue hover:text-white transition-all duration-200 hover:-translate-y-0.5"
           >
             {{ $t("cta_become_partner") }}
@@ -184,6 +184,7 @@
 
 <script setup>
 const { locale } = useI18n()
+const localePath = useLocalePath()
 
 const heroRotatingPhrases = computed(() => {
   switch (locale.value) {

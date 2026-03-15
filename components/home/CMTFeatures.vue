@@ -1,6 +1,6 @@
 <template>
   <div ref="sectionEl" class="relative overflow-hidden bg-bot_bg py-16 lg:py-24">
-    <div class="mx-auto max-w-7xl px-6 lg:px-8 font-main">
+    <div class="relative z-10 mx-auto max-w-7xl px-6 lg:px-8 font-main">
       <div class="grid grid-cols-1 md:grid-cols-2 gap-12 md:gap-16 lg:gap-20 items-center">
         <div>
           <p class="text-caption uppercase tracking-widest text-bot_dark_blue font-semibold mb-3">
@@ -57,63 +57,72 @@
             </li>
           </ul>
         </div>
-        <div>
-          <img
-            src="/img/home_hero_colorful.jpg"
-            alt="Digital destination experience"
-            class="w-full max-w-sm mx-auto rounded-2xl shadow-xl aspect-[3/4] object-cover"
-          />
-        </div>
       </div>
     </div>
 
-    <!-- Walking figurine -->
-    <div ref="figureEl" class="absolute bottom-0 right-0 pointer-events-none" style="transform: translateX(320px)">
-      <img
-        ref="figureImgEl"
-        src="/img/figurines_man_walking.png"
-        alt=""
-        class="h-36 lg:h-48 w-auto"
-      />
+    <!-- Walking figurine: vertically centered, horizontally animated, behind text -->
+    <div class="absolute inset-0 flex items-center pointer-events-none z-0">
+    <div :style="{ transform: `translateX(${figureXPx}px)` }">
+      <!-- scaleX(-1) flips the man to face left; separate element keeps translateX axis intact -->
+      <div style="transform: scaleX(-1)">
+        <img
+          ref="figureImgEl"
+          src="/img/citybot_figurine_woman_walking_with_backpack_no_floor.png"
+          alt=""
+          class="h-[26rem] lg:h-[34rem] w-auto block"
+          :style="{ animation: figureWalking ? 'figurine-bob 0.38s ease-in-out infinite' : 'none' }"
+          @load="measure"
+        />
+      </div>
+    </div>
     </div>
   </div>
 </template>
 
 <script setup>
 const sectionEl = ref(null)
-const figureEl = ref(null)
 const figureImgEl = ref(null)
-let rafId = null
+const figureXPx = ref(1000)
+const figureWalking = ref(false)
 
-let lastLog = 0
-function tick() {
-  const section = sectionEl.value
-  const wrapper = figureEl.value
-  const img = figureImgEl.value
-  if (section && wrapper) {
-    const rect = section.getBoundingClientRect()
-    const vh = window.innerHeight
-    const progress = Math.max(0, Math.min(1, (vh - rect.top) / (vh * 0.7)))
-    const x = Math.round(320 * (1 - progress))
-    wrapper.style.transform = `translateX(${x}px)`
-    if (img) img.style.animation = (x > 4 && x < 316) ? 'figurine-bob 0.38s ease-in-out infinite' : 'none'
-    const now = Date.now()
-    if (now - lastLog > 500) {
-      lastLog = now
-      console.log('[CMTFigure] rect.top:', Math.round(rect.top), 'vh:', vh, 'progress:', progress.toFixed(2), 'x:', x)
-    }
-  } else {
-    const now = Date.now()
-    if (now - lastLog > 500) {
-      lastLog = now
-      console.log('[CMTFigure] refs missing — section:', !!section, 'wrapper:', !!wrapper)
-    }
-  }
-  rafId = requestAnimationFrame(tick)
+let stopX = 0   // translateX when centered
+let startX = 1000  // translateX when off-screen right
+
+function measure() {
+  if (!sectionEl.value || !figureImgEl.value) return
+  const secWidth = sectionEl.value.offsetWidth
+  const el = figureImgEl.value
+  const renderedH = el.offsetHeight
+  const figWidth = el.offsetWidth > 0
+    ? el.offsetWidth
+    : el.naturalWidth > 0 && el.naturalHeight > 0
+      ? Math.round(renderedH * el.naturalWidth / el.naturalHeight)
+      : 200
+
+  stopX = Math.round((secWidth - figWidth) / 2)  // centered
+  startX = secWidth                               // off-screen right
+  onScroll()
 }
 
-onMounted(() => { rafId = requestAnimationFrame(tick) })
-onUnmounted(() => { if (rafId) cancelAnimationFrame(rafId) })
+function onScroll() {
+  if (!sectionEl.value) return
+  const rect = sectionEl.value.getBoundingClientRect()
+  const vh = window.innerHeight
+  const progress = Math.max(0, Math.min(1, (vh * 0.7 - rect.top) / vh))
+  figureXPx.value = Math.round(stopX + (startX - stopX) * (1 - progress))
+  figureWalking.value = progress > 0.02 && progress < 0.98
+}
+
+onMounted(async () => {
+  await nextTick()
+  window.addEventListener('scroll', onScroll, { passive: true })
+  window.addEventListener('resize', measure)
+  measure()
+})
+onUnmounted(() => {
+  window.removeEventListener('scroll', onScroll)
+  window.removeEventListener('resize', measure)
+})
 </script>
 
 <style scoped>

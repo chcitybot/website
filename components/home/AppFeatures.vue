@@ -2,7 +2,7 @@
   <!-- Scroll runway: tall enough so vertical scroll drives horizontal motion -->
   <div ref="runwayEl" class="relative bg-white" :style="{ height: runwayHeight + 'px' }">
     <!-- Sticky viewport: pins the carousel in view while scrolling -->
-    <div class="sticky top-0 h-screen bg-white overflow-hidden flex flex-col justify-start pt-6 lg:pt-8 font-main">
+    <div class="sticky top-16 lg:top-20 h-[calc(100vh-4rem)] lg:h-[calc(100vh-5rem)] bg-white overflow-hidden flex flex-col justify-start pt-6 lg:pt-8 font-main">
 
       <!-- Animated blob — single element, color + position driven by scroll -->
       <div
@@ -67,7 +67,7 @@
           :style="{ width: slideWidth + 'px' }"
         >
           <!-- Normal screenshot + text slide -->
-          <template v-if="!feature.isCTA">
+          <template v-if="!feature.isCTA && !feature.isDiveDeeper">
             <div class="relative flex gap-4 lg:gap-6">
               <img
                 v-for="(img, imgIdx) in feature.images"
@@ -88,7 +88,7 @@
           </template>
 
           <!-- Download CTA slide -->
-          <template v-else>
+          <template v-else-if="feature.isCTA">
             <div class="relative text-center max-w-lg">
               <div class="inline-flex items-center justify-center w-14 h-14 rounded-2xl bg-bot_red/10 mb-6">
                 <svg class="w-7 h-7 text-bot_red" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5">
@@ -111,6 +111,38 @@
               </div>
             </div>
           </template>
+
+          <!-- Dive Deeper panel — enters from right with the slide, bike exits left -->
+          <template v-else-if="feature.isDiveDeeper">
+            <div
+              class="flex flex-col items-center text-center gap-4 lg:gap-6"
+              :style="{ opacity: diveDeepOpacity }"
+            >
+              <!-- Text stays centered once the slide is in view -->
+              <div class="flex flex-col items-center" :style="{ transform: `translateX(${diveTextOffsetX}px)` }">
+                <span class="text-caption uppercase tracking-widest font-semibold text-bot_dark_blue/50 mb-2">
+                  {{ $t('dive_deeper_sub') }}
+                </span>
+                <h2 class="font-heading text-display text-bot_dark_blue mb-6">
+                  {{ $t('dive_deeper') }}
+                </h2>
+                <div class="animate-bounce text-bot_dark_blue/70">
+                  <svg class="w-8 h-8" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M19 14l-7 7m0 0l-7-7" />
+                  </svg>
+                </div>
+              </div>
+              <!-- Bike enters with the slide, then exits left in phase 2 -->
+              <div :style="{ transform: `translateX(${diveBikeExitX}px) scaleX(-1)` }">
+                <img
+                  src="/img/citybot_figurine_man_biking_green_bike_no_floor.png"
+                  alt=""
+                  class="h-36 lg:h-48 w-auto"
+                  :style="{ animation: diveBikeRiding ? 'figurine-bob 0.38s ease-in-out infinite' : 'none' }"
+                />
+              </div>
+            </div>
+          </template>
         </div>
       </div>
 
@@ -124,6 +156,7 @@
         />
       </div>
 
+
     </div>
   </div>
 </template>
@@ -134,6 +167,34 @@ const translateX = ref(0)
 const slideWidth = ref(0)
 const runwayHeight = ref(0)
 const activeSlide = ref(0)
+
+// 0 = CTA slide fully visible, 1 = Dive Deeper panel fully in view
+const diveDeepProgress = computed(() => {
+  if (!slideWidth.value) return 0
+  const slideIdx = -translateX.value / slideWidth.value
+  return Math.max(0, Math.min(slideIdx - (features.length - 2), 1))
+})
+
+// Text fades in as slide enters
+const diveDeepOpacity = computed(() => Math.min(1, diveDeepProgress.value * 3))
+
+// Phase 2 (p > 0.5): text locks at viewport center by counteracting the slide's own motion
+const diveTextOffsetX = computed(() => {
+  const p = diveDeepProgress.value
+  if (p <= 0.5) return 0
+  return Math.round(slideWidth.value * (p - 1))
+})
+
+// Bike continues at same speed past center and exits left by p=1
+const diveBikeExitX = computed(() => {
+  const p = diveDeepProgress.value
+  if (p <= 0.5) return 0
+  return Math.round(-slideWidth.value * (p - 0.5) * 1.2)
+})
+
+const diveBikeRiding = computed(() =>
+  diveDeepProgress.value > 0.02 && diveDeepProgress.value < 0.98
+)
 
 // Blob state — driven by scroll interpolation
 const blobR = ref(146)
@@ -200,6 +261,11 @@ const features = [
     blobLeft: 50, blobTop: 50,
     isCTA: true,
   },
+  {
+    isDiveDeeper: true,
+    blobColor: '#C5C8FF', // light blue — readable against bot_dark_blue text
+    blobLeft: 50, blobTop: 50,
+  },
 ]
 
 const SLIDE_COUNT = features.length
@@ -213,8 +279,9 @@ function lerp(a, b, t) {
 }
 
 function measure() {
+  const headerH = window.innerWidth >= 1024 ? 80 : 64
   slideWidth.value = window.innerWidth
-  runwayHeight.value = window.innerHeight * (1 + (SLIDE_COUNT - 1) * 0.3)
+  runwayHeight.value = window.innerHeight * (1 + (SLIDE_COUNT - 1) * 0.3) + headerH
 }
 
 function scrollToSlide(idx) {
@@ -269,3 +336,11 @@ onUnmounted(() => {
   window.removeEventListener('resize', measure)
 })
 </script>
+
+<style scoped>
+@keyframes figurine-bob {
+  0%, 100% { transform: translateY(0px); }
+  25%       { transform: translateY(-5px); }
+  75%       { transform: translateY(-2px); }
+}
+</style>

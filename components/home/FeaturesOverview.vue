@@ -1,8 +1,8 @@
 <template>
   <div class="font-main">
-    <!-- For Destinations: image left, text right -->
-    <div class="py-16 lg:py-24 bg-white">
-      <div class="max-w-7xl mx-auto px-6 lg:px-8">
+    <!-- For Destinations: biking figurine enters from left, text right -->
+    <div ref="section1El" class="relative overflow-hidden py-16 lg:py-24 bg-white">
+      <div class="relative z-10 max-w-7xl mx-auto px-6 lg:px-8">
         <div class="grid grid-cols-1 md:grid-cols-2 gap-12 md:gap-16 lg:gap-20 items-center">
           <div class="order-2 md:order-2">
             <p class="text-caption uppercase tracking-widest text-bot_dark_blue font-semibold mb-3">
@@ -47,20 +47,27 @@
               </li>
             </ul>
           </div>
-          <div class="order-1 md:order-1">
-            <img
-              src="/img/mobile_hero.png"
-              alt="CityBot App"
-              class="w-full max-w-sm mx-auto rounded-2xl shadow-xl"
-            />
-          </div>
+          <div class="order-1 md:order-1 hidden md:block"></div>
+        </div>
+      </div>
+
+      <div class="absolute inset-0 flex items-center pointer-events-none z-0">
+        <div :style="{ transform: `translateX(${figure1XPx}px)` }">
+          <img
+            ref="figure1ImgEl"
+            src="/img/citybot_figurine_man_biking_green_bike_no_floor.png"
+            alt=""
+            class="h-[26rem] lg:h-[34rem] w-auto block"
+            :style="{ animation: figure1Walking ? 'figurine-bob 0.38s ease-in-out infinite' : 'none' }"
+            @load="measure1"
+          />
         </div>
       </div>
     </div>
 
-    <!-- For Visitors: text left, image right -->
-    <div class="py-16 lg:py-24 bg-bot_bg">
-      <div class="max-w-7xl mx-auto px-6 lg:px-8">
+    <!-- For Visitors: shopping figurine enters from right, text left -->
+    <div ref="section2El" class="relative overflow-hidden py-16 lg:py-24 bg-bot_bg">
+      <div class="relative z-10 max-w-7xl mx-auto px-6 lg:px-8">
         <div class="grid grid-cols-1 md:grid-cols-2 gap-12 md:gap-16 lg:gap-20 items-center">
           <div>
             <p class="text-caption uppercase tracking-widest text-bot_dark_blue font-semibold mb-3">
@@ -106,11 +113,20 @@
               </li>
             </ul>
           </div>
-          <div>
+          <div class="hidden md:block"></div>
+        </div>
+      </div>
+
+      <div class="absolute inset-0 flex items-center pointer-events-none z-0">
+        <div :style="{ transform: `translateX(${figure2XPx}px)` }">
+          <div style="transform: scaleX(-1)">
             <img
-              src="/img/scene_with_phone.jpg"
-              alt="Discovering a destination with CityBot"
-              class="w-full max-w-sm mx-auto rounded-2xl shadow-xl aspect-[3/4] object-cover"
+              ref="figure2ImgEl"
+              src="/img/citybot_figurine_man_shopping_blue_sweater_no_floor.png"
+              alt=""
+              class="h-[26rem] lg:h-[34rem] w-auto block"
+              :style="{ animation: figure2Walking ? 'figurine-bob 0.38s ease-in-out infinite' : 'none' }"
+              @load="measure2"
             />
           </div>
         </div>
@@ -120,3 +136,82 @@
   </div>
 </template>
 
+<script setup>
+// Section 1: biking man from left
+const section1El = ref(null)
+const figure1ImgEl = ref(null)
+const figure1XPx = ref(-1000)
+const figure1Walking = ref(false)
+let stop1 = 0, start1 = -1000
+
+function measure1() {
+  if (!section1El.value || !figure1ImgEl.value) return
+  const secWidth = section1El.value.offsetWidth
+  const el = figure1ImgEl.value
+  const figWidth = el.offsetWidth > 0
+    ? el.offsetWidth
+    : el.naturalWidth > 0 && el.naturalHeight > 0
+      ? Math.round(el.offsetHeight * el.naturalWidth / el.naturalHeight)
+      : 200
+  stop1 = Math.round((secWidth - figWidth) / 2)
+  start1 = -(figWidth + 20)
+  onScroll()
+}
+
+// Section 2: shopping man from right
+const section2El = ref(null)
+const figure2ImgEl = ref(null)
+const figure2XPx = ref(1000)
+const figure2Walking = ref(false)
+let stop2 = 0, start2 = 1000
+
+function measure2() {
+  if (!section2El.value || !figure2ImgEl.value) return
+  const secWidth = section2El.value.offsetWidth
+  const el = figure2ImgEl.value
+  const figWidth = el.offsetWidth > 0
+    ? el.offsetWidth
+    : el.naturalWidth > 0 && el.naturalHeight > 0
+      ? Math.round(el.offsetHeight * el.naturalWidth / el.naturalHeight)
+      : 200
+  stop2 = Math.round((secWidth - figWidth) / 2)
+  start2 = secWidth
+  onScroll()
+}
+
+function getProgress(el) {
+  if (!el) return 0
+  const rect = el.getBoundingClientRect()
+  const vh = window.innerHeight
+  return Math.max(0, Math.min(1, (vh * 0.7 - rect.top) / vh))
+}
+
+function onScroll() {
+  const p1 = getProgress(section1El.value)
+  figure1XPx.value = Math.round(stop1 + (start1 - stop1) * (1 - p1))
+  figure1Walking.value = p1 > 0.02 && p1 < 0.98
+
+  const p2 = getProgress(section2El.value)
+  figure2XPx.value = Math.round(stop2 + (start2 - stop2) * (1 - p2))
+  figure2Walking.value = p2 > 0.02 && p2 < 0.98
+}
+
+onMounted(async () => {
+  await nextTick()
+  window.addEventListener('scroll', onScroll, { passive: true })
+  window.addEventListener('resize', () => { measure1(); measure2() })
+  measure1()
+  measure2()
+})
+onUnmounted(() => {
+  window.removeEventListener('scroll', onScroll)
+})
+</script>
+
+<style scoped>
+@keyframes figurine-bob {
+  0%, 100% { transform: translateY(0px); }
+  25%       { transform: translateY(-5px); }
+  75%       { transform: translateY(-2px); }
+}
+</style>

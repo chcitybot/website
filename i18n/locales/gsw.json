@@ -24,6 +24,8 @@
   "app_features_eyebrow": "Für dich",
   "app_features_title": "S kompletti Gästeerlebnis",
   "app_features_scroll_hint": "scrolle zum Entdecke",
+  "dive_deeper": "Meh entdecke",
+  "dive_deeper_sub": "Da isch no meh z'entdecke",
   "app_features_overview_title": "Dini Stadt, din Wäg",
   "app_features_overview_text": "Alles, was du zum Entdecke bruchsch, an einem Ort — nach Stimmig stöbere, nach Kategorie filtere oder d'App de Wäg wise laa.",
   "app_features_ai_title": "Frag alles. Gah überall.",
@@ -117,5 +119,14 @@
   "faq_q5": "Was bedüütet digitals Destinationsmanagement?",
   "faq_a5": "Digitals Destinationsmanagement bezeichnets de Iisatz vo Technologieplattforme, um Inhalt vo enere Destination — Attraktion, Toure, Events und Angebot — für Besucher über digitali Kanäl wie mobile Apps z'organisiere, z'verteile und z'personalisiere. CityBot biietet das als gebruchsfertige, kosteneffiziänti Plattform aa.",
   "faq_q6": "In welche Stett isch CityBot verfüegbar?",
-  "faq_a6": "CityBot isch derziit in Zug, Schwiz, verfüegbar. Mir sind aktiv derby, üüs uf neui Destinatione uusz'deehne — bliibed gspaant!"
+  "faq_a6": "CityBot isch derziit in Zug, Schwiz, verfüegbar. Mir sind aktiv derby, üüs uf neui Destinatione uusz'deehne — bliibed gspaant!",
+  "faq_fig_free": "Tolli Neuigkeit — gratis!",
+  "faq_fig_destinations": "Mit CityBot entdeck ich alles!",
+  "faq_fig_mobile": "Immer underwegs.",
+  "faq_fig_based": "Stolz schwiizerischi, us Zug.",
+  "faq_fig_ddm": "Zäme entdecke.",
+  "faq_fig_cities": "Bald in witere Stett!",
+  "cookie_title": "Kei Cookies!",
+  "cookie_message": "Disi Website erfasst kei persönlichi Date — genau wie üüseri App.",
+  "cookie_dismiss": "OK"
 }
