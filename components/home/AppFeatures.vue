@@ -263,6 +263,8 @@ const features = [
 const SLIDE_COUNT = features.length
 
 let slideChangeCooldown = false
+let touchStartY = 0
+let touchIntercepting = false
 
 function hexToRgb(hex) {
   return [parseInt(hex.slice(1,3),16), parseInt(hex.slice(3,5),16), parseInt(hex.slice(5,7),16)]
@@ -321,6 +323,51 @@ function onScroll() {
   blobTop.value = lerp(features[fromIdx].blobTop, features[toIdx].blobTop, t)
 }
 
+function onTouchStart(e) {
+  if (!runwayEl.value) return
+  const scrolled = -runwayEl.value.getBoundingClientRect().top
+  const slidesMaxScroll = slidesRunwayH.value - window.innerHeight
+  if (scrolled < 0 || scrolled > slidesMaxScroll) return
+  touchStartY = e.touches[0].clientY
+  touchIntercepting = false // decided per-move once direction is known
+}
+
+function onTouchMove(e) {
+  if (!runwayEl.value) return
+  const scrolled = -runwayEl.value.getBoundingClientRect().top
+  const slidesMaxScroll = slidesRunwayH.value - window.innerHeight
+  if (scrolled < 0 || scrolled > slidesMaxScroll) return
+
+  const deltaY = touchStartY - e.touches[0].clientY
+  if (Math.abs(deltaY) < 8) return // wait until direction is clear
+
+  const dir = deltaY > 0 ? 1 : -1
+  const next = activeSlide.value + dir
+
+  // At boundaries let native scroll through
+  if (next < 0 || next >= SLIDE_COUNT) return
+
+  touchIntercepting = true
+  e.preventDefault()
+}
+
+function onTouchEnd(e) {
+  if (!touchIntercepting) return
+  touchIntercepting = false
+
+  const deltaY = touchStartY - e.changedTouches[0].clientY
+  if (Math.abs(deltaY) < 20) return // too small a swipe
+
+  const dir = deltaY > 0 ? 1 : -1
+  const next = activeSlide.value + dir
+  if (next < 0 || next >= SLIDE_COUNT) return
+
+  if (slideChangeCooldown) return
+  slideChangeCooldown = true
+  scrollToSlide(next)
+  setTimeout(() => { slideChangeCooldown = false }, 600)
+}
+
 function onWheel(e) {
   if (!runwayEl.value) return
   const scrolled = -runwayEl.value.getBoundingClientRect().top
@@ -352,6 +399,9 @@ onMounted(() => {
   measure()
   window.addEventListener('scroll', onScroll, { passive: true })
   window.addEventListener('wheel', onWheel, { passive: false })
+  window.addEventListener('touchstart', onTouchStart, { passive: true })
+  window.addEventListener('touchmove', onTouchMove, { passive: false })
+  window.addEventListener('touchend', onTouchEnd, { passive: true })
   window.addEventListener('resize', measure)
   onScroll()
 })
@@ -359,6 +409,9 @@ onMounted(() => {
 onUnmounted(() => {
   window.removeEventListener('scroll', onScroll)
   window.removeEventListener('wheel', onWheel)
+  window.removeEventListener('touchstart', onTouchStart)
+  window.removeEventListener('touchmove', onTouchMove)
+  window.removeEventListener('touchend', onTouchEnd)
   window.removeEventListener('resize', measure)
 
 })
