@@ -138,15 +138,17 @@ const faqItems = computed(() => [
   { q: t('faq_q4'), a: t('faq_a4') },
   { q: t('faq_q5'), a: t('faq_a5') },
   { q: t('faq_q6'), a: t('faq_a6') },
+  { q: t('faq_q7'), a: t('faq_a7') },
 ])
 
 const figurines = [
-  { img: '/img/citybot_figurine_man_celebrating_with_drink_no_floor.png', caption: t('faq_fig_free'),         flip: true },
-  { img: '/img/citybot_figurine_man_tourist_with_camera_no_floor.png',    caption: t('faq_fig_destinations'), flip: true },
-  { img: '/img/citybot_figurine_woman_walking_with_backpack_no_floor.png', caption: t('faq_fig_mobile'),      flip: true },
-  { img: '/img/citybot_figurine_woman_at_cafe_green_bag_no_floor.png',    caption: t('faq_fig_based'),        flip: true },
-  { img: '/img/citybot_figurine_woman_biking_with_child_no_floor.png',    caption: t('faq_fig_ddm'),          flip: true },
-  { img: '/img/citybot_figurine_woman_dancing_with_coffee_no_floor.png',  caption: t('faq_fig_cities'),       flip: false },
+  { img: '/img/citybot_figurine_man_celebrating_with_drink_no_floor.png',  caption: t('faq_fig_free'),        flip: true },
+  { img: '/img/citybot_figurine_man_tourist_with_camera_no_floor.png',     caption: t('faq_fig_destinations'), flip: true },
+  { img: '/img/citybot_figurine_woman_walking_with_backpack_no_floor.png', caption: t('faq_fig_mobile'),       flip: true },
+  { img: '/img/citybot_figurine_woman_at_cafe_green_bag_no_floor.png',     caption: t('faq_fig_based'),        flip: true },
+  { img: '/img/citybot_figurine_woman_biking_with_child_no_floor.png',     caption: t('faq_fig_ddm'),          flip: true },
+  { img: '/img/citybot_figurine_woman_dancing_with_coffee_no_floor.png',   caption: t('faq_fig_cities'),       flip: false },
+  { img: '/img/citybot_figurine_man_shopping_blue_sweater_no_floor.png',   caption: t('faq_fig_difference'),   flip: false },
 ]
 
 const activeFigurine = computed(() => figurines[openIndex.value ?? 0])
