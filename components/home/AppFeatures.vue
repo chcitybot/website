@@ -324,16 +324,14 @@ function onScroll() {
 }
 
 function onTouchStart(e) {
-  if (!runwayEl.value) return
   const scrolled = -runwayEl.value.getBoundingClientRect().top
   const slidesMaxScroll = slidesRunwayH.value - window.innerHeight
   if (scrolled < 0 || scrolled > slidesMaxScroll) return
   touchStartY = e.touches[0].clientY
-  touchIntercepting = false // decided per-move once direction is known
+  touchIntercepting = false
 }
 
 function onTouchMove(e) {
-  if (!runwayEl.value) return
   const scrolled = -runwayEl.value.getBoundingClientRect().top
   const slidesMaxScroll = slidesRunwayH.value - window.innerHeight
   if (scrolled < 0 || scrolled > slidesMaxScroll) return
@@ -399,9 +397,9 @@ onMounted(() => {
   measure()
   window.addEventListener('scroll', onScroll, { passive: true })
   window.addEventListener('wheel', onWheel, { passive: false })
-  window.addEventListener('touchstart', onTouchStart, { passive: true })
-  window.addEventListener('touchmove', onTouchMove, { passive: false })
-  window.addEventListener('touchend', onTouchEnd, { passive: true })
+  runwayEl.value.addEventListener('touchstart', onTouchStart, { passive: true })
+  runwayEl.value.addEventListener('touchmove', onTouchMove, { passive: false })
+  runwayEl.value.addEventListener('touchend', onTouchEnd, { passive: true })
   window.addEventListener('resize', measure)
   onScroll()
 })
@@ -409,9 +407,9 @@ onMounted(() => {
 onUnmounted(() => {
   window.removeEventListener('scroll', onScroll)
   window.removeEventListener('wheel', onWheel)
-  window.removeEventListener('touchstart', onTouchStart)
-  window.removeEventListener('touchmove', onTouchMove)
-  window.removeEventListener('touchend', onTouchEnd)
+  runwayEl.value?.removeEventListener('touchstart', onTouchStart)
+  runwayEl.value?.removeEventListener('touchmove', onTouchMove)
+  runwayEl.value?.removeEventListener('touchend', onTouchEnd)
   window.removeEventListener('resize', measure)
 
 })
