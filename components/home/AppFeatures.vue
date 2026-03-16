@@ -262,6 +262,8 @@ const features = [
 
 const SLIDE_COUNT = features.length
 
+let slideChangeCooldown = false
+
 function hexToRgb(hex) {
   return [parseInt(hex.slice(1,3),16), parseInt(hex.slice(3,5),16), parseInt(hex.slice(5,7),16)]
 }
@@ -319,6 +321,28 @@ function onScroll() {
   blobTop.value = lerp(features[fromIdx].blobTop, features[toIdx].blobTop, t)
 }
 
+function onWheel(e) {
+  if (!runwayEl.value) return
+  const scrolled = -runwayEl.value.getBoundingClientRect().top
+  const slidesMaxScroll = slidesRunwayH.value - window.innerHeight
+
+  // Only intercept within the slides section
+  if (scrolled < 0 || scrolled > slidesMaxScroll) return
+
+  const dir = e.deltaY > 0 ? 1 : -1
+  const next = activeSlide.value + dir
+
+  // At boundaries, let natural page scroll happen
+  if (next < 0 || next >= SLIDE_COUNT) return
+
+  e.preventDefault()
+  if (slideChangeCooldown) return
+
+  slideChangeCooldown = true
+  scrollToSlide(next)
+  setTimeout(() => { slideChangeCooldown = false }, 600)
+}
+
 onMounted(() => {
   const [r,g,b] = hexToRgb(features[0].blobColor)
   blobR.value = r; blobG.value = g; blobB.value = b
@@ -327,13 +351,16 @@ onMounted(() => {
 
   measure()
   window.addEventListener('scroll', onScroll, { passive: true })
+  window.addEventListener('wheel', onWheel, { passive: false })
   window.addEventListener('resize', measure)
   onScroll()
 })
 
 onUnmounted(() => {
   window.removeEventListener('scroll', onScroll)
+  window.removeEventListener('wheel', onWheel)
   window.removeEventListener('resize', measure)
+
 })
 </script>
 
