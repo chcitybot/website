@@ -263,7 +263,10 @@ const features = [
 const SLIDE_COUNT = features.length
 
 let slideChangeCooldown = false
+let wheelAccum = 0
+let wheelResetTimer = null
 let touchStartY = 0
+let touchInSection = false
 let touchIntercepting = false
 
 function hexToRgb(hex) {
@@ -324,26 +327,26 @@ function onScroll() {
 }
 
 function onTouchStart(e) {
+  if (!runwayEl.value) return
   const scrolled = -runwayEl.value.getBoundingClientRect().top
   const slidesMaxScroll = slidesRunwayH.value - window.innerHeight
-  if (scrolled < 0 || scrolled > slidesMaxScroll) return
   touchStartY = e.touches[0].clientY
+  touchInSection = scrolled >= 0 && scrolled <= slidesMaxScroll
   touchIntercepting = false
 }
 
 function onTouchMove(e) {
-  const scrolled = -runwayEl.value.getBoundingClientRect().top
-  const slidesMaxScroll = slidesRunwayH.value - window.innerHeight
-  if (scrolled < 0 || scrolled > slidesMaxScroll) return
-
+  if (!touchInSection) return
   const deltaY = touchStartY - e.touches[0].clientY
-  if (Math.abs(deltaY) < 8) return // wait until direction is clear
+  if (Math.abs(deltaY) < 8) return
 
   const dir = deltaY > 0 ? 1 : -1
   const next = activeSlide.value + dir
 
-  // At boundaries let native scroll through
-  if (next < 0 || next >= SLIDE_COUNT) return
+  if (next < 0 || next >= SLIDE_COUNT) {
+    touchInSection = false // release at boundary, let native scroll take over
+    return
+  }
 
   touchIntercepting = true
   e.preventDefault()
@@ -354,7 +357,7 @@ function onTouchEnd(e) {
   touchIntercepting = false
 
   const deltaY = touchStartY - e.changedTouches[0].clientY
-  if (Math.abs(deltaY) < 20) return // too small a swipe
+  if (Math.abs(deltaY) < 20) return
 
   const dir = deltaY > 0 ? 1 : -1
   const next = activeSlide.value + dir
@@ -371,18 +374,23 @@ function onWheel(e) {
   const scrolled = -runwayEl.value.getBoundingClientRect().top
   const slidesMaxScroll = slidesRunwayH.value - window.innerHeight
 
-  // Only intercept within the slides section
   if (scrolled < 0 || scrolled > slidesMaxScroll) return
 
   const dir = e.deltaY > 0 ? 1 : -1
   const next = activeSlide.value + dir
 
-  // At boundaries, let natural page scroll happen
   if (next < 0 || next >= SLIDE_COUNT) return
 
   e.preventDefault()
-  if (slideChangeCooldown) return
 
+  // Accumulate delta so trackpad momentum doesn't skip multiple slides
+  wheelAccum += e.deltaY
+  clearTimeout(wheelResetTimer)
+  wheelResetTimer = setTimeout(() => { wheelAccum = 0 }, 300)
+
+  if (Math.abs(wheelAccum) < 100 || slideChangeCooldown) return
+
+  wheelAccum = 0
   slideChangeCooldown = true
   scrollToSlide(next)
   setTimeout(() => { slideChangeCooldown = false }, 600)
@@ -397,9 +405,9 @@ onMounted(() => {
   measure()
   window.addEventListener('scroll', onScroll, { passive: true })
   window.addEventListener('wheel', onWheel, { passive: false })
-  runwayEl.value.addEventListener('touchstart', onTouchStart, { passive: true })
-  runwayEl.value.addEventListener('touchmove', onTouchMove, { passive: false })
-  runwayEl.value.addEventListener('touchend', onTouchEnd, { passive: true })
+  window.addEventListener('touchstart', onTouchStart, { passive: true })
+  window.addEventListener('touchmove', onTouchMove, { passive: false })
+  window.addEventListener('touchend', onTouchEnd, { passive: true })
   window.addEventListener('resize', measure)
   onScroll()
 })
@@ -407,9 +415,10 @@ onMounted(() => {
 onUnmounted(() => {
   window.removeEventListener('scroll', onScroll)
   window.removeEventListener('wheel', onWheel)
-  runwayEl.value?.removeEventListener('touchstart', onTouchStart)
-  runwayEl.value?.removeEventListener('touchmove', onTouchMove)
-  runwayEl.value?.removeEventListener('touchend', onTouchEnd)
+  window.removeEventListener('touchstart', onTouchStart)
+  window.removeEventListener('touchmove', onTouchMove)
+  window.removeEventListener('touchend', onTouchEnd)
+  clearTimeout(wheelResetTimer)
   window.removeEventListener('resize', measure)
 
 })
