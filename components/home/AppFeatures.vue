@@ -263,8 +263,11 @@ const features = [
 const SLIDE_COUNT = features.length
 
 let slideChangeCooldown = false
+let currentTarget = 0      // slide we're scrolling toward (used during cooldown)
+let cooldownTimer = null   // kept so we can cancel + restart on new gesture
 let wheelAccum = 0
 let wheelResetTimer = null
+let lastWheelTime = 0      // for gap detection during cooldown
 let touchStartY = 0
 let touchInSection = false
 let touchIntercepting = false
@@ -364,9 +367,22 @@ function onTouchEnd(e) {
   if (next < 0 || next >= SLIDE_COUNT) return
 
   if (slideChangeCooldown) return
+  doSlideChange(next)
+}
+
+const COOLDOWN = 1200 // long enough to outlast trackpad momentum
+const THRESHOLD = 100 // accumulated deltaY needed to trigger a slide change
+
+function doSlideChange(target) {
   slideChangeCooldown = true
-  scrollToSlide(next)
-  setTimeout(() => { slideChangeCooldown = false }, 600)
+  currentTarget = target
+  wheelAccum = 0
+  scrollToSlide(target)
+  clearTimeout(cooldownTimer)
+  cooldownTimer = setTimeout(() => {
+    slideChangeCooldown = false
+    wheelAccum = 0
+  }, COOLDOWN)
 }
 
 function onWheel(e) {
@@ -377,23 +393,30 @@ function onWheel(e) {
   if (scrolled < 0 || scrolled > slidesMaxScroll) return
 
   const dir = e.deltaY > 0 ? 1 : -1
-  const next = activeSlide.value + dir
-
-  if (next < 0 || next >= SLIDE_COUNT) return
+  const wouldTarget = (slideChangeCooldown ? currentTarget : activeSlide.value) + dir
+  if (wouldTarget < 0 || wouldTarget >= SLIDE_COUNT) return
 
   e.preventDefault()
 
-  // Accumulate delta so trackpad momentum doesn't skip multiple slides
+  const now = Date.now()
+  const gap = now - lastWheelTime
+  lastWheelTime = now
+
+  if (slideChangeCooldown) {
+    // Detect a deliberate second swipe by the gap in the event stream.
+    // Trackpad momentum is continuous (~16ms between events); a real new touch
+    // always creates a pause before the next events start.
+    if (gap > 40 && Math.abs(e.deltaY) > 8) doSlideChange(wouldTarget)
+    return
+  }
+
   wheelAccum += e.deltaY
   clearTimeout(wheelResetTimer)
   wheelResetTimer = setTimeout(() => { wheelAccum = 0 }, 300)
 
-  if (Math.abs(wheelAccum) < 100 || slideChangeCooldown) return
+  if (Math.abs(wheelAccum) < THRESHOLD) return
 
-  wheelAccum = 0
-  slideChangeCooldown = true
-  scrollToSlide(next)
-  setTimeout(() => { slideChangeCooldown = false }, 600)
+  doSlideChange(wouldTarget)
 }
 
 onMounted(() => {
@@ -418,8 +441,9 @@ onUnmounted(() => {
   window.removeEventListener('touchstart', onTouchStart)
   window.removeEventListener('touchmove', onTouchMove)
   window.removeEventListener('touchend', onTouchEnd)
-  clearTimeout(wheelResetTimer)
   window.removeEventListener('resize', measure)
+  clearTimeout(cooldownTimer)
+  clearTimeout(wheelResetTimer)
 
 })
 </script>
