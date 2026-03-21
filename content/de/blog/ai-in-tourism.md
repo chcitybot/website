@@ -6,13 +6,13 @@ tags: ["Künstliche Intelligenz"]
 date: "2025-08-02"
 tldr:
   - "Reisende erwarten personalisierte Empfehlungen — KI macht das in großem Maßstab möglich"
-  - "CityBot nutzt RAG, um Besucheranfragen mit echten POI-Daten abzugleichen"
+  - "CityBot nutzt RAG, um Anfragen der Besuchenden mit echten POI-Daten abzugleichen"
   - "Keine Halluzinationen: die KI empfiehlt nur Orte, die wirklich in der Destination existieren"
 ---
 
-Die Tourismusbranche durchlebt eine stille Revolution – getragen von künstlicher Intelligenz (KI). Von personalisierten Reiseempfehlungen bis hin zu intelligenteren Destination-Managementsystemen: KI hilft Orten, ihren Besuchern bereichernde und ansprechendere Erlebnisse zu bieten und gleichzeitig ihre internen Abläufe zu optimieren.
+Die Tourismusbranche durchlebt eine stille Revolution – getragen von künstlicher Intelligenz (KI). Von personalisierten Reiseempfehlungen bis hin zu intelligenteren Destination-Managementsystemen: KI hilft Orten, den Besuchenden bereichernde und ansprechendere Erlebnisse zu bieten und gleichzeitig ihre internen Abläufe zu optimieren.
 
-Für Tourismusverbände (DMOs), Tourismusämter und lokale Anbieter ist die Nutzung von KI nicht nur ein Trendthema – sie ist entscheidend, um wettbewerbsfähig zu bleiben, die Zufriedenheit der Besucher zu steigern und neue Wege zu erschließen, um das Besondere Ihrer Destination hervorzuheben.
+Für Tourismusverbände (DMOs), Tourismusämter und lokale Anbieter ist die Nutzung von KI nicht nur ein Trendthema – sie ist entscheidend, um wettbewerbsfähig zu bleiben, die Zufriedenheit der Besuchenden zu steigern und neue Wege zu erschließen, um das Besondere Ihrer Destination hervorzuheben.
 
 ---
 
@@ -22,14 +22,14 @@ KI ist keine Science-Fiction mehr. Sie beeinflusst bereits heute, wie Reisende p
 
 - **Personalisierung im grossen Maßstab**: Heutige Reisende erwarten Erlebnisse, die auf ihre Interessen, Sprache und Vorlieben zugeschnitten sind. KI ermöglicht hyperrelevante Empfehlungen – sei es ein verstecktes Café, ein malerischer Wanderweg oder ein kulturelles Festival am kommenden Wochenende.
   
-- **24/7-Betreuung**: Mit KI-gestützten Chatbots und virtuellen Assistenten erhalten Besucher sofort Antworten auf ihre Fragen – zu jeder Zeit und an jedem Ort. Kein Warten mehr auf E-Mails oder Öffnungszeiten.
+- **24/7-Betreuung**: Mit KI-gestützten Chatbots und virtuellen Assistenten erhalten Besuchende sofort Antworten auf ihre Fragen – zu jeder Zeit und an jedem Ort. Kein Warten mehr auf E-Mails oder Öffnungszeiten.
 
 - **Intelligentes Content-Management**: KI unterstützt bei der automatischen Tagging, Übersetzung und sogar Erstellung von Inhalten. So lässt sich ein reichhaltiges, mehrsprachiges und multimediales Erlebnis auf digitalen Plattformen einfacher verwalten.
 
-- **Datenbasierte Entscheidungen**: Durch die Analyse des Besucherverhaltens und der Präferenzen liefert KI handfeste Erkenntnisse, mit denen DMOs Marketing optimieren, Besucherströme steuern und Infrastruktur verbessern können.
+- **Datenbasierte Entscheidungen**: Durch die Analyse des Verhaltens der Besuchenden und ihrer Präferenzen liefert KI handfeste Erkenntnisse, mit denen DMOs Marketing optimieren, Besucherströme steuern und Infrastruktur verbessern können.
 
-Bei **CityBot** haben wir KI direkt in unsere mobile Gast-App integriert, sodass Besucher personalisierte Empfehlungen anfordern können. Die App engagiert Nutzer, indem sie eine sorgfältig kuratierte Auswahl besonders relevanter POIs präsentiert, jede Option mit einer klaren Erklärung, warum sie zu den Interessen des Nutzers passt.  
-Dieser Ansatz hilft Besuchern, schnell und präzise zu finden, wonach sie suchen, reduziert die Entscheidungsüberlastung und verhindert, dass Interesse verloren geht.
+Bei **CityBot** haben wir KI direkt in unsere mobile Gast-App integriert, sodass Besuchende personalisierte Empfehlungen anfordern können. Die App engagiert Nutzende, indem sie eine sorgfältig kuratierte Auswahl besonders relevanter POIs präsentiert, jede Option mit einer klaren Erklärung, warum sie zu den Interessen der Nutzenden passt.
+Dieser Ansatz hilft Besuchenden, schnell und präzise zu finden, wonach sie suchen, reduziert die Entscheidungsüberlastung und verhindert, dass Interesse verloren geht.
 
 ---
 
@@ -79,9 +79,9 @@ Dies basiert auf der **Verteilungshypothese der Linguistik**: Wörter, die in ä
 Zu den gängigen Embedding-Modellen gehören **OpenAIs text-embedding-3**, **Cohere Embed-Modelle** und Open-Source-Optionen wie **Sentence-BERT** oder **BAAI’s bge-Modelle**. Der Bereich entwickelt sich schnell – eine Rangliste der besten Modelle nach verschiedenen Metriken finden Sie [hier](https://huggingface.co/spaces/mteb/leaderboard).  
 Diese Embeddings werden in einer leistungsstarken Vektordatenbank – wie **Pinecone**, **Weaviate** oder **Chroma** – gespeichert und ermöglichen blitzschnelle Ähnlichkeitssuchen.
 
-#### 3. **Semantische Suche mit Nutzeranfragen**
+#### 3. **Semantische Suche mit Anfragen der Nutzenden**
 
-Wenn ein Besucher eine Anfrage eingibt z.B. *„Wo kann ich mit meinen Kindern Enten füttern und Blumen sehen?“*, wird auch diese Frage mit demselben Modell in ein Embedding umgewandelt.
+Wenn Besuchende eine Anfrage eingeben z.B. *„Wo kann ich mit meinen Kindern Enten füttern und Blumen sehen?“*, wird auch diese Frage mit demselben Modell in ein Embedding umgewandelt.
 
 Anschließend führen wir eine **Cosinus-Ähnlichkeitssuche** in der Vektordatenbank durch, um die POIs mit den inhaltlich relevantesten Beschreibungen zu finden. Dies geht über reines Keyword-Matching hinaus: Es erkennt, dass „Enten füttern“ möglicherweise mit „Teich“ oder „Park mit Wildleben“ verbunden ist.
 

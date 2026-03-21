@@ -34,7 +34,7 @@ Diese Philosophie stand im Zentrum der SCCON 2025. Unter den vielen inspirierend
 
 ## 1. Internet of Places in Biel
 
-Barthélémy Rochat zeigte eindrücklich, wie das **Internet of Places** — ein Konzept, das vom Internet of Things abgeleitet ist, sich aber auf physische Räume und die Interaktion von Menschen darin konzentriert — die Zukunft einer nachhaltigen Stadtentwicklung prägt. Durch die Verschmelzung digitaler und physischer Räume können Städte Umgebungen schaffen, die in Echtzeit auf die Bedürfnisse ihrer Bewohner und Besucher reagieren.
+Barthélémy Rochat zeigte eindrücklich, wie das **Internet of Places** — ein Konzept, das vom Internet of Things abgeleitet ist, sich aber auf physische Räume und die Interaktion von Menschen darin konzentriert — die Zukunft einer nachhaltigen Stadtentwicklung prägt. Durch die Verschmelzung digitaler und physischer Räume können Städte Umgebungen schaffen, die in Echtzeit auf die Bedürfnisse ihrer Bewohnenden und Besuchenden reagieren.
 
 ## 2. Decidim als geteiltes Betriebsmodell in Luzern
 
@@ -52,10 +52,10 @@ Die SCCON hat eines deutlich gemacht: **Die Zukunft der Smart Cities liegt nicht
 
 Deutschland geht mit einem Ministerium voran, das Digitalisierung als Infrastruktur behandelt — so grundlegend wie Strassen und Energie. Doch dieser Trend beschränkt sich nicht auf Deutschland. Überall in Europa und darüber hinaus stehen Städte vor denselben Herausforderungen:
 
-- **Besucher erwarten digitale Erlebnisse** — von personalisierten Empfehlungen bis hin zu KI-gestützten Stadtführern.
+- **Besuchende erwarten digitale Erlebnisse** — von personalisierten Empfehlungen bis hin zu KI-gestützten Stadtführern.
 - **Budgets sind knapp** — geteilte Plattformen senken die Kosten im Vergleich zu Einzellösungen massiv.
 - **Datenbasierte Entscheidungen** ersetzen Bauchgefühl im Tourismusmanagement und in der Stadtplanung.
-- **Nachhaltigkeit** erfordert smartere Besucherströme und weniger gedrucktes Material.
+- **Nachhaltigkeit** erfordert smartere Besuchendenströme und weniger gedrucktes Material.
 
 CityBot adressiert all das. Als Plattform für die digitale Präsenz von Städten und Destinationen bietet es Gemeinden eine sofort einsetzbare Lösung für **Smart Tourism** — mit KI-gestützten Empfehlungen, kuratierten Touren und messbarem Erfolg.
 

@@ -12,14 +12,14 @@ tldr:
 
 Noch vor einigen Jahren war der erste Stopp eines jeden Reisenden das örtliche Tourismusbüro: Dort griff man zu einer Papierkarte, blätterte durch einen Stapel Broschüren und hoffte, dass die Informationen noch aktuell waren.
 
-Heute kommen Besucher mit Smartphone in der Hand an und stellen Fragen wie:
+Heute kommen Besuchende mit Smartphone in der Hand an und stellen Fragen wie:
 
 > *Was in der Nähe hat tolle Aussichten und vegane Optionen?*  
 > *Gibt es gerade einen kinderfreundlichen Weg, der geöffnet ist?*
 
 Die Art und Weise, wie Reisende nach Informationen suchen, hat sich dramatisch verändert – und Destinationsgebiete, die sich anpassen, sind diejenigen, die langfristig erfolgreich sind.
 
-Begleiten Sie uns auf eine Reise durch die **Entwicklung touristischer Inhalte** – von gedruckten Broschüren bis hin zu KI-gestützten Assistenten – und entdecken Sie, wie moderne Tools wie **CityBot** neu definieren, was es heute bedeutet, Besucher digital zu empfangen.
+Begleiten Sie uns auf eine Reise durch die **Entwicklung touristischer Inhalte** – von gedruckten Broschüren bis hin zu KI-gestützten Assistenten – und entdecken Sie, wie moderne Tools wie **CityBot** neu definieren, was es heute bedeutet, Besuchende digital zu empfangen.
 
 ---
 
@@ -53,12 +53,12 @@ Mit der flächendeckenden Verbreitung des Internets zogen Destinationen online:
 Das war ein Fortschritt: Informationen konnten leichter aktualisiert, aus der Ferne abgerufen und in mehreren Sprachen angeboten werden.
 
 Doch auch diese Phase hatte ihre Herausforderungen:
-- **Passive Inhalte**: Besucher mussten selbst suchen.
+- **Passive Inhalte**: Besuchende mussten selbst suchen.
 - **Schlechte Mobile-Erfahrung**: Viele Seiten waren nicht für Smartphones optimiert.
 - **Keine Personalisierung**: Jeder sah dieselbe Startseite.
 - **Geringe Interaktion**: Eine PDF ist letztlich nur eine digitale Broschüre.
 
-Auch hier verlangten wir von Besuchern, **die Arbeit selbst zu leisten** – scrollen, filtern, entscheiden.
+Auch hier verlangten wir von Besuchenden, **die Arbeit selbst zu leisten** – scrollen, filtern, entscheiden.
 
 ---
 
@@ -66,13 +66,13 @@ Auch hier verlangten wir von Besuchern, **die Arbeit selbst zu leisten** – scr
 
 Als Nächstes kamen **Mobile Apps und interaktive Webkarten** – ein großer Schritt nach vorn in Sachen Benutzerfreundlichkeit.
 
-Besucher konnten nun:
+Besuchende konnten nun:
 - Tippen, um nahegelegene Sehenswürdigkeiten zu sehen
 - Schritt-für-Schritt-Anleitungen erhalten
 - Fotos und Öffnungszeiten einsehen
 
 Diese Tools boten reichhaltigere Erlebnisse, aber die Akzeptanz blieb durchwachsen:
-- **App-Müdigkeit**: Nur wenige Touristen laden eine neue App nur für eine Stadt herunter.
+- **App-Müdigkeit**: Nur wenige TouristInnen laden eine neue App nur für eine Stadt herunter.
 - **Hohe Entwicklungskosten**: Maßgeschneiderte Apps sind teuer in Entwicklung und Wartung.
 - **Fragmentierte Inhalte**: POIs existierten oft in Silos auf verschiedenen Plattformen.
 
@@ -90,10 +90,10 @@ Jetzt sind wir in eine neue Ära eingetreten – eine, in der touristische Inhal
 
 Hier kommen **KI-gestützte Reiseassistenten** ins Spiel.
 
-Stellen Sie sich vor, ein Besucher tippt in sein Handy:
-> *„Ich suche einen ruhigen Platz zum Lesen, mit Kaffee in der Nähe.“*
+Stellen Sie sich vor, Besuchende tippen in ihr Handy:
+> *„Ich suche einen ruhigen Platz zum Lesen, mit Kaffee in der Nähe.”*
 
-Anstatt durch Kategorien zu blättern, erhält er eine intelligente, sofortige Antwort:
+Anstatt durch Kategorien zu blättern, erhalten sie eine intelligente, sofortige Antwort:
 > *„Probieren Sie die Bank am See im Greenfield Park. Das Lakeside Café ist nur zwei Minuten entfernt und öffnet um 8 Uhr.“*
 
 Das ist keine Science-Fiction. Es ist heute schon möglich – mit unserer Plattformlösung **CityBot**.
@@ -103,8 +103,8 @@ Das ist keine Science-Fiction. Es ist heute schon möglich – mit unserer Platt
 ## Die Zukunft ist intelligent, inklusiv und mühelos
 
 Bei **CityBot** glauben wir, dass die Zukunft touristischer Information:
-- **Intelligent** ist: Die KI schlägt vor, was Besucher noch nicht kannten, aber lieben würden.
-- **Mobil** ist: Für alle Besucher auf ihrem Gerät zugänglich, unabhängig von der Plattform.
+- **Intelligent** ist: Die KI schlägt vor, was Besuchende noch nicht kannten, aber lieben würden.
+- **Mobil** ist: Für alle Besuchenden auf ihrem Gerät zugänglich, unabhängig von der Plattform.
 - **Mühelos** ist: Kein endloses Scrollen, kein Suchen – einfach fragen und losgehen.
 - **Wirtschaftlich** ist: Keine teuren Silo-Apps mehr, sondern eine flexible, konfigurierbare Plattform, die für alle funktioniert – mit deutlich geringeren Entwicklungs- und Wartungskosten.
 

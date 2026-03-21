@@ -139,9 +139,9 @@ Eine gemeinsame Plattform ist nicht nur günstiger — sie ist **intelligenter f
 
 - **Schnellere Markteinführung**: Destinationen gehen in Wochen live, nicht in Jahren.
 - **Konsistente Qualität**: Keine „Billig-Apps“ mit kaputten Karten oder veralteten Informationen.
-- **Interoperabilität**: Besucher können nahtlos von Luzern nach Lugano reisen — mit derselben App.
+- **Interoperabilität**: Besuchende können nahtlos von Luzern nach Lugano reisen — mit derselben App.
 - **Nachhaltigkeit**: Weniger Energie, weniger Server, kein redundanten Code.
-- **Gemeinsames Lernen**: Erkenntnisse aus einer Destination (z. B. „Was fragen Besucher?“) verbessern alle.
+- **Gemeinsames Lernen**: Erkenntnisse aus einer Destination (z. B. „Was fragen Besuchende?“) verbessern alle.
 - **Effiziente Arbeitsteilung**: Plattformentwickler konzentrieren sich auf die beste technische Lösung, während Destinationen sich auf ihre Inhalte und Angebote fokussieren.
 - **Stärkere Markenbildung**: Einheitliche digitale Erfahrung, die dennoch lokale Identität und Branding respektiert.
 
@@ -149,7 +149,7 @@ Eine gemeinsame Plattform ist nicht nur günstiger — sie ist **intelligenter f
 
 ## Sie müssen das Rad nicht neu erfinden
 
-Das Ziel ist nicht, Software zu bauen — es ist, **das Besuchererlebnis** so kosteneffizient wie möglich **zu verbessern**. Denn seien wir ehrlich: Budgets sind nie unbegrenzt.
+Das Ziel ist nicht, Software zu bauen — es ist, **das Besuchendenerlebnis** so kosteneffizient wie möglich **zu verbessern**. Denn seien wir ehrlich: Budgets sind nie unbegrenzt.
 
 Mit CityBot sparen Sie nicht nur Geld — Sie **starten schneller** und konzentrieren sich auf das, was wirklich zählt: **die Inhalte, die Marke und Angebote Ihrer Destination** — ohne sich mit technischen IT-Komplexitäten herumschlagen zu müssen.
 

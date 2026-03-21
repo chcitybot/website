@@ -8,7 +8,7 @@ metaTitle: "CityBot Fallstudie Zug – So digitalisieren Städte ihre Gästefüh
 metaDescription: "Entdecken Sie, wie Zug mit CityBot Tourismus digital transformiert – von smarten Empfehlungen über lokale Inhalte bis zu messbaren Besucher-Erfolgen. Ein Best Practice für jede Stadt."
 tldr:
   - "Das Empfehlungssystem passt sich Tageszeit, Standort und Interessen an — ohne persönliche Daten"
-  - "8 von Experten kuratierte Touren + 562 POIs fördern Geheimtipps neben Highlights"
+  - "8 von ExpertInnen kuratierte Touren + 562 POIs fördern Geheimtipps neben Highlights"
   - "6.000+ Downloads und 200.000+ Empfehlungen mit messbarer Konversion zu echten Besuchen"
 ---
 
@@ -42,7 +42,7 @@ Der Algorithmus basiert auf drei zentralen Informationsquellen:
 - **Interaktionen**: Welche Inhalte Nutzer:innen anklicken, speichern, oder vor Ort besuchen.
 
 
-Wichtig: Es werden keine personenbezogenen Daten wie Name oder Adresse gespeichert. Stattdessen nutzt CBRS anonyme Nutzer-IDs, Positionspunkte (ohne Rückschluss auf Privatadressen) und Kategorie-Präferenzen.
+Wichtig: Es werden keine personenbezogenen Daten wie Name oder Adresse gespeichert. Stattdessen nutzt CBRS anonyme Nutzungs-IDs, Positionspunkte (ohne Rückschluss auf Privatadressen) und Kategorie-Präferenzen.
 So kann CityBot auch für datenschutzsensiblere Regionen bedenkenlos eingesetzt werden.
 
 ## Tageszeit + Präferenzen = passgenaue Tipps
