@@ -348,7 +348,7 @@ const bubblePath = ref('')
 const bubbleScale = ref(0)
 let bubbleRaf = null
 let bubbleStartTime = null
-const BUBBLE_DUR = 1100
+const BUBBLE_DUR = 2200
 
 function easeInOut(t) {
   return t < 0.5 ? 2 * t * t : -1 + (4 - 2 * t) * t
@@ -504,7 +504,7 @@ function runCycle() {
   if (!isFromCenter && !pois[from].visible) pois[from].visible = true
 
   // Bubble departs
-  const bubbleStart = isFromCenter ? 650 : 50
+  const bubbleStart = isFromCenter ? 1300 : 100
   cycleTimers.push(setTimeout(() => {
     bubblePath.value = buildBubblePath(0)
     bubbleScale.value = 0
@@ -566,7 +566,7 @@ function runCycle() {
   }, bubbleEnd))
 
   // Advance to next pair
-  const pauseAfter = isToCenter ? 600 : 80 // longer pause after firework
+  const pauseAfter = isToCenter ? 1200 : 160 // longer pause after firework
   cycleTimers.push(setTimeout(() => {
     if (isToCenter) {
       // Restart: center → first POI; go directly to "CityBot." to avoid twitch
