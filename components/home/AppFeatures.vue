@@ -21,9 +21,12 @@
       />
 
       <!-- Section header -->
-      <div class="relative text-center mb-4 lg:mb-6 px-6">
+      <div class="relative mb-4 lg:mb-6 px-6 flex items-center">
+        <!-- Left spacer balances the skip button so the nav stays centred -->
+        <div class="flex-1" />
+
         <!-- Inline scroll nav -->
-        <div class="flex items-center justify-center gap-4">
+        <div class="flex items-center gap-4">
           <button
             class="w-9 h-9 rounded-full flex items-center justify-center transition-all duration-200 border-2"
             :class="activeSlide > 0
@@ -50,6 +53,17 @@
             <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5">
               <path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7" />
             </svg>
+          </button>
+        </div>
+
+        <!-- Skip button — right-aligned, same row, never overlaps the nav -->
+        <div class="flex-1 flex justify-end">
+          <button
+            class="text-sm text-gray-400 hover:text-gray-500 transition-colors duration-200 tracking-wide"
+            aria-label="Skip section"
+            @click="skipSection"
+          >
+            Skip
           </button>
         </div>
       </div>
@@ -291,6 +305,12 @@ function measure() {
   slidesRunwayH.value = window.innerHeight * (1 + (SLIDE_COUNT - 1) * 0.3) + headerH
   // Content below reveals when bike is ~half off-screen
   runwayHeight.value = slidesRunwayH.value + BIKE_EXIT_H() * 0.45
+}
+
+function skipSection() {
+  if (!runwayEl.value) return
+  const runwayTop = runwayEl.value.getBoundingClientRect().top + window.scrollY
+  window.scrollTo({ top: runwayTop + runwayHeight.value, behavior: 'smooth' })
 }
 
 function scrollToSlide(idx) {
