@@ -83,13 +83,22 @@
           <!-- Normal screenshot + text slide -->
           <template v-if="!feature.isCTA && !feature.isDiveDeeper">
             <div class="relative flex gap-4 lg:gap-6">
-              <img
+              <picture
                 v-for="(img, imgIdx) in feature.images"
                 :key="imgIdx"
-                class="w-32 sm:w-56 lg:w-72 rounded-3xl shadow-lg"
-                :alt="img.alt"
-                :src="img.src"
-              />
+              >
+                <source
+                  media="(max-width: 639px)"
+                  type="image/webp"
+                  :srcset="img.webp400"
+                />
+                <img
+                  class="w-32 sm:w-56 lg:w-72 rounded-3xl shadow-lg"
+                  :alt="img.alt"
+                  :src="img.src"
+                  :loading="idx === 0 ? 'eager' : 'lazy'"
+                />
+              </picture>
             </div>
             <div class="relative lg:max-w-md">
               <h3 class="font-heading text-h1 text-gray-900 mb-4">
@@ -216,8 +225,8 @@ const features = [
     blobColor: '#9297FF', // bot_light_blue
     blobLeft: 30, blobTop: 50,
     images: [
-      { src: '/img/R161_1_overview_cropped.png', alt: 'App home screen' },
-      { src: '/img/R161_10_places_filter_cropped.png', alt: 'Category filter' },
+      { src: '/img/R161_1_overview_cropped.png', webp400: '/img/R161_1_overview_cropped_400w.webp', alt: 'App home screen' },
+      { src: '/img/R161_10_places_filter_cropped.png', webp400: '/img/R161_10_places_filter_cropped_400w.webp', alt: 'Category filter' },
     ],
   },
   {
@@ -226,8 +235,8 @@ const features = [
     blobColor: '#FA634B', // bot_red
     blobLeft: 38, blobTop: 40,
     images: [
-      { src: '/img/R161_7_places_map_ai_search_cropped.png', alt: 'AI search prompt' },
-      { src: '/img/R161_8_ai_search_results_cropped.png', alt: 'AI search results' },
+      { src: '/img/R161_7_places_map_ai_search_cropped.png', webp400: '/img/R161_7_places_map_ai_search_cropped_400w.webp', alt: 'AI search prompt' },
+      { src: '/img/R161_8_ai_search_results_cropped.png', webp400: '/img/R161_8_ai_search_results_cropped_400w.webp', alt: 'AI search results' },
     ],
   },
   {
@@ -236,8 +245,8 @@ const features = [
     blobColor: '#ACD9E1', // bot_teal_light
     blobLeft: 26, blobTop: 58,
     images: [
-      { src: '/img/R161_9_place_detail_route_cropped.png', alt: 'Place detail with route' },
-      { src: '/img/R161_11_places_map_nature_cropped.png', alt: 'Nature places on map' },
+      { src: '/img/R161_9_place_detail_route_cropped.png', webp400: '/img/R161_9_place_detail_route_cropped_400w.webp', alt: 'Place detail with route' },
+      { src: '/img/R161_11_places_map_nature_cropped.png', webp400: '/img/R161_11_places_map_nature_cropped_400w.webp', alt: 'Nature places on map' },
     ],
   },
   {
@@ -246,8 +255,8 @@ const features = [
     blobColor: '#FFC2AC', // bot_salmon
     blobLeft: 35, blobTop: 45,
     images: [
-      { src: '/img/R161_2_tour_map_cropped.png', alt: 'Tour map' },
-      { src: '/img/R161_4_tour_details_cropped.png', alt: 'Tour details' },
+      { src: '/img/R161_2_tour_map_cropped.png', webp400: '/img/R161_2_tour_map_cropped_400w.webp', alt: 'Tour map' },
+      { src: '/img/R161_4_tour_details_cropped.png', webp400: '/img/R161_4_tour_details_cropped_400w.webp', alt: 'Tour details' },
     ],
   },
   {
@@ -256,8 +265,8 @@ const features = [
     blobColor: '#F9B666', // bot_pink
     blobLeft: 31, blobTop: 54,
     images: [
-      { src: '/img/R161_5_tour_navigation_cropped.png', alt: 'Tour navigation' },
-      { src: '/img/R161_12_events_list_cropped.png', alt: 'Events list' },
+      { src: '/img/R161_5_tour_navigation_cropped.png', webp400: '/img/R161_5_tour_navigation_cropped_400w.webp', alt: 'Tour navigation' },
+      { src: '/img/R161_12_events_list_cropped.png', webp400: '/img/R161_12_events_list_cropped_400w.webp', alt: 'Events list' },
     ],
   },
   {
