@@ -10,7 +10,7 @@ services:
         max-file: "3"
     labels:
       - "traefik.enable=true"
-      - "traefik.http.routers.website.rule=Host(`citybot-test-website.duckdns.org`)"
+      - "traefik.http.routers.website.rule=Host(`citybot.ch`)"
       - "traefik.http.routers.website.entrypoints=web-secure"
       - "traefik.http.routers.website.tls.certresolver=le"
       - "traefik.http.services.website.loadbalancer.server.port=80"
