@@ -285,16 +285,6 @@ const features = [
 
 const SLIDE_COUNT = features.length
 
-let slideChangeCooldown = false
-let currentTarget = 0      // slide we're scrolling toward (used during cooldown)
-let cooldownTimer = null   // kept so we can cancel + restart on new gesture
-let wheelAccum = 0
-let wheelResetTimer = null
-let lastWheelTime = 0      // for gap detection during cooldown
-let touchStartY = 0
-let touchInSection = false
-let touchIntercepting = false
-
 function hexToRgb(hex) {
   return [parseInt(hex.slice(1,3),16), parseInt(hex.slice(3,5),16), parseInt(hex.slice(5,7),16)]
 }
@@ -358,96 +348,6 @@ function onScroll() {
   blobTop.value = lerp(features[fromIdx].blobTop, features[toIdx].blobTop, t)
 }
 
-function onTouchStart(e) {
-  if (!runwayEl.value) return
-  const scrolled = -runwayEl.value.getBoundingClientRect().top
-  const slidesMaxScroll = slidesRunwayH.value - window.innerHeight
-  touchStartY = e.touches[0].clientY
-  touchInSection = scrolled >= 0 && scrolled <= slidesMaxScroll
-  touchIntercepting = false
-}
-
-function onTouchMove(e) {
-  if (!touchInSection) return
-  const deltaY = touchStartY - e.touches[0].clientY
-  if (Math.abs(deltaY) < 8) return
-
-  const dir = deltaY > 0 ? 1 : -1
-  const next = activeSlide.value + dir
-
-  if (next < 0 || next >= SLIDE_COUNT) {
-    touchInSection = false // release at boundary, let native scroll take over
-    return
-  }
-
-  touchIntercepting = true
-  e.preventDefault()
-}
-
-function onTouchEnd(e) {
-  if (!touchIntercepting) return
-  touchIntercepting = false
-
-  const deltaY = touchStartY - e.changedTouches[0].clientY
-  if (Math.abs(deltaY) < 20) return
-
-  const dir = deltaY > 0 ? 1 : -1
-  const next = activeSlide.value + dir
-  if (next < 0 || next >= SLIDE_COUNT) return
-
-  if (slideChangeCooldown) return
-  doSlideChange(next)
-}
-
-const COOLDOWN = 1200 // long enough to outlast trackpad momentum
-const THRESHOLD = 100 // accumulated deltaY needed to trigger a slide change
-
-function doSlideChange(target) {
-  slideChangeCooldown = true
-  currentTarget = target
-  wheelAccum = 0
-  scrollToSlide(target)
-  clearTimeout(cooldownTimer)
-  cooldownTimer = setTimeout(() => {
-    slideChangeCooldown = false
-    wheelAccum = 0
-  }, COOLDOWN)
-}
-
-function onWheel(e) {
-  if (!runwayEl.value) return
-  const scrolled = -runwayEl.value.getBoundingClientRect().top
-  const slidesMaxScroll = slidesRunwayH.value - window.innerHeight
-
-  if (scrolled < 0 || scrolled > slidesMaxScroll) return
-
-  const dir = e.deltaY > 0 ? 1 : -1
-  const wouldTarget = (slideChangeCooldown ? currentTarget : activeSlide.value) + dir
-  if (wouldTarget < 0 || wouldTarget >= SLIDE_COUNT) return
-
-  e.preventDefault()
-
-  const now = Date.now()
-  const gap = now - lastWheelTime
-  lastWheelTime = now
-
-  if (slideChangeCooldown) {
-    // Detect a deliberate second swipe by the gap in the event stream.
-    // Trackpad momentum is continuous (~16ms between events); a real new touch
-    // always creates a pause before the next events start.
-    if (gap > 40 && Math.abs(e.deltaY) > 8) doSlideChange(wouldTarget)
-    return
-  }
-
-  wheelAccum += e.deltaY
-  clearTimeout(wheelResetTimer)
-  wheelResetTimer = setTimeout(() => { wheelAccum = 0 }, 300)
-
-  if (Math.abs(wheelAccum) < THRESHOLD) return
-
-  doSlideChange(wouldTarget)
-}
-
 onMounted(() => {
   const [r,g,b] = hexToRgb(features[0].blobColor)
   blobR.value = r; blobG.value = g; blobB.value = b
@@ -456,23 +356,13 @@ onMounted(() => {
 
   measure()
   window.addEventListener('scroll', onScroll, { passive: true })
-  window.addEventListener('wheel', onWheel, { passive: false })
-  window.addEventListener('touchstart', onTouchStart, { passive: true })
-  window.addEventListener('touchmove', onTouchMove, { passive: false })
-  window.addEventListener('touchend', onTouchEnd, { passive: true })
   window.addEventListener('resize', measure)
   onScroll()
 })
 
 onUnmounted(() => {
   window.removeEventListener('scroll', onScroll)
-  window.removeEventListener('wheel', onWheel)
-  window.removeEventListener('touchstart', onTouchStart)
-  window.removeEventListener('touchmove', onTouchMove)
-  window.removeEventListener('touchend', onTouchEnd)
   window.removeEventListener('resize', measure)
-  clearTimeout(cooldownTimer)
-  clearTimeout(wheelResetTimer)
 
 })
 </script>
