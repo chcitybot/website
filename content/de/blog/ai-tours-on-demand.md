@@ -13,7 +13,7 @@ tldr:
 
 Wer im Destinationsmanagement arbeitet, kennt dieses Spannungsfeld: Eine Stadt kann acht, vielleicht zehn hervorragende Führungen produzieren. Besuchende kommen aber mit tausenden unterschiedlichen Wünschen. Ein Nischeninteresse, neunzig freie Minuten, ein verregneter Nachmittag mit zwei Kindern. Die meisten dieser Wünsche bleiben unerfüllt. Nicht, weil der Destination die Substanz fehlt, sondern weil niemand für jeden einzelnen Wunsch eine Tour produzieren kann.
 
-Mit den KI-Touren von CityBot muss das auch niemand. Besuchende äussern den Wunsch, und die Tour baut sich selbst.
+Mit den KI-Touren von CityBot muss das auch niemand. Besuchende äussern den Wunsch, und die Tour wird von CityBot zusammengestellt.
 
 ---
 
@@ -24,7 +24,7 @@ Stellen Sie sich eine Besucherin vor, die am Hauptbahnhof Zürich aus dem Zug st
 Wenige Minuten später spaziert sie durch Zürcher Gassen und der Limmat entlang, auf einer Tour, die ihr die Geschichte von Giessereien, Handelshäusern und stillen Vermögen erzählt:
 
 - **Direkt vor den eigenen Füssen starten.** Kein Umweg zur Touristeninformation, kein fixer Treffpunkt. Die Route startet exakt dort, wo sie steht.
-- **Unterwegs wie ein Local.** Die Stopps kommen in sinnvoller Reihenfolge und in angenehmen Gehdistanzen. Niemand wird im Zickzack durch die Stadt geschickt.
+- **Unterwegs wie Einheimische.** Die Stopps kommen in sinnvoller Reihenfolge und in angenehmen Gehdistanzen. Niemand wird im Zickzack durch die Stadt geschickt.
 - **Den Geheimnissen der Stadt lauschen.** An jedem Halt und auf dem Weg dazwischen erklärt ein erzählter Audioguide, warum dieser Ort wichtig ist: die Menschen, die Daten, die Anekdoten. Im eigenen Tempo, ohne Gruppe, ohne Zeitplan.
 
 Genau das meinen wir mit einem Local in der Hosentasche, der dich kennt: Er hört zuerst zu und baut dann eine Tour, massgeschneidert auf genau eine Person. Er arbeitet auf Wunsch.

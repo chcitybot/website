@@ -13,7 +13,7 @@ tldr:
 
 Anyone who works in destination management knows this tension: a city can produce eight, maybe ten excellent guided tours. But visitors arrive with thousands of different wishes. A niche interest, ninety spare minutes, a rainy afternoon with two children. Most of those wishes go unserved, not because the destination lacks substance, but because nobody can produce a tour for every one of them.
 
-With CityBot's AI tours, nobody has to. The visitor states the wish, and the tour builds itself.
+With CityBot's AI tours, nobody has to. The visitor states the wish, and CityBot puts the tour together.
 
 ---
 

@@ -13,7 +13,7 @@ tldr:
 
 Toute personne travaillant dans la gestion de destination connaît cette tension : une ville peut produire huit, peut-être dix excellentes visites guidées. Mais les visiteurs arrivent avec des milliers d'envies différentes. Un intérêt de niche, quatre-vingt-dix minutes de libre, un après-midi pluvieux avec deux enfants. La plupart de ces envies restent sans réponse. Non pas parce que la destination manque de substance, mais parce que personne ne peut produire un tour pour chacune d'elles.
 
-Avec les tours IA de CityBot, personne n'a plus à le faire. Le visiteur exprime son envie, et le tour se construit tout seul.
+Avec les tours IA de CityBot, personne n'a plus à le faire. Le visiteur exprime son envie, et CityBot compose le tour.
 
 ---
 
