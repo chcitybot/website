@@ -129,7 +129,7 @@ Ora considera l’**alternativa**: *E se tutte e 150 destinazioni avessero licen
 
 > 150 × 15.000 CHF × 10 = **22,5 M CHF totali**
 
-# Risparmi potenziali: 40,85 milioni di CHF in 10 anni!
+## Risparmi potenziali: 40,85 milioni di CHF in 10 anni!
 
 ---
 

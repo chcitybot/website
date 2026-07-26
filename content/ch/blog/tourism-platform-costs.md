@@ -129,7 +129,7 @@ Nun betrachten wir die **Alternative**: *Was, wenn alle 150 Destinationen eine g
 
 > 150 × CHF 15.000 × 10 = **CHF 22,5 Mio. Gesamtkosten**
 
-# Mögliche Einsparungen: CHF 40,85 Millionen über 10 Jahre!
+## Mögliche Einsparungen: CHF 40,85 Millionen über 10 Jahre!
 
 ---
 

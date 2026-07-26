@@ -10,9 +10,7 @@ tldr:
   - "Switching to digital isn't just cheaper — it's a measurable climate action"
 ---
 
-# Sustainability: Reducing the CO₂ Footprint with CityBot
 
-**How digitalization in tourism can make cities and regions more sustainable**
 
 Smart city concepts should focus on people: easier access to documents and information, safe navigation through the city, pleasant climate, and much more. This also includes enabling people to live sustainably concerning the environment and social surroundings. Especially under current circumstances, [where 6 out of 9 planetary boundaries have been exceeded](https://www.stockholmresilience.org/research/planetary-boundaries.html), it's more important than ever to leverage every opportunity to mitigate the impacts of climate change on humans and the environment.
 

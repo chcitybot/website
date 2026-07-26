@@ -12,7 +12,6 @@ tldr:
   - "Zugo ha presentato CityBot come prova che le piattaforme condivise riducono i costi"
 ---
 
-# SCCON 2025: quando un paese fa sul serio con la digitalizzazione
 
 La Germania ha lanciato un segnale chiaro: con la creazione di un **Ministero federale dedicato alla digitalizzazione**, il paese ha posto la trasformazione digitale in cima all'agenda politica. Il messaggio è inequivocabile — la digitalizzazione non è più facoltativa, è una priorità nazionale.
 
@@ -22,7 +21,7 @@ Il motto guida? **"Copiare è incoraggiato!"** — un principio rinfrescante che
 
 ---
 
-# La digitalizzazione è uno sport di squadra
+## La digitalizzazione è uno sport di squadra
 
 Troppo spesso città e regioni affrontano la digitalizzazione da sole — sviluppando soluzioni su misura partendo da zero, ripetendo errori che altri hanno già risolto. L'agenda di modernizzazione della Germania mette radicalmente in discussione questo approccio. L'idea è semplice: **condividere ciò che funziona, imparare gli uni dagli altri e progredire insieme.**
 
@@ -30,23 +29,23 @@ Questa filosofia era al centro della SCCON 2025. Tra i numerosi progetti ispiran
 
 ---
 
-# Tre progetti svizzeri che indicano la strada
+## Tre progetti svizzeri che indicano la strada
 
-## 1. Internet of Places a Bienne
+### 1. Internet of Places a Bienne
 
 Barthélémy Rochat ha dimostrato in modo convincente come l'**Internet of Places** — un concetto derivato dall'Internet of Things, ma focalizzato sugli spazi fisici e sull'interazione delle persone al loro interno — stia plasmando il futuro dello sviluppo urbano sostenibile. Fondendo spazi digitali e fisici, le città possono creare ambienti che rispondono in tempo reale alle esigenze dei loro residenti e visitatori.
 
-## 2. Decidim come modello operativo condiviso a Lucerna
+### 2. Decidim come modello operativo condiviso a Lucerna
 
 Nicola Näf e Nadja V. della città di Lucerna hanno mostrato come più città possano **collaborare su un'unica piattaforma** utilizzando Decidim, uno strumento di partecipazione open source. Condividendo codice, costi di sviluppo e buone pratiche, i comuni evitano di reinventare la ruota — offrendo servizi migliori in tempi più rapidi.
 
-## 3. CityBot: il locale nella tua tasca
+### 3. CityBot: il locale nella tua tasca
 
 Il nostro CEO **Andri Bösch**, insieme a **Nicolas Lemaitre** (responsabile del progetto Smart City, Città di Zugo), ha presentato il 1° ottobre come Zugo sia entrata nell'era digitale del turismo con CityBot. La presentazione ha mostrato come CityBot combini l'approccio Internet of Places con una **piattaforma app multi-città** — consentendo ai comuni di dedicare meno tempo allo sviluppo di app e più a ciò che conta davvero: creare contenuti locali di qualità.
 
 ---
 
-# Perché questo riguarda ogni città
+## Perché questo riguarda ogni città
 
 La SCCON ha reso una cosa perfettamente chiara: **il futuro delle Smart City non sta nell'agire da soli.** Sta nella connessione intelligente di soluzioni, esperienze e tecnologie.
 
@@ -61,7 +60,7 @@ CityBot risponde a tutte queste esigenze. Come piattaforma per la presenza digit
 
 ---
 
-# Uno sguardo al futuro
+## Uno sguardo al futuro
 
 Le conversazioni alla SCCON 2025 hanno confermato ciò in cui crediamo fin dall'inizio: le città che abbracciano la digitalizzazione insieme saranno quelle che prospereranno. Gli strumenti esistono. La volontà politica cresce. E gli esempi — da Zugo a Bienne, passando per Lucerna — dimostrano che funziona.
 

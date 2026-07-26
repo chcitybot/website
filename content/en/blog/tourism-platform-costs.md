@@ -129,7 +129,7 @@ Now, consider the **alternative**: *What if all 150 destinations had licensed a 
 
 > 150 × CHF 15,000 × 10 = **CHF 22.5 million total**
 
-# Potential savings: CHF 42.85 million over 10 years!
+## Potential savings: CHF 42.85 million over 10 years!
 
 ---
 

@@ -10,8 +10,6 @@ tldr:
   - "Passer au numérique n'est pas seulement moins cher — c'est une action climatique mesurable"
 ---
 
-# Durabilité : Réduire l’empreinte carbone grâce à CityBot  
-**Comment la numérisation du tourisme peut rendre les villes et régions plus durables**
 
 Les concepts de Smart City doivent être centrés sur les citoyens : accès facilité aux documents et informations, navigation sécurisée en ville, climat agréable, et bien plus. Cela inclut également la possibilité pour les citoyens d’adopter un mode de vie durable, tant sur le plan environnemental que social. Surtout dans un contexte où [6 des 9 limites planétaires sont dépassées](https://www.stockholmresilience.org/research/planetary-boundaries.html), il est plus crucial que jamais d’activer tous les leviers pour limiter les effets du changement climatique sur les humains et l’environnement.
 

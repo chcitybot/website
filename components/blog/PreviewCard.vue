@@ -10,7 +10,7 @@
       </div>
       <div class="p-6 flex flex-col flex-1 justify-between">
         <div>
-          <h2 class="font-heading text-h1 text-gray-900 mb-2 group-hover:text-bot_dark_blue transition-colors">
+          <h2 class="font-heading text-h2 text-gray-900 mb-2 group-hover:text-bot_dark_blue transition-colors">
             {{ post.title }}
           </h2>
           <div class="flex items-center gap-2 mb-3">

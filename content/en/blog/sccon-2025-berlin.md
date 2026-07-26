@@ -12,7 +12,6 @@ metaTitle: "CityBot at SCCON 2025 Berlin – Smart City Digitalization for Citie
 metaDescription: "CityBot presented at the Smart Country Convention 2025 in Berlin. Learn how Germany's new Ministry for Digitalization and Swiss innovation are driving the future of smart cities and digital tourism."
 ---
 
-# SCCON 2025: When Countries Get Serious About Digitalization
 
 Germany has sent a clear signal: with the creation of a dedicated **Federal Ministry for Digitalization**, the country has placed digital transformation at the very top of its political agenda. The message is unmistakable — digitalization is no longer optional, it is a national priority.
 
@@ -22,7 +21,7 @@ And the guiding principle? **"Copying is encouraged!"** — a refreshingly hones
 
 ---
 
-# Digitalization Is a Team Sport
+## Digitalization Is a Team Sport
 
 Too often, cities and regions tackle digitalization alone — building custom solutions from scratch, repeating the same mistakes others have already solved. Germany's new modernization agenda challenges this approach head-on. The idea is simple: **share what works, learn from each other, and move forward together.**
 
@@ -30,23 +29,23 @@ This philosophy was at the heart of SCCON 2025. Among the many inspiring project
 
 ---
 
-# Three Swiss Projects Leading the Way
+## Three Swiss Projects Leading the Way
 
-## 1. Internet of Places in Biel
+### 1. Internet of Places in Biel
 
 Barthélémy Rochat demonstrated how the **Internet of Places** — a concept derived from the Internet of Things, but focused on physical spaces and how people interact within them — is shaping the future of sustainable urban development. By merging digital and physical spaces, cities can create environments that respond to the needs of their residents and visitors in real time.
 
-## 2. Decidim as a Shared Operating Model in Lucerne
+### 2. Decidim as a Shared Operating Model in Lucerne
 
 Nicola Näf and Nadja V. from the city of Lucerne presented how multiple cities can **collaborate on a single platform** using Decidim, an open-source participation tool. By sharing code, development costs, and best practices, municipalities avoid reinventing the wheel — and deliver better services faster.
 
-## 3. CityBot: The Local in Your Pocket
+### 3. CityBot: The Local in Your Pocket
 
 Our CEO **Andri Bösch**, together with **Nicolas Lemaitre** (Smart City project lead, City of Zug), took the stage on October 1 to present how Zug has stepped into the digital era of tourism with CityBot. The presentation showed how CityBot combines the Internet of Places approach with a **multi-city app platform** — allowing municipalities to spend less time on app development and more on what truly matters: crafting great local content.
 
 ---
 
-# Why This Matters for Every City
+## Why This Matters for Every City
 
 The SCCON made one thing abundantly clear: **the future of smart cities does not lie in going it alone.** It lies in the intelligent networking of solutions, experiences, and technologies.
 
@@ -61,7 +60,7 @@ CityBot addresses all of these. As a platform for the digital presence of cities
 
 ---
 
-# Looking Ahead
+## Looking Ahead
 
 The conversations at SCCON 2025 confirmed what we have believed from the start: cities that embrace digitalization together will be the ones that thrive. The tools exist. The political will is growing. And the examples — from Zug to Biel to Lucerne — prove that it works.
 

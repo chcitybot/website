@@ -35,7 +35,7 @@
           <div class="h-full bg-white rounded-full transition-none" :style="{ width: readProgress + '%' }"></div>
         </div>
         <!-- CTA -->
-        <NuxtLink :to="localePath('/contact')" class="mt-4 flex items-center justify-center px-4 py-2 rounded-full bg-white text-bot_dark_blue text-sm font-semibold hover:bg-white/90 transition-colors duration-200">
+        <NuxtLink :to="localePath('/contact')" class="mt-4 flex items-center justify-center text-center px-4 py-2 rounded-full bg-white text-bot_dark_blue text-sm font-semibold hover:bg-white/90 transition-colors duration-200">
           {{ $t("cta_become_partner") }}
         </NuxtLink>
       </div>

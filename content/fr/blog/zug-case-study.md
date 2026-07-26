@@ -12,7 +12,7 @@ tldr:
   - "6 000+ téléchargements et 200 000+ recommandations avec conversion mesurable en visites réelles"
 ---
 
-# Aperçu de l’étude de cas
+## Aperçu de l’étude de cas
 La numérisation ne s’arrête pas aux visites guidées – et la ville de Zoug montre comment faire. Avec CityBot, la “ville dans la poche”, Zoug a créé ces dernières années une expérience de visite numérique à la fois informative, personnalisée et fondée sur les données.
 
 Trois facteurs sont déterminants pour le succès et sont décrits en détail ci-dessous :
@@ -24,11 +24,11 @@ Trois facteurs sont déterminants pour le succès et sont décrits en détail ci
 
 Nous montrons ci-après comment CityBot fonctionne à Zoug, quels contenus font la différence et ce que les chiffres révèlent sur le succès – un exemple que toute ville peut adapter à sa propre gestion numérique des visiteurs.
 
-# 1. Le CityBot Recommender System – Une visite guidée numérique qui anticipe
+## 1. Le CityBot Recommender System – Une visite guidée numérique qui anticipe
 À une époque où les visiteurs attendent des solutions numériques, CityBot change la donne. Son cœur : le CityBot Recommender System (CBRS). Ce système analyse quel contenu est pertinent pour quelle personne à quel moment – et propose des suggestions qui améliorent l’expérience sur place.  
 Mais comment cela fonctionne-t-il sans porter atteinte à la vie privée ?
 
-## Comment le CBRS génère ses recommandations
+### Comment le CBRS génère ses recommandations
 L’algorithme se base sur trois sources principales d’information :
 
 - **Contenus** : circuits, points d’intérêt (POI), événements proposés
@@ -39,7 +39,7 @@ L’algorithme se base sur trois sources principales d’information :
 
 Important : Aucune donnée personnelle telle que nom ou adresse n’est enregistrée. Le CBRS utilise plutôt des identifiants anonymes, des points de localisation (sans lien avec des adresses privées) et des préférences de catégorie. CityBot peut ainsi être utilisé sans crainte même dans les régions sensibles à la protection des données.
 
-## Heure de la journée + préférences = conseils sur mesure
+### Heure de la journée + préférences = conseils sur mesure
 CityBot analyse ce qui est pertinent à chaque moment :
 
 - Matin : cafés, shopping, promenades.
@@ -53,7 +53,7 @@ Le système apprend aussi les préférences individuelles – par exemple, une f
 💡 **Mini-Success Story :**  
 À Zoug, cette logique a incité les visiteurs d’un jour à prolonger leur séjour – petit-déjeuner au bord du lac, musée d’art l’après-midi, dîner dans la vieille ville. Cela a non seulement allongé la durée du séjour, mais aussi l’impact économique par visite.
 
-## Valeur ajoutée pour les villes
+### Valeur ajoutée pour les villes
 - **Gestion ciblée des visiteurs** : orienter les flux pour éviter la surcharge.
 
 - **Visibilité des trésors cachés** : mettre en avant les POI moins connus.
@@ -62,11 +62,11 @@ Le système apprend aussi les préférences individuelles – par exemple, une f
 
 👉 **Conclusion** : Le CBRS n’est pas un simple gadget technique – c’est un outil stratégique pour toute ville qui souhaite gérer son tourisme de manière intelligente.
 
-# 2. Zoug sous son meilleur jour : des contenus qui donnent vie à CityBot
+## 2. Zoug sous son meilleur jour : des contenus qui donnent vie à CityBot
 
 Pourquoi le contenu est la clé : une visite guidée numérique n’est aussi attrayante que les contenus qu’elle propose. La ville de Zoug a très tôt compris que des contenus variés et ancrés localement sont le facteur décisif du succès.
 
-## 8 circuits sélectionnés – L’expertise locale
+### 8 circuits sélectionnés – L’expertise locale
 Chaque circuit de CityBot a été développé par des experts locaux : historiens, acteurs culturels, journalistes. Exemples :
 
 - Cerises & Gâteaux – La “Chriesi-Tour” (14 POI, 2,2 km) : plaisir et histoire autour des spécialités zougoises.
@@ -79,13 +79,13 @@ Chaque circuit de CityBot a été développé par des experts locaux : historien
 
 Tous les circuits durent entre 1 et 2 heures – idéal pour les explorateurs urbains spontanés.
 
-## 562 points d’intérêt dans 9 catégories
+### 562 points d’intérêt dans 9 catégories
 De l’art (200 POI) aux sites touristiques (140), en passant par des catégories plus petites comme la nature ou le sport, CityBot couvre toutes les facettes d’une offre touristique.  
 La répartition géographique garantit que les visiteurs ne restent pas seulement dans les lieux classiques, mais découvrent aussi des endroits secondaires.
 
 💡 **Mini-Success Story** : La visite “Munis & Lölis” a conduit les visiteurs pour la première fois jusqu’au cimetière du nord – un lieu historique qui avait jusque-là peu attiré l’attention touristique.
 
-## Pourquoi cette stratégie de contenu fonctionne
+### Pourquoi cette stratégie de contenu fonctionne
 - La variété évite la monotonie et augmente l’utilisation de l’application.
 
 - L’expertise locale assure l’authenticité.
@@ -94,9 +94,9 @@ La répartition géographique garantit que les visiteurs ne restent pas seulemen
 
 👉 **Conclusion** : Ceux qui utilisent CityBot devraient planifier leurs contenus stratégiquement – des vitrines aux secrets bien gardés. Cela crée une visite qui semble nouvelle à chaque fois.
 
-# 3. Comment Zoug utilise CityBot : interactions, visites, succès
+## 3. Comment Zoug utilise CityBot : interactions, visites, succès
 
-## 6 000 téléchargements – et ce n’est pas fini
+### 6 000 téléchargements – et ce n’est pas fini
 Depuis son lancement officiel à l’été 2023, CityBot à Zoug a dépassé les 6 000 installations. Des pics ont été observés notamment lors de campagnes marketing ciblées :  
 Campagne marketing (été 2025) : jusqu’à 150 téléchargements par jour.
 - QR codes sur affiches et flyers menant directement à l’App Store.
@@ -107,7 +107,7 @@ Beaucoup utilisent également CityBot depuis chez eux pour planifier un voyage �
 
 💡 **Mini-Success Story** : La visite de la vieille ville “Lavandières & Baigneurs” a été effectuée par plus de 450 visiteurs – sans aucune promotion supplémentaire.
 
-## Des suggestions aux visites réelles
+### Des suggestions aux visites réelles
 Jusqu’à présent, CityBot a proposé plus de 200 000 suggestions. Les taux de conversion montrent des différences intéressantes :
 - Sites touristiques : 1,5 %
 - Art : 0,8 %
@@ -115,7 +115,7 @@ Jusqu’à présent, CityBot a proposé plus de 200 000 suggestions. Les taux de
 
 Les restaurants et la nature mènent moins souvent à des visites spontanées – souvent parce que ces activités sont planifiées à l’avance.
 
-## Enseignements pour les villes
+### Enseignements pour les villes
 - **Optimisation basée sur les données** : analyser les contenus qui convertissent le mieux.
 
 - **Mise en avant ciblée** : promouvoir davantage les catégories moins fréquentées.

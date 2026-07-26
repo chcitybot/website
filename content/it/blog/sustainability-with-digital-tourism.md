@@ -10,8 +10,6 @@ tldr:
   - "Passare al digitale non è solo più economico — è un'azione climatica misurabile"
 ---
 
-# Sostenibilità: Ridurre l’impronta di CO2 con CityBot  
-**Come la digitalizzazione del turismo può rendere città e regioni più sostenibili**
 
 I concetti di Smart City devono essere centrati sulle persone: accesso facilitato ai documenti e alle informazioni, navigazione sicura in città, clima piacevole e molto altro. Questo include anche la possibilità per le persone di adottare uno stile di vita sostenibile dal punto di vista ambientale e sociale. Soprattutto nell’attuale contesto, [in cui 6 dei 9 limiti planetari sono stati superati](https://www.stockholmresilience.org/research/planetary-boundaries.html), è più importante che mai muovere ogni leva possibile per contrastare gli effetti del cambiamento climatico sull’uomo e sull’ambiente.
 

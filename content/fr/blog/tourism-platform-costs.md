@@ -129,7 +129,7 @@ Considérons maintenant l’**alternative** : *Et si les 150 destinations avaien
 
 > 150 × 15 000 CHF × 10 = **22,5 M CHF au total**
 
-# Économies potentielles : 40,85 millions de CHF sur 10 ans !
+## Économies potentielles : 40,85 millions de CHF sur 10 ans !
 
 ---
 

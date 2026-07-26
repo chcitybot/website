@@ -14,6 +14,17 @@
     <xhtml:link rel="alternate" hreflang="x-default" href="https://citybot.ch/en/blog/ai-in-tourism" />
   </url>
   <url>
+    <loc>https://citybot.ch/en/blog/ai-tours-on-demand</loc>
+    <lastmod>2026-02-24</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://citybot.ch/en/blog/ai-tours-on-demand" />
+    <xhtml:link rel="alternate" hreflang="de" href="https://citybot.ch/de/blog/ai-tours-on-demand" />
+    <xhtml:link rel="alternate" hreflang="fr" href="https://citybot.ch/fr/blog/ai-tours-on-demand" />
+    <xhtml:link rel="alternate" hreflang="it" href="https://citybot.ch/it/blog/ai-tours-on-demand" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://citybot.ch/en/blog/ai-tours-on-demand" />
+  </url>
+  <url>
     <loc>https://citybot.ch/en/blog/evolution-of-the-tourism-content</loc>
     <lastmod>2025-08-11</lastmod>
     <changefreq>monthly</changefreq>

@@ -10,7 +10,6 @@ tldr:
   - "Niente allucinazioni: l'IA consiglia solo luoghi che esistono davvero nella tua destinazione"
 ---
 
-# Come l'IA sta trasformando il turismo – e come la tua destinazione può trarne vantaggio
 
 Il settore del turismo è in piena rivoluzione silenziosa, guidata dall’intelligenza artificiale (IA). Dalle raccomandazioni di viaggio personalizzate alla gestione più intelligente delle destinazioni, l’IA aiuta i territori a offrire esperienze più ricche e coinvolgenti ai visitatori, ottimizzando al contempo i processi operativi.
 

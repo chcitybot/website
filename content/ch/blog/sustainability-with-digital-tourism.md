@@ -9,8 +9,6 @@ tldr:
   - "Im besten Fall emittiert CityBot weniger als 1% eines Papierführers"
   - "Auf Digital umzusteigen ist nicht nur günstiger — es ist eine messbare Klimaschutzmaßnahme"
 ---
-# Nachhaltigkeit: Mit digitalen Tourismuslösungen den CO2-Fussabruck reduzieren 
-**Wie Digitalisierung von Tourismus Städte und Regionen Nachhaltiger machen kann**
 
 Bei Smart City Konzepten soll es um die Menschen gehen: Einfacher Zugang zu Dokumenten und Informationen, sicheres Navigieren durch die Stadt, angenehmes Klima, und vieles mehr. Hierzu gehört es auch, den Menschen eine nachhaltige Lebensweise bezüglich Umwelt und sozialem Umfeld zu ermöglichen. Vorallem unter den momentanen Umständen, [wo 6 von 9 planetaren Grenzen überschritten sind](https://www.stockholmresilience.org/research/planetary-boundaries.html), ist es wichtiger denn je, jeden Hebel in Bewegung zu setzten, um den Einwirkungen des Kilmawandels auf Mensch und Umwelt Einhalt zu gebieten.
 

@@ -12,7 +12,6 @@ tldr:
   - "Zug präsentierte CityBot als Beweis, dass geteilte Stadtplattformen Kosten senken"
 ---
 
-# SCCON 2025: Wenn Länder Digitalisierung ernst nehmen
 
 Deutschland hat ein klares Zeichen gesetzt: Mit der Schaffung eines eigenen **Bundesministeriums für Digitalisierung** hat das Land die digitale Transformation ganz oben auf die politische Agenda gesetzt. Die Botschaft ist unmissverständlich — Digitalisierung ist keine Option mehr, sondern nationale Priorität.
 
@@ -22,7 +21,7 @@ Das Leitmotiv? **«Abschauen erwünscht!»** — ein erfrischend ehrliches Motto
 
 ---
 
-# Digitalisierung ist Mannschaftssport
+## Digitalisierung ist Mannschaftssport
 
 Zu oft gehen Städte und Regionen die Digitalisierung im Alleingang an — bauen massgeschneiderte Lösungen von Grund auf, wiederholen dieselben Fehler, die andere längst gelöst haben. Deutschlands neue Modernisierungsagenda stellt diesen Ansatz grundlegend infrage. Die Idee ist einfach: **Teilen, was funktioniert. Voneinander lernen. Gemeinsam vorankommen.**
 
@@ -30,23 +29,23 @@ Diese Philosophie stand im Zentrum der SCCON 2025. Unter den vielen inspirierend
 
 ---
 
-# Drei Schweizer Projekte als Vorreiter
+## Drei Schweizer Projekte als Vorreiter
 
-## 1. Internet of Places in Biel
+### 1. Internet of Places in Biel
 
 Barthélémy Rochat zeigte eindrücklich, wie das **Internet of Places** — ein Konzept, das vom Internet of Things abgeleitet ist, sich aber auf physische Räume und die Interaktion von Menschen darin konzentriert — die Zukunft einer nachhaltigen Stadtentwicklung prägt. Durch die Verschmelzung digitaler und physischer Räume können Städte Umgebungen schaffen, die in Echtzeit auf die Bedürfnisse ihrer Bewohnenden und Besuchenden reagieren.
 
-## 2. Decidim als geteiltes Betriebsmodell in Luzern
+### 2. Decidim als geteiltes Betriebsmodell in Luzern
 
 Nicola Näf und Nadja V. aus der Stadt Luzern zeigten, wie mehrere Städte auf einer **gemeinsamen Plattform** zusammenarbeiten können. Mit Decidim, einem Open-Source-Partizipationstool, teilen sich Gemeinden Code, Entwicklungskosten und Best Practices — und vermeiden so, das Rad immer wieder neu zu erfinden.
 
-## 3. CityBot: The Local in Your Pocket
+### 3. CityBot: The Local in Your Pocket
 
 Unser CEO **Andri Bösch** präsentierte gemeinsam mit **Nicolas Lemaitre** (Projektleiter Smart City, Stadt Zug) am 1. Oktober, wie Zug mit CityBot ins digitale Zeitalter des Tourismus eingestiegen ist. Die Präsentation zeigte, wie CityBot den Internet-of-Places-Ansatz mit einer **Multi-City-App-Plattform** verbindet — damit Gemeinden weniger Zeit mit App-Entwicklung verbringen und mehr mit dem, was wirklich zählt: grossartigen lokalen Content zu erstellen.
 
 ---
 
-# Warum das jede Stadt betrifft
+## Warum das jede Stadt betrifft
 
 Die SCCON hat eines deutlich gemacht: **Die Zukunft der Smart Cities liegt nicht im Alleinkämpfertum.** Sie liegt in der intelligenten Vernetzung von Lösungen, Erfahrungen und Technologien.
 
@@ -61,7 +60,7 @@ CityBot adressiert all das. Als Plattform für die digitale Präsenz von Städte
 
 ---
 
-# Ein Blick nach vorne
+## Ein Blick nach vorne
 
 Die Gespräche an der SCCON 2025 haben bestätigt, was wir von Anfang an geglaubt haben: Städte, die Digitalisierung gemeinsam angehen, werden die erfolgreichen sein. Die Werkzeuge existieren. Der politische Wille wächst. Und die Beispiele — von Zug über Biel bis Luzern — beweisen, dass es funktioniert.
 

@@ -2,7 +2,7 @@
 title: "How to use AI in Tourism – And How Your Destination Can Benefit"
 description: "Discover how AI is transforming tourism with smart, personalized POI recommendations powered by Retrieval-Augmented Generation (RAG)."
 image: "ai_in_tourism.jpg"
-tags: ["Artificiel Intelligence"]
+tags: ["Artificial Intelligence"]
 date: "2025-08-02"
 tldr:
   - "Travelers expect personalized recommendations — AI makes this possible at scale"
