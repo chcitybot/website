@@ -4,7 +4,9 @@ import { fileURLToPath } from 'url';
 
 const __dirname = fileURLToPath(new URL('.', import.meta.url));
 const contentDir = join(__dirname, '..', 'content');
-const locales = ['en', 'de', 'fr', 'it'];
+const locales = ['en', 'de', 'fr', 'it', 'ch'];
+// 'ch' is the URL prefix for Swiss German; its valid hreflang tag is de-CH
+const hreflangOf = (locale) => (locale === 'ch' ? 'de-CH' : locale);
 const domain = 'https://citybot.ch'; // ✅ No trailing spaces!
 
 // Map slug to title (fallback only)
@@ -62,7 +64,7 @@ async function generateSitemap() {
 
     // Add hreflang for each language that actually has the post
     for (const locale of Object.keys(localesData)) {
-      xml += `    <xhtml:link rel="alternate" hreflang="${locale}" href="${domain}/${locale}/blog/${slug}" />\n`;
+      xml += `    <xhtml:link rel="alternate" hreflang="${hreflangOf(locale)}" href="${domain}/${locale}/blog/${slug}" />\n`;
     }
 
     // Add x-default (use English as default)
@@ -75,9 +77,10 @@ async function generateSitemap() {
 
   // === 3. Add Static Pages ===
   const staticPages = [
-    { path: '', label: 'Homepage', lastmod: '2025-11-15', priority: '1.0' },
+    { path: '', label: 'Homepage', lastmod: '2026-07-26', priority: '1.0' },
     { path: '/team', label: 'Team', lastmod: '2025-10-01', priority: '0.8' },
     { path: '/contact', label: 'Contact', lastmod: '2025-10-01', priority: '0.8' },
+    { path: '/download', label: 'Download', lastmod: '2025-10-01', priority: '0.8' },
   ];
 
   for (const page of staticPages) {
@@ -89,7 +92,7 @@ async function generateSitemap() {
 
     // hreflang for static pages
     for (const locale of locales) {
-      xml += `    <xhtml:link rel="alternate" hreflang="${locale}" href="${domain}/${locale}${page.path}" />\n`;
+      xml += `    <xhtml:link rel="alternate" hreflang="${hreflangOf(locale)}" href="${domain}/${locale}${page.path}" />\n`;
     }
     xml += `    <xhtml:link rel="alternate" hreflang="x-default" href="${domain}/en${page.path}" />\n`;
     xml += `  </url>\n`;

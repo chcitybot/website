@@ -57,11 +57,12 @@ export default defineNuxtConfig({
   i18n: {
     baseUrl: 'https://citybot.ch',
     locales: [
-      { code: 'de', name: 'Deutsch', file: 'de.json' },
-      { code: 'en', name: 'English', file: 'en.json' },
-      { code: 'fr', name: 'Français', file: 'fr.json' },
-      { code: 'ch', name: 'Schwiizerdütsch', file: 'gsw.json' },
-      { code: 'it', name: 'Italiano', file: 'it.json' }
+      { code: 'de', language: 'de', name: 'Deutsch', file: 'de.json' },
+      { code: 'en', language: 'en', name: 'English', file: 'en.json' },
+      { code: 'fr', language: 'fr', name: 'Français', file: 'fr.json' },
+      // 'ch' is the URL prefix; de-CH is the valid hreflang/BCP-47 tag for Swiss German pages
+      { code: 'ch', language: 'de-CH', name: 'Schwiizerdütsch', file: 'gsw.json' },
+      { code: 'it', language: 'it', name: 'Italiano', file: 'it.json' }
     ],
     defaultLocale: 'en',
     strategy: "prefix",

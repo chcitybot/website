@@ -107,7 +107,7 @@ useSeoMeta({
 useHead({
   link: computed(() => [
     { rel: 'canonical', href: `${siteUrl}/${locale.value}/team` },
-    ...locales.value.map((loc) => ({ rel: 'alternate', hreflang: loc.code, href: `${siteUrl}/${loc.code}/team` })),
+    ...locales.value.map((loc) => ({ rel: 'alternate', hreflang: loc.language ?? loc.code, href: `${siteUrl}/${loc.code}/team` })),
     { rel: 'alternate', hreflang: 'x-default', href: `${siteUrl}/en/team` },
   ]),
   script: [

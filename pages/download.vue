@@ -68,7 +68,7 @@ useSeoMeta({
 useHead({
   link: computed(() => [
     { rel: 'canonical', href: `${siteUrl}/${locale.value}/download` },
-    ...locales.value.map((loc: any) => ({ rel: 'alternate', hreflang: loc.code, href: `${siteUrl}/${loc.code}/download` })),
+    ...locales.value.map((loc: any) => ({ rel: 'alternate', hreflang: loc.language ?? loc.code, href: `${siteUrl}/${loc.code}/download` })),
     { rel: 'alternate', hreflang: 'x-default', href: `${siteUrl}/en/download` },
   ]),
   script: [

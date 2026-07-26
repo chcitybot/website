@@ -172,8 +172,8 @@
         <img
           v-for="i in 18"
           :key="i"
-          :src="`/img/Apple iPhone 11 Pro Max Screenshot ${(i - 1) % 9}.png`"
-          :alt="`App screenshot ${((i - 1) % 9) + 1}`"
+          :src="screenshots[(i - 1) % 9].src"
+          :alt="screenshots[(i - 1) % 9].alt"
           class="h-[26rem] lg:h-[34rem] w-auto rounded-3xl shadow-lg flex-shrink-0 select-none pointer-events-none"
           draggable="false"
         />
@@ -246,7 +246,20 @@ const heroRotatingColors = computed(() => {
   return Array.from({ length: len }, (_, i) => i === len - 1 ? '#FA634B' : null)
 })
 
-const wordIndex = ref(-1)
+// Start at 0 so the full headline is server-rendered (SEO: H1 must be complete in static HTML)
+const wordIndex = ref(0)
+
+const screenshots = [
+  { src: '/img/citybot-app-themed-tour-teaser.png', alt: 'CityBot app themed tour teaser: the Metalle & Milliarden economy tour of Zug with 15 stops' },
+  { src: '/img/citybot-app-map-pois-zug.png', alt: 'CityBot app interactive map of Zug with points of interest and the AI assistant button' },
+  { src: '/img/citybot-app-tour-navigation.png', alt: 'CityBot app guided tour navigation showing a walking route to Daheimpark in Zug' },
+  { src: '/img/citybot-app-events-list.png', alt: 'CityBot app list of local events with museum exhibitions in Zug' },
+  { src: '/img/citybot-app-events-schedule.png', alt: 'CityBot app event schedule with dates and opening hours for Zug Castle and museums' },
+  { src: '/img/citybot-app-bookmarks.png', alt: 'CityBot app bookmarks screen with saved places such as Bundesplatz in Zug' },
+  { src: '/img/citybot-app-place-details.png', alt: 'CityBot app place detail page for Metalliplatz with walking time, distance and local story' },
+  { src: '/img/citybot-app-home-explore.png', alt: 'CityBot app home screen for exploring Zug with Places, Tours, Events and Experiences categories' },
+  { src: '/img/citybot-app-tour-details.png', alt: 'CityBot app tour detail page with description and numbered stops on a map of Zug' },
+]
 
 const heroEl = ref(null)
 const botIconEl = ref(null)

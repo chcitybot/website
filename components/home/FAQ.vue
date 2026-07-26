@@ -63,29 +63,6 @@
                 </NuxtLink>
               </div>
 
-              <!-- App store links for the iOS/Android FAQ -->
-              <div v-if="index === 2" class="px-7 pb-7">
-                <div class="flex items-center gap-3">
-                  <a
-                    href="https://apps.apple.com/ch/app/citybot-zug/id6443655653"
-                    target="_blank"
-                    rel="noopener"
-                    class="hover:opacity-80 transition-opacity"
-                    :aria-label="$t('cta_app_download') + ' – iOS'"
-                  >
-                    <SvgAppleAppStore class="h-10 w-auto" />
-                  </a>
-                  <a
-                    href="https://play.google.com/store/apps/details?id=ch.citybot.citybot"
-                    target="_blank"
-                    rel="noopener"
-                    class="hover:opacity-80 transition-opacity"
-                    :aria-label="$t('cta_app_download') + ' – Android'"
-                  >
-                    <SvgGooglePlayStore class="h-10 w-auto" />
-                  </a>
-                </div>
-              </div>
             </div>
           </div>
         </div>
@@ -134,7 +111,6 @@ const openIndex = ref(0)
 const faqItems = computed(() => [
   { q: t('faq_q1'), a: t('faq_a1') },
   { q: t('faq_q2'), a: t('faq_a2') },
-  { q: t('faq_q3'), a: t('faq_a3') },
   { q: t('faq_q4'), a: t('faq_a4') },
   { q: t('faq_q5'), a: t('faq_a5') },
   { q: t('faq_q6'), a: t('faq_a6') },
@@ -144,7 +120,6 @@ const faqItems = computed(() => [
 const figurines = [
   { img: '/img/citybot_figurine_man_celebrating_with_drink_no_floor.png',  caption: t('faq_fig_free'),        flip: true },
   { img: '/img/citybot_figurine_man_tourist_with_camera_no_floor.png',     caption: t('faq_fig_destinations'), flip: true },
-  { img: '/img/citybot_figurine_woman_walking_with_backpack_no_floor.png', caption: t('faq_fig_mobile'),       flip: true },
   { img: '/img/citybot_figurine_woman_at_cafe_green_bag_no_floor.png',     caption: t('faq_fig_based'),        flip: true },
   { img: '/img/citybot_figurine_woman_biking_with_child_no_floor.png',     caption: t('faq_fig_ddm'),          flip: true },
   { img: '/img/citybot_figurine_woman_dancing_with_coffee_no_floor.png',   caption: t('faq_fig_cities'),       flip: false },

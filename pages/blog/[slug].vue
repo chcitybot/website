@@ -235,7 +235,7 @@ useHead(() => {
 
   const alternateLinks = locales.value.map((loc: any) => ({
     rel: "alternate",
-    hreflang: loc.code,
+    hreflang: loc.language ?? loc.code,
     href: `${siteUrl}/${loc.code}/blog/${slug}`,
   }))
 
