@@ -17,6 +17,31 @@ services:
     networks:
       - traefik-public
 
+  goatcounter:
+    image: arp242/goatcounter:latest
+    container_name: goatcounter
+    restart: unless-stopped
+    logging:
+      driver: json-file
+      options:
+        max-size: "10m"
+        max-file: "3"
+    environment:
+      - GOATCOUNTER_TLS=http # Traefik terminates TLS
+    volumes:
+      - goatcounter-data:/home/goatcounter/goatcounter-data # SQLite db, lives only on the VM
+    labels:
+      - "traefik.enable=true"
+      - "traefik.http.routers.goatcounter.rule=Host(`stats.citybot.ch`)"
+      - "traefik.http.routers.goatcounter.entrypoints=web-secure"
+      - "traefik.http.routers.goatcounter.tls.certresolver=le"
+      - "traefik.http.services.goatcounter.loadbalancer.server.port=8080"
+    networks:
+      - traefik-public
+
+volumes:
+  goatcounter-data:
+
 networks:
   traefik-public:
     external: true

@@ -1,0 +1,7 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(git commit -m 'add self-hosted goatcounter analytics: compose service, tracking script, spa route counting *)"
+    ]
+  }
+}
