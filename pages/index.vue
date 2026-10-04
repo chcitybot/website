@@ -119,7 +119,7 @@ useHead({
   link: computed(() => [
     { rel: 'canonical', href: `${siteUrl}/${locale.value}` },
     ...locales.value.map((loc) => ({ rel: 'alternate', hreflang: loc.language ?? loc.code, href: `${siteUrl}/${loc.code}` })),
-    { rel: 'alternate', hreflang: 'x-default', href: `${siteUrl}/en` },
+    { rel: 'alternate', hreflang: 'x-default', href: `${siteUrl}/de` },
   ]),
   script: [
     {

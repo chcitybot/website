@@ -67,9 +67,9 @@ async function generateSitemap() {
       xml += `    <xhtml:link rel="alternate" hreflang="${hreflangOf(locale)}" href="${domain}/${locale}/blog/${slug}" />\n`;
     }
 
-    // Add x-default (use English as default)
+    // Add x-default (use German as default)
     if (localesData.en) {
-      xml += `    <xhtml:link rel="alternate" hreflang="x-default" href="${domain}/en/blog/${slug}" />\n`;
+      xml += `    <xhtml:link rel="alternate" hreflang="x-default" href="${domain}/de/blog/${slug}" />\n`;
     }
 
     xml += `  </url>\n`;
@@ -85,7 +85,7 @@ async function generateSitemap() {
 
   for (const page of staticPages) {
     xml += `  <url>\n`;
-    xml += `    <loc>${domain}/en${page.path}</loc>\n`;
+    xml += `    <loc>${domain}/de${page.path}</loc>\n`;
     xml += `    <lastmod>${page.lastmod}</lastmod>\n`;
     xml += `    <changefreq>monthly</changefreq>\n`;
     xml += `    <priority>${page.priority}</priority>\n`;
@@ -94,7 +94,7 @@ async function generateSitemap() {
     for (const locale of locales) {
       xml += `    <xhtml:link rel="alternate" hreflang="${hreflangOf(locale)}" href="${domain}/${locale}${page.path}" />\n`;
     }
-    xml += `    <xhtml:link rel="alternate" hreflang="x-default" href="${domain}/en${page.path}" />\n`;
+    xml += `    <xhtml:link rel="alternate" hreflang="x-default" href="${domain}/de${page.path}" />\n`;
     xml += `  </url>\n`;
   }
 

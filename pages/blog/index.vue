@@ -102,7 +102,7 @@ useHead({
   link: computed(() => [
     { rel: 'canonical', href: `${siteUrl}/${locale.value}/blog` },
     ...locales.value.map((loc) => ({ rel: 'alternate', hreflang: loc.language ?? loc.code, href: `${siteUrl}/${loc.code}/blog` })),
-    { rel: 'alternate', hreflang: 'x-default', href: `${siteUrl}/en/blog` },
+    { rel: 'alternate', hreflang: 'x-default', href: `${siteUrl}/de/blog` },
   ]),
 })
 const tagFilter = ref("")

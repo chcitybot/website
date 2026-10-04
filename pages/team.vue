@@ -108,7 +108,7 @@ useHead({
   link: computed(() => [
     { rel: 'canonical', href: `${siteUrl}/${locale.value}/team` },
     ...locales.value.map((loc) => ({ rel: 'alternate', hreflang: loc.language ?? loc.code, href: `${siteUrl}/${loc.code}/team` })),
-    { rel: 'alternate', hreflang: 'x-default', href: `${siteUrl}/en/team` },
+    { rel: 'alternate', hreflang: 'x-default', href: `${siteUrl}/de/team` },
   ]),
   script: [
     {
@@ -116,7 +116,7 @@ useHead({
       innerHTML: JSON.stringify({
         '@context': 'https://schema.org',
         '@type': 'AboutPage',
-        url: `${siteUrl}/en/team`,
+        url: `${siteUrl}/de/team`,
         name: 'CityBot Team',
         description: 'Meet the team behind CityBot — engineers from Zug, Switzerland building digital destination management tools.',
         isPartOf: { '@id': `${siteUrl}/#website` },

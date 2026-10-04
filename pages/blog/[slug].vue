@@ -286,7 +286,7 @@ useHead(() => {
     link: [
       { rel: "canonical", href: canonicalUrl },
       ...alternateLinks,
-      { rel: "alternate", hreflang: "x-default", href: `${siteUrl}/en/blog/${slug}` },
+      { rel: "alternate", hreflang: "x-default", href: `${siteUrl}/de/blog/${slug}` },
     ],
     script: [
       { type: 'application/ld+json', innerHTML: JSON.stringify(articleSchema) },
